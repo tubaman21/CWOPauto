@@ -29,6 +29,8 @@ jobs:
           pip install requests pytz 
 
       - name: Run Generator Script
+      env:
+          SYNOPTIC_API_TOKEN: ${{ secrets.SYNOPTIC_API_TOKEN }}
         run: python cwop_generator.py
 
       - name: Commit and Push Changes
