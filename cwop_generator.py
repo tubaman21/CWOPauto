@@ -13,11 +13,12 @@ def fetch_weather_data(token, bbox):
         print("\n❌ CRITICAL STOP: The script is using 'demotoken'. GitHub secrets are not being read!")
         sys.exit(1)
         
+    # Calculate a broader 3-hour UTC time window for safety
     now = datetime.datetime.now(pytz.utc)
-    start_time = (now - datetime.timedelta(hours=2)).strftime("%Y%m%d%H%M")
+    start_time = (now - datetime.timedelta(hours=3)).strftime("%Y%m%d%H%M")
     end_time = now.strftime("%Y%m%d%H%M")
     
-    url = "https://api.synopticdata.com/v2/stations/timeseries"
+    url = "https://synopticdata.com"
     params = {
         "token": token,
         "bbox": bbox,
@@ -25,7 +26,8 @@ def fetch_weather_data(token, bbox):
         "start": start_time,
         "end": end_time,
         "obtimezone": "UTC",
-        "providers": "cwop"
+        "providers": "cwop",
+        "showemptystations": "1"  # Force stations to return even if packets are delayed
     }
     
     try:
