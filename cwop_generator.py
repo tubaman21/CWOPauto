@@ -18,7 +18,9 @@ def fetch_weather_data(token, bbox):
     
     url = "https://synopticdata.com"
     
+    # 🔗 FIX: Put the 32-character token back into the query parameters where the TimeSeries endpoint expects it
     params = {
+        "token": token,
         "bbox": bbox,
         "vars": "air_temp,dew_point_temperature,wind_speed,wind_direction,sea_level_pressure,cloud_layer_1_code",
         "start": start_time,
@@ -28,34 +30,41 @@ def fetch_weather_data(token, bbox):
         "showemptystations": "1"
     }
     
+    # Keep the user agent active so their bot protection firewall passes the request
     headers = {
-        "Authorization": f"Bearer {token}",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project Integration)"
     }
     
     try:
-        # We allow redirects here but catch the text string to see if it's an error message
-        response = requests.get(url, params=params, headers=headers, timeout=25)
+        # Disable redirects explicitly. If it tries to redirect, we drop it and print an evaluation error
+        response = requests.get(url, params=params, headers=headers, timeout=25, allow_redirects=False)
         
+        if response.status_code in [301, 302, 307]:
+            print("\n❌ CRITICAL SECURITY ERROR: Synoptic redirected the request to their homepage.")
+            print("👉 Action Required: Your 32-character public token is physically incorrect, disabled, or copy-pasted with spaces.")
+            sys.exit(1)
+            
         if response.status_code != 200:
             print(f"\n❌ API Server Error! Status Code: {response.status_code}")
-            print(f"👉 Raw Server Response Text:\n{response.text}\n")
             sys.exit(1)
             
-        # Try to parse JSON, if it fails, capture and print the text string causing the crash
-        try:
-            return response.json()
-        except Exception:
-            print("\n❌ Failed to parse response as JSON. The server returned text instead.")
-            print(f"👉 Raw Server Response Text:\n{response.text}\n")
+        # Parse the data payload
+        data = response.json()
+        
+        # Check if Synoptic passed an internal error code hidden inside the 200 OK wrapper
+        if "SUMMARY" in data and data["SUMMARY"].get("RESPONSE_CODE") != 1:
+            msg = data["SUMMARY"].get("RESPONSE_MESSAGE", "Unknown internal validation error.")
+            print(f"\n❌ Synoptic API Internal Refusal: {msg}")
             sys.exit(1)
             
+        return data
+        
+    except requests.exceptions.JSONDecodeError:
+        print("\n❌ Failed to parse response as JSON. The server likely returned plain text error alerts.")
+        sys.exit(1)
     except Exception as e:
         print(f"\n❌ Network processing exception during API fetch: {e}")
         sys.exit(1)
-
-
-
 
 def format_slp(slp_val):
     """Formats raw millibar sea-level pressure into standard 3-digit NWS shorthand."""
