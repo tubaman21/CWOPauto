@@ -8,35 +8,38 @@ def fetch_weather_data(token, bbox):
     """Fetches real-time weather stations timeseries data from Synoptic API."""
     print("Initializing dynamic telemetry download routine from Synoptic Networks...")
     
-    # CRUCIAL CHECK: Catch if the script is trying to run using the fallback string
     if token == "demotoken":
         print("\n❌ CRITICAL STOP: The script is using 'demotoken'. GitHub secrets are not being read!")
         sys.exit(1)
         
-    # Calculate a broader 3-hour UTC time window for safety
     now = datetime.datetime.now(pytz.utc)
     start_time = (now - datetime.timedelta(hours=3)).strftime("%Y%m%d%H%M")
     end_time = now.strftime("%Y%m%d%H%M")
     
     url = "https://synopticdata.com"
+    
+    # Clean parameter string omitting the token variable entirely
     params = {
-        "token": token,
         "bbox": bbox,
         "vars": "air_temp,dew_point_temperature,wind_speed,wind_direction,sea_level_pressure,cloud_layer_1_code",
         "start": start_time,
         "end": end_time,
         "obtimezone": "UTC",
         "providers": "cwop",
-        "showemptystations": "1"  # Force stations to return even if packets are delayed
+        "showemptystations": "1"
+    }
+    
+    # Pass the 32-character token securely through the network header envelope instead
+    headers = {
+        "Authorization": f"Bearer {token}"
     }
     
     try:
-        response = requests.get(url, params=params, timeout=25)
+        response = requests.get(url, params=params, headers=headers, timeout=25)
         
-        # FIREWALL REDIRECT DETECTOR: Catch if the server returned HTML text instead of JSON
         if "html" in response.text.lower() or "<!doctype" in response.text.lower():
             print("\n❌ CRITICAL SECURITY ERROR: Synoptic rejected your API Token and redirected you to their homepage HTML.")
-            print("👉 Action Required: Re-verify that your API token is active and valid in your Synoptic Data developer panel.")
+            print("👉 Action Required: Log into customer.synopticdata.com and verify your token has 'TimeSeries' permissions enabled.")
             sys.exit(1)
             
         response.raise_for_status()
@@ -44,6 +47,7 @@ def fetch_weather_data(token, bbox):
     except Exception as e:
         print(f"\n❌ Network processing exception during API fetch: {e}")
         sys.exit(1)
+
 
 
 def format_slp(slp_val):
