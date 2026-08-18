@@ -12,7 +12,7 @@ def fetch_weather_data(token, bbox):
         print("\n❌ CRITICAL STOP: The script is using 'demotoken'. GitHub secrets are not being read!")
         sys.exit(1)
         
-    url = "https://api.synopticdata.com/v2/stations/latest"
+    url = "https://synopticdata.com"
     
     params = {
         "token": token,
@@ -29,18 +29,11 @@ def fetch_weather_data(token, bbox):
     try:
         response = requests.get(url, params=params, headers=headers, timeout=30)
         
-        # 1. Print status code immediately to diagnose HTTP issues
-        print(f"DEBUG: HTTP Response Status Code: {response.status_code}")
-        
-        # 2. Check if the response can be decoded as JSON directly
         try:
             return response.json()
         except Exception:
-            # 🚨 FORCE-PRINT THE TEXT: Show the user exactly what Synoptic sent back
             print("\n❌ CRITICAL CRASH: Server response could not be parsed into JSON!")
-            print("==================== RAW SERVER RESPONSE ====================")
-            print(response.text if response.text else "[Response body is entirely empty]")
-            print("=============================================================")
+            print(f"👉 Raw Server Response Text:\n{response.text[:500]}\n")
             sys.exit(1)
             
     except Exception as e:
@@ -79,10 +72,6 @@ def ms_to_kt(ms_val):
 def main():
     SYNOPTIC_API_TOKEN = os.environ.get("SYNOPTIC_API_TOKEN", "demotoken")
     
-    print("--- ENVIRONMENT INJECTION VERIFICATION ---")
-    print(f"Token variable length: {len(SYNOPTIC_API_TOKEN)} characters")
-    print("------------------------------------------")
-    
     # Broad regional box footprint covering Northeast MN, Northwest WI, and Western Lake Superior
     TARGET_BBOX = "-95.0,45.0,-89.0,49.5"
     
@@ -97,10 +86,11 @@ def main():
         return
 
     with open(output_file_path, "w", encoding="utf-8") as f:
+        # Define clean, structural headers
         f.write("Title: CWOP Surface Observations\n")
         f.write("Refresh: 5\n\n")
         
-        # Wind barb/sky cover pointers (Placeholder assets)
+        # Define basic shape texture backups (standard built-in file anchors)
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n')
         f.write('IconFile: 2, 16, 16, 8, 8, "https://githubusercontent.com"\n\n')
         
@@ -108,22 +98,27 @@ def main():
         
         for st in raw_data["STATION"]:
             st_id = st.get("STID", "UNKN")
-            lat = st.get("LATITUDE")
-            lon = st.get("LONGITUDE")
+            lat_raw = st.get("LATITUDE")
+            lon_raw = st.get("LONGITUDE")
             
-            if not lat or not lon:
+            # 🛡️ HARDENED SECURITY GUARD: Skip the station instantly if spatial points are missing or text strings
+            if lat_raw is None or lon_raw is None:
+                continue
+            try:
+                lat = float(lat_raw)
+                lon = float(lon_raw)
+            except (ValueError, TypeError):
                 continue
                 
-            # The /latest endpoint returns a clean 'LATEST' dictionary inside 'OBSERVATIONS'
             latest_obs = st.get("OBSERVATIONS", {})
             
-            # Extract variables safely
-            t_raw = latest_obs.get("air_temp_value_1", {}).get("value")
-            d_raw = latest_obs.get("dew_point_temperature_value_1", {}).get("value")
-            w_speed_raw = latest_obs.get("wind_speed_value_1", {}).get("value")
-            w_dir_raw = latest_obs.get("wind_direction_value_1", {}).get("value")
-            slp_raw = latest_obs.get("sea_level_pressure_value_1", {}).get("value")
-            time_str = latest_obs.get("air_temp_value_1", {}).get("date_time")
+            # Safely navigate nested metadata dictionaries
+            t_raw = latest_obs.get("air_temp_value_1", {}).get("value") if isinstance(latest_obs.get("air_temp_value_1"), dict) else None
+            d_raw = latest_obs.get("dew_point_temperature_value_1", {}).get("value") if isinstance(latest_obs.get("dew_point_temperature_value_1"), dict) else None
+            w_speed_raw = latest_obs.get("wind_speed_value_1", {}).get("value") if isinstance(latest_obs.get("wind_speed_value_1"), dict) else None
+            w_dir_raw = latest_obs.get("wind_direction_value_1", {}).get("value") if isinstance(latest_obs.get("wind_direction_value_1"), dict) else None
+            slp_raw = latest_obs.get("sea_level_pressure_value_1", {}).get("value") if isinstance(latest_obs.get("sea_level_pressure_value_1"), dict) else None
+            time_str = latest_obs.get("air_temp_value_1", {}).get("date_time") if isinstance(latest_obs.get("air_temp_value_1"), dict) else None
             
             if not time_str:
                 continue
@@ -142,22 +137,23 @@ def main():
             if t_f is None:
                 continue
                 
-            # Generate a 15-minute validity window for this single packet so GR2 displays it cleanly
-            start_time = dt - datetime.timedelta(minutes=5)
-            end_time = dt + datetime.timedelta(minutes=10)
+            # Create a clean, universally readable time validity frame
+            start_time = dt - datetime.timedelta(minutes=30)
+            end_time = dt + datetime.timedelta(minutes=30)
             f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
             
-            f.write(f"Object: {float(lat):.5f},{float(lon):.5f}\n")
+            # Map clean floating coordinates down to 5 precise decimal places
+            f.write(f"Object: {lat:.5f},{lon:.5f}\n")
             f.write("  Threshold: 999\n")
             
-            # 1. Plot Rotated Wind Barb
+            # 1. Rotated barb placement rule
             if w_dir is not None and w_kt >= 3:
                 barb_idx = min(max(int(round(w_kt / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{int(w_dir)},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,2,1\n") # Center plot circle
+                f.write("  Icon: 0,0,0,2,1\n")
             
-            # 2. Plot Text Surrounding Map Anchor
+            # 2. Add Surrounding Numerical Layout Data
             f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{t_f}"\n')
             if d_f is not None:
@@ -170,7 +166,7 @@ def main():
             
             station_count += 1
                 
-        print(f"🎉 Success! Processed {station_count} active reporting stations across the Duluth region.")
+        print(f"🎉 Success! Completely verified and wrote {station_count} clean stations.")
 
 if __name__ == "__main__":
     main()
