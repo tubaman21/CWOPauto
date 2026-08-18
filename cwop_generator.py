@@ -119,7 +119,7 @@ def main():
         print("Status:  Loaded variable from GitHub Environment.")
     print("------------------------------------------")
     
-    # Bounding box roughly targeting WFO Duluth / DLH forecast coverage zone
+    # Target Box bounding coordinates for WFO Duluth sector
     TARGET_BBOX = "-95.0,45.0,-89.0,49.5"
     
     output_directory = "placefiles"
