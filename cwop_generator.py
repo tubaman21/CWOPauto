@@ -5,26 +5,20 @@ import requests
 import pytz
 
 def fetch_weather_data(token, bbox):
-    """Fetches real-time weather stations timeseries data from Synoptic API."""
-    print("Initializing dynamic telemetry download routine from Synoptic Networks...")
+    """Fetches the latest real-time weather observations from the Synoptic API."""
+    print("Initializing lightweight telemetry download routine from Synoptic Networks...")
     
     if token == "demotoken":
         print("\n❌ CRITICAL STOP: The script is using 'demotoken'. GitHub secrets are not being read!")
         sys.exit(1)
         
-    now = datetime.datetime.now(pytz.utc)
-    # ⏱️ Look back 3 hours to capture slower or slightly delayed CWOP updates
-    start_time = (now - datetime.timedelta(hours=3)).strftime("%Y%m%d%H%M")
-    end_time = now.strftime("%Y%m%d%H%M")
-    
+    # Using the /latest endpoint to download only 1 snapshot per station to stay within free limits
     url = "https://synopticdata.com"
     
-    # Broad regional box footprint that free-tier accounts can pull if fields are default
     params = {
         "token": token,
         "bbox": bbox,
-        "start": start_time,
-        "end": end_time,
+        "within": "60",            # Only fetch stations that have reported in the last 60 minutes
         "obtimezone": "UTC",
         "providers": "cwop"
     }
@@ -36,7 +30,8 @@ def fetch_weather_data(token, bbox):
     try:
         response = requests.get(url, params=params, headers=headers, timeout=30)
         
-        if "authentication returned" in response.text.lower() or "summary" not in response.text.lower():
+        # If the server drops text or a firewall notice, trap it here to read the error
+        if "authentication" in response.text.lower() or "summary" not in response.text.lower():
             print("\n❌ SYNOPTIC API FIREWALL REFUSAL:")
             print(f"👉 Raw Server Notice Text: {response.text.strip()}\n")
             sys.exit(1)
@@ -55,15 +50,8 @@ def format_slp(slp_val):
         slp_str = f"{float(slp_val):.1f}"
         parts = slp_str.replace('.', '')
         return parts[-3:]
-    except ValueError:
+    except (ValueError, TypeError):
         return ""
-
-def format_time_range(dt_obj):
-    """Generates 5-minute GR2 format validity brackets."""
-    discard = datetime.timedelta(minutes=dt_obj.minute % 5, seconds=dt_obj.second, microseconds=dt_obj.microsecond)
-    start = dt_obj - discard
-    end = start + datetime.timedelta(minutes=5)
-    return f"TimeRange: {start.strftime('%Y-%m-%dT%H:%M:%SZ')} {end.strftime('%Y-%m-%dT%H:%M:%SZ')}"
 
 def c_to_f(c_val):
     """Converts Celsius to Fahrenheit integer."""
@@ -90,7 +78,7 @@ def main():
     print(f"Token variable length: {len(SYNOPTIC_API_TOKEN)} characters")
     print("------------------------------------------")
     
-    # 🗺️ Broad WFO Duluth footprint covering Northeast MN, Northwest WI, and Western Lake Superior
+    # Broad regional box footprint covering Northeast MN, Northwest WI, and Western Lake Superior
     TARGET_BBOX = "-95.0,45.0,-89.0,49.5"
     
     output_directory = "placefiles"
@@ -104,15 +92,14 @@ def main():
         return
 
     with open(output_file_path, "w", encoding="utf-8") as f:
-        f.write("Title: CWOP Looping Surface Observations\n")
+        f.write("Title: CWOP Surface Observations\n")
         f.write("Refresh: 5\n\n")
         
-        # Base wind barb/sky cover pointers (Placeholder asset domains)
+        # Wind barb/sky cover pointers (Placeholder assets)
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n')
         f.write('IconFile: 2, 16, 16, 8, 8, "https://githubusercontent.com"\n\n')
         
         station_count = 0
-        total_plots = 0
         
         for st in raw_data["STATION"]:
             st_id = st.get("STID", "UNKN")
@@ -122,67 +109,63 @@ def main():
             if not lat or not lon:
                 continue
                 
-            observations = st.get("OBSERVATIONS", {})
-            time_list = observations.get("date_time", [])
+            # The /latest endpoint returns a clean 'LATEST' dictionary inside 'OBSERVATIONS'
+            latest_obs = st.get("OBSERVATIONS", {})
             
-            # Fetch variables using .get() fallback options to prevent structural exceptions
-            temps = observations.get("air_temp", []) if observations.get("air_temp") else []
-            dps = observations.get("dew_point_temperature", []) if observations.get("dew_point_temperature") else []
-            w_speeds = observations.get("wind_speed", []) if observations.get("wind_speed") else []
-            w_dirs = observations.get("wind_direction", []) if observations.get("wind_direction") else []
-            slps = observations.get("sea_level_pressure", []) if observations.get("sea_level_pressure") else []
+            # Extract variables safely
+            t_raw = latest_obs.get("air_temp_value_1", {}).get("value")
+            d_raw = latest_obs.get("dew_point_temperature_value_1", {}).get("value")
+            w_speed_raw = latest_obs.get("wind_speed_value_1", {}).get("value")
+            w_dir_raw = latest_obs.get("wind_direction_value_1", {}).get("value")
+            slp_raw = latest_obs.get("sea_level_pressure_value_1", {}).get("value")
+            time_str = latest_obs.get("air_temp_value_1", {}).get("date_time")
             
-            station_has_plots = False
+            if not time_str:
+                continue
+                
+            try:
+                dt = datetime.datetime.strptime(time_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=pytz.utc)
+            except ValueError:
+                continue
+                
+            t_f = c_to_f(t_raw)
+            d_f = c_to_f(d_raw)
+            w_kt = ms_to_kt(w_speed_raw)
+            w_dir = float(w_dir_raw) if w_dir_raw is not None else None
+            slp_str = format_slp(slp_raw)
             
-            for i, time_str in enumerate(time_list):
-                try:
-                    dt = datetime.datetime.strptime(time_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=pytz.utc)
-                except ValueError:
-                    continue
+            if t_f is None:
+                continue
                 
-                # Check list lengths explicitly before pulling structural indexes
-                t_f = c_to_f(temps[i]) if i < len(temps) else None
-                d_f = c_to_f(dps[i]) if i < len(dps) else None
-                w_kt = ms_to_kt(w_speeds[i]) if i < len(w_speeds) else 0
-                w_dir = float(w_dirs[i]) if (i < len(w_dirs) and w_dirs[i] is not None) else None
-                slp_str = format_slp(slps[i]) if i < len(slps) else ""
+            # Generate a 15-minute validity window for this single packet so GR2 displays it cleanly
+            start_time = dt - datetime.timedelta(minutes=5)
+            end_time = dt + datetime.timedelta(minutes=10)
+            f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
+            
+            f.write(f"Object: {float(lat):.5f},{float(lon):.5f}\n")
+            f.write("  Threshold: 999\n")
+            
+            # 1. Plot Rotated Wind Barb
+            if w_dir is not None and w_kt >= 3:
+                barb_idx = min(max(int(round(w_kt / 5)), 1), 25)
+                f.write(f"  Icon: 0,0,{int(w_dir)},1,{barb_idx}\n")
+            else:
+                f.write("  Icon: 0,0,0,2,1\n") # Center plot circle
+            
+            # 2. Plot Text Surrounding Map Anchor
+            f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
+            f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{t_f}"\n')
+            if d_f is not None:
+                f.write(f'  Color: 100 255 100\n  Text: -20, 10, 1, "{d_f}"\n')
+            if slp_str:
+                f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"\n')
+            
+            f.write(f'  Hover: "Station: {st_id} \\nTime: {dt.strftime("%H:%M")} UTC \\nTemp: {t_f}F \\nDew Point: {d_f if d_f is not None else "M"}F \\nWind: {int(w_dir) if w_dir else 0}@{w_kt}kt"\n')
+            f.write("End:\n\n")
+            
+            station_count += 1
                 
-                # We need at least a valid temperature metric to render a surface analysis plot
-                if t_f is None:
-                    continue
-                    
-                f.write(f"{format_time_range(dt)}\n")
-                f.write(f"Object: {float(lat):.5f},{float(lon):.5f}\n")
-                f.write("  Threshold: 999\n")
-                
-                # 1. Plot Rotated Wind Barb (if wind speed is significant)
-                if w_dir is not None and w_kt >= 3:
-                    # Generic formula mapping 5-knot speed intervals to a base 25-icon grid
-                    barb_idx = min(max(int(round(w_kt / 5)), 1), 25)
-                    f.write(f"  Icon: 0,0,{int(w_dir)},1,{barb_idx}\n")
-                else:
-                    # Opaque placeholder circle for calm/missing icons
-                    f.write("  Icon: 0,0,0,2,1\n")
-                
-                # 2. Add Surrounding Text Elements
-                f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
-                f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{t_f}"\n')
-                if d_f is not None:
-                    f.write(f'  Color: 100 255 100\n  Text: -20, 10, 1, "{d_f}"\n')
-                if slp_str:
-                    f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"\n')
-                
-                f.write(f'  Hover: "Station: {st_id} \\nTime: {dt.strftime("%H:%M")} UTC \\nTemp: {t_f}F \\nDew Point: {d_f if d_f is not None else "M"}F \\nWind: {int(w_dir) if w_dir else 0}@{w_kt}kt"\n')
-                f.write("End:\n\n")
-                
-                total_plots += 1
-                station_has_plots = True
-                
-            if station_has_plots:
-                station_count += 1
-                
-        print(f"🎉 Success! Processed {station_count} unique reporting stations.")
-        print(f"📝 Wrote {total_plots} total time-looped frame blocks to {output_file_path}")
+        print(f"🎉 Success! Processed {station_count} active reporting stations across the Duluth region.")
 
 if __name__ == "__main__":
     main()
