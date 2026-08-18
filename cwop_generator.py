@@ -13,55 +13,40 @@ def fetch_weather_data(token, bbox):
         sys.exit(1)
         
     now = datetime.datetime.now(pytz.utc)
-    start_time = (now - datetime.timedelta(hours=3)).strftime("%Y%m%d%H%M")
+    # ⏱️ CHANGE 1: Reduce historical depth from 3 hours to 1.5 hours to dramatically cut data size
+    start_time = (now - datetime.timedelta(hours=1, minutes=30)).strftime("%Y%m%d%H%M")
     end_time = now.strftime("%Y%m%d%H%M")
     
-    url = "https://synopticdata.com"
+    url = "https://api.synopticdata.com/v2/stations/timeseries"
     
-    # 🔗 FIX: Put the 32-character token back into the query parameters where the TimeSeries endpoint expects it
+    # 📝 CHANGE 2: Request ONLY critical telemetry paths to ensure payload fits free restrictions
     params = {
         "token": token,
         "bbox": bbox,
-        "vars": "air_temp,dew_point_temperature,wind_speed,wind_direction,sea_level_pressure,cloud_layer_1_code",
+        "vars": "air_temp,dew_point_temperature,wind_speed,wind_direction", # Dropped complex cloud layers
         "start": start_time,
         "end": end_time,
         "obtimezone": "UTC",
-        "providers": "cwop",
-        "showemptystations": "1"
+        "providers": "cwop"
     }
     
-    # Keep the user agent active so their bot protection firewall passes the request
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project Integration)"
     }
     
     try:
-        # Disable redirects explicitly. If it tries to redirect, we drop it and print an evaluation error
-        response = requests.get(url, params=params, headers=headers, timeout=25, allow_redirects=False)
+        response = requests.get(url, params=params, headers=headers, timeout=25)
         
-        if response.status_code in [301, 302, 307]:
-            print("\n❌ CRITICAL SECURITY ERROR: Synoptic redirected the request to their homepage.")
-            print("👉 Action Required: Your 32-character public token is physically incorrect, disabled, or copy-pasted with spaces.")
+        # EXPLICIT ERROR INTERCEPTOR: Read what Synoptic says before crashing
+        if "authentication returned" in response.text.lower() or "summary" not in response.text.lower():
+            print("\n❌ SYNOPTIC API FIREWALL REFUSAL:")
+            print(f"👉 Raw Server Notice Text: {response.text.strip()}\n")
+            print("Action Needed: If the notice text says 'Authentication failed', re-check your token string.")
+            print("If it indicates allowance profiles, your account cannot query this specific service path.")
             sys.exit(1)
             
-        if response.status_code != 200:
-            print(f"\n❌ API Server Error! Status Code: {response.status_code}")
-            sys.exit(1)
-            
-        # Parse the data payload
-        data = response.json()
+        return response.json()
         
-        # Check if Synoptic passed an internal error code hidden inside the 200 OK wrapper
-        if "SUMMARY" in data and data["SUMMARY"].get("RESPONSE_CODE") != 1:
-            msg = data["SUMMARY"].get("RESPONSE_MESSAGE", "Unknown internal validation error.")
-            print(f"\n❌ Synoptic API Internal Refusal: {msg}")
-            sys.exit(1)
-            
-        return data
-        
-    except requests.exceptions.JSONDecodeError:
-        print("\n❌ Failed to parse response as JSON. The server likely returned plain text error alerts.")
-        sys.exit(1)
     except Exception as e:
         print(f"\n❌ Network processing exception during API fetch: {e}")
         sys.exit(1)
@@ -125,8 +110,8 @@ def main():
         print("Status:  Loaded variable from GitHub Environment.")
     print("------------------------------------------")
     
-    # Target Box bounding coordinates for WFO Duluth sector
-    TARGET_BBOX = "-95.0,45.0,-89.0,49.5"
+    # Tightened footprint (West Longitude, South Latitude, East Longitude, North Latitude)
+    TARGET_BBOX = "-92.5,46.5,-91.5,47.2"
     
     output_directory = "placefiles"
     os.makedirs(output_directory, exist_ok=True)
