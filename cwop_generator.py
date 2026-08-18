@@ -12,13 +12,12 @@ def fetch_weather_data(token, bbox):
         print("\n❌ CRITICAL STOP: The script is using 'demotoken'. GitHub secrets are not being read!")
         sys.exit(1)
         
-    # Using the /latest endpoint to download only 1 snapshot per station to stay within free limits
-    url = "https://synopticdata.com"
+    url = "https://api.synopticdata.com/v2/stations/latest"
     
     params = {
         "token": token,
         "bbox": bbox,
-        "within": "60",            # Only fetch stations that have reported in the last 60 minutes
+        "within": "60",
         "obtimezone": "UTC",
         "providers": "cwop"
     }
@@ -30,14 +29,20 @@ def fetch_weather_data(token, bbox):
     try:
         response = requests.get(url, params=params, headers=headers, timeout=30)
         
-        # If the server drops text or a firewall notice, trap it here to read the error
-        if "authentication" in response.text.lower() or "summary" not in response.text.lower():
-            print("\n❌ SYNOPTIC API FIREWALL REFUSAL:")
-            print(f"👉 Raw Server Notice Text: {response.text.strip()}\n")
+        # 1. Print status code immediately to diagnose HTTP issues
+        print(f"DEBUG: HTTP Response Status Code: {response.status_code}")
+        
+        # 2. Check if the response can be decoded as JSON directly
+        try:
+            return response.json()
+        except Exception:
+            # 🚨 FORCE-PRINT THE TEXT: Show the user exactly what Synoptic sent back
+            print("\n❌ CRITICAL CRASH: Server response could not be parsed into JSON!")
+            print("==================== RAW SERVER RESPONSE ====================")
+            print(response.text if response.text else "[Response body is entirely empty]")
+            print("=============================================================")
             sys.exit(1)
             
-        return response.json()
-        
     except Exception as e:
         print(f"\n❌ Network processing exception during API fetch: {e}")
         sys.exit(1)
