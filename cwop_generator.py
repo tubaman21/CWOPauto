@@ -18,7 +18,7 @@ def fetch_weather_data(token, bbox):
     
     url = "https://synopticdata.com"
     
-    # Clean parameter string omitting the token variable entirely
+    # 1. Corrected Parameter Query Payload
     params = {
         "bbox": bbox,
         "vars": "air_temp,dew_point_temperature,wind_speed,wind_direction,sea_level_pressure,cloud_layer_1_code",
@@ -29,21 +29,31 @@ def fetch_weather_data(token, bbox):
         "showemptystations": "1"
     }
     
-    # Pass the 32-character token securely through the network header envelope instead
+    # 2. Emulate an authoritative browser agent to bypass the Synoptic homepage redirect
     headers = {
-        "Authorization": f"Bearer {token}"
+        "Authorization": f"Bearer {token}",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project Integration)"
     }
     
     try:
-        response = requests.get(url, params=params, headers=headers, timeout=25)
+        # We explicitly disable automatic redirect tracking so it can't trap us on the homepage
+        response = requests.get(url, params=params, headers=headers, timeout=25, allow_redirects=False)
         
-        if "html" in response.text.lower() or "<!doctype" in response.text.lower():
-            print("\n❌ CRITICAL SECURITY ERROR: Synoptic rejected your API Token and redirected you to their homepage HTML.")
-            print("👉 Action Required: Log into customer.synopticdata.com and verify your token has 'TimeSeries' permissions enabled.")
+        # Catch unexpected status codes instantly
+        if response.status_code in [301, 302]:
+            print("\n❌ CRITICAL SECURITY ERROR: Synoptic attempted to redirect this request.")
+            print("👉 Action Required: Log into customer.synopticdata.com and verify your 32-character token is active.")
             sys.exit(1)
             
-        response.raise_for_status()
+        if response.status_code != 200:
+            print(f"\n❌ API Server Error! Status Code: {response.status_code}")
+            sys.exit(1)
+            
         return response.json()
+        
+    except requests.exceptions.JSONDecodeError:
+        print("\n❌ Failed to parse response as JSON.")
+        sys.exit(1)
     except Exception as e:
         print(f"\n❌ Network processing exception during API fetch: {e}")
         sys.exit(1)
