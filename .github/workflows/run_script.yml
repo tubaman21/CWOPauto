@@ -1,0 +1,41 @@
+name: Generate CWOP Placefile
+
+on:
+  schedule:
+    # Runs exactly every 5 minutes using cron syntax
+    - cron: '*/5 * * * *'
+  workflow_dispatch: # Allows you to manually trigger the script anytime via the GitHub UI
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # Grants GitHub Actions permission to commit the text file back to your repo
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # Add any other libraries your script uses (e.g., requests, pytz, netCDF4)
+          pip install requests pytz 
+
+      - name: Run Generator Script
+        run: python cwop_generator.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@://github.com"
+          git add placefiles/cwop_observations.txt
+          
+          # Only commit if the file actually changed to avoid empty errors
+          git diff-index --quiet HEAD || (git commit -m "Automated CWOP update: $(date -u)" && git push)
