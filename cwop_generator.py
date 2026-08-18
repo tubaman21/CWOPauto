@@ -26,8 +26,8 @@ LAT_MIN, LAT_MAX = 45.0, 49.5
 LON_MIN, LON_MAX = -95.0, -89.0
 
 # Synoptic Data API Configurations (Public open Mesonet usage fallback or custom token)
-# Replace 'demotoken' with your official production token if you hit rate-limits
-SYNOPTIC_API_TOKEN = "demotoken"
+# Fetch the secure GitHub environment token, fallback to demo if missing
+API_TOKEN = os.environ.get("SYNOPTIC_API_TOKEN", "demotoken")
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
 # Icon assets paths on your hosted server or public repo branches
