@@ -93,8 +93,17 @@ def get_wind_barb_idx(speed_kt):
     return min(max(idx, 1), 25)
 
 def main():
-    # 🧩 FIX: Securely extract token directly within main operational loop execution scope
+    # Securely extract token directly within main operational loop execution scope
     SYNOPTIC_API_TOKEN = os.environ.get("SYNOPTIC_API_TOKEN", "demotoken")
+    
+    # SAFE DEBUG PRINTS
+    print("--- ENVIRONMENT INJECTION VERIFICATION ---")
+    print(f"Token variable length: {len(SYNOPTIC_API_TOKEN)} characters")
+    if SYNOPTIC_API_TOKEN == "demotoken":
+        print("Status: ❌ FAILED. Script fell back to hardcoded demo string.")
+    else:
+        print("Status:  Loaded variable from GitHub Environment.")
+    print("------------------------------------------")
     
     # Bounding box roughly targeting WFO Duluth / DLH forecast coverage zone
     TARGET_BBOX = "-95.0,45.0,-89.0,49.5"
