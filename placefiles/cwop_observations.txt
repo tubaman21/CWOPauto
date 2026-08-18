@@ -1,0 +1,6 @@
+Title: CWOP Looping Surface Observations
+Refresh: 5
+
+IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"
+IconFile: 2, 16, 16, 8, 8, "https://githubusercontent.com"
+
