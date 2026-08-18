@@ -26,14 +26,22 @@ def fetch_weather_data(token, bbox):
     
     try:
         response = requests.get(url, params=params, timeout=25)
-        if response.status_code == 403:
-            print("\n❌ Error 403: Forbidden. Your Synoptic token is invalid or restricted.")
+        
+        # DEBUG LOG: Check exactly what the server returned before trying to parse JSON
+        if response.status_code != 200:
+            print(f"\n❌ API Server Error! Status Code: {response.status_code}")
+            print(f"👉 Raw Server Response Text:\n{response.text}\n")
             sys.exit(1)
-        response.raise_for_status()
+            
         return response.json()
+    except requests.exceptions.JSONDecodeError:
+        print("\n❌ Failed to parse response as JSON. The server likely returned plain text.")
+        print(f"👉 Raw Server Response Text:\n{response.text}\n")
+        sys.exit(1)
     except Exception as e:
         print(f"\n❌ Network processing exception during API fetch: {e}")
         sys.exit(1)
+
 
 def format_slp(slp_val):
     """Formats raw millibar sea-level pressure into standard 3-digit NWS shorthand."""
