@@ -1,6 +1,4292 @@
-Title: CWOP Looping Surface Observations
+Title: CWOP Surface Observations
 Refresh: 5
 
 IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"
 IconFile: 2, 16, 16, 8, 8, "https://githubusercontent.com"
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.15659,-89.11144
+  Threshold: 999
+  Icon: 0,0,280,1,1
+  Text: 0, -18, 1, "KAIG"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "58"
+  Hover: "Station: KAIG \nTime: 23:35 UTC \nTemp: 74F \nDew Point: 58F \nWind: 280@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.54899,-93.67573
+  Threshold: 999
+  Icon: 0,0,340,1,1
+  Text: 0, -18, 1, "KAIT"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Color: 100 255 100
+  Text: -20, 10, 1, "49"
+  Hover: "Station: KAIT \nTime: 23:35 UTC \nTemp: 71F \nDew Point: 49F \nWind: 340@5kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.14258,-93.21272
+  Threshold: 999
+  Icon: 0,0,330,1,2
+  Text: 0, -18, 1, "KANE"
+  Color: 255 100 100
+  Text: -20, -10, 1, "79"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: KANE \nTime: 23:45 UTC \nTemp: 79F \nDew Point: 57F \nWind: 330@8kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.93333,-89.73333
+  Threshold: 999
+  Icon: 0,0,340,1,2
+  Text: 0, -18, 1, "KARV"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: KARV \nTime: 23:35 UTC \nTemp: 72F \nDew Point: 46F \nWind: 340@10kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 46.54679,-90.91841
+  Threshold: 999
+  Icon: 0,0,310,1,2
+  Text: 0, -18, 1, "KASX"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: KASX \nTime: 23:40 UTC \nTemp: 72F \nDew Point: MF \nWind: 310@9kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 48.72605,-94.61215
+  Threshold: 999
+  Icon: 0,0,290,1,1
+  Text: 0, -18, 1, "KBDE"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: KBDE \nTime: 23:40 UTC \nTemp: 70F \nDew Point: MF \nWind: 290@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 47.50762,-94.92783
+  Threshold: 999
+  Icon: 0,0,350,1,1
+  Text: 0, -18, 1, "KBJI"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: KBJI \nTime: 23:35 UTC \nTemp: 69F \nDew Point: 46F \nWind: 350@5kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 46.40205,-94.12734
+  Threshold: 999
+  Icon: 0,0,360,1,1
+  Text: 0, -18, 1, "KBRD"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: KBRD \nTime: 23:40 UTC \nTemp: 73F \nDew Point: MF \nWind: 360@7kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.56275,-93.26436
+  Threshold: 999
+  Icon: 0,0,340,1,1
+  Text: 0, -18, 1, "KCBG"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: KCBG \nTime: 23:35 UTC \nTemp: 76F \nDew Point: 57F \nWind: 340@7kt"
+End:
+
+TimeRange: 2026-08-18T23:29:00Z 2026-08-18T23:44:00Z
+Object: 48.26014,-92.47485
+  Threshold: 999
+  Icon: 0,0,260,1,1
+  Text: 0, -18, 1, "KCDD"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Color: 100 255 100
+  Text: -20, 10, 1, "48"
+  Hover: "Station: KCDD \nTime: 23:34 UTC \nTemp: 70F \nDew Point: 48F \nWind: 260@4kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 47.83665,-90.38644
+  Threshold: 999
+  Icon: 0,0,310,1,1
+  Text: 0, -18, 1, "KCKC"
+  Color: 255 100 100
+  Text: -20, -10, 1, "66"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: KCKC \nTime: 23:35 UTC \nTemp: 66F \nDew Point: 46F \nWind: 310@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.69869,-92.50340
+  Threshold: 999
+  Icon: 0,0,320,1,2
+  Text: 0, -18, 1, "KCOQ"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Color: 100 255 100
+  Text: -20, 10, 1, "43"
+  Hover: "Station: KCOQ \nTime: 23:35 UTC \nTemp: 70F \nDew Point: 43F \nWind: 320@9kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 47.81997,-92.68169
+  Threshold: 999
+  Icon: 0,0,300,1,1
+  Text: 0, -18, 1, "KCQM"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Color: 100 255 100
+  Text: -20, 10, 1, "48"
+  Hover: "Station: KCQM \nTime: 23:35 UTC \nTemp: 68F \nDew Point: 48F \nWind: 300@5kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 46.84347,-92.18660
+  Threshold: 999
+  Icon: 0,0,310,1,2
+  Text: 0, -18, 1, "KDLH"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Color: 255 255 255
+  Text: 20, -10, 1, "100"
+  Hover: "Station: KDLH \nTime: 23:40 UTC \nTemp: 68F \nDew Point: MF \nWind: 310@9kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.72452,-92.04448
+  Threshold: 999
+  Icon: 0,0,310,1,3
+  Text: 0, -18, 1, "KDYT"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "50"
+  Hover: "Station: KDYT \nTime: 23:35 UTC \nTemp: 75F \nDew Point: 50F \nWind: 310@13kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.93093,-89.26702
+  Threshold: 999
+  Icon: 0,0,340,1,2
+  Text: 0, -18, 1, "KEGV"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Color: 100 255 100
+  Text: -20, 10, 1, "47"
+  Hover: "Station: KEGV \nTime: 23:35 UTC \nTemp: 72F \nDew Point: 47F \nWind: 340@8kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 47.81667,-91.83333
+  Threshold: 999
+  Icon: 0,0,290,1,2
+  Text: 0, -18, 1, "KELO"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Color: 100 255 100
+  Text: -20, 10, 1, "44"
+  Hover: "Station: KELO \nTime: 23:35 UTC \nTemp: 68F \nDew Point: 44F \nWind: 290@9kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 47.42740,-92.49717
+  Threshold: 999
+  Icon: 0,0,300,1,1
+  Text: 0, -18, 1, "KEVM"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Color: 100 255 100
+  Text: -20, 10, 1, "47"
+  Hover: "Station: KEVM \nTime: 23:35 UTC \nTemp: 69F \nDew Point: 47F \nWind: 300@7kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 49.31667,-94.90000
+  Threshold: 999
+  Icon: 0,0,310,1,3
+  Text: 0, -18, 1, "KFGN"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: KFGN \nTime: 23:35 UTC \nTemp: 70F \nDew Point: 46F \nWind: 310@13kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 47.78317,-93.65326
+  Threshold: 999
+  Icon: 0,0,260,1,1
+  Text: 0, -18, 1, "KFOZ"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Color: 100 255 100
+  Text: -20, 10, 1, "48"
+  Hover: "Station: KFOZ \nTime: 23:35 UTC \nTemp: 67F \nDew Point: 48F \nWind: 260@6kt"
+End:
+
+TimeRange: 2026-08-18T22:51:00Z 2026-08-18T23:06:00Z
+Object: 47.74720,-90.34440
+  Threshold: 999
+  Icon: 0,0,240,1,1
+  Text: 0, -18, 1, "KGNA"
+  Color: 255 100 100
+  Text: -20, -10, 1, "62"
+  Color: 100 255 100
+  Text: -20, 10, 1, "52"
+  Color: 255 255 255
+  Text: 20, -10, 1, "000"
+  Hover: "Station: KGNA \nTime: 22:56 UTC \nTemp: 62F \nDew Point: 52F \nWind: 240@5kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 47.21667,-93.51667
+  Threshold: 999
+  Icon: 0,0,320,1,2
+  Text: 0, -18, 1, "KGPZ"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Color: 255 255 255
+  Text: 20, -10, 1, "700"
+  Hover: "Station: KGPZ \nTime: 23:40 UTC \nTemp: 70F \nDew Point: MF \nWind: 320@12kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 47.38039,-92.83245
+  Threshold: 999
+  Icon: 0,0,290,1,2
+  Text: 0, -18, 1, "KHIB"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: KHIB \nTime: 23:40 UTC \nTemp: 68F \nDew Point: MF \nWind: 290@9kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 46.03029,-91.44259
+  Threshold: 999
+  Icon: 0,0,350,1,1
+  Text: 0, -18, 1, "KHYR"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: KHYR \nTime: 23:40 UTC \nTemp: 73F \nDew Point: MF \nWind: 350@7kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 48.55944,-93.39556
+  Threshold: 999
+  Icon: 0,0,290,1,2
+  Text: 0, -18, 1, "KINL"
+  Color: 255 100 100
+  Text: -20, -10, 1, "66"
+  Hover: "Station: KINL \nTime: 23:40 UTC \nTemp: 66F \nDew Point: MF \nWind: 290@9kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 46.53333,-90.13333
+  Threshold: 999
+  Icon: 0,0,320,1,1
+  Text: 0, -18, 1, "KIWD"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Color: 255 255 255
+  Text: 20, -10, 1, "500"
+  Hover: "Station: KIWD \nTime: 23:40 UTC \nTemp: 68F \nDew Point: MF \nWind: 320@7kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.88863,-93.26901
+  Threshold: 999
+  Icon: 0,0,330,1,1
+  Text: 0, -18, 1, "KJMR"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "50"
+  Hover: "Station: KJMR \nTime: 23:35 UTC \nTemp: 73F \nDew Point: 50F \nWind: 330@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.09485,-94.50837
+  Threshold: 999
+  Icon: 0,0,310,1,1
+  Text: 0, -18, 1, "KLJF"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "54"
+  Hover: "Station: KLJF \nTime: 23:35 UTC \nTemp: 75F \nDew Point: 54F \nWind: 310@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.95000,-94.35000
+  Threshold: 999
+  Icon: 0,0,290,1,1
+  Text: 0, -18, 1, "KLXL"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "48"
+  Hover: "Station: KLXL \nTime: 23:35 UTC \nTemp: 73F \nDew Point: 48F \nWind: 290@7kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.10462,-90.30253
+  Threshold: 999
+  Icon: 0,0,270,1,1
+  Text: 0, -18, 1, "KMDZ"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "54"
+  Hover: "Station: KMDZ \nTime: 23:35 UTC \nTemp: 74F \nDew Point: 54F \nWind: 270@7kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.23535,-93.98959
+  Threshold: 999
+  Icon: 0,0,310,1,1
+  Text: 0, -18, 1, "KMGG"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Color: 100 255 100
+  Text: -20, 10, 1, "54"
+  Hover: "Station: KMGG \nTime: 23:35 UTC \nTemp: 78F \nDew Point: 54F \nWind: 310@7kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.06250,-93.35083
+  Threshold: 999
+  Icon: 0,0,300,1,2
+  Text: 0, -18, 1, "KMIC"
+  Color: 255 100 100
+  Text: -20, -10, 1, "81"
+  Hover: "Station: KMIC \nTime: 23:40 UTC \nTemp: 81F \nDew Point: MF \nWind: 300@10kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.41632,-92.80491
+  Threshold: 999
+  Icon: 0,0,320,1,1
+  Text: 0, -18, 1, "KMZH"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: KMZH \nTime: 23:35 UTC \nTemp: 73F \nDew Point: 46F \nWind: 320@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.31084,-92.69480
+  Threshold: 999
+  Icon: 0,0,330,1,1
+  Text: 0, -18, 1, "KOEO"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "64"
+  Hover: "Station: KOEO \nTime: 23:35 UTC \nTemp: 75F \nDew Point: 64F \nWind: 330@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 48.01707,-92.85376
+  Threshold: 999
+  Icon: 0,0,300,1,1
+  Text: 0, -18, 1, "KORB"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Color: 100 255 100
+  Text: -20, 10, 1, "47"
+  Hover: "Station: KORB \nTime: 23:35 UTC \nTemp: 67F \nDew Point: 47F \nWind: 300@7kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.70000,-90.40000
+  Threshold: 999
+  Icon: 0,0,340,1,1
+  Text: 0, -18, 1, "KPBH"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "51"
+  Hover: "Station: KPBH \nTime: 23:35 UTC \nTemp: 73F \nDew Point: 51F \nWind: 340@7kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.56425,-93.60801
+  Threshold: 999
+  Icon: 0,0,330,1,1
+  Text: 0, -18, 1, "KPNM"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "56"
+  Hover: "Station: KPNM \nTime: 23:35 UTC \nTemp: 76F \nDew Point: 56F \nWind: 330@5kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.72654,-94.38485
+  Threshold: 999
+  Icon: 0,0,340,1,2
+  Text: 0, -18, 1, "KPWC"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Color: 100 255 100
+  Text: -20, 10, 1, "47"
+  Hover: "Station: KPWC \nTime: 23:35 UTC \nTemp: 72F \nDew Point: 47F \nWind: 340@9kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.63167,-89.48222
+  Threshold: 999
+  Icon: 0,0,340,1,1
+  Text: 0, -18, 1, "KRHI"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: KRHI \nTime: 23:45 UTC \nTemp: 72F \nDew Point: MF \nWind: 340@4kt"
+End:
+
+TimeRange: 2026-08-18T23:25:00Z 2026-08-18T23:40:00Z
+Object: 45.14762,-92.53349
+  Threshold: 999
+  Icon: 0,0,340,1,2
+  Text: 0, -18, 1, "KRNH"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "58"
+  Hover: "Station: KRNH \nTime: 23:30 UTC \nTemp: 76F \nDew Point: 58F \nWind: 340@10kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.69628,-92.95424
+  Threshold: 999
+  Icon: 0,0,320,1,1
+  Text: 0, -18, 1, "KROS"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "54"
+  Hover: "Station: KROS \nTime: 23:35 UTC \nTemp: 74F \nDew Point: 54F \nWind: 320@3kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.41806,-91.77361
+  Threshold: 999
+  Icon: 0,0,310,1,2
+  Text: 0, -18, 1, "KRPD"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "53"
+  Hover: "Station: KRPD \nTime: 23:35 UTC \nTemp: 76F \nDew Point: 53F \nWind: 310@8kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.19844,-89.70996
+  Threshold: 999
+  Icon: 0,0,320,1,2
+  Text: 0, -18, 1, "KRRL"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Color: 100 255 100
+  Text: -20, 10, 1, "50"
+  Hover: "Station: KRRL \nTime: 23:35 UTC \nTemp: 77F \nDew Point: 50F \nWind: 320@8kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.82278,-92.37250
+  Threshold: 999
+  Icon: 0,0,350,1,1
+  Text: 0, -18, 1, "KRZN"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "50"
+  Hover: "Station: KRZN \nTime: 23:35 UTC \nTemp: 75F \nDew Point: 50F \nWind: 350@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.38083,-94.80667
+  Threshold: 999
+  Icon: 0,0,310,1,2
+  Text: 0, -18, 1, "KSAZ"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Color: 100 255 100
+  Text: -20, 10, 1, "48"
+  Hover: "Station: KSAZ \nTime: 23:35 UTC \nTemp: 72F \nDew Point: 48F \nWind: 310@10kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.54415,-94.05165
+  Threshold: 999
+  Icon: 0,0,320,1,1
+  Text: 0, -18, 1, "KSTC"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: KSTC \nTime: 23:40 UTC \nTemp: 75F \nDew Point: MF \nWind: 320@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.68335,-92.09254
+  Threshold: 999
+  Icon: 0,0,280,1,2
+  Text: 0, -18, 1, "KSUW"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "47"
+  Hover: "Station: KSUW \nTime: 23:35 UTC \nTemp: 73F \nDew Point: 47F \nWind: 280@10kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 47.05000,-91.75000
+  Threshold: 999
+  Icon: 0,0,330,1,1
+  Text: 0, -18, 1, "KTWM"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: KTWM \nTime: 23:35 UTC \nTemp: 68F \nDew Point: 46F \nWind: 330@5kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 48.15014,-94.51200
+  Threshold: 999
+  Icon: 0,0,300,1,2
+  Text: 0, -18, 1, "KVWU"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Color: 100 255 100
+  Text: -20, 10, 1, "48"
+  Hover: "Station: KVWU \nTime: 23:35 UTC \nTemp: 72F \nDew Point: 48F \nWind: 300@8kt"
+End:
+
+TimeRange: 2026-08-18T23:25:00Z 2026-08-18T23:40:00Z
+Object: 46.26906,-89.17006
+  Threshold: 999
+  Icon: 0,0,2,1,1
+  Text: 0, -18, 1, "WMTM4"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: WMTM4 \nTime: 23:30 UTC \nTemp: 69F \nDew Point: MF \nWind: 2@5kt"
+End:
+
+TimeRange: 2026-08-18T23:19:00Z 2026-08-18T23:34:00Z
+Object: 47.91129,-89.14258
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "WINM4"
+  Color: 255 100 100
+  Text: -20, -10, 1, "64"
+  Hover: "Station: WINM4 \nTime: 23:24 UTC \nTemp: 64F \nDew Point: MF \nWind: 324@0kt"
+End:
+
+TimeRange: 2026-08-18T23:08:00Z 2026-08-18T23:23:00Z
+Object: 47.94611,-91.49500
+  Threshold: 999
+  Icon: 0,0,301,1,2
+  Text: 0, -18, 1, "FRNM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: FRNM5 \nTime: 23:13 UTC \nTemp: 69F \nDew Point: MF \nWind: 301@10kt"
+End:
+
+TimeRange: 2026-08-18T22:51:00Z 2026-08-18T23:06:00Z
+Object: 48.01700,-90.13756
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "TR668"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: TR668 \nTime: 22:56 UTC \nTemp: 69F \nDew Point: MF \nWind: 294@2kt"
+End:
+
+TimeRange: 2026-08-18T23:34:00Z 2026-08-18T23:49:00Z
+Object: 47.65731,-92.61161
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "TR669"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: TR669 \nTime: 23:39 UTC \nTemp: 68F \nDew Point: MF \nWind: 289@2kt"
+End:
+
+TimeRange: 2026-08-18T23:01:00Z 2026-08-18T23:16:00Z
+Object: 46.86158,-94.72936
+  Threshold: 999
+  Icon: 0,0,331,1,1
+  Text: 0, -18, 1, "BDRM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: BDRM5 \nTime: 23:06 UTC \nTemp: 75F \nDew Point: MF \nWind: 331@3kt"
+End:
+
+TimeRange: 2026-08-18T23:01:00Z 2026-08-18T23:16:00Z
+Object: 48.67028,-94.61722
+  Threshold: 999
+  Icon: 0,0,103,1,1
+  Text: 0, -18, 1, "BTTM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: BTTM5 \nTime: 23:06 UTC \nTemp: 72F \nDew Point: MF \nWind: 103@3kt"
+End:
+
+TimeRange: 2026-08-18T23:01:00Z 2026-08-18T23:16:00Z
+Object: 47.50174,-94.92511
+  Threshold: 999
+  Icon: 0,0,261,1,2
+  Text: 0, -18, 1, "BMJM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: BMJM5 \nTime: 23:06 UTC \nTemp: 71F \nDew Point: MF \nWind: 261@9kt"
+End:
+
+TimeRange: 2026-08-18T23:01:00Z 2026-08-18T23:16:00Z
+Object: 46.39722,-94.13028
+  Threshold: 999
+  Icon: 0,0,341,1,1
+  Text: 0, -18, 1, "BIRM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: BIRM5 \nTime: 23:06 UTC \nTemp: 76F \nDew Point: MF \nWind: 341@7kt"
+End:
+
+TimeRange: 2026-08-18T23:01:00Z 2026-08-18T23:16:00Z
+Object: 45.30278,-93.10111
+  Threshold: 999
+  Icon: 0,0,323,1,1
+  Text: 0, -18, 1, "CAVM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "79"
+  Hover: "Station: CAVM5 \nTime: 23:06 UTC \nTemp: 79F \nDew Point: MF \nWind: 323@4kt"
+End:
+
+TimeRange: 2026-08-18T23:02:00Z 2026-08-18T23:17:00Z
+Object: 47.77944,-93.64611
+  Threshold: 999
+  Icon: 0,0,288,1,2
+  Text: 0, -18, 1, "EFFM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: EFFM5 \nTime: 23:07 UTC \nTemp: 70F \nDew Point: MF \nWind: 288@8kt"
+End:
+
+TimeRange: 2026-08-18T23:02:00Z 2026-08-18T23:17:00Z
+Object: 47.39194,-92.83472
+  Threshold: 999
+  Icon: 0,0,314,1,2
+  Text: 0, -18, 1, "HIBM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: HIBM5 \nTime: 23:07 UTC \nTemp: 71F \nDew Point: MF \nWind: 314@8kt"
+End:
+
+TimeRange: 2026-08-18T23:02:00Z 2026-08-18T23:17:00Z
+Object: 46.96098,-93.59841
+  Threshold: 999
+  Icon: 0,0,332,1,1
+  Text: 0, -18, 1, "HCYM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: HCYM5 \nTime: 23:07 UTC \nTemp: 71F \nDew Point: MF \nWind: 332@6kt"
+End:
+
+TimeRange: 2026-08-18T23:02:00Z 2026-08-18T23:17:00Z
+Object: 47.94111,-94.46417
+  Threshold: 999
+  Icon: 0,0,250,1,1
+  Text: 0, -18, 1, "KDNM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: KDNM5 \nTime: 23:07 UTC \nTemp: 70F \nDew Point: MF \nWind: 250@4kt"
+End:
+
+TimeRange: 2026-08-18T23:02:00Z 2026-08-18T23:17:00Z
+Object: 45.95139,-94.34444
+  Threshold: 999
+  Icon: 0,0,330,1,1
+  Text: 0, -18, 1, "LXLM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: LXLM5 \nTime: 23:07 UTC \nTemp: 77F \nDew Point: MF \nWind: 330@4kt"
+End:
+
+TimeRange: 2026-08-18T23:03:00Z 2026-08-18T23:18:00Z
+Object: 48.38944,-93.56417
+  Threshold: 999
+  Icon: 0,0,288,1,1
+  Text: 0, -18, 1, "LITM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: LITM5 \nTime: 23:08 UTC \nTemp: 71F \nDew Point: MF \nWind: 288@4kt"
+End:
+
+TimeRange: 2026-08-18T23:03:00Z 2026-08-18T23:18:00Z
+Object: 46.42028,-92.80083
+  Threshold: 999
+  Icon: 0,0,308,1,1
+  Text: 0, -18, 1, "MZHM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: MZHM5 \nTime: 23:08 UTC \nTemp: 75F \nDew Point: MF \nWind: 308@6kt"
+End:
+
+TimeRange: 2026-08-18T23:03:00Z 2026-08-18T23:18:00Z
+Object: 45.89000,-93.26972
+  Threshold: 999
+  Icon: 0,0,41,1,1
+  Text: 0, -18, 1, "JMRM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: JMRM5 \nTime: 23:08 UTC \nTemp: 76F \nDew Point: MF \nWind: 41@7kt"
+End:
+
+TimeRange: 2026-08-18T23:03:00Z 2026-08-18T23:18:00Z
+Object: 48.01731,-92.85464
+  Threshold: 999
+  Icon: 0,0,315,1,1
+  Text: 0, -18, 1, "ORBM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: ORBM5 \nTime: 23:08 UTC \nTemp: 69F \nDew Point: MF \nWind: 315@6kt"
+End:
+
+TimeRange: 2026-08-18T23:03:00Z 2026-08-18T23:18:00Z
+Object: 46.84361,-92.46167
+  Threshold: 999
+  Icon: 0,0,311,1,1
+  Text: 0, -18, 1, "SNWM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: SNWM5 \nTime: 23:08 UTC \nTemp: 71F \nDew Point: MF \nWind: 311@7kt"
+End:
+
+TimeRange: 2026-08-18T23:15:00Z 2026-08-18T23:30:00Z
+Object: 45.53139,-93.75222
+  Threshold: 999
+  Icon: 0,0,312,1,1
+  Text: 0, -18, 1, "CSCM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: CSCM5 \nTime: 23:20 UTC \nTemp: 77F \nDew Point: MF \nWind: 312@4kt"
+End:
+
+TimeRange: 2026-08-18T22:59:00Z 2026-08-18T23:14:00Z
+Object: 47.81970,-91.80795
+  Threshold: 999
+  Icon: 0,0,323,1,1
+  Text: 0, -18, 1, "ELOM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: ELOM5 \nTime: 23:04 UTC \nTemp: 70F \nDew Point: MF \nWind: 323@7kt"
+End:
+
+TimeRange: 2026-08-18T22:59:00Z 2026-08-18T23:14:00Z
+Object: 47.61972,-91.37750
+  Threshold: 999
+  Icon: 0,0,290,1,1
+  Text: 0, -18, 1, "ISAM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "66"
+  Hover: "Station: ISAM5 \nTime: 23:04 UTC \nTemp: 66F \nDew Point: MF \nWind: 290@7kt"
+End:
+
+TimeRange: 2026-08-18T22:59:00Z 2026-08-18T23:14:00Z
+Object: 48.12000,-92.15889
+  Threshold: 999
+  Icon: 0,0,274,1,1
+  Text: 0, -18, 1, "MEAM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: MEAM5 \nTime: 23:04 UTC \nTemp: 70F \nDew Point: MF \nWind: 274@3kt"
+End:
+
+TimeRange: 2026-08-18T22:59:00Z 2026-08-18T23:14:00Z
+Object: 48.12028,-90.83861
+  Threshold: 999
+  Icon: 0,0,274,1,1
+  Text: 0, -18, 1, "SEAM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: SEAM5 \nTime: 23:04 UTC \nTemp: 71F \nDew Point: MF \nWind: 274@3kt"
+End:
+
+TimeRange: 2026-08-18T22:56:00Z 2026-08-18T23:11:00Z
+Object: 47.37778,-94.61500
+  Threshold: 999
+  Icon: 0,0,336,1,1
+  Text: 0, -18, 1, "CASM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: CASM5 \nTime: 23:01 UTC \nTemp: 72F \nDew Point: MF \nWind: 336@4kt"
+End:
+
+TimeRange: 2026-08-18T23:26:00Z 2026-08-18T23:41:00Z
+Object: 48.43919,-93.04999
+  Threshold: 999
+  Icon: 0,0,355,1,1
+  Text: 0, -18, 1, "KNMM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: KNMM5 \nTime: 23:31 UTC \nTemp: 70F \nDew Point: MF \nWind: 355@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.34533,-93.59200
+  Threshold: 999
+  Icon: 0,0,316,1,1
+  Text: 0, -18, 1, "AP152"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: AP152 \nTime: 23:50 UTC \nTemp: 76F \nDew Point: MF \nWind: 316@6kt"
+End:
+
+TimeRange: 2026-08-18T23:44:00Z 2026-08-18T23:59:00Z
+Object: 45.90167,-93.85033
+  Threshold: 999
+  Icon: 0,0,312,1,1
+  Text: 0, -18, 1, "C0288"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: C0288 \nTime: 23:49 UTC \nTemp: 71F \nDew Point: MF \nWind: 312@5kt"
+End:
+
+TimeRange: 2026-08-18T23:46:00Z 2026-08-19T00:01:00Z
+Object: 45.15833,-93.27000
+  Threshold: 999
+  Icon: 0,0,337,1,1
+  Text: 0, -18, 1, "C0561"
+  Color: 255 100 100
+  Text: -20, -10, 1, "79"
+  Hover: "Station: C0561 \nTime: 23:51 UTC \nTemp: 79F \nDew Point: MF \nWind: 337@5kt"
+End:
+
+TimeRange: 2026-08-18T22:56:00Z 2026-08-18T23:11:00Z
+Object: 46.44028,-89.82667
+  Threshold: 999
+  Icon: 0,0,314,1,1
+  Text: 0, -18, 1, "WKFM4"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: WKFM4 \nTime: 23:01 UTC \nTemp: 71F \nDew Point: MF \nWind: 314@5kt"
+End:
+
+TimeRange: 2026-08-18T23:41:00Z 2026-08-18T23:56:00Z
+Object: 47.50317,-94.76000
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "AR367"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: AR367 \nTime: 23:46 UTC \nTemp: 68F \nDew Point: MF \nWind: 353@0kt"
+End:
+
+TimeRange: 2026-08-18T23:25:00Z 2026-08-18T23:40:00Z
+Object: 46.19750,-90.97000
+  Threshold: 999
+  Icon: 0,0,325,1,1
+  Text: 0, -18, 1, "CLRW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: CLRW3 \nTime: 23:30 UTC \nTemp: 72F \nDew Point: MF \nWind: 325@4kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 48.36667,-89.31667
+  Threshold: 999
+  Icon: 0,0,280,1,2
+  Text: 0, -18, 1, "CYQT"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "45"
+  Color: 255 255 255
+  Text: 20, -10, 1, "600"
+  Hover: "Station: CYQT \nTime: 23:00 UTC \nTemp: 73F \nDew Point: 45F \nWind: 280@12kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 49.03333,-90.46667
+  Threshold: 999
+  Icon: 0,0,300,1,1
+  Text: 0, -18, 1, "CWDV"
+  Color: 255 100 100
+  Text: -20, -10, 1, "66"
+  Color: 100 255 100
+  Text: -20, 10, 1, "44"
+  Color: 255 255 255
+  Text: 20, -10, 1, "800"
+  Hover: "Station: CWDV \nTime: 23:00 UTC \nTemp: 66F \nDew Point: 44F \nWind: 300@7kt"
+End:
+
+TimeRange: 2026-08-18T22:54:00Z 2026-08-18T23:09:00Z
+Object: 47.40089,-94.35989
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "TS214"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: TS214 \nTime: 22:59 UTC \nTemp: 68F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T22:54:00Z 2026-08-18T23:09:00Z
+Object: 47.17872,-93.95545
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "TS215"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: TS215 \nTime: 22:59 UTC \nTemp: 69F \nDew Point: MF \nWind: 351@2kt"
+End:
+
+TimeRange: 2026-08-18T23:26:00Z 2026-08-18T23:41:00Z
+Object: 46.58513,-91.25558
+  Threshold: 999
+  Icon: 0,0,325,1,1
+  Text: 0, -18, 1, "WSHW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: WSHW3 \nTime: 23:31 UTC \nTemp: 72F \nDew Point: MF \nWind: 325@4kt"
+End:
+
+TimeRange: 2026-08-18T23:05:00Z 2026-08-18T23:20:00Z
+Object: 45.88722,-89.65111
+  Threshold: 999
+  Icon: 0,0,355,1,1
+  Text: 0, -18, 1, "WUFW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: WUFW3 \nTime: 23:10 UTC \nTemp: 75F \nDew Point: MF \nWind: 355@5kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.37247,-94.73878
+  Threshold: 999
+  Icon: 0,0,320,1,1
+  Text: 0, -18, 1, "KPEX"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "54"
+  Hover: "Station: KPEX \nTime: 23:35 UTC \nTemp: 73F \nDew Point: 54F \nWind: 320@5kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.15889,-93.84306
+  Threshold: 999
+  Icon: 0,0,310,1,2
+  Text: 0, -18, 1, "KCFE"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Color: 100 255 100
+  Text: -20, 10, 1, "54"
+  Hover: "Station: KCFE \nTime: 23:35 UTC \nTemp: 77F \nDew Point: 54F \nWind: 310@10kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.61904,-93.31267
+  Threshold: 999
+  Icon: 0,0,330,1,2
+  Text: 0, -18, 1, "KHZX"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: KHZX \nTime: 23:35 UTC \nTemp: 72F \nDew Point: 46F \nWind: 330@9kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.15389,-89.21194
+  Threshold: 999
+  Icon: 0,0,350,1,2
+  Text: 0, -18, 1, "KLNL"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Color: 100 255 100
+  Text: -20, 10, 1, "49"
+  Hover: "Station: KLNL \nTime: 23:35 UTC \nTemp: 70F \nDew Point: 49F \nWind: 350@8kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.49350,-90.99850
+  Threshold: 999
+  Icon: 0,0,320,1,2
+  Text: 0, -18, 1, "KRCX"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "52"
+  Hover: "Station: KRCX \nTime: 23:35 UTC \nTemp: 76F \nDew Point: 52F \nWind: 320@9kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.46801,-89.80962
+  Threshold: 999
+  Icon: 0,0,330,1,2
+  Text: 0, -18, 1, "KTKV"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "53"
+  Hover: "Station: KTKV \nTime: 23:35 UTC \nTemp: 76F \nDew Point: 53F \nWind: 330@8kt"
+End:
+
+TimeRange: 2026-08-18T23:00:00Z 2026-08-18T23:15:00Z
+Object: 45.15889,-89.11472
+  Threshold: 999
+  Icon: 0,0,331,1,1
+  Text: 0, -18, 1, "AGOW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: AGOW3 \nTime: 23:05 UTC \nTemp: 77F \nDew Point: MF \nWind: 331@5kt"
+End:
+
+TimeRange: 2026-08-18T23:01:00Z 2026-08-18T23:16:00Z
+Object: 46.34417,-91.54333
+  Threshold: 999
+  Icon: 0,0,337,1,1
+  Text: 0, -18, 1, "BRNW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: BRNW3 \nTime: 23:06 UTC \nTemp: 75F \nDew Point: MF \nWind: 337@5kt"
+End:
+
+TimeRange: 2026-08-18T22:58:00Z 2026-08-18T23:13:00Z
+Object: 46.00047,-91.50000
+  Threshold: 999
+  Icon: 0,0,323,1,1
+  Text: 0, -18, 1, "HWDW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: HWDW3 \nTime: 23:03 UTC \nTemp: 77F \nDew Point: MF \nWind: 323@3kt"
+End:
+
+TimeRange: 2026-08-18T23:00:00Z 2026-08-18T23:15:00Z
+Object: 45.43778,-91.11697
+  Threshold: 999
+  Icon: 0,0,311,1,1
+  Text: 0, -18, 1, "LDYW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "80"
+  Hover: "Station: LDYW3 \nTime: 23:05 UTC \nTemp: 80F \nDew Point: MF \nWind: 311@5kt"
+End:
+
+TimeRange: 2026-08-18T23:09:00Z 2026-08-18T23:24:00Z
+Object: 45.10556,-90.69000
+  Threshold: 999
+  Icon: 0,0,324,1,1
+  Text: 0, -18, 1, "DMLW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: DMLW3 \nTime: 23:14 UTC \nTemp: 78F \nDew Point: MF \nWind: 324@6kt"
+End:
+
+TimeRange: 2026-08-18T22:58:00Z 2026-08-18T23:13:00Z
+Object: 46.13583,-91.98083
+  Threshold: 999
+  Icon: 0,0,324,1,2
+  Text: 0, -18, 1, "MRZW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: MRZW3 \nTime: 23:03 UTC \nTemp: 77F \nDew Point: MF \nWind: 324@10kt"
+End:
+
+TimeRange: 2026-08-18T23:01:00Z 2026-08-18T23:16:00Z
+Object: 45.73972,-92.79556
+  Threshold: 999
+  Icon: 0,0,19,1,1
+  Text: 0, -18, 1, "LNDW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: LNDW3 \nTime: 23:06 UTC \nTemp: 78F \nDew Point: MF \nWind: 19@4kt"
+End:
+
+TimeRange: 2026-08-18T23:31:00Z 2026-08-18T23:46:00Z
+Object: 45.99400,-93.57286
+  Threshold: 999
+  Icon: 0,0,17,1,1
+  Text: 0, -18, 1, "TS376"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: TS376 \nTime: 23:36 UTC \nTemp: 74F \nDew Point: MF \nWind: 17@7kt"
+End:
+
+TimeRange: 2026-08-18T23:31:00Z 2026-08-18T23:46:00Z
+Object: 48.27811,-92.29475
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "TS377"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: TS377 \nTime: 23:36 UTC \nTemp: 68F \nDew Point: MF \nWind: 257@1kt"
+End:
+
+TimeRange: 2026-08-18T22:59:00Z 2026-08-18T23:14:00Z
+Object: 47.53639,-94.05444
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "CUTM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: CUTM5 \nTime: 23:04 UTC \nTemp: 71F \nDew Point: MF \nWind: 317@1kt"
+End:
+
+TimeRange: 2026-08-18T23:06:00Z 2026-08-18T23:21:00Z
+Object: 45.07194,-94.53028
+  Threshold: 999
+  Icon: 0,0,295,1,2
+  Text: 0, -18, 1, "LFSM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: LFSM5 \nTime: 23:11 UTC \nTemp: 78F \nDew Point: MF \nWind: 295@8kt"
+End:
+
+TimeRange: 2026-08-18T23:25:00Z 2026-08-18T23:40:00Z
+Object: 46.14472,-90.59028
+  Threshold: 999
+  Icon: 0,0,349,1,1
+  Text: 0, -18, 1, "GDNW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: GDNW3 \nTime: 23:30 UTC \nTemp: 72F \nDew Point: MF \nWind: 349@4kt"
+End:
+
+TimeRange: 2026-08-18T23:47:00Z 2026-08-19T00:02:00Z
+Object: 46.53722,-93.28750
+  Threshold: 999
+  Icon: 0,0,332,1,1
+  Text: 0, -18, 1, "RLKM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: RLKM5 \nTime: 23:52 UTC \nTemp: 72F \nDew Point: MF \nWind: 332@3kt"
+End:
+
+TimeRange: 2026-08-18T23:26:00Z 2026-08-18T23:41:00Z
+Object: 46.03964,-89.09575
+  Threshold: 999
+  Icon: 0,0,4,1,1
+  Text: 0, -18, 1, "PLPW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: PLPW3 \nTime: 23:31 UTC \nTemp: 69F \nDew Point: MF \nWind: 4@3kt"
+End:
+
+TimeRange: 2026-08-18T23:39:00Z 2026-08-18T23:54:00Z
+Object: 47.95029,-89.78014
+  Threshold: 999
+  Icon: 0,0,293,1,1
+  Text: 0, -18, 1, "GPTM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: GPTM5 \nTime: 23:44 UTC \nTemp: 70F \nDew Point: MF \nWind: 293@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.55417,-92.79800
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "C4279"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: C4279 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: MF \nWind: 69@2kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 46.85867,-92.21833
+  Threshold: 999
+  Icon: 0,0,139,1,1
+  Text: 0, -18, 1, "AR992"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: AR992 \nTime: 23:45 UTC \nTemp: 68F \nDew Point: MF \nWind: 139@6kt"
+End:
+
+TimeRange: 2026-08-18T23:43:00Z 2026-08-18T23:58:00Z
+Object: 46.81117,-90.84883
+  Threshold: 999
+  Icon: 0,0,325,1,1
+  Text: 0, -18, 1, "AS104"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: AS104 \nTime: 23:48 UTC \nTemp: 69F \nDew Point: MF \nWind: 325@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.15800,-93.13400
+  Threshold: 999
+  Icon: 0,0,359,1,1
+  Text: 0, -18, 1, "AS215"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: AS215 \nTime: 23:50 UTC \nTemp: 78F \nDew Point: MF \nWind: 359@3kt"
+End:
+
+TimeRange: 2026-08-18T23:43:00Z 2026-08-18T23:58:00Z
+Object: 45.80650,-93.60883
+  Threshold: 999
+  Icon: 0,0,293,1,1
+  Text: 0, -18, 1, "C6351"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: C6351 \nTime: 23:48 UTC \nTemp: 76F \nDew Point: MF \nWind: 293@3kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 47.86700,-89.31300
+  Threshold: 999
+  Icon: 0,0,240,1,4
+  Text: 0, -18, 1, "ROAM4"
+  Color: 255 100 100
+  Text: -20, -10, 1, "60"
+  Hover: "Station: ROAM4 \nTime: 23:00 UTC \nTemp: 60F \nDew Point: MF \nWind: 240@20kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.71653,-92.24900
+  Threshold: 999
+  Icon: 0,0,279,1,1
+  Text: 0, -18, 1, "MN080"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: MN080 \nTime: 23:50 UTC \nTemp: 69F \nDew Point: MF \nWind: 279@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.21256,-92.83853
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN005"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: MN005 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.71313,-94.93148
+  Threshold: 999
+  Icon: 0,0,5,1,2
+  Text: 0, -18, 1, "MN016"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: MN016 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: MF \nWind: 5@9kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.87432,-94.43240
+  Threshold: 999
+  Icon: 0,0,310,1,1
+  Text: 0, -18, 1, "MN018"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: MN018 \nTime: 23:50 UTC \nTemp: 67F \nDew Point: MF \nWind: 310@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.85440,-92.04817
+  Threshold: 999
+  Icon: 0,0,301,1,1
+  Text: 0, -18, 1, "MN019"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: MN019 \nTime: 23:50 UTC \nTemp: 67F \nDew Point: MF \nWind: 301@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.68825,-93.95447
+  Threshold: 999
+  Icon: 0,0,350,1,1
+  Text: 0, -18, 1, "MN020"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: MN020 \nTime: 23:50 UTC \nTemp: 71F \nDew Point: MF \nWind: 350@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 48.62767,-94.06702
+  Threshold: 999
+  Icon: 0,0,283,1,1
+  Text: 0, -18, 1, "MN026"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: MN026 \nTime: 23:50 UTC \nTemp: 67F \nDew Point: MF \nWind: 283@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.60781,-94.03078
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN034"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: MN034 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: MF \nWind: 320@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.14423,-94.10412
+  Threshold: 999
+  Icon: 0,0,309,1,1
+  Text: 0, -18, 1, "MN035"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: MN035 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: MF \nWind: 309@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.60357,-94.12677
+  Threshold: 999
+  Icon: 0,0,275,1,1
+  Text: 0, -18, 1, "MN041"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: MN041 \nTime: 23:50 UTC \nTemp: 68F \nDew Point: MF \nWind: 275@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.43232,-94.93238
+  Threshold: 999
+  Icon: 0,0,310,1,2
+  Text: 0, -18, 1, "MN043"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: MN043 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: MF \nWind: 310@9kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.91178,-94.72293
+  Threshold: 999
+  Icon: 0,0,300,1,1
+  Text: 0, -18, 1, "MN049"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: MN049 \nTime: 23:50 UTC \nTemp: 69F \nDew Point: MF \nWind: 300@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.33954,-93.26208
+  Threshold: 999
+  Icon: 0,0,355,1,1
+  Text: 0, -18, 1, "MN050"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: MN050 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: MF \nWind: 355@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.97845,-93.27368
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN051"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: MN051 \nTime: 23:50 UTC \nTemp: 69F \nDew Point: MF \nWind: 289@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.84037,-93.48527
+  Threshold: 999
+  Icon: 0,0,271,1,1
+  Text: 0, -18, 1, "MN052"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: MN052 \nTime: 23:50 UTC \nTemp: 67F \nDew Point: MF \nWind: 271@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 48.20720,-94.55400
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN053"
+  Color: 255 100 100
+  Text: -20, -10, 1, "64"
+  Hover: "Station: MN053 \nTime: 23:50 UTC \nTemp: 64F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.37995,-94.58698
+  Threshold: 999
+  Icon: 0,0,330,1,2
+  Text: 0, -18, 1, "MN061"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: MN061 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: MF \nWind: 330@11kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.76635,-94.23270
+  Threshold: 999
+  Icon: 0,0,355,1,2
+  Text: 0, -18, 1, "MN064"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: MN064 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: MF \nWind: 355@10kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 48.29422,-92.97047
+  Threshold: 999
+  Icon: 0,0,355,1,1
+  Text: 0, -18, 1, "MN067"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: MN067 \nTime: 23:50 UTC \nTemp: 67F \nDew Point: MF \nWind: 355@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.87595,-93.66410
+  Threshold: 999
+  Icon: 0,0,327,1,1
+  Text: 0, -18, 1, "MN076"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: MN076 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: MF \nWind: 327@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.98501,-92.94823
+  Threshold: 999
+  Icon: 0,0,6,1,1
+  Text: 0, -18, 1, "MN077"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: MN077 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: MF \nWind: 6@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.09209,-93.44753
+  Threshold: 999
+  Icon: 0,0,292,1,1
+  Text: 0, -18, 1, "MN087"
+  Color: 255 100 100
+  Text: -20, -10, 1, "79"
+  Hover: "Station: MN087 \nTime: 23:50 UTC \nTemp: 79F \nDew Point: MF \nWind: 292@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.73457,-92.09760
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN095"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: MN095 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: MF \nWind: 315@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 48.60179,-93.37356
+  Threshold: 999
+  Icon: 0,0,289,1,1
+  Text: 0, -18, 1, "MN027"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: MN027 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: MF \nWind: 289@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.92380,-92.41302
+  Threshold: 999
+  Icon: 0,0,305,1,1
+  Text: 0, -18, 1, "MN091"
+  Color: 255 100 100
+  Text: -20, -10, 1, "66"
+  Hover: "Station: MN091 \nTime: 23:50 UTC \nTemp: 66F \nDew Point: MF \nWind: 305@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.97640,-89.68498
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN048"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: MN048 \nTime: 23:50 UTC \nTemp: 72F \nDew Point: MF \nWind: 277@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.74691,-92.09952
+  Threshold: 999
+  Icon: 0,0,263,1,3
+  Text: 0, -18, 1, "MN081"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: MN081 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: MF \nWind: 263@13kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.39472,-94.02563
+  Threshold: 999
+  Icon: 0,0,325,1,1
+  Text: 0, -18, 1, "MN017"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: MN017 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: MF \nWind: 325@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.64290,-92.99276
+  Threshold: 999
+  Icon: 0,0,164,1,1
+  Text: 0, -18, 1, "MN004"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: MN004 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: MF \nWind: 164@3kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 48.36670,-89.31670
+  Threshold: 999
+  Icon: 0,0,300,1,2
+  Text: 0, -18, 1, "CZTB"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "45"
+  Color: 255 255 255
+  Text: 20, -10, 1, "300"
+  Hover: "Station: CZTB \nTime: 23:00 UTC \nTemp: 73F \nDew Point: 45F \nWind: 300@12kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.58104,-94.39056
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "C8998"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: C8998 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: MF \nWind: 295@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 48.13470,-93.87840
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN072"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: MN072 \nTime: 23:50 UTC \nTemp: 68F \nDew Point: MF \nWind: 270@2kt"
+End:
+
+TimeRange: 2026-08-18T23:25:00Z 2026-08-18T23:40:00Z
+Object: 46.77570,-92.09200
+  Threshold: 999
+  Icon: 0,0,336,1,2
+  Text: 0, -18, 1, "DULM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: DULM5 \nTime: 23:30 UTC \nTemp: 73F \nDew Point: MF \nWind: 336@12kt"
+End:
+
+TimeRange: 2026-08-18T23:19:00Z 2026-08-18T23:34:00Z
+Object: 47.74783,-90.34133
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "GDMM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: GDMM5 \nTime: 23:24 UTC \nTemp: 73F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.58300,-90.87933
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "AS927"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: AS927 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: MF \nWind: 315@1kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 46.11306,-92.99361
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "SNDM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: SNDM5 \nTime: 23:40 UTC \nTemp: 72F \nDew Point: MF \nWind: 0@4kt"
+End:
+
+TimeRange: 2026-08-18T23:41:00Z 2026-08-18T23:56:00Z
+Object: 45.57550,-93.29333
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "D2487"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: D2487 \nTime: 23:46 UTC \nTemp: 76F \nDew Point: MF \nWind: 248@0kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.90171,-94.87275
+  Threshold: 999
+  Icon: 0,0,330,1,1
+  Text: 0, -18, 1, "K14Y"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Color: 100 255 100
+  Text: -20, 10, 1, "52"
+  Hover: "Station: K14Y \nTime: 23:35 UTC \nTemp: 72F \nDew Point: 52F \nWind: 330@7kt"
+End:
+
+TimeRange: 2026-08-18T23:26:00Z 2026-08-18T23:41:00Z
+Object: 45.93222,-90.18083
+  Threshold: 999
+  Icon: 0,0,340,1,1
+  Text: 0, -18, 1, "SMRW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: SMRW3 \nTime: 23:31 UTC \nTemp: 73F \nDew Point: MF \nWind: 340@6kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 47.52283,-92.24117
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "D4221"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: D4221 \nTime: 23:45 UTC \nTemp: 68F \nDew Point: MF \nWind: 340@2kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 48.62050,-93.60700
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "D4685"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: D4685 \nTime: 23:45 UTC \nTemp: 73F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 45.20660,-90.59690
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "AN672"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: AN672 \nTime: 23:00 UTC \nTemp: 75F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.10300,-92.26183
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "D5828"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: D5828 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:41:00Z 2026-08-18T23:56:00Z
+Object: 46.70000,-90.80000
+  Threshold: 999
+  Icon: 0,0,311,1,2
+  Text: 0, -18, 1, "D6222"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: D6222 \nTime: 23:46 UTC \nTemp: 72F \nDew Point: MF \nWind: 311@8kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.55750,-93.20883
+  Threshold: 999
+  Icon: 0,0,323,1,1
+  Text: 0, -18, 1, "D6352"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: D6352 \nTime: 23:45 UTC \nTemp: 75F \nDew Point: MF \nWind: 323@6kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 46.58233,-90.88383
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "D6451"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: D6451 \nTime: 23:45 UTC \nTemp: 72F \nDew Point: MF \nWind: 272@1kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.50600,-91.98110
+  Threshold: 999
+  Icon: 0,0,300,1,2
+  Text: 0, -18, 1, "KUBE"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "54"
+  Hover: "Station: KUBE \nTime: 23:35 UTC \nTemp: 75F \nDew Point: 54F \nWind: 300@8kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.30133,-92.79167
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "D8344"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: D8344 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: MF \nWind: 325@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.87467,-91.07217
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "D9145"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: D9145 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: MF \nWind: 317@0kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.56283,-89.76867
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "AU365"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: AU365 \nTime: 23:40 UTC \nTemp: 76F \nDew Point: MF \nWind: 346@0kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.02437,-92.89905
+  Threshold: 999
+  Icon: 0,0,340,1,1
+  Text: 0, -18, 1, "K04W"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "52"
+  Hover: "Station: K04W \nTime: 23:35 UTC \nTemp: 75F \nDew Point: 52F \nWind: 340@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.70566,-94.93084
+  Threshold: 999
+  Icon: 0,0,310,1,2
+  Text: 0, -18, 1, "KD39"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "52"
+  Hover: "Station: KD39 \nTime: 23:35 UTC \nTemp: 74F \nDew Point: 52F \nWind: 310@9kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.03766,-93.09236
+  Threshold: 999
+  Icon: 0,0,305,1,1
+  Text: 0, -18, 1, "MN088"
+  Color: 255 100 100
+  Text: -20, -10, 1, "79"
+  Hover: "Station: MN088 \nTime: 23:50 UTC \nTemp: 79F \nDew Point: MF \nWind: 305@5kt"
+End:
+
+TimeRange: 2026-08-18T23:10:00Z 2026-08-18T23:25:00Z
+Object: 45.97171,-92.61760
+  Threshold: 999
+  Icon: 0,0,294,1,1
+  Text: 0, -18, 1, "SCXM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: SCXM5 \nTime: 23:15 UTC \nTemp: 77F \nDew Point: MF \nWind: 294@5kt"
+End:
+
+TimeRange: 2026-08-18T23:39:00Z 2026-08-18T23:54:00Z
+Object: 45.00020,-92.85490
+  Threshold: 999
+  Icon: 0,0,320,1,1
+  Text: 0, -18, 1, "K21D"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Color: 100 255 100
+  Text: -20, 10, 1, "55"
+  Hover: "Station: K21D \nTime: 23:44 UTC \nTemp: 77F \nDew Point: 55F \nWind: 320@7kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.12035,-89.88016
+  Threshold: 999
+  Icon: 0,0,320,1,2
+  Text: 0, -18, 1, "KD25"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Color: 100 255 100
+  Text: -20, 10, 1, "48"
+  Hover: "Station: KD25 \nTime: 23:35 UTC \nTemp: 70F \nDew Point: 48F \nWind: 320@8kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 47.87717,-94.24533
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E1795"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: E1795 \nTime: 23:45 UTC \nTemp: 67F \nDew Point: MF \nWind: 340@1kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.13700,-93.01000
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E0784"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: E0784 \nTime: 23:45 UTC \nTemp: 78F \nDew Point: MF \nWind: 267@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.19717,-94.01767
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E1587"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: E1587 \nTime: 23:50 UTC \nTemp: 78F \nDew Point: MF \nWind: 348@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.58383,-91.74617
+  Threshold: 999
+  Icon: 0,0,321,1,1
+  Text: 0, -18, 1, "E0605"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: E0605 \nTime: 23:50 UTC \nTemp: 71F \nDew Point: MF \nWind: 321@3kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.33667,-92.67000
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E2192"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: E2192 \nTime: 23:45 UTC \nTemp: 74F \nDew Point: MF \nWind: 5@0kt"
+End:
+
+TimeRange: 2026-08-18T23:25:00Z 2026-08-18T23:40:00Z
+Object: 47.84000,-91.69528
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "SKRM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: SKRM5 \nTime: 23:30 UTC \nTemp: 71F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:25:00Z 2026-08-18T23:40:00Z
+Object: 48.39583,-93.54917
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "LFKM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: LFKM5 \nTime: 23:30 UTC \nTemp: 69F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:25:00Z 2026-08-18T23:40:00Z
+Object: 46.70333,-92.41861
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "SCNM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: SCNM5 \nTime: 23:30 UTC \nTemp: 74F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:37:00Z 2026-08-18T23:52:00Z
+Object: 45.13283,-93.01083
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E2811"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: E2811 \nTime: 23:42 UTC \nTemp: 78F \nDew Point: MF \nWind: 309@0kt"
+End:
+
+TimeRange: 2026-08-18T23:44:00Z 2026-08-18T23:59:00Z
+Object: 45.16750,-92.97883
+  Threshold: 999
+  Icon: 0,0,324,1,1
+  Text: 0, -18, 1, "AU680"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: AU680 \nTime: 23:49 UTC \nTemp: 77F \nDew Point: MF \nWind: 324@3kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.31060,-91.63810
+  Threshold: 999
+  Icon: 0,0,310,1,1
+  Text: 0, -18, 1, "KY23"
+  Color: 255 100 100
+  Text: -20, -10, 1, "79"
+  Color: 100 255 100
+  Text: -20, 10, 1, "55"
+  Hover: "Station: KY23 \nTime: 23:35 UTC \nTemp: 79F \nDew Point: 55F \nWind: 310@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.84567,-92.46917
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E3146"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: E3146 \nTime: 23:35 UTC \nTemp: 68F \nDew Point: MF \nWind: 86@0kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 46.67694,-92.14611
+  Threshold: 999
+  Icon: 0,0,328,1,2
+  Text: 0, -18, 1, "PKBW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: PKBW3 \nTime: 23:00 UTC \nTemp: 74F \nDew Point: MF \nWind: 328@8kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.30583,-93.57283
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "AU742"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: AU742 \nTime: 23:45 UTC \nTemp: 78F \nDew Point: MF \nWind: 66@0kt"
+End:
+
+TimeRange: 2026-08-18T23:47:00Z 2026-08-19T00:02:00Z
+Object: 47.58500,-94.92200
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E4713"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: E4713 \nTime: 23:52 UTC \nTemp: 69F \nDew Point: MF \nWind: 180@0kt"
+End:
+
+TimeRange: 2026-08-18T23:16:00Z 2026-08-18T23:31:00Z
+Object: 47.00304,-90.93633
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "SILW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "65"
+  Hover: "Station: SILW3 \nTime: 23:21 UTC \nTemp: 65F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:31:00Z 2026-08-18T23:46:00Z
+Object: 47.15950,-94.64530
+  Threshold: 999
+  Icon: 0,0,330,1,1
+  Text: 0, -18, 1, "KY49"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: KY49 \nTime: 23:36 UTC \nTemp: 70F \nDew Point: 46F \nWind: 330@3kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 46.02472,-93.23083
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "WMNM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "24"
+  Hover: "Station: WMNM5 \nTime: 23:00 UTC \nTemp: 24F \nDew Point: MF \nWind: 230@2kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.31480,-91.81640
+  Threshold: 999
+  Icon: 0,0,310,1,1
+  Text: 0, -18, 1, "KOLG"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: KOLG \nTime: 23:35 UTC \nTemp: 73F \nDew Point: 46F \nWind: 310@7kt"
+End:
+
+TimeRange: 2026-08-18T23:17:00Z 2026-08-18T23:32:00Z
+Object: 47.48861,-91.98775
+  Threshold: 999
+  Icon: 0,0,326,1,1
+  Text: 0, -18, 1, "SKIM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: SKIM5 \nTime: 23:22 UTC \nTemp: 70F \nDew Point: MF \nWind: 326@3kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 47.09133,-94.57900
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E6287"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: E6287 \nTime: 23:45 UTC \nTemp: 69F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 46.22555,-89.83251
+  Threshold: 999
+  Icon: 0,0,5,1,1
+  Text: 0, -18, 1, "E6920"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: E6920 \nTime: 23:45 UTC \nTemp: 67F \nDew Point: MF \nWind: 5@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.30017,-92.88017
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E8262"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: E8262 \nTime: 23:50 UTC \nTemp: 77F \nDew Point: MF \nWind: 293@0kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 46.69850,-92.33933
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E8511"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: E8511 \nTime: 23:45 UTC \nTemp: 69F \nDew Point: MF \nWind: 295@0kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.08275,-91.33132
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E8704"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: E8704 \nTime: 23:45 UTC \nTemp: 77F \nDew Point: MF \nWind: 259@2kt"
+End:
+
+TimeRange: 2026-08-18T23:48:00Z 2026-08-19T00:03:00Z
+Object: 46.62785,-92.53187
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN097"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: MN097 \nTime: 23:53 UTC \nTemp: 70F \nDew Point: MF \nWind: 158@1kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.79476,-92.15696
+  Threshold: 999
+  Icon: 0,0,5,1,1
+  Text: 0, -18, 1, "MN046"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: MN046 \nTime: 23:50 UTC \nTemp: 68F \nDew Point: MF \nWind: 5@5kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.30000,-90.30000
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E9253"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: E9253 \nTime: 23:45 UTC \nTemp: 74F \nDew Point: MF \nWind: 40@0kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 47.97083,-89.69167
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E9561"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: E9561 \nTime: 23:45 UTC \nTemp: 70F \nDew Point: MF \nWind: 242@1kt"
+End:
+
+TimeRange: 2026-08-18T22:52:00Z 2026-08-18T23:07:00Z
+Object: 46.58783,-94.10217
+  Threshold: 999
+  Icon: 0,0,336,1,1
+  Text: 0, -18, 1, "E9591"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: E9591 \nTime: 22:57 UTC \nTemp: 74F \nDew Point: MF \nWind: 336@3kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 47.67722,-93.01028
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "SIDM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: SIDM5 \nTime: 23:00 UTC \nTemp: 69F \nDew Point: MF \nWind: 258@1kt"
+End:
+
+TimeRange: 2026-08-18T23:25:00Z 2026-08-18T23:40:00Z
+Object: 46.86639,-94.70222
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "BADM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: BADM5 \nTime: 23:30 UTC \nTemp: 72F \nDew Point: MF \nWind: 176@2kt"
+End:
+
+TimeRange: 2026-08-18T23:43:00Z 2026-08-18T23:58:00Z
+Object: 46.71067,-92.63000
+  Threshold: 999
+  Icon: 0,0,329,1,1
+  Text: 0, -18, 1, "AV233"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: AV233 \nTime: 23:48 UTC \nTemp: 69F \nDew Point: MF \nWind: 329@3kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 46.60233,-90.65583
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F0708"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: F0708 \nTime: 23:45 UTC \nTemp: 75F \nDew Point: MF \nWind: 274@1kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 46.80417,-92.07067
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F0850"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: F0850 \nTime: 23:45 UTC \nTemp: 75F \nDew Point: MF \nWind: 333@1kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.78870,-90.75870
+  Threshold: 999
+  Icon: 0,0,290,1,1
+  Text: 0, -18, 1, "K4R5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: K4R5 \nTime: 23:35 UTC \nTemp: 73F \nDew Point: 46F \nWind: 290@7kt"
+End:
+
+TimeRange: 2026-08-18T22:50:00Z 2026-08-18T23:05:00Z
+Object: 46.08997,-94.35986
+  Threshold: 999
+  Icon: 0,0,280,1,2
+  Text: 0, -18, 1, "KRYM"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Color: 100 255 100
+  Text: -20, 10, 1, "51"
+  Color: 255 255 255
+  Text: 20, -10, 1, "200"
+  Hover: "Station: KRYM \nTime: 22:55 UTC \nTemp: 77F \nDew Point: 51F \nWind: 280@11kt"
+End:
+
+TimeRange: 2026-08-18T23:41:00Z 2026-08-18T23:56:00Z
+Object: 45.61251,-94.18903
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F3030"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: F3030 \nTime: 23:46 UTC \nTemp: 77F \nDew Point: MF \nWind: 298@1kt"
+End:
+
+TimeRange: 2026-08-18T22:51:00Z 2026-08-18T23:06:00Z
+Object: 48.03983,-90.46281
+  Threshold: 999
+  Icon: 0,0,317,1,1
+  Text: 0, -18, 1, "TT507"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: TT507 \nTime: 22:56 UTC \nTemp: 69F \nDew Point: MF \nWind: 317@3kt"
+End:
+
+TimeRange: 2026-08-18T23:25:00Z 2026-08-18T23:40:00Z
+Object: 45.22611,-92.76639
+  Threshold: 999
+  Icon: 0,0,232,1,1
+  Text: 0, -18, 1, "WOBM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: WOBM5 \nTime: 23:30 UTC \nTemp: 77F \nDew Point: MF \nWind: 232@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.66919,-92.31818
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN094"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: MN094 \nTime: 23:50 UTC \nTemp: 69F \nDew Point: MF \nWind: 204@1kt"
+End:
+
+TimeRange: 2026-08-18T23:03:00Z 2026-08-18T23:18:00Z
+Object: 45.18641,-92.65029
+  Threshold: 999
+  Icon: 0,0,346,1,1
+  Text: 0, -18, 1, "SRPW3"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: SRPW3 \nTime: 23:08 UTC \nTemp: 78F \nDew Point: MF \nWind: 346@6kt"
+End:
+
+TimeRange: 2026-08-18T23:47:00Z 2026-08-19T00:02:00Z
+Object: 45.18800,-93.13250
+  Threshold: 999
+  Icon: 0,0,88,1,1
+  Text: 0, -18, 1, "F4770"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: F4770 \nTime: 23:52 UTC \nTemp: 77F \nDew Point: MF \nWind: 88@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.97867,-91.43283
+  Threshold: 999
+  Icon: 0,0,293,1,1
+  Text: 0, -18, 1, "AV494"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: AV494 \nTime: 23:50 UTC \nTemp: 69F \nDew Point: MF \nWind: 293@3kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.94683,-92.30514
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F5215"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: F5215 \nTime: 23:45 UTC \nTemp: 75F \nDew Point: MF \nWind: 304@2kt"
+End:
+
+TimeRange: 2026-08-18T23:44:00Z 2026-08-18T23:59:00Z
+Object: 45.24233,-93.32600
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F4606"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: F4606 \nTime: 23:49 UTC \nTemp: 78F \nDew Point: MF \nWind: 27@0kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 47.46750,-91.01950
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F3021"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: F3021 \nTime: 23:45 UTC \nTemp: 71F \nDew Point: MF \nWind: 338@1kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.17367,-93.16567
+  Threshold: 999
+  Icon: 0,0,0,1,1
+  Text: 0, -18, 1, "F3216"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: F3216 \nTime: 23:45 UTC \nTemp: 77F \nDew Point: MF \nWind: 0@4kt"
+End:
+
+TimeRange: 2026-08-18T23:44:00Z 2026-08-18T23:59:00Z
+Object: 46.83083,-92.04450
+  Threshold: 999
+  Icon: 0,0,269,1,1
+  Text: 0, -18, 1, "F2111"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: F2111 \nTime: 23:49 UTC \nTemp: 72F \nDew Point: MF \nWind: 269@3kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.35733,-93.59167
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F0800"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: F0800 \nTime: 23:35 UTC \nTemp: 78F \nDew Point: MF \nWind: 292@1kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.17367,-90.82150
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "E5960"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: E5960 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: MF \nWind: 256@0kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 48.41280,-92.82920
+  Threshold: 999
+  Icon: 0,0,277,1,1
+  Text: 0, -18, 1, "A3765"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: A3765 \nTime: 23:00 UTC \nTemp: 68F \nDew Point: MF \nWind: 277@5kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 46.61440,-90.69860
+  Threshold: 999
+  Icon: 0,0,340,1,1
+  Text: 0, -18, 1, "A3791"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: A3791 \nTime: 23:00 UTC \nTemp: 76F \nDew Point: MF \nWind: 340@5kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 47.58444,-92.13694
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "HOYM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "66"
+  Hover: "Station: HOYM5 \nTime: 23:00 UTC \nTemp: 66F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:46:00Z 2026-08-19T00:01:00Z
+Object: 45.24983,-93.29283
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F6349"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: F6349 \nTime: 23:51 UTC \nTemp: 77F \nDew Point: MF \nWind: 340@2kt"
+End:
+
+TimeRange: 2026-08-18T23:50:00Z 2026-08-19T00:05:00Z
+Object: 45.11820,-93.42830
+  Threshold: 999
+  Icon: 0,0,305,1,1
+  Text: 0, -18, 1, "HPN02"
+  Color: 255 100 100
+  Text: -20, -10, 1, "81"
+  Hover: "Station: HPN02 \nTime: 23:55 UTC \nTemp: 81F \nDew Point: MF \nWind: 305@4kt"
+End:
+
+TimeRange: 2026-08-18T23:54:00Z 2026-08-19T00:09:00Z
+Object: 45.16770,-93.63433
+  Threshold: 999
+  Icon: 0,0,304,1,1
+  Text: 0, -18, 1, "HPN04"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: HPN04 \nTime: 23:59 UTC \nTemp: 77F \nDew Point: MF \nWind: 304@4kt"
+End:
+
+TimeRange: 2026-08-18T23:50:00Z 2026-08-19T00:05:00Z
+Object: 45.05155,-93.56948
+  Threshold: 999
+  Icon: 0,0,275,1,1
+  Text: 0, -18, 1, "HPN05"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: HPN05 \nTime: 23:55 UTC \nTemp: 76F \nDew Point: MF \nWind: 275@3kt"
+End:
+
+TimeRange: 2026-08-18T23:50:00Z 2026-08-19T00:05:00Z
+Object: 45.09689,-93.74369
+  Threshold: 999
+  Icon: 0,0,304,1,1
+  Text: 0, -18, 1, "HPN10"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: HPN10 \nTime: 23:55 UTC \nTemp: 77F \nDew Point: MF \nWind: 304@3kt"
+End:
+
+TimeRange: 2026-08-18T23:52:00Z 2026-08-19T00:07:00Z
+Object: 45.08797,-93.69137
+  Threshold: 999
+  Icon: 0,0,316,1,1
+  Text: 0, -18, 1, "HPN19"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: HPN19 \nTime: 23:57 UTC \nTemp: 75F \nDew Point: MF \nWind: 316@4kt"
+End:
+
+TimeRange: 2026-08-18T23:53:00Z 2026-08-19T00:08:00Z
+Object: 45.04889,-93.27611
+  Threshold: 999
+  Icon: 0,0,336,1,1
+  Text: 0, -18, 1, "HPN21"
+  Color: 255 100 100
+  Text: -20, -10, 1, "79"
+  Hover: "Station: HPN21 \nTime: 23:58 UTC \nTemp: 79F \nDew Point: MF \nWind: 336@5kt"
+End:
+
+TimeRange: 2026-08-18T23:49:00Z 2026-08-19T00:04:00Z
+Object: 45.20420,-93.48487
+  Threshold: 999
+  Icon: 0,0,339,1,1
+  Text: 0, -18, 1, "HPN27"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: HPN27 \nTime: 23:54 UTC \nTemp: 77F \nDew Point: MF \nWind: 339@4kt"
+End:
+
+TimeRange: 2026-08-18T23:50:00Z 2026-08-19T00:05:00Z
+Object: 45.13550,-93.56271
+  Threshold: 999
+  Icon: 0,0,324,1,1
+  Text: 0, -18, 1, "HPN28"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: HPN28 \nTime: 23:55 UTC \nTemp: 75F \nDew Point: MF \nWind: 324@5kt"
+End:
+
+TimeRange: 2026-08-18T23:50:00Z 2026-08-19T00:05:00Z
+Object: 45.16541,-93.22459
+  Threshold: 999
+  Icon: 0,0,332,1,1
+  Text: 0, -18, 1, "HPN31"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: HPN31 \nTime: 23:55 UTC \nTemp: 78F \nDew Point: MF \nWind: 332@7kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.12783,-92.92317
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "AV643"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: AV643 \nTime: 23:50 UTC \nTemp: 76F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:43:00Z 2026-08-18T23:58:00Z
+Object: 47.74817,-90.43550
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F7348"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: F7348 \nTime: 23:48 UTC \nTemp: 70F \nDew Point: MF \nWind: 251@2kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 46.91045,-91.89241
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F9787"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: F9787 \nTime: 23:45 UTC \nTemp: 71F \nDew Point: MF \nWind: 262@0kt"
+End:
+
+TimeRange: 2026-08-18T23:41:00Z 2026-08-18T23:56:00Z
+Object: 45.17967,-89.74767
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F9209"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: F9209 \nTime: 23:46 UTC \nTemp: 77F \nDew Point: MF \nWind: 311@0kt"
+End:
+
+TimeRange: 2026-08-18T23:41:00Z 2026-08-18T23:56:00Z
+Object: 45.30050,-93.60267
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F9813"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: F9813 \nTime: 23:46 UTC \nTemp: 77F \nDew Point: MF \nWind: 198@2kt"
+End:
+
+TimeRange: 2026-08-18T23:44:00Z 2026-08-18T23:59:00Z
+Object: 46.00583,-93.18750
+  Threshold: 999
+  Icon: 0,0,1,1,1
+  Text: 0, -18, 1, "F8346"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: F8346 \nTime: 23:49 UTC \nTemp: 72F \nDew Point: MF \nWind: 1@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.24000,-91.11067
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F8343"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: F8343 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: MF \nWind: 0@2kt"
+End:
+
+TimeRange: 2026-08-18T23:44:00Z 2026-08-18T23:59:00Z
+Object: 45.09733,-91.85933
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "F7622"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: F7622 \nTime: 23:49 UTC \nTemp: 76F \nDew Point: MF \nWind: 125@0kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.36883,-90.30733
+  Threshold: 999
+  Icon: 0,0,329,1,1
+  Text: 0, -18, 1, "F9268"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: F9268 \nTime: 23:45 UTC \nTemp: 75F \nDew Point: MF \nWind: 329@3kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.76100,-94.92717
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G0418"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: G0418 \nTime: 23:45 UTC \nTemp: 74F \nDew Point: MF \nWind: 14@2kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.65460,-89.26820
+  Threshold: 999
+  Icon: 0,0,247,1,1
+  Text: 0, -18, 1, "WIRHN"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: WIRHN \nTime: 23:40 UTC \nTemp: 74F \nDew Point: MF \nWind: 247@4kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.82700,-91.86140
+  Threshold: 999
+  Icon: 0,0,191,1,1
+  Text: 0, -18, 1, "WIPNR"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: WIPNR \nTime: 23:35 UTC \nTemp: 76F \nDew Point: MF \nWind: 191@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.13533,-93.58833
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G0881"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: G0881 \nTime: 23:50 UTC \nTemp: 77F \nDew Point: MF \nWind: 250@1kt"
+End:
+
+TimeRange: 2026-08-18T23:41:00Z 2026-08-18T23:56:00Z
+Object: 45.60183,-94.19917
+  Threshold: 999
+  Icon: 0,0,277,1,1
+  Text: 0, -18, 1, "G1144"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: G1144 \nTime: 23:46 UTC \nTemp: 76F \nDew Point: MF \nWind: 277@3kt"
+End:
+
+TimeRange: 2026-08-18T23:43:00Z 2026-08-18T23:58:00Z
+Object: 45.58333,-92.97333
+  Threshold: 999
+  Icon: 0,0,3,1,1
+  Text: 0, -18, 1, "G1685"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: G1685 \nTime: 23:48 UTC \nTemp: 76F \nDew Point: MF \nWind: 3@4kt"
+End:
+
+TimeRange: 2026-08-18T23:46:00Z 2026-08-19T00:01:00Z
+Object: 45.24483,-93.29783
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G1821"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: G1821 \nTime: 23:51 UTC \nTemp: 78F \nDew Point: MF \nWind: 346@2kt"
+End:
+
+TimeRange: 2026-08-18T23:46:00Z 2026-08-19T00:01:00Z
+Object: 45.03917,-93.42733
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G1985"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: G1985 \nTime: 23:51 UTC \nTemp: 78F \nDew Point: MF \nWind: 211@1kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.33417,-94.74350
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G2011"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: G2011 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 48.89451,-94.56026
+  Threshold: 999
+  Icon: 0,0,292,1,1
+  Text: 0, -18, 1, "MN116"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: MN116 \nTime: 23:50 UTC \nTemp: 69F \nDew Point: MF \nWind: 292@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.34667,-93.23731
+  Threshold: 999
+  Icon: 0,0,338,1,1
+  Text: 0, -18, 1, "MN140"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: MN140 \nTime: 23:50 UTC \nTemp: 76F \nDew Point: MF \nWind: 338@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.13905,-94.81176
+  Threshold: 999
+  Icon: 0,0,323,1,2
+  Text: 0, -18, 1, "MN159"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: MN159 \nTime: 23:50 UTC \nTemp: 72F \nDew Point: MF \nWind: 323@8kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.03545,-93.76607
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN161"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: MN161 \nTime: 23:50 UTC \nTemp: 78F \nDew Point: MF \nWind: 158@1kt"
+End:
+
+TimeRange: 2026-08-18T23:50:00Z 2026-08-19T00:05:00Z
+Object: 45.03149,-93.30293
+  Threshold: 999
+  Icon: 0,0,318,1,2
+  Text: 0, -18, 1, "HPN42"
+  Color: 255 100 100
+  Text: -20, -10, 1, "79"
+  Hover: "Station: HPN42 \nTime: 23:55 UTC \nTemp: 79F \nDew Point: MF \nWind: 318@8kt"
+End:
+
+TimeRange: 2026-08-18T23:46:00Z 2026-08-19T00:01:00Z
+Object: 45.12100,-93.46967
+  Threshold: 999
+  Icon: 0,0,289,1,1
+  Text: 0, -18, 1, "AW002"
+  Color: 255 100 100
+  Text: -20, -10, 1, "79"
+  Hover: "Station: AW002 \nTime: 23:51 UTC \nTemp: 79F \nDew Point: MF \nWind: 289@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.06050,-93.19467
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G2419"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: G2419 \nTime: 23:50 UTC \nTemp: 78F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.22950,-91.99917
+  Threshold: 999
+  Icon: 0,0,336,1,1
+  Text: 0, -18, 1, "G2517"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: G2517 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: MF \nWind: 336@3kt"
+End:
+
+TimeRange: 2026-08-18T23:41:00Z 2026-08-18T23:56:00Z
+Object: 45.05805,-93.00797
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G2560"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: G2560 \nTime: 23:46 UTC \nTemp: 78F \nDew Point: MF \nWind: 322@1kt"
+End:
+
+TimeRange: 2026-08-18T23:44:00Z 2026-08-18T23:59:00Z
+Object: 47.28700,-92.54783
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G2884"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: G2884 \nTime: 23:49 UTC \nTemp: 68F \nDew Point: MF \nWind: 209@1kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 48.14389,-90.87472
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G2943"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: G2943 \nTime: 23:45 UTC \nTemp: 69F \nDew Point: MF \nWind: 291@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.58537,-93.67510
+  Threshold: 999
+  Icon: 0,0,271,1,1
+  Text: 0, -18, 1, "MN100"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: MN100 \nTime: 23:50 UTC \nTemp: 67F \nDew Point: MF \nWind: 271@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.64414,-93.07975
+  Threshold: 999
+  Icon: 0,0,43,1,1
+  Text: 0, -18, 1, "MN101"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: MN101 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: MF \nWind: 43@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.87305,-92.86100
+  Threshold: 999
+  Icon: 0,0,254,1,1
+  Text: 0, -18, 1, "MN103"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: MN103 \nTime: 23:50 UTC \nTemp: 68F \nDew Point: MF \nWind: 254@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.29679,-93.70241
+  Threshold: 999
+  Icon: 0,0,274,1,1
+  Text: 0, -18, 1, "MN105"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: MN105 \nTime: 23:50 UTC \nTemp: 67F \nDew Point: MF \nWind: 274@7kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.89174,-92.77429
+  Threshold: 999
+  Icon: 0,0,359,1,1
+  Text: 0, -18, 1, "MN106"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: MN106 \nTime: 23:50 UTC \nTemp: 67F \nDew Point: MF \nWind: 359@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.61226,-93.19428
+  Threshold: 999
+  Icon: 0,0,300,1,1
+  Text: 0, -18, 1, "MN108"
+  Color: 255 100 100
+  Text: -20, -10, 1, "66"
+  Hover: "Station: MN108 \nTime: 23:50 UTC \nTemp: 66F \nDew Point: MF \nWind: 300@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.11394,-94.91677
+  Threshold: 999
+  Icon: 0,0,42,1,1
+  Text: 0, -18, 1, "MN121"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: MN121 \nTime: 23:50 UTC \nTemp: 72F \nDew Point: MF \nWind: 42@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.05282,-94.21450
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN122"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: MN122 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: MF \nWind: 13@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.34349,-94.64286
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN124"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: MN124 \nTime: 23:50 UTC \nTemp: 72F \nDew Point: MF \nWind: 268@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.45101,-94.48595
+  Threshold: 999
+  Icon: 0,0,322,1,1
+  Text: 0, -18, 1, "MN125"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: MN125 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: MF \nWind: 322@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.11800,-93.43246
+  Threshold: 999
+  Icon: 0,0,40,1,1
+  Text: 0, -18, 1, "MN127"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: MN127 \nTime: 23:50 UTC \nTemp: 72F \nDew Point: MF \nWind: 40@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.78296,-93.61336
+  Threshold: 999
+  Icon: 0,0,16,1,1
+  Text: 0, -18, 1, "MN128"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: MN128 \nTime: 23:50 UTC \nTemp: 69F \nDew Point: MF \nWind: 16@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.43485,-93.74377
+  Threshold: 999
+  Icon: 0,0,4,1,1
+  Text: 0, -18, 1, "MN129"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: MN129 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: MF \nWind: 4@5kt"
+End:
+
+TimeRange: 2026-08-18T23:43:00Z 2026-08-18T23:58:00Z
+Object: 47.24283,-93.53083
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G3598"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: G3598 \nTime: 23:48 UTC \nTemp: 69F \nDew Point: MF \nWind: 103@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.52985,-93.18539
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G3623"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: G3623 \nTime: 23:50 UTC \nTemp: 67F \nDew Point: MF \nWind: 285@0kt"
+End:
+
+TimeRange: 2026-08-18T23:41:00Z 2026-08-18T23:56:00Z
+Object: 45.91333,-94.37683
+  Threshold: 999
+  Icon: 0,0,319,1,1
+  Text: 0, -18, 1, "G3631"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: G3631 \nTime: 23:46 UTC \nTemp: 73F \nDew Point: MF \nWind: 319@3kt"
+End:
+
+TimeRange: 2026-08-18T23:25:00Z 2026-08-18T23:40:00Z
+Object: 47.59139,-92.07444
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "WYMM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "66"
+  Hover: "Station: WYMM5 \nTime: 23:30 UTC \nTemp: 66F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.45278,-92.73010
+  Threshold: 999
+  Icon: 0,0,298,1,1
+  Text: 0, -18, 1, "MN163"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: MN163 \nTime: 23:50 UTC \nTemp: 71F \nDew Point: MF \nWind: 298@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.55337,-93.58489
+  Threshold: 999
+  Icon: 0,0,350,1,1
+  Text: 0, -18, 1, "MN164"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: MN164 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: MF \nWind: 350@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.54443,-90.89590
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN165"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: MN165 \nTime: 23:50 UTC \nTemp: 72F \nDew Point: MF \nWind: 285@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.75836,-90.31386
+  Threshold: 999
+  Icon: 0,0,249,1,1
+  Text: 0, -18, 1, "MN166"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: MN166 \nTime: 23:50 UTC \nTemp: 72F \nDew Point: MF \nWind: 249@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.52462,-94.29614
+  Threshold: 999
+  Icon: 0,0,8,1,1
+  Text: 0, -18, 1, "MN170"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: MN170 \nTime: 23:50 UTC \nTemp: 72F \nDew Point: MF \nWind: 8@7kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.77138,-92.13752
+  Threshold: 999
+  Icon: 0,0,333,1,1
+  Text: 0, -18, 1, "MN171"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: MN171 \nTime: 23:50 UTC \nTemp: 72F \nDew Point: MF \nWind: 333@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.80367,-92.12733
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "AW294"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: AW294 \nTime: 23:50 UTC \nTemp: 69F \nDew Point: MF \nWind: 279@1kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.67724,-91.61768
+  Threshold: 999
+  Icon: 0,0,322,1,1
+  Text: 0, -18, 1, "MN172"
+  Color: 255 100 100
+  Text: -20, -10, 1, "66"
+  Hover: "Station: MN172 \nTime: 23:50 UTC \nTemp: 66F \nDew Point: MF \nWind: 322@7kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.84100,-89.66780
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "WIWDF"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: WIWDF \nTime: 23:40 UTC \nTemp: 73F \nDew Point: MF \nWind: 161@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.36383,-94.19817
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G4072"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: G4072 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: MF \nWind: 271@1kt"
+End:
+
+TimeRange: 2026-08-18T23:46:00Z 2026-08-19T00:01:00Z
+Object: 47.81733,-90.11033
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G4172"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: G4172 \nTime: 23:51 UTC \nTemp: 70F \nDew Point: MF \nWind: 317@1kt"
+End:
+
+TimeRange: 2026-08-18T23:44:00Z 2026-08-18T23:59:00Z
+Object: 45.03750,-90.33667
+  Threshold: 999
+  Icon: 0,0,248,1,1
+  Text: 0, -18, 1, "G4269"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: G4269 \nTime: 23:49 UTC \nTemp: 76F \nDew Point: MF \nWind: 248@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.18817,-93.36800
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "AW473"
+  Color: 255 100 100
+  Text: -20, -10, 1, "79"
+  Hover: "Station: AW473 \nTime: 23:50 UTC \nTemp: 79F \nDew Point: MF \nWind: 270@0kt"
+End:
+
+TimeRange: 2026-08-18T23:49:00Z 2026-08-19T00:04:00Z
+Object: 45.04616,-93.78015
+  Threshold: 999
+  Icon: 0,0,321,1,1
+  Text: 0, -18, 1, "HPN44"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: HPN44 \nTime: 23:54 UTC \nTemp: 77F \nDew Point: MF \nWind: 321@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.10900,-93.20733
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G4623"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: G4623 \nTime: 23:50 UTC \nTemp: 77F \nDew Point: MF \nWind: 313@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.39900,-93.08300
+  Threshold: 999
+  Icon: 0,0,273,1,1
+  Text: 0, -18, 1, "G4684"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: G4684 \nTime: 23:50 UTC \nTemp: 67F \nDew Point: MF \nWind: 273@7kt"
+End:
+
+TimeRange: 2026-08-18T23:47:00Z 2026-08-19T00:02:00Z
+Object: 45.01000,-93.00000
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G3906"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Hover: "Station: G3906 \nTime: 23:52 UTC \nTemp: 78F \nDew Point: MF \nWind: 338@2kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 47.33500,-89.79300
+  Threshold: 999
+  Icon: 0,0,230,1,2
+  Text: 0, -18, 1, "NDBC45006"
+  Color: 255 100 100
+  Text: -20, -10, 1, "63"
+  Color: 255 255 255
+  Text: 20, -10, 1, "200"
+  Hover: "Station: NDBC45006 \nTime: 23:00 UTC \nTemp: 63F \nDew Point: MF \nWind: 230@10kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 47.74900,-90.34100
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "NDBCGDMM5"
+  Color: 255 100 100
+  Text: -20, -10, 1, "65"
+  Color: 255 255 255
+  Text: 20, -10, 1, "100"
+  Hover: "Station: NDBCGDMM5 \nTime: 23:00 UTC \nTemp: 65F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T22:51:00Z 2026-08-18T23:06:00Z
+Object: 47.74500,-90.34600
+  Threshold: 999
+  Icon: 0,0,240,1,1
+  Text: 0, -18, 1, "NDBCKGNA"
+  Color: 255 100 100
+  Text: -20, -10, 1, "62"
+  Color: 100 255 100
+  Text: -20, 10, 1, "52"
+  Color: 255 255 255
+  Text: 20, -10, 1, "000"
+  Hover: "Station: NDBCKGNA \nTime: 22:56 UTC \nTemp: 62F \nDew Point: 52F \nWind: 240@5kt"
+End:
+
+TimeRange: 2026-08-18T22:55:00Z 2026-08-18T23:10:00Z
+Object: 47.86700,-89.31500
+  Threshold: 999
+  Icon: 0,0,240,1,4
+  Text: 0, -18, 1, "NDBCROAM4"
+  Color: 255 100 100
+  Text: -20, -10, 1, "60"
+  Hover: "Station: NDBCROAM4 \nTime: 23:00 UTC \nTemp: 60F \nDew Point: MF \nWind: 240@20kt"
+End:
+
+TimeRange: 2026-08-18T23:42:00Z 2026-08-18T23:57:00Z
+Object: 45.28817,-92.92483
+  Threshold: 999
+  Icon: 0,0,296,1,1
+  Text: 0, -18, 1, "G4911"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: G4911 \nTime: 23:47 UTC \nTemp: 75F \nDew Point: MF \nWind: 296@3kt"
+End:
+
+TimeRange: 2026-08-18T23:43:00Z 2026-08-18T23:58:00Z
+Object: 46.16567,-90.62300
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G5101"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: G5101 \nTime: 23:48 UTC \nTemp: 69F \nDew Point: MF \nWind: 289@2kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.28580,-92.32130
+  Threshold: 999
+  Icon: 0,0,270,1,1
+  Text: 0, -18, 1, "WICLK"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: WICLK \nTime: 23:35 UTC \nTemp: 75F \nDew Point: MF \nWind: 270@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.28900,-90.43600
+  Threshold: 999
+  Icon: 0,0,219,1,1
+  Text: 0, -18, 1, "WIKGT"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: WIKGT \nTime: 23:35 UTC \nTemp: 70F \nDew Point: MF \nWind: 219@5kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 46.07600,-89.83830
+  Threshold: 999
+  Icon: 0,0,309,1,1
+  Text: 0, -18, 1, "WIMNW"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: WIMNW \nTime: 23:35 UTC \nTemp: 70F \nDew Point: MF \nWind: 309@7kt"
+End:
+
+TimeRange: 2026-08-18T23:43:00Z 2026-08-18T23:58:00Z
+Object: 45.98933,-94.35467
+  Threshold: 999
+  Icon: 0,0,290,1,1
+  Text: 0, -18, 1, "AW735"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: AW735 \nTime: 23:48 UTC \nTemp: 74F \nDew Point: MF \nWind: 290@5kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.03200,-91.20000
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "WIRTR"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: WIRTR \nTime: 23:40 UTC \nTemp: 77F \nDew Point: MF \nWind: 298@2kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.15890,-89.11780
+  Threshold: 999
+  Icon: 0,0,282,1,1
+  Text: 0, -18, 1, "WIANT"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: WIANT \nTime: 23:40 UTC \nTemp: 76F \nDew Point: MF \nWind: 282@7kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 46.63270,-91.68120
+  Threshold: 999
+  Icon: 0,0,308,1,1
+  Text: 0, -18, 1, "WIMPL"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: WIMPL \nTime: 23:40 UTC \nTemp: 72F \nDew Point: MF \nWind: 308@6kt"
+End:
+
+TimeRange: 2026-08-18T23:27:00Z 2026-08-18T23:42:00Z
+Object: 47.40000,-92.90000
+  Threshold: 999
+  Icon: 0,0,290,1,2
+  Text: 0, -18, 1, "NGB48"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: NGB48 \nTime: 23:32 UTC \nTemp: 69F \nDew Point: MF \nWind: 290@10kt"
+End:
+
+TimeRange: 2026-08-18T23:13:00Z 2026-08-18T23:28:00Z
+Object: 47.80111,-90.95361
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "TT904"
+  Color: 255 100 100
+  Text: -20, -10, 1, "67"
+  Hover: "Station: TT904 \nTime: 23:18 UTC \nTemp: 67F \nDew Point: MF \nWind: 313@2kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 46.98967,-92.20983
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G5531"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: G5531 \nTime: 23:45 UTC \nTemp: 70F \nDew Point: MF \nWind: 270@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.21617,-93.52317
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G5622"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: G5622 \nTime: 23:50 UTC \nTemp: 69F \nDew Point: MF \nWind: 304@1kt"
+End:
+
+TimeRange: 2026-08-18T23:43:00Z 2026-08-18T23:58:00Z
+Object: 45.61030,-92.19130
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "AW904"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: AW904 \nTime: 23:48 UTC \nTemp: 75F \nDew Point: MF \nWind: 238@1kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 46.74900,-92.25000
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G5822"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: G5822 \nTime: 23:45 UTC \nTemp: 70F \nDew Point: MF \nWind: 281@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.43452,-92.91949
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN179"
+  Color: 255 100 100
+  Text: -20, -10, 1, "17"
+  Hover: "Station: MN179 \nTime: 23:50 UTC \nTemp: 17F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.37383,-93.16837
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "MN180"
+  Color: 255 100 100
+  Text: -20, -10, 1, "12"
+  Hover: "Station: MN180 \nTime: 23:50 UTC \nTemp: 12F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.31900,-90.35500
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "WIBRO"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: WIBRO \nTime: 23:40 UTC \nTemp: 74F \nDew Point: MF \nWind: 259@2kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 46.10700,-90.80800
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "WIHGD"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: WIHGD \nTime: 23:40 UTC \nTemp: 70F \nDew Point: MF \nWind: 211@1kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.77540,-90.64310
+  Threshold: 999
+  Icon: 0,0,163,1,1
+  Text: 0, -18, 1, "WILMB"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: WILMB \nTime: 23:40 UTC \nTemp: 74F \nDew Point: MF \nWind: 163@3kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.94600,-91.09300
+  Threshold: 999
+  Icon: 0,0,301,1,1
+  Text: 0, -18, 1, "WINTR"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: WINTR \nTime: 23:40 UTC \nTemp: 74F \nDew Point: MF \nWind: 301@4kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 46.84000,-91.01400
+  Threshold: 999
+  Icon: 0,0,305,1,1
+  Text: 0, -18, 1, "WIFYD"
+  Color: 255 100 100
+  Text: -20, -10, 1, "71"
+  Hover: "Station: WIFYD \nTime: 23:40 UTC \nTemp: 71F \nDew Point: MF \nWind: 305@4kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 45.93850,-90.41350
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G6407"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Hover: "Station: G6407 \nTime: 23:45 UTC \nTemp: 72F \nDew Point: MF \nWind: 316@2kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.08500,-91.91900
+  Threshold: 999
+  Icon: 0,0,299,1,1
+  Text: 0, -18, 1, "WIHRV"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Hover: "Station: WIHRV \nTime: 23:40 UTC \nTemp: 77F \nDew Point: MF \nWind: 299@6kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.52300,-91.84500
+  Threshold: 999
+  Icon: 0,0,311,1,1
+  Text: 0, -18, 1, "WILKE"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: WILKE \nTime: 23:35 UTC \nTemp: 74F \nDew Point: MF \nWind: 311@7kt"
+End:
+
+TimeRange: 2026-08-18T23:30:00Z 2026-08-18T23:45:00Z
+Object: 45.88500,-92.60900
+  Threshold: 999
+  Icon: 0,0,320,1,1
+  Text: 0, -18, 1, "WIREX"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Hover: "Station: WIREX \nTime: 23:35 UTC \nTemp: 75F \nDew Point: MF \nWind: 320@7kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.30200,-89.50400
+  Threshold: 999
+  Icon: 0,0,267,1,1
+  Text: 0, -18, 1, "WIGLS"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Hover: "Station: WIGLS \nTime: 23:40 UTC \nTemp: 76F \nDew Point: MF \nWind: 267@5kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.50800,-91.46000
+  Threshold: 999
+  Icon: 0,0,314,1,1
+  Text: 0, -18, 1, "WIWKS"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: WIWKS \nTime: 23:40 UTC \nTemp: 73F \nDew Point: MF \nWind: 314@4kt"
+End:
+
+TimeRange: 2026-08-18T23:43:00Z 2026-08-18T23:58:00Z
+Object: 45.05367,-93.38333
+  Threshold: 999
+  Icon: 0,0,352,1,1
+  Text: 0, -18, 1, "G6618"
+  Color: 255 100 100
+  Text: -20, -10, 1, "80"
+  Hover: "Station: G6618 \nTime: 23:48 UTC \nTemp: 80F \nDew Point: MF \nWind: 352@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.00029,-93.69761
+  Threshold: 999
+  Icon: 0,0,321,1,1
+  Text: 0, -18, 1, "XL065"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "59"
+  Hover: "Station: XL065 \nTime: 23:50 UTC \nTemp: 76F \nDew Point: 59F \nWind: 321@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.03428,-93.50762
+  Threshold: 999
+  Icon: 0,0,288,1,1
+  Text: 0, -18, 1, "XL070"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Color: 100 255 100
+  Text: -20, 10, 1, "59"
+  Hover: "Station: XL070 \nTime: 23:50 UTC \nTemp: 78F \nDew Point: 59F \nWind: 288@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.65063,-94.68983
+  Threshold: 999
+  Icon: 0,0,306,1,1
+  Text: 0, -18, 1, "XL036"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "52"
+  Hover: "Station: XL036 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 52F \nWind: 306@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.66248,-93.94121
+  Threshold: 999
+  Icon: 0,0,315,1,1
+  Text: 0, -18, 1, "XL035"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "54"
+  Hover: "Station: XL035 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 54F \nWind: 315@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.13835,-93.49922
+  Threshold: 999
+  Icon: 0,0,321,1,1
+  Text: 0, -18, 1, "XL038"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: XL038 \nTime: 23:50 UTC \nTemp: 78F \nDew Point: 57F \nWind: 321@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.15171,-93.72772
+  Threshold: 999
+  Icon: 0,0,338,1,1
+  Text: 0, -18, 1, "XL039"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: XL039 \nTime: 23:50 UTC \nTemp: 76F \nDew Point: 57F \nWind: 338@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.28920,-92.85247
+  Threshold: 999
+  Icon: 0,0,354,1,1
+  Text: 0, -18, 1, "XL042"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "59"
+  Hover: "Station: XL042 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 59F \nWind: 354@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.27792,-94.92911
+  Threshold: 999
+  Icon: 0,0,297,1,2
+  Text: 0, -18, 1, "XL044"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "52"
+  Hover: "Station: XL044 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 52F \nWind: 297@8kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.51013,-94.21650
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL033"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: XL033 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 57F \nWind: 296@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.08407,-92.91749
+  Threshold: 999
+  Icon: 0,0,323,1,1
+  Text: 0, -18, 1, "XL052"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: XL052 \nTime: 23:50 UTC \nTemp: 77F \nDew Point: 57F \nWind: 323@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.09438,-93.65591
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL054"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Color: 100 255 100
+  Text: -20, 10, 1, "56"
+  Hover: "Station: XL054 \nTime: 23:50 UTC \nTemp: 77F \nDew Point: 56F \nWind: 301@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.03665,-93.86865
+  Threshold: 999
+  Icon: 0,0,283,1,1
+  Text: 0, -18, 1, "XL055"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "60"
+  Hover: "Station: XL055 \nTime: 23:50 UTC \nTemp: 76F \nDew Point: 60F \nWind: 283@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.20410,-93.48771
+  Threshold: 999
+  Icon: 0,0,329,1,1
+  Text: 0, -18, 1, "XL062"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Color: 100 255 100
+  Text: -20, 10, 1, "56"
+  Hover: "Station: XL062 \nTime: 23:50 UTC \nTemp: 77F \nDew Point: 56F \nWind: 329@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.19556,-92.88340
+  Threshold: 999
+  Icon: 0,0,340,1,1
+  Text: 0, -18, 1, "XL034"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "58"
+  Hover: "Station: XL034 \nTime: 23:50 UTC \nTemp: 76F \nDew Point: 58F \nWind: 340@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.46991,-92.75256
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL027"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: XL027 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 57F \nWind: 349@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.37568,-92.96018
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL028"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "59"
+  Hover: "Station: XL028 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: 59F \nWind: 21@1kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.40054,-93.90001
+  Threshold: 999
+  Icon: 0,0,328,1,1
+  Text: 0, -18, 1, "XL029"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "56"
+  Hover: "Station: XL029 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: 56F \nWind: 328@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.23805,-93.70696
+  Threshold: 999
+  Icon: 0,0,312,1,1
+  Text: 0, -18, 1, "XL030"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "58"
+  Hover: "Station: XL030 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: 58F \nWind: 312@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.68842,-94.21026
+  Threshold: 999
+  Icon: 0,0,304,1,1
+  Text: 0, -18, 1, "XL032"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "54"
+  Hover: "Station: XL032 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 54F \nWind: 304@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 47.15550,-93.58533
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "AX289"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Hover: "Station: AX289 \nTime: 23:50 UTC \nTemp: 68F \nDew Point: MF \nWind: 261@0kt"
+End:
+
+TimeRange: 2026-08-18T23:42:00Z 2026-08-18T23:57:00Z
+Object: 45.02833,-92.79217
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G7024"
+  Color: 255 100 100
+  Text: -20, -10, 1, "81"
+  Hover: "Station: G7024 \nTime: 23:47 UTC \nTemp: 81F \nDew Point: MF \nWind: 198@1kt"
+End:
+
+TimeRange: 2026-08-18T23:40:00Z 2026-08-18T23:55:00Z
+Object: 46.77900,-92.09067
+  Threshold: 999
+  Icon: 0,0,267,1,1
+  Text: 0, -18, 1, "G7141"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: G7141 \nTime: 23:45 UTC \nTemp: 73F \nDew Point: MF \nWind: 267@7kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.33956,-93.00549
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL509"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "61"
+  Hover: "Station: XL509 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: 61F \nWind: 359@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.39504,-92.99879
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL515"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "58"
+  Hover: "Station: XL515 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: 58F \nWind: 347@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.16689,-93.62168
+  Threshold: 999
+  Icon: 0,0,305,1,2
+  Text: 0, -18, 1, "XL516"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "56"
+  Hover: "Station: XL516 \nTime: 23:50 UTC \nTemp: 76F \nDew Point: 56F \nWind: 305@8kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.17402,-93.54209
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL518"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Color: 100 255 100
+  Text: -20, 10, 1, "55"
+  Hover: "Station: XL518 \nTime: 23:50 UTC \nTemp: 77F \nDew Point: 55F \nWind: 337@1kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.25941,-93.85136
+  Threshold: 999
+  Icon: 0,0,306,1,1
+  Text: 0, -18, 1, "XL508"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "58"
+  Hover: "Station: XL508 \nTime: 23:50 UTC \nTemp: 76F \nDew Point: 58F \nWind: 306@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.61971,-94.59078
+  Threshold: 999
+  Icon: 0,0,305,1,1
+  Text: 0, -18, 1, "XL520"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "56"
+  Hover: "Station: XL520 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 56F \nWind: 305@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.47176,-94.34126
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL503"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "56"
+  Hover: "Station: XL503 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 56F \nWind: 330@1kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.63683,-94.49802
+  Threshold: 999
+  Icon: 0,0,305,1,1
+  Text: 0, -18, 1, "XL521"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: XL521 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 57F \nWind: 305@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.73315,-94.52260
+  Threshold: 999
+  Icon: 0,0,323,1,1
+  Text: 0, -18, 1, "XL583"
+  Color: 255 100 100
+  Text: -20, -10, 1, "72"
+  Color: 100 255 100
+  Text: -20, 10, 1, "55"
+  Hover: "Station: XL583 \nTime: 23:50 UTC \nTemp: 72F \nDew Point: 55F \nWind: 323@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.20268,-93.68986
+  Threshold: 999
+  Icon: 0,0,320,1,1
+  Text: 0, -18, 1, "XL501"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: XL501 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: 57F \nWind: 320@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.34397,-93.82302
+  Threshold: 999
+  Icon: 0,0,350,1,2
+  Text: 0, -18, 1, "XL502"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "55"
+  Hover: "Station: XL502 \nTime: 23:50 UTC \nTemp: 76F \nDew Point: 55F \nWind: 350@8kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.61823,-94.07323
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL505"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "56"
+  Hover: "Station: XL505 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 56F \nWind: 298@2kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.47189,-94.09710
+  Threshold: 999
+  Icon: 0,0,342,1,1
+  Text: 0, -18, 1, "XL587"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "55"
+  Hover: "Station: XL587 \nTime: 23:40 UTC \nTemp: 75F \nDew Point: 55F \nWind: 342@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.08688,-93.90539
+  Threshold: 999
+  Icon: 0,0,339,1,1
+  Text: 0, -18, 1, "XL499"
+  Color: 255 100 100
+  Text: -20, -10, 1, "76"
+  Color: 100 255 100
+  Text: -20, 10, 1, "58"
+  Hover: "Station: XL499 \nTime: 23:50 UTC \nTemp: 76F \nDew Point: 58F \nWind: 339@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.18248,-93.82686
+  Threshold: 999
+  Icon: 0,0,306,1,1
+  Text: 0, -18, 1, "XL504"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Color: 100 255 100
+  Text: -20, 10, 1, "55"
+  Hover: "Station: XL504 \nTime: 23:50 UTC \nTemp: 77F \nDew Point: 55F \nWind: 306@5kt"
+End:
+
+TimeRange: 2026-08-18T23:44:00Z 2026-08-18T23:59:00Z
+Object: 49.45400,-94.03733
+  Threshold: 999
+  Icon: 0,0,325,1,1
+  Text: 0, -18, 1, "G7468"
+  Color: 255 100 100
+  Text: -20, -10, 1, "69"
+  Hover: "Station: G7468 \nTime: 23:49 UTC \nTemp: 69F \nDew Point: MF \nWind: 325@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.49268,-92.83208
+  Threshold: 999
+  Icon: 0,0,351,1,1
+  Text: 0, -18, 1, "XL532"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "56"
+  Hover: "Station: XL532 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: 56F \nWind: 351@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.35203,-92.81611
+  Threshold: 999
+  Icon: 0,0,354,1,1
+  Text: 0, -18, 1, "XL542"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: XL542 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 57F \nWind: 354@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.36160,-92.74508
+  Threshold: 999
+  Icon: 0,0,346,1,1
+  Text: 0, -18, 1, "XL557"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: XL557 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 57F \nWind: 346@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.42161,-92.80588
+  Threshold: 999
+  Icon: 0,0,351,1,1
+  Text: 0, -18, 1, "XL559"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: XL559 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 57F \nWind: 351@5kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 45.39803,-92.64215
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL524"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "56"
+  Hover: "Station: XL524 \nTime: 23:40 UTC \nTemp: 74F \nDew Point: 56F \nWind: 289@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.54506,-92.78543
+  Threshold: 999
+  Icon: 0,0,350,1,1
+  Text: 0, -18, 1, "XL552"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "55"
+  Hover: "Station: XL552 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 55F \nWind: 350@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.39919,-92.70240
+  Threshold: 999
+  Icon: 0,0,348,1,1
+  Text: 0, -18, 1, "XL553"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "57"
+  Hover: "Station: XL553 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 57F \nWind: 348@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.41921,-92.62805
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL581"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "56"
+  Hover: "Station: XL581 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 56F \nWind: 231@0kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.40077,-92.62865
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL513"
+  Color: 255 100 100
+  Text: -20, -10, 1, "75"
+  Color: 100 255 100
+  Text: -20, 10, 1, "55"
+  Hover: "Station: XL513 \nTime: 23:50 UTC \nTemp: 75F \nDew Point: 55F \nWind: 301@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.50055,-92.05221
+  Threshold: 999
+  Icon: 0,0,308,1,1
+  Text: 0, -18, 1, "XL550"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "54"
+  Hover: "Station: XL550 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 54F \nWind: 308@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.63203,-92.48940
+  Threshold: 999
+  Icon: 0,0,318,1,1
+  Text: 0, -18, 1, "XL582"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "51"
+  Hover: "Station: XL582 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 51F \nWind: 318@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.80197,-91.92865
+  Threshold: 999
+  Icon: 0,0,323,1,1
+  Text: 0, -18, 1, "XL548"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "49"
+  Hover: "Station: XL548 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 49F \nWind: 323@7kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.91018,-91.76496
+  Threshold: 999
+  Icon: 0,0,319,1,1
+  Text: 0, -18, 1, "XL547"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "48"
+  Hover: "Station: XL547 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 48F \nWind: 319@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.88266,-91.89002
+  Threshold: 999
+  Icon: 0,0,337,1,1
+  Text: 0, -18, 1, "XL564"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "49"
+  Hover: "Station: XL564 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 49F \nWind: 337@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.94817,-91.68821
+  Threshold: 999
+  Icon: 0,0,286,1,1
+  Text: 0, -18, 1, "XL576"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "48"
+  Hover: "Station: XL576 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 48F \nWind: 286@3kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 46.22458,-90.03264
+  Threshold: 999
+  Icon: 0,0,355,1,1
+  Text: 0, -18, 1, "XL588"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Color: 100 255 100
+  Text: -20, 10, 1, "47"
+  Hover: "Station: XL588 \nTime: 23:40 UTC \nTemp: 68F \nDew Point: 47F \nWind: 355@4kt"
+End:
+
+TimeRange: 2026-08-18T23:35:00Z 2026-08-18T23:50:00Z
+Object: 46.25361,-89.70544
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL525"
+  Color: 255 100 100
+  Text: -20, -10, 1, "66"
+  Color: 100 255 100
+  Text: -20, 10, 1, "49"
+  Hover: "Station: XL525 \nTime: 23:40 UTC \nTemp: 66F \nDew Point: 49F \nWind: 221@1kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.12410,-89.87214
+  Threshold: 999
+  Icon: 0,0,270,1,1
+  Text: 0, -18, 1, "XL585"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Color: 100 255 100
+  Text: -20, 10, 1, "49"
+  Hover: "Station: XL585 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: 49F \nWind: 270@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.07329,-89.79015
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL589"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Color: 100 255 100
+  Text: -20, 10, 1, "49"
+  Hover: "Station: XL589 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: 49F \nWind: 315@1kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.89972,-91.86217
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL563"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Color: 100 255 100
+  Text: -20, 10, 1, "48"
+  Hover: "Station: XL563 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: 48F \nWind: 310@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.75328,-91.87243
+  Threshold: 999
+  Icon: 0,0,327,1,1
+  Text: 0, -18, 1, "XL544"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "50"
+  Hover: "Station: XL544 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 50F \nWind: 327@7kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.58398,-92.44723
+  Threshold: 999
+  Icon: 0,0,328,1,1
+  Text: 0, -18, 1, "XL565"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "52"
+  Hover: "Station: XL565 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 52F \nWind: 328@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.01388,-93.78596
+  Threshold: 999
+  Icon: 0,0,303,1,1
+  Text: 0, -18, 1, "XL533"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Color: 100 255 100
+  Text: -20, 10, 1, "58"
+  Hover: "Station: XL533 \nTime: 23:50 UTC \nTemp: 77F \nDew Point: 58F \nWind: 303@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.13674,-90.01829
+  Threshold: 999
+  Icon: 0,0,9,1,1
+  Text: 0, -18, 1, "XL566"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Color: 100 255 100
+  Text: -20, 10, 1, "49"
+  Hover: "Station: XL566 \nTime: 23:50 UTC \nTemp: 68F \nDew Point: 49F \nWind: 9@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.21907,-89.89537
+  Threshold: 999
+  Icon: 0,0,298,1,1
+  Text: 0, -18, 1, "XL592"
+  Color: 255 100 100
+  Text: -20, -10, 1, "68"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: XL592 \nTime: 23:50 UTC \nTemp: 68F \nDew Point: 46F \nWind: 298@3kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.10083,-93.51206
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "XL528"
+  Color: 255 100 100
+  Text: -20, -10, 1, "77"
+  Color: 100 255 100
+  Text: -20, 10, 1, "59"
+  Hover: "Station: XL528 \nTime: 23:50 UTC \nTemp: 77F \nDew Point: 59F \nWind: 310@1kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.23149,-93.53299
+  Threshold: 999
+  Icon: 0,0,315,1,1
+  Text: 0, -18, 1, "XL562"
+  Color: 255 100 100
+  Text: -20, -10, 1, "78"
+  Color: 100 255 100
+  Text: -20, 10, 1, "55"
+  Hover: "Station: XL562 \nTime: 23:50 UTC \nTemp: 78F \nDew Point: 55F \nWind: 315@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.65684,-94.55199
+  Threshold: 999
+  Icon: 0,0,319,1,1
+  Text: 0, -18, 1, "XL555"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "55"
+  Hover: "Station: XL555 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 55F \nWind: 319@6kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.68276,-91.99504
+  Threshold: 999
+  Icon: 0,0,312,1,1
+  Text: 0, -18, 1, "XL543"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Color: 100 255 100
+  Text: -20, 10, 1, "50"
+  Hover: "Station: XL543 \nTime: 23:50 UTC \nTemp: 73F \nDew Point: 50F \nWind: 312@4kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.11872,-90.17965
+  Threshold: 999
+  Icon: 0,0,305,1,1
+  Text: 0, -18, 1, "XL568"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Color: 100 255 100
+  Text: -20, 10, 1, "46"
+  Hover: "Station: XL568 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: 46F \nWind: 305@5kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 46.13550,-93.57900
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G7701"
+  Color: 255 100 100
+  Text: -20, -10, 1, "74"
+  Hover: "Station: G7701 \nTime: 23:50 UTC \nTemp: 74F \nDew Point: MF \nWind: 352@2kt"
+End:
+
+TimeRange: 2026-08-18T23:45:00Z 2026-08-19T00:00:00Z
+Object: 45.45067,-90.19517
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G7803"
+  Color: 255 100 100
+  Text: -20, -10, 1, "70"
+  Hover: "Station: G7803 \nTime: 23:50 UTC \nTemp: 70F \nDew Point: MF \nWind: 0@0kt"
+End:
+
+TimeRange: 2026-08-18T23:41:00Z 2026-08-18T23:56:00Z
+Object: 46.54083,-90.70633
+  Threshold: 999
+  Icon: 0,0,0,2,1
+  Text: 0, -18, 1, "G7756"
+  Color: 255 100 100
+  Text: -20, -10, 1, "73"
+  Hover: "Station: G7756 \nTime: 23:46 UTC \nTemp: 73F \nDew Point: MF \nWind: 339@0kt"
+End:
 
