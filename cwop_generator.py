@@ -8,12 +8,16 @@ def fetch_weather_data(token, bbox):
     """Fetches real-time weather stations timeseries data from Synoptic API."""
     print("Initializing dynamic telemetry download routine from Synoptic Networks...")
     
-    # Calculate an absolute UTC time window for the last 2 hours
+    # CRUCIAL CHECK: Catch if the script is trying to run using the fallback string
+    if token == "demotoken":
+        print("\n❌ CRITICAL STOP: The script is using 'demotoken'. GitHub secrets are not being read!")
+        sys.exit(1)
+        
     now = datetime.datetime.now(pytz.utc)
     start_time = (now - datetime.timedelta(hours=2)).strftime("%Y%m%d%H%M")
     end_time = now.strftime("%Y%m%d%H%M")
     
-    url = "https://synopticdata.com"
+    url = "https://api.synopticdata.com/v2/stations/timeseries"
     params = {
         "token": token,
         "bbox": bbox,
@@ -27,17 +31,14 @@ def fetch_weather_data(token, bbox):
     try:
         response = requests.get(url, params=params, timeout=25)
         
-        # DEBUG LOG: Check exactly what the server returned before trying to parse JSON
-        if response.status_code != 200:
-            print(f"\n❌ API Server Error! Status Code: {response.status_code}")
-            print(f"👉 Raw Server Response Text:\n{response.text}\n")
+        # FIREWALL REDIRECT DETECTOR: Catch if the server returned HTML text instead of JSON
+        if "html" in response.text.lower() or "<!doctype" in response.text.lower():
+            print("\n❌ CRITICAL SECURITY ERROR: Synoptic rejected your API Token and redirected you to their homepage HTML.")
+            print("👉 Action Required: Re-verify that your API token is active and valid in your Synoptic Data developer panel.")
             sys.exit(1)
             
+        response.raise_for_status()
         return response.json()
-    except requests.exceptions.JSONDecodeError:
-        print("\n❌ Failed to parse response as JSON. The server likely returned plain text.")
-        print(f"👉 Raw Server Response Text:\n{response.text}\n")
-        sys.exit(1)
     except Exception as e:
         print(f"\n❌ Network processing exception during API fetch: {e}")
         sys.exit(1)
