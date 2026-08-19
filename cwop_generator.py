@@ -58,28 +58,29 @@ def main():
     station_count = 0
     
     with open(output_file_path, "w", encoding="utf-8") as f:
-        # 🔗 THE AUTHORITATIVE NATIVE SPECS CORRECTION:
-        # 1. Capitalized 'IconFile:' header command explicitly.
-        # 2. Removed the comma immediately following the slot index number 1.
+        # 1. Global Document Parameters
         f.write("Title: Regional CWOP Observations Loop\n")
         f.write("Refresh: 5\n")
-        f.write('IconFile: 1 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
+        
+        # 2. Global Asset Definition (No trailing colons or broken commas)
+        f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
+        
+        # 3. GLOBAL TIMEFRAME BLOCK WRAPPER
+        # Creates a unified timeframe that spans the entire dataset block
+        start_time = dt_now - datetime.timedelta(minutes=15)
+        end_time = dt_now + datetime.timedelta(minutes=15)
+        f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n\n")
         
         for obs in stations:
-            start_time = dt_now - datetime.timedelta(minutes=15)
-            end_time = dt_now + datetime.timedelta(minutes=15)
-            time_range_str = f"{start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}"
-            
-            # Map object layers using strict indentation block hierarchies
+            # Output coordinates precisely down to 5 decimal layout locations
             f.write(f"Object: {obs['lat']:.5f},{obs['lon']:.5f}\n")
-            f.write(f"  TimeRange: {time_range_str}\n")
             f.write("  Threshold: 999\n")
             
             if obs["wdir"] is not None and obs["wkt"] >= 3:
                 barb_idx = min(max(int(round(obs["wkt"] / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{obs['wdir']},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,1,1\n") # Center point circle symbol for calm wind conditions
+                f.write("  Icon: 0,0,0,1,1\n") # Calm wind center point indicator
                 
             f.write(f'  Text: 0, -18, 1, "{obs["id"]}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{obs["temp"]}"\n')
