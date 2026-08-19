@@ -4,33 +4,40 @@ import datetime
 import requests
 import pytz
 
-def fetch_nws_cwop_data():
-    """Queries the official National Weather Service API for real-time CWOP observations."""
+def fetch_nws_radar_stations():
+    """Queries the NWS API for all weather stations monitored around the Duluth radar footprint."""
     print("Connecting directly to the public National Weather Service API...")
     
-    # The NWS API aggregates volunteer stations via the specialized 'madis' network path
+    # 🛰️ Bypasses global filters by querying the explicit KDLH radar observation cluster
     url = "https://weather.gov"
-    params = {
-        "limit": "500",
-        "state": "MN"  # Pulling Minnesota's regional cluster block natively
-    }
     
-    # The NWS API strictly requires a descriptive User-Agent naming an organization or email
+    # The NWS API strictly requires a clean, valid descriptive User-Agent header
     headers = {
         "User-Agent": "(gr2-analyst-project, weather-automation-bot@example.com)",
-        "Accept": "application/geo+json"  # Forces the server to deliver a clean GeoJSON layout
+        "Accept": "application/geo+json"
     }
     
     try:
-        response = requests.get(url, params=params, headers=headers, timeout=30)
-        response.raise_for_status()
-        return response.json()
+        response = requests.get(url, headers=headers, timeout=30)
+        
+        if response.status_code != 200:
+            print(f"\n❌ NWS Server Refusal! Status Code: {response.status_code}")
+            print(f"👉 Raw Server Notice Text: {response.text[:300]}")
+            sys.exit(1)
+            
+        try:
+            return response.json()
+        except Exception:
+            print("\n❌ CRITICAL CRASH: NWS response could not be parsed as JSON!")
+            print(f"👉 Raw Text:\n{response.text[:300]}")
+            sys.exit(1)
+            
     except Exception as e:
         print(f"❌ Failed to reach the NWS API endpoint: {e}")
         sys.exit(1)
 
 def fetch_station_latest_obs(station_url, headers):
-    """Fetches the latest single meteorological snapshot for an individual station path."""
+    """Fetches the absolute newest real-time snapshot for an individual station path."""
     try:
         obs_url = f"{station_url}/observations/latest"
         response = requests.get(obs_url, headers=headers, timeout=10)
@@ -48,7 +55,7 @@ def main():
     os.makedirs(output_directory, exist_ok=True)
     output_file_path = os.path.join(output_directory, "cwop_observations.txt")
     
-    geojson_data = fetch_nws_cwop_data()
+    geojson_data = fetch_nws_radar_stations()
     features = geojson_data.get("features", [])
     
     headers = {
@@ -59,8 +66,10 @@ def main():
     station_count = 0
     dt_now = datetime.datetime.now(pytz.utc)
     
+    print(f"Analyzing {len(features)} total radar-matrix nodes. Isolation loop starting...")
+    
     with open(output_file_path, "w", encoding="utf-8") as f:
-        # Initialize standard GR2 text headers
+        # Initialize standard GR2 text parameters
         f.write("Title: Looping Duluth Regional CWOP Observations Only\n")
         f.write("Refresh: 5\n\n")
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
@@ -68,24 +77,27 @@ def main():
         for feature in features:
             properties = feature.get("properties", {})
             geometry = feature.get("geometry", {})
-            coordinates = geometry.get("coordinates", [0, 0])
+            coordinates = geometry.get("coordinates",)
             
-            # Extract coordinates from the GeoJSON array layout [Longitude, Latitude]
+            if not coordinates or len(coordinates) < 2:
+                continue
+                
+            # Extract coordinates from GeoJSON layout formats [Longitude, Latitude]
             lon = float(coordinates[0])
             lat = float(coordinates[1])
             st_id = properties.get("stationIdentifier", "UNKN").upper()
             
-            # 🛡️ THE PERMANENT ASOS/METAR FILTER:
+            # 🛡️ THE PERMANENT ASOS/METAR SEPARATION FILTER:
             # Official airport nodes strictly match 3 or 4-letter alphabetical codes.
             # Personal CWOP hardware uses longer alpha-numeric callsigns or tags.
             if len(st_id) <= 4 and st_id.isalpha():
                 continue
                 
-            # Filter spatial parameters using your coordinate boundaries
+            # Filter spatial parameters using your exact coordinate boundaries
             if not (LON_MIN <= lon <= LON_MAX and LAT_MIN <= lat <= LAT_MAX):
                 continue
                 
-            # Fetch the actual weather observations for this specific station
+            # Query the actual weather observations for this specific station
             station_url = feature.get("id")
             if not station_url:
                 continue
@@ -112,7 +124,7 @@ def main():
             t_f = int(round((float(t_c) * 9/5) + 32))
             w_kt = int(round(float(w_ms) * 1.94384)) if w_ms is not None else 0
             
-            # Create a 30-minute validity window for seamless looping integration
+            # Generate a 30-minute validity window for seamless looping integration
             start_time = dt_now - datetime.timedelta(minutes=15)
             end_time = dt_now + datetime.timedelta(minutes=15)
             f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
