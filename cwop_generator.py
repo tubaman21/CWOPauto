@@ -4,30 +4,39 @@ import datetime
 import requests
 import pytz
 
-def fetch_raw_mesonet_text():
-    """Fetches real-time public surface logs from the open IEM MADIS network text database."""
-    print("Connecting directly to the public Iowa Environmental Mesonet MADIS/CWOP text stream...")
+def fetch_raw_nws_madis():
+    """Downloads the raw public MADIS weather data text dump directly from the National Weather Service."""
+    print("Connecting directly to the federal open-access NWS data servers...")
     
-    # 🔗 FIX: Targets the true comma-separated MADIS/CWOP database stream
-    url = "https://iastate.edu"
+    # Target the completed top-of-the-hour raw data text dump
+    now = datetime.datetime.now(pytz.utc) - datetime.timedelta(minutes=30)
+    hour_str = now.strftime("%Y%m%d_%H00")
+    
+    # Direct public access file requiring no tokens, keys, or restricted APIs
+    url = f"https://noaa.gov.{hour_str}"
     
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project Integration)"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NWS-Project-Integration/1.0"
     }
     
     try:
         response = requests.get(url, headers=headers, timeout=30)
+        
+        # If the file for the current hour isn't finished writing, fall back to the previous hour
+        if response.status_code != 200:
+            print("⚠ Current hour data file is compiling. Falling back to the previous hour...")
+            prev_hour = (now - datetime.timedelta(hours=1)).strftime("%Y%m%d_%H00")
+            url = f"https://noaa.gov.{prev_hour}"
+            response = requests.get(url, headers=headers, timeout=30)
+            
         response.raise_for_status()
         return response.text
     except Exception as e:
-        print(f"❌ Failed to reach open-source text stream: {e}")
+        print(f"❌ Failed to reach NOAA/NWS data servers: {e}")
         sys.exit(1)
 
 def is_pure_metar(station_id):
-    """
-    Returns True if a station matches airport conventions (ASOS/AWOS/METAR).
-    Returns False if it is a personal citizen weather station (CWOP/DW tag).
-    """
+    """Filters out official airport ASOS/AWOS/METAR stations."""
     sid = station_id.strip().upper()
     if len(sid) == 4 and sid.startswith('K') and sid[1:].isalpha():
         return True
@@ -36,18 +45,17 @@ def is_pure_metar(station_id):
     return False
 
 def main():
-    # 🗺️ Precise spatial bounding limits covering WFO Duluth's operational footprint
-    # Longitude (-95.0 to -89.0), Latitude (45.0 to 49.5)
+    # 🗺️ Define your spatial boundaries (WFO Duluth County Warning Area footprint)
     LON_MIN, LAT_MIN, LON_MAX, LAT_MAX = -95.0, 45.0, -89.0, 49.5
     
     output_directory = "placefiles"
     os.makedirs(output_directory, exist_ok=True)
     output_file_path = os.path.join(output_directory, "cwop_observations.txt")
     
-    raw_text = fetch_raw_mesonet_text()
+    raw_text = fetch_raw_nws_madis()
     lines = raw_text.splitlines()
     
-    print(f"DEBUG: Successfully downloaded text database stream ({len(lines)} raw lines discovered).")
+    print(f"DEBUG: Successfully downloaded raw weather stream ({len(lines)} lines parsed).")
     
     station_count = 0
     unique_stations = set()
@@ -60,50 +68,48 @@ def main():
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
         for line in lines:
-            # Skip documentation file lines or header labels completely
-            if not line.strip() or line.startswith('#') or line.startswith('station') or line.startswith('id'):
+            # Skip commented text rows or file headers
+            if not line.strip() or line.startswith('#') or line.startswith('STN'):
                 continue
-            
-            # Split cleanly by comma matching the true network file layout matrix
-            # Network text format: station,station_name,lat,lon,tmpf,dwpf,sknt,drct,alti
-            parts = line.split(',')
-            
+                
+            # Split the raw row by space blocks
+            parts = line.split()
             if len(parts) < 8:
                 continue
                 
             try:
                 st_id = parts[0].strip().upper()
                 
-                # 1. Apply the strict citizen station isolation filter
-                if is_pure_metar(st_id):
+                # 1. Filter out airport stations
+                if is_pure_metar(st_id) or st_id in unique_stations:
                     continue
-                    
-                # 2. Map coordinates precisely to their true comma indexes in the network file
-                lat = float(parts[2])
-                lon = float(parts[3])
+                
+                # 2. Extract Lat/Lon coordinates directly from the NWS string indexes
+                lat = float(parts[1])
+                lon = float(parts[2])
                 
                 # Apply your exact geographical filter constraints
                 if not (LON_MIN <= lon <= LON_MAX and LAT_MIN <= lat <= LAT_MAX):
                     continue
                     
-                # Deduplicate entries to avoid rendering visual overlap blocks
-                if st_id in unique_stations:
+                # 3. Extract temperature metrics safely (handling 'M' missing blocks)
+                t_raw = parts[3].strip()
+                if t_raw == 'M':
                     continue
-                    
-                # 3. Extract temperature metrics safely
-                t_raw = parts[4].strip()
-                if t_raw == 'M' or not t_raw:
-                    continue
-                t_f = int(round(float(t_raw)))
+                # Convert Celsius to Fahrenheit
+                t_f = int(round((float(t_raw) * 9/5) + 32))
                 
-                # 4. Extract wind speed, direction, and pressure fields if available
-                w_kt = int(float(parts[6])) if len(parts) >= 7 and parts[6].strip() != 'M' else 0
-                w_dir = float(parts[7]) if len(parts) >= 8 and parts[7].strip() != 'M' else None
-                alt_raw = parts[8].strip() if len(parts) >= 9 else 'M'
+                # 4. Extract wind speed and direction fields if available
+                w_dir_raw = parts[5].strip() if len(parts) >= 6 else 'M'
+                w_speed_raw = parts[6].strip() if len(parts) >= 7 else 'M'
+                alt_raw = parts[7].strip() if len(parts) >= 8 else 'M'
+                
+                w_dir = float(w_dir_raw) if w_dir_raw != 'M' else None
+                # Convert meters/second to knots
+                w_kt = int(round(float(w_speed_raw) * 1.94384)) if w_speed_raw != 'M' else 0
                 
                 slp_str = ""
-                if alt_raw != 'M' and alt_raw:
-                    # e.g., 29.92 -> 2992 -> Shorthand 992
+                if alt_raw != 'M':
                     slp_str = str(int(float(alt_raw) * 100))[-3:]
                 
                 # Generate a 30-minute time frame envelope to facilitate smooth radar loop pairing
@@ -136,7 +142,7 @@ def main():
             except Exception:
                 continue
                 
-    print(f"🎉 Success! Filtered out all airport METAR positions and wrote {station_count} pure CWOP stations inside the Duluth box.")
+    print(f"🎉 Success! Processed and wrote {station_count} pure CWOP stations inside the Duluth box.")
 
 if __name__ == "__main__":
     main()
