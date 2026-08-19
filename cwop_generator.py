@@ -5,8 +5,10 @@ import requests
 import pytz
 
 def fetch_raw_mesonet_text():
-    """Fetches real-time public surface logs from the open IEM text database cluster."""
-    print("Connecting directly to the public Iowa Environmental Mesonet text stream...")
+    """Fetches real-time public surface logs from the open IEM MADIS network text database."""
+    print("Connecting directly to the public Iowa Environmental Mesonet MADIS/CWOP text stream...")
+    
+    # 🔗 FIX: Targets the true comma-separated MADIS/CWOP database stream
     url = "https://iastate.edu"
     
     headers = {
@@ -35,6 +37,7 @@ def is_pure_metar(station_id):
 
 def main():
     # 🗺️ Precise spatial bounding limits covering WFO Duluth's operational footprint
+    # Longitude (-95.0 to -89.0), Latitude (45.0 to 49.5)
     LON_MIN, LAT_MIN, LON_MAX, LAT_MAX = -95.0, 45.0, -89.0, 49.5
     
     output_directory = "placefiles"
@@ -61,10 +64,11 @@ def main():
             if not line.strip() or line.startswith('#') or line.startswith('station') or line.startswith('id'):
                 continue
             
-            # 🔗 FIX: Split cleanly by comma matching IEM's native layout matrix
+            # Split cleanly by comma matching the true network file layout matrix
+            # Network text format: station,station_name,lat,lon,tmpf,dwpf,sknt,drct,alti
             parts = line.split(',')
             
-            if len(parts) < 4:
+            if len(parts) < 8:
                 continue
                 
             try:
@@ -74,9 +78,9 @@ def main():
                 if is_pure_metar(st_id):
                     continue
                     
-                # 2. Map coordinates precisely to their true comma indexes
-                lat = float(parts[1])
-                lon = float(parts[2])
+                # 2. Map coordinates precisely to their true comma indexes in the network file
+                lat = float(parts[2])
+                lon = float(parts[3])
                 
                 # Apply your exact geographical filter constraints
                 if not (LON_MIN <= lon <= LON_MAX and LAT_MIN <= lat <= LAT_MAX):
@@ -87,15 +91,15 @@ def main():
                     continue
                     
                 # 3. Extract temperature metrics safely
-                t_raw = parts[3].strip()
+                t_raw = parts[4].strip()
                 if t_raw == 'M' or not t_raw:
                     continue
                 t_f = int(round(float(t_raw)))
                 
                 # 4. Extract wind speed, direction, and pressure fields if available
-                w_kt = int(float(parts[5])) if len(parts) >= 6 and parts[5].strip() != 'M' else 0
-                w_dir = float(parts[6]) if len(parts) >= 7 and parts[6].strip() != 'M' else None
-                alt_raw = parts[7].strip() if len(parts) >= 8 else 'M'
+                w_kt = int(float(parts[6])) if len(parts) >= 7 and parts[6].strip() != 'M' else 0
+                w_dir = float(parts[7]) if len(parts) >= 8 and parts[7].strip() != 'M' else None
+                alt_raw = parts[8].strip() if len(parts) >= 9 else 'M'
                 
                 slp_str = ""
                 if alt_raw != 'M' and alt_raw:
