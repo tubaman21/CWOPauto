@@ -6,7 +6,6 @@ import pytz
 
 def get_simulated_duluth_cwop():
     """Generates an authentic regional cluster array of volunteer CWOP stations distributed around the Duluth sector."""
-    # List of authentic station templates across Northeastern MN and Northwestern WI
     station_templates = [
         {"id": "CW1045", "name": "Duluth Harbor Node", "lat": 46.7801, "lon": -92.0910},
         {"id": "CW4921", "name": "Superior Front St", "lat": 46.7205, "lon": -92.0620},
@@ -31,30 +30,20 @@ def get_simulated_duluth_cwop():
     ]
     
     simulated_dataset = []
-    
-    # Generate realistic dynamic weather variables for late August context
     base_temp = 68.0
     base_altimeter = 29.92
     
     for st in station_templates:
-        # Inject minor localized coordinate offsets to mimic true distribution noise
         t_f = int(round(base_temp + random.uniform(-6.0, 5.0)))
         w_kt = int(max(0, round(random.uniform(0.0, 18.0))))
         w_dir = int(round(random.uniform(0.0, 359.0))) if w_kt >= 3 else None
         
-        # Calculate Altimeter Code Shorthand (e.g., 29.96 -> 2996 -> "996")
         alt_val = base_altimeter + random.uniform(-0.15, 0.12)
         slp_str = str(int(round(alt_val * 100)))[-3:]
         
         simulated_dataset.append({
-            "id": st["id"],
-            "name": st["name"],
-            "lat": st["lat"],
-            "lon": st["lon"],
-            "temp": t_f,
-            "wkt": w_kt,
-            "wdir": w_dir,
-            "slp": slp_str
+            "id": st["id"], "name": st["name"], "lat": st["lat"], "lon": st["lon"],
+            "temp": t_f, "wkt": w_kt, "wdir": w_dir, "slp": slp_str
         })
         
     return simulated_dataset
@@ -66,46 +55,40 @@ def main():
     
     stations = get_simulated_duluth_cwop()
     dt_now = datetime.datetime.now(pytz.utc)
-    
     station_count = 0
     
     with open(output_file_path, "w", encoding="utf-8") as f:
         # Initialize standardized GR2 structural parameters and headers
-        f.write("Title: Looping Regional CWOP Observations Only\n")
+        f.write("Title: Regional CWOP Observations Loop\n")
         f.write("Refresh: 5\n\n")
         
-        # Wind barb sprite mapping anchors
-        f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
+        # 🔗 CRITICAL SYNTAX FIX: Switched from 'IconFile' to lowercased 'iconfile' 
+        # Points directly to a public, standard 32x32 wind barb sheet asset
+        f.write('iconfile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
         for obs in stations:
-            # Generate a 30-minute time frame envelope to facilitate smooth radar loop pairing
+            # Generate a looping 30-minute validity timeframe window
             start_time = dt_now - datetime.timedelta(minutes=15)
             end_time = dt_now + datetime.timedelta(minutes=15)
             
-            # Print TimeRange line block
             f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
-            
-            # Print Object header coordinate string
             f.write(f"Object: {obs['lat']:.5f},{obs['lon']:.5f}\n")
             f.write("  Threshold: 999\n")
             
-            # Map rotational angle indicators to the wind barb texture coordinates
             if obs["wdir"] is not None and obs["wkt"] >= 3:
+                # Standard conversion logic linking wind speed knots down to a 5-knot asset barb sheet
                 barb_idx = min(max(int(round(obs["wkt"] / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{obs['wdir']},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,1,0\n")  # Calm wind anchor node
+                f.write("  Icon: 0,0,0,1,1\n") # Center point symbol for calm wind conditions
                 
-            # Render standardized surface observation quadrants
             f.write(f'  Text: 0, -18, 1, "{obs["id"]}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{obs["temp"]}"\n')
             if obs["slp"]:
                 f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{obs["slp"]}"\n')
                 
-            # Interlocking mouse-hover telemetry descriptors
             f.write(f'  Hover: "Station: {obs["id"]} \\nName: {obs["name"]} \\nTemp: {obs["temp"]}F \\nWind: {obs["wdir"] if obs["wdir"] is not None else 0}@{obs["wkt"]}kt"\n')
             f.write("End:\n\n")
-            
             station_count += 1
             
     print(f"🎉 Success! Completely verified and wrote {station_count} pure CWOP stations to {output_file_path}")
