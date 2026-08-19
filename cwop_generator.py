@@ -58,19 +58,19 @@ def main():
     station_count = 0
     
     with open(output_file_path, "w", encoding="utf-8") as f:
-        # 🔗 THE TOTAL SYNTAX CORRECTION BLOCK:
-        # 1. Removed all empty line space breaks using immediate text flows (\n).
-        # 2. iconfile must be all-lowercase characters with a space boundary to satisfy GR2.
+        # 🔗 THE AUTHORITATIVE NATIVE SPECS CORRECTION:
+        # 1. Capitalized 'IconFile:' header command explicitly.
+        # 2. Removed the comma immediately following the slot index number 1.
         f.write("Title: Regional CWOP Observations Loop\n")
         f.write("Refresh: 5\n")
-        f.write('iconfile 1, 32, 32, 16, 16, "https://githubusercontent.com"\n')
+        f.write('IconFile: 1 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
         for obs in stations:
             start_time = dt_now - datetime.timedelta(minutes=15)
             end_time = dt_now + datetime.timedelta(minutes=15)
             time_range_str = f"{start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}"
             
-            # Map object elements with nested attributes underneath
+            # Map object layers using strict indentation block hierarchies
             f.write(f"Object: {obs['lat']:.5f},{obs['lon']:.5f}\n")
             f.write(f"  TimeRange: {time_range_str}\n")
             f.write("  Threshold: 999\n")
@@ -79,7 +79,7 @@ def main():
                 barb_idx = min(max(int(round(obs["wkt"] / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{obs['wdir']},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,1,1\n") # Center point symbol for calm wind conditions
+                f.write("  Icon: 0,0,0,1,1\n") # Center point circle symbol for calm wind conditions
                 
             f.write(f'  Text: 0, -18, 1, "{obs["id"]}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{obs["temp"]}"\n')
@@ -87,7 +87,7 @@ def main():
                 f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{obs["slp"]}"\n')
                 
             f.write(f'  Hover: "Station: {obs["id"]} \\nName: {obs["name"]} \\nTemp: {obs["temp"]}F \\nWind: {obs["wdir"] if obs["wdir"] is not None else 0}@{obs["wkt"]}kt"\n')
-            f.write("End:\n")
+            f.write("End:\n\n")
             station_count += 1
             
     print(f"🎉 Success! Completely verified and wrote {station_count} pure CWOP stations to {output_file_path}")
