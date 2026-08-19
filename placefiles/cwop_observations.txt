@@ -4,221 +4,221 @@ IconFile: 1,32,32,16,16,"https://noaa.gov"
 
 Object: 46.78010,-92.09100
   Threshold: 999
-  Icon: 0,0,0,1,1
+  Icon: 0,0,41,1,1
   Text: 0, -18, 1, "CW1045"
   Color: 255 100 100
-  Text: -20, -10, 1, "64"
+  Text: -20, -10, 1, "72"
   Color: 255 255 255
-  Text: 20, -10, 1, "980"
-  Hover: "Station: CW1045 \nName: Duluth Harbor Node \nTemp: 64F \nWind: 0@2kt"
+  Text: 20, -10, 1, "999"
+  Hover: "Station: CW1045 \nName: Duluth Harbor Node \nTemp: 72F \nWind: 41@6kt"
 End:
 
 Object: 46.72050,-92.06200
   Threshold: 999
-  Icon: 0,0,187,1,4
+  Icon: 0,0,226,1,1
   Text: 0, -18, 1, "CW4921"
   Color: 255 100 100
-  Text: -20, -10, 1, "62"
+  Text: -20, -10, 1, "64"
   Color: 255 255 255
-  Text: 20, -10, 1, "993"
-  Hover: "Station: CW4921 \nName: Superior Front St \nTemp: 62F \nWind: 187@18kt"
+  Text: 20, -10, 1, "978"
+  Hover: "Station: CW4921 \nName: Superior Front St \nTemp: 64F \nWind: 226@6kt"
 End:
 
 Object: 46.81220,-92.23550
   Threshold: 999
-  Icon: 0,0,143,1,3
+  Icon: 0,0,0,1,1
   Text: 0, -18, 1, "CW0812"
   Color: 255 100 100
-  Text: -20, -10, 1, "71"
+  Text: -20, -10, 1, "68"
   Color: 255 255 255
-  Text: 20, -10, 1, "000"
-  Hover: "Station: CW0812 \nName: Hermantown Heights \nTemp: 71F \nWind: 143@16kt"
+  Text: 20, -10, 1, "998"
+  Hover: "Station: CW0812 \nName: Hermantown Heights \nTemp: 68F \nWind: 0@2kt"
 End:
 
 Object: 46.72140,-92.47200
   Threshold: 999
-  Icon: 0,0,63,1,2
+  Icon: 0,0,0,1,1
   Text: 0, -18, 1, "CW1792"
   Color: 255 100 100
   Text: -20, -10, 1, "65"
   Color: 255 255 255
   Text: 20, -10, 1, "979"
-  Hover: "Station: CW1792 \nName: Cloquet Scanner Node \nTemp: 65F \nWind: 63@11kt"
+  Hover: "Station: CW1792 \nName: Cloquet Scanner Node \nTemp: 65F \nWind: 0@0kt"
 End:
 
 Object: 47.02110,-91.66900
   Threshold: 999
-  Icon: 0,0,243,1,1
+  Icon: 0,0,0,1,1
   Text: 0, -18, 1, "CW7710"
   Color: 255 100 100
-  Text: -20, -10, 1, "63"
+  Text: -20, -10, 1, "69"
   Color: 255 255 255
-  Text: 20, -10, 1, "980"
-  Hover: "Station: CW7710 \nName: Two Harbors Shoreline \nTemp: 63F \nWind: 243@6kt"
+  Text: 20, -10, 1, "001"
+  Hover: "Station: CW7710 \nName: Two Harbors Shoreline \nTemp: 69F \nWind: 0@0kt"
 End:
 
 Object: 47.74850,-90.34500
   Threshold: 999
-  Icon: 0,0,173,1,2
+  Icon: 0,0,344,1,3
   Text: 0, -18, 1, "CW3324"
   Color: 255 100 100
-  Text: -20, -10, 1, "63"
+  Text: -20, -10, 1, "72"
   Color: 255 255 255
-  Text: 20, -10, 1, "002"
-  Hover: "Station: CW3324 \nName: Grand Marais Harbor \nTemp: 63F \nWind: 173@10kt"
+  Text: 20, -10, 1, "998"
+  Hover: "Station: CW3324 \nName: Grand Marais Harbor \nTemp: 72F \nWind: 344@16kt"
 End:
 
 Object: 47.42500,-92.93600
   Threshold: 999
-  Icon: 0,0,197,1,3
+  Icon: 0,0,0,1,1
   Text: 0, -18, 1, "CW2150"
   Color: 255 100 100
-  Text: -20, -10, 1, "70"
+  Text: -20, -10, 1, "65"
   Color: 255 255 255
-  Text: 20, -10, 1, "981"
-  Hover: "Station: CW2150 \nName: Hibbing Citizen Array \nTemp: 70F \nWind: 197@16kt"
+  Text: 20, -10, 1, "982"
+  Hover: "Station: CW2150 \nName: Hibbing Citizen Array \nTemp: 65F \nWind: 0@2kt"
 End:
 
 Object: 47.52330,-92.53660
   Threshold: 999
-  Icon: 0,0,81,1,2
+  Icon: 0,0,177,1,3
   Text: 0, -18, 1, "CW8112"
   Color: 255 100 100
-  Text: -20, -10, 1, "71"
+  Text: -20, -10, 1, "64"
   Color: 255 255 255
-  Text: 20, -10, 1, "989"
-  Hover: "Station: CW8112 \nName: Virginia Ridge Network \nTemp: 71F \nWind: 81@8kt"
+  Text: 20, -10, 1, "996"
+  Hover: "Station: CW8112 \nName: Virginia Ridge Network \nTemp: 64F \nWind: 177@15kt"
 End:
 
 Object: 47.90300,-91.86700
   Threshold: 999
-  Icon: 0,0,349,1,1
+  Icon: 0,0,0,1,1
   Text: 0, -18, 1, "CW6041"
   Color: 255 100 100
-  Text: -20, -10, 1, "65"
+  Text: -20, -10, 1, "69"
   Color: 255 255 255
-  Text: 20, -10, 1, "984"
-  Hover: "Station: CW6041 \nName: Ely Woods Volunteer \nTemp: 65F \nWind: 349@5kt"
+  Text: 20, -10, 1, "996"
+  Hover: "Station: CW6041 \nName: Ely Woods Volunteer \nTemp: 69F \nWind: 0@0kt"
 End:
 
 Object: 47.29100,-91.26100
   Threshold: 999
-  Icon: 0,0,93,1,3
+  Icon: 0,0,0,1,1
   Text: 0, -18, 1, "CW9102"
   Color: 255 100 100
-  Text: -20, -10, 1, "66"
+  Text: -20, -10, 1, "71"
   Color: 255 255 255
-  Text: 20, -10, 1, "981"
-  Hover: "Station: CW9102 \nName: Silver Bay Cliffs \nTemp: 66F \nWind: 93@16kt"
+  Text: 20, -10, 1, "989"
+  Hover: "Station: CW9102 \nName: Silver Bay Cliffs \nTemp: 71F \nWind: 0@0kt"
 End:
 
 Object: 46.45200,-92.76300
   Threshold: 999
-  Icon: 0,0,358,1,3
+  Icon: 0,0,187,1,3
   Text: 0, -18, 1, "CW5541"
   Color: 255 100 100
-  Text: -20, -10, 1, "69"
+  Text: -20, -10, 1, "64"
   Color: 255 255 255
-  Text: 20, -10, 1, "986"
-  Hover: "Station: CW5541 \nName: Moose Lake Township \nTemp: 69F \nWind: 358@16kt"
+  Text: 20, -10, 1, "981"
+  Hover: "Station: CW5541 \nName: Moose Lake Township \nTemp: 64F \nWind: 187@16kt"
 End:
 
 Object: 46.53300,-93.70800
   Threshold: 999
-  Icon: 0,0,242,1,1
+  Icon: 0,0,0,1,1
   Text: 0, -18, 1, "CW1412"
   Color: 255 100 100
-  Text: -20, -10, 1, "73"
+  Text: -20, -10, 1, "64"
   Color: 255 255 255
-  Text: 20, -10, 1, "003"
-  Hover: "Station: CW1412 \nName: Aitkin Bog Tracker \nTemp: 73F \nWind: 242@6kt"
+  Text: 20, -10, 1, "001"
+  Hover: "Station: CW1412 \nName: Aitkin Bog Tracker \nTemp: 64F \nWind: 0@0kt"
 End:
 
 Object: 46.35800,-94.20100
   Threshold: 999
-  Icon: 0,0,333,1,2
+  Icon: 0,0,301,1,2
   Text: 0, -18, 1, "CW2991"
   Color: 255 100 100
-  Text: -20, -10, 1, "69"
+  Text: -20, -10, 1, "67"
   Color: 255 255 255
-  Text: 20, -10, 1, "003"
-  Hover: "Station: CW2991 \nName: Brainerd Lake Monitor \nTemp: 69F \nWind: 333@12kt"
+  Text: 20, -10, 1, "000"
+  Hover: "Station: CW2991 \nName: Brainerd Lake Monitor \nTemp: 67F \nWind: 301@9kt"
 End:
 
 Object: 47.23720,-93.52500
   Threshold: 999
-  Icon: 0,0,169,1,3
+  Icon: 0,0,263,1,1
   Text: 0, -18, 1, "CW0450"
   Color: 255 100 100
-  Text: -20, -10, 1, "69"
+  Text: -20, -10, 1, "66"
   Color: 255 255 255
-  Text: 20, -10, 1, "983"
-  Hover: "Station: CW0450 \nName: Grand Rapids Valley \nTemp: 69F \nWind: 169@14kt"
+  Text: 20, -10, 1, "978"
+  Hover: "Station: CW0450 \nName: Grand Rapids Valley \nTemp: 66F \nWind: 263@4kt"
 End:
 
 Object: 46.59100,-90.87500
   Threshold: 999
-  Icon: 0,0,104,1,2
+  Icon: 0,0,343,1,3
   Text: 0, -18, 1, "CW6811"
   Color: 255 100 100
-  Text: -20, -10, 1, "72"
+  Text: -20, -10, 1, "69"
   Color: 255 255 255
-  Text: 20, -10, 1, "003"
-  Hover: "Station: CW6811 \nName: Ashland Coastal Array \nTemp: 72F \nWind: 104@8kt"
+  Text: 20, -10, 1, "997"
+  Hover: "Station: CW6811 \nName: Ashland Coastal Array \nTemp: 69F \nWind: 343@14kt"
 End:
 
 Object: 46.81100,-90.81800
   Threshold: 999
-  Icon: 0,0,357,1,2
+  Icon: 0,0,22,1,2
   Text: 0, -18, 1, "CW7345"
   Color: 255 100 100
-  Text: -20, -10, 1, "70"
+  Text: -20, -10, 1, "69"
   Color: 255 255 255
-  Text: 20, -10, 1, "989"
-  Hover: "Station: CW7345 \nName: Bayfield Peninsula Peak \nTemp: 70F \nWind: 357@9kt"
+  Text: 20, -10, 1, "977"
+  Hover: "Station: CW7345 \nName: Bayfield Peninsula Peak \nTemp: 69F \nWind: 22@9kt"
 End:
 
 Object: 46.45330,-90.17110
   Threshold: 999
-  Icon: 0,0,0,1,1
+  Icon: 0,0,209,1,1
   Text: 0, -18, 1, "CW0911"
   Color: 255 100 100
-  Text: -20, -10, 1, "70"
+  Text: -20, -10, 1, "64"
   Color: 255 255 255
-  Text: 20, -10, 1, "991"
-  Hover: "Station: CW0911 \nName: Ironwood Boundary Ridge \nTemp: 70F \nWind: 0@0kt"
+  Text: 20, -10, 1, "988"
+  Hover: "Station: CW0911 \nName: Ironwood Boundary Ridge \nTemp: 64F \nWind: 209@4kt"
 End:
 
 Object: 46.01200,-91.48400
   Threshold: 999
-  Icon: 0,0,296,1,4
+  Icon: 0,0,8,1,4
   Text: 0, -18, 1, "CW5231"
   Color: 255 100 100
-  Text: -20, -10, 1, "71"
+  Text: -20, -10, 1, "68"
   Color: 255 255 255
-  Text: 20, -10, 1, "986"
-  Hover: "Station: CW5231 \nName: Hayward Northwoods Cabin \nTemp: 71F \nWind: 296@18kt"
+  Text: 20, -10, 1, "000"
+  Hover: "Station: CW5231 \nName: Hayward Northwoods Cabin \nTemp: 68F \nWind: 8@18kt"
 End:
 
 Object: 45.82100,-91.89100
   Threshold: 999
-  Icon: 0,0,0,1,1
+  Icon: 0,0,293,1,2
   Text: 0, -18, 1, "CW1677"
   Color: 255 100 100
-  Text: -20, -10, 1, "69"
+  Text: -20, -10, 1, "67"
   Color: 255 255 255
-  Text: 20, -10, 1, "003"
-  Hover: "Station: CW1677 \nName: Spooner Junction Matrix \nTemp: 69F \nWind: 0@1kt"
+  Text: 20, -10, 1, "982"
+  Hover: "Station: CW1677 \nName: Spooner Junction Matrix \nTemp: 67F \nWind: 293@9kt"
 End:
 
 Object: 48.58300,-93.41200
   Threshold: 999
-  Icon: 0,0,0,1,1
+  Icon: 0,0,6,1,3
   Text: 0, -18, 1, "CW4402"
   Color: 255 100 100
-  Text: -20, -10, 1, "65"
+  Text: -20, -10, 1, "66"
   Color: 255 255 255
-  Text: 20, -10, 1, "003"
-  Hover: "Station: CW4402 \nName: International Falls South \nTemp: 65F \nWind: 0@1kt"
+  Text: 20, -10, 1, "996"
+  Hover: "Station: CW4402 \nName: International Falls South \nTemp: 66F \nWind: 6@16kt"
 End:
 
