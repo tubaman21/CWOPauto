@@ -14,7 +14,7 @@ def fetch_realtime_cwop_data(token, bbox):
         
     url = "https://synopticdata.com"
     
-    # ⏱️ CONFIG: Query only basic variables over the box to stay within free-tier limits
+    # CONFIG: Query only basic variables over the box to stay within free-tier limits
     params = {
         "token": token,
         "bbox": bbox,
@@ -31,8 +31,8 @@ def fetch_realtime_cwop_data(token, bbox):
         # Explicitly disable redirects to prevent the server from sending the script to the homepage if throttled
         response = requests.get(url, params=params, headers=headers, timeout=30, allow_redirects=False)
         
-        # 🔗 FIX: Explicitly check for 301 and 302 redirect codes
-        if response.status_code in:
+        # ✅ FIXED: Added the explicit tuple block for HTTP redirects
+        if response.status_code in (301, 302):
             print("\n🛑 RATE LIMIT / THROTTLE DETECTED:")
             print("👉 Synoptic's security wall intercepted the script and tried to redirect to the homepage.")
             sys.exit(1)
