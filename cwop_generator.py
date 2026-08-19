@@ -12,9 +12,10 @@ def fetch_madis_data():
     now = datetime.datetime.now(pytz.utc) - datetime.timedelta(minutes=15)
     current_hour = now.strftime("%Y%m%d_%H00")
     
-    # 🔗 FIX: Added missing forward slash after the domain and switched to an open HTTP endpoint 
-    # to bypass secure handshake overhead constraints on public raw data arrays
-    url = f"http://noaa.gov.{current_hour}"
+    # 🔗 FIX: Kept the domain hardcoded as a strict base string to prevent any variable merging issues
+    base_domain = "http://madis-data.ncep.noaa.gov"
+    path_string = f"/madisPublic1/data/text/metar/TXT.{current_hour}"
+    url = base_domain + path_string
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NWS-WFO-Project/1.0"
@@ -28,7 +29,8 @@ def fetch_madis_data():
             print(f"⚠ Warning: Current hour file not fully built yet (HTTP {response.status_code}). Tripping back-hour fallback...")
             # Fallback to the previous hour's file if right at the cusp of a transmission cycle
             prev_hour = (now - datetime.timedelta(hours=1)).strftime("%Y%m%d_%H00")
-            url = f"http://noaa.gov.{prev_hour}"
+            path_string_fallback = f"/madisPublic1/data/text/metar/TXT.{prev_hour}"
+            url = base_domain + path_string_fallback
             print(f"DEBUG: Attempting connection to fallback URL: {url}")
             response = requests.get(url, headers=headers, timeout=30)
             
@@ -52,11 +54,11 @@ def parse_madis_line(line):
         time_raw = parts[3].strip() # Format: YYYYMMDD_HHMM
         
         # Pull key meteorological layers (handling 'M' missing characters safely)
-        t_c = float(parts[5]) if parts[5] != 'M' else None
-        d_c = float(parts[6]) if parts[6] != 'M' else None
-        w_dir = float(parts[7]) if parts[7] != 'M' else None
-        w_speed_ms = float(parts[8]) if parts[8] != 'M' else None
-        alt_in = float(parts[11]) if parts[11] != 'M' else None
+        t_c = float(parts[4]) if parts[4] != 'M' else None
+        d_c = float(parts[5]) if parts[5] != 'M' else None
+        w_dir = float(parts[6]) if parts[6] != 'M' else None
+        w_speed_ms = float(parts[7]) if parts[7] != 'M' else None
+        alt_in = float(parts[13]) if parts[13] != 'M' else None
         
         # Convert measurements to standard operational units
         t_f = int(round((t_c * 9/5) + 32)) if t_c is not None else None
@@ -77,7 +79,6 @@ def parse_madis_line(line):
 
 def main():
     # 🗺️ Define your spatial boundaries (WFO Duluth County Warning Area)
-    # Min/Max boundaries: Longitude (-95.0 to -89.0), Latitude (45.0 to 49.5)
     LON_MIN, LAT_MIN, LON_MAX, LAT_MAX = -95.0, 45.0, -89.0, 49.5
     
     output_directory = "placefiles"
@@ -106,7 +107,7 @@ def main():
             if not (LON_MIN <= obs["lon"] <= LON_MAX and LAT_MIN <= obs["lat"] <= LAT_MAX):
                 continue
                 
-            if obs["temp"] == None:
+            if obs["temp"] is None:
                 continue
                 
             # Calculate a time visibility range around the data packet
