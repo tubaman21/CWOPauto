@@ -2,7 +2,7 @@ name: Generate CWOP Placefile
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/15 * * * *'  # Adjusted to 15 minutes to stay perfectly safe from free-tier rate limits
   workflow_dispatch:
 
 jobs:
@@ -27,6 +27,9 @@ jobs:
           pip install requests pytz
 
       - name: Run Generator Script
+        env:
+          # 🔐 This tells GitHub to pull your secret and inject it into the Python runtime
+          SYNOPTIC_API_TOKEN: ${{ secrets.SYNOPTIC_API_TOKEN }}
         run: python cwop_generator.py
 
       - name: Commit and Push Changes
@@ -34,4 +37,4 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@://github.com"
           git add placefiles/cwop_observations.txt
-          git diff-index --quiet HEAD || (git commit -m "Automated MADIS update: $(date -u)" && git push)
+          git diff-index --quiet HEAD || (git commit -m "Automated CWOP update: $(date -u)" && git push)
