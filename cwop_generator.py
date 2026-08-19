@@ -5,29 +5,29 @@ import requests
 import pytz
 
 def fetch_state_geojson(state_code):
-    """Fetches real-time comprehensive mesonet observations for a specific state from open IEM servers."""
-    print(f"Connecting to the open public state data pipeline for {state_code}...")
+    """Fetches real-time comprehensive mesonet observations using IEM's strict URL routing."""
+    st = state_code.lower()
+    print(f"Connecting to the open public state data pipeline for {state_code.upper()}...")
     
-    # 🔗 Direct open access GeoJSON feed mapping all real-time state observations
-    url = f"https://iastate.edu"
-    params = {
-        "state": state_code
-    }
+    # 🔗 FIX: Switched to the correct static REST URL structure used by the IEM server architecture
+    url = f"https://iastate.edu{st}.geojson"
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project Integration)"
     }
     
     try:
-        response = requests.get(url, params=params, headers=headers, timeout=30)
+        response = requests.get(url, headers=headers, timeout=30)
         if response.status_code != 200:
             print(f"⚠ Warning: State pipeline server returned status code: {response.status_code}")
             return []
         
         data = response.json()
-        return data.get("features", [])
+        features = data.get("features", [])
+        print(f"-> Successfully extracted {len(features)} stations for {state_code.upper()}")
+        return features
     except Exception as e:
-        print(f"⚠ Warning: Network processing exception during {state_code} API fetch: {e}")
+        print(f"⚠ Warning: Network processing exception during {state_code.upper()} API fetch: {e}")
         return []
 
 def format_slp(alt_in):
@@ -35,7 +35,6 @@ def format_slp(alt_in):
     if alt_in is None or alt_in <= 0:
         return ""
     try:
-        # e.g., 29.92 -> 2992 -> Shorthand 992
         val = str(int(round(float(alt_in) * 100)))
         return val[-3:]
     except (ValueError, TypeError):
@@ -43,7 +42,6 @@ def format_slp(alt_in):
 
 def main():
     # 🗺️ Define your spatial boundaries (WFO Duluth County Warning Area footprint)
-    # Longitude (-95.0 to -89.0), Latitude (45.0 to 49.5)
     LON_MIN, LAT_MIN, LON_MAX, LAT_MAX = -95.0, 45.0, -89.0, 49.5
     
     output_directory = "placefiles"
@@ -51,10 +49,14 @@ def main():
     output_file_path = os.path.join(output_directory, "cwop_observations.txt")
     
     # Ingest data matrices from both neighboring forecast states
-    features_mn = fetch_state_geojson("MN")
-    features_wi = fetch_state_geojson("WI")
+    features_mn = fetch_state_geojson("mn")
+    features_wi = fetch_state_geojson("wi")
     all_features = features_mn + features_wi
     
+    if not all_features:
+        print("❌ CRITICAL ERROR: Zero total data features were returned from the networks. Exiting.")
+        sys.exit(1)
+        
     print(f"DEBUG: Processing {len(all_features)} total regional observation packets...")
     
     station_count = 0
@@ -84,8 +86,6 @@ def main():
                 continue
                 
             # 🛡️ THE PERMANENT ASOS/METAR SEPARATION FILTER:
-            # Official airport nodes strictly match 3 or 4-letter alphabetical codes.
-            # Personal CWOP hardware uses longer alpha-numeric callsigns or tags.
             if len(st_id) <= 4 and st_id.isalpha():
                 continue
                 
@@ -93,7 +93,6 @@ def main():
             if not (LON_MIN <= lon <= LON_MAX and LAT_MIN <= lat <= LAT_MAX):
                 continue
                 
-            # Extract variables cleanly from the IEM property dictionary block
             t_f = properties.get("tmpf")
             w_kt = properties.get("sknt")
             w_dir = properties.get("drct")
@@ -119,14 +118,12 @@ def main():
             f.write(f"Object: {lat:.5f},{lon:.5f}\n")
             f.write("  Threshold: 999\n")
             
-            # Map wind direction to wind barb texture indexes
             if wind_dir is not None and wind_speed >= 3:
                 barb_idx = min(max(int(round(wind_speed / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{wind_dir},1,{barb_idx}\n")
             else:
                 f.write("  Icon: 0,0,0,1,0\n")  # Calm wind anchor node
                 
-            # Render standard weather plot quadrants around the object layout
             f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{temp_val}"\n')
             if slp_str:
@@ -138,7 +135,7 @@ def main():
             station_count += 1
             unique_stations.add(st_id)
                 
-    print(f"🎉 Success! Filtered out all airport METAR positions and wrote {station_count} pure CWOP stations.")
+    print(f"🎉 Success! Filtered out airport METARs and wrote {station_count} pure CWOP stations to {output_file_path}.")
 
 if __name__ == "__main__":
     main()
