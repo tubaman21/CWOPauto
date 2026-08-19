@@ -62,11 +62,11 @@ def main():
         f.write("Title: Regional CWOP Observations Loop\n")
         f.write("Refresh: 5\n\n")
         
-        # 🔗 THE ULTIMATE FIX: Removed the trailing colon after 'iconfile' and normalized spaces
-        f.write('iconfile 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
+        # 🔗 THE CRITICAL REAL-WORLD RECONCILED SYNTAX FIX:
+        # Removed the comma directly following the number 1. Format is: iconfile [index] [comma-separated geometry]
+        f.write('iconfile 1 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
         for obs in stations:
-            # Generate a looping 30-minute validity timeframe window
             start_time = dt_now - datetime.timedelta(minutes=15)
             end_time = dt_now + datetime.timedelta(minutes=15)
             
@@ -75,11 +75,10 @@ def main():
             f.write("  Threshold: 999\n")
             
             if obs["wdir"] is not None and obs["wkt"] >= 3:
-                # Map wind speed knots to a standard 5-knot asset barb sheet index
                 barb_idx = min(max(int(round(obs["wkt"] / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{obs['wdir']},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,1,1\n") # Center point symbol for calm wind conditions
+                f.write("  Icon: 0,0,0,1,1\n") 
                 
             f.write(f'  Text: 0, -18, 1, "{obs["id"]}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{obs["temp"]}"\n')
