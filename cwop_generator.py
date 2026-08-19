@@ -71,14 +71,14 @@ def main():
         f.write("Refresh: 5\n\n")
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
-        for line in lines:
+               for line in lines:
             # Skip commented text rows or file headers
             if not line.strip() or line.startswith('#') or line.startswith('STN') or line.startswith('id'):
                 continue
                 
-            # Split the raw row by space blocks
+            # Split by any whitespace block safely
             parts = line.split()
-            if len(parts) < 8:
+            if len(parts) < 10:
                 continue
                 
             try:
@@ -145,6 +145,7 @@ def main():
                 
             except Exception:
                 continue
+
                 
     print(f"🎉 Success! Processed and wrote {station_count} pure CWOP stations inside the Duluth box.")
 
