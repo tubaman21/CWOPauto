@@ -8,25 +8,30 @@ def fetch_raw_nws_madis():
     """Downloads the raw public MADIS weather data text dump directly from the National Weather Service."""
     print("Connecting directly to the federal open-access NWS data servers...")
     
-    # Target the completed top-of-the-hour raw data text dump
+    # Target the completed hour raw data text dump (subtracting 30 minutes for latency padding)
     now = datetime.datetime.now(pytz.utc) - datetime.timedelta(minutes=30)
     hour_str = now.strftime("%Y%m%d_%H00")
     
-    # Direct public access file requiring no tokens, keys, or restricted APIs
-    url = f"https://noaa.gov.{hour_str}"
+    # 🔗 PERMANENT FIX: Hardcode the absolute base domain safely separate from variables
+    base_domain = "https://noaa.gov"
+    file_path = f"/madisPublic1/data/text/metar/TXT.{hour_str}"
+    url = base_domain + file_path
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NWS-Project-Integration/1.0"
     }
     
     try:
+        print(f"DEBUG: Resolving connection straight to URL: {url}")
         response = requests.get(url, headers=headers, timeout=30)
         
         # If the file for the current hour isn't finished writing, fall back to the previous hour
         if response.status_code != 200:
-            print("⚠ Current hour data file is compiling. Falling back to the previous hour...")
+            print(f"⚠ Hour file compiling (HTTP {response.status_code}). Falling back to the previous hour...")
             prev_hour = (now - datetime.timedelta(hours=1)).strftime("%Y%m%d_%H00")
-            url = f"https://noaa.gov.{prev_hour}"
+            file_path_fallback = f"/madisPublic1/data/text/metar/TXT.{prev_hour}"
+            url = base_domain + file_path_fallback
+            print(f"DEBUG: Resolving fallback connection to URL: {url}")
             response = requests.get(url, headers=headers, timeout=30)
             
         response.raise_for_status()
@@ -69,7 +74,7 @@ def main():
         
         for line in lines:
             # Skip commented text rows or file headers
-            if not line.strip() or line.startswith('#') or line.startswith('STN'):
+            if not line.strip() or line.startswith('#') or line.startswith('STN') or line.startswith('id'):
                 continue
                 
             # Split the raw row by space blocks
