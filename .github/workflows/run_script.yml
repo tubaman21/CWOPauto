@@ -8,6 +8,7 @@ on:
 jobs:
   run-script:
     runs-on: ubuntu-latest
+    
     permissions:
       contents: write
 
@@ -34,8 +35,3 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@://github.com"
           git add placefiles/cwop_observations.txt
           git diff-index --quiet HEAD || (git commit -m "Automated MADIS update: $(date -u)" && git push)
-
-      # 🛡️ KEEPALIVE GUARD: Automatically signs a dummy heartbeat commit every 20 days if the repo is quiet.
-      # This prevents GitHub from disabling your 5-minute automated background cron schedule!
-      - name: Keepalive Workflow
-        uses: gautamkrishnar/keepalive-workflow@v2
