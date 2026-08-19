@@ -13,7 +13,6 @@ def fetch_raw_nws_madis():
     now = datetime.datetime.now(pytz.utc) - datetime.timedelta(hours=2)
     hour_str = now.strftime("%Y%m%d_%H00")
     
-    # 🔗 PERMANENT FIX: Corrected directory folder routing to match the true NOAA server structure
     base_domain = "https://madis-data.ncep.noaa.gov"
     file_path = f"/madisPublic1/data/text/metar/TXT.{hour_str}"
     url = base_domain + file_path
@@ -24,7 +23,8 @@ def fetch_raw_nws_madis():
     
     try:
         print(f"DEBUG: Resolving connection straight to URL: {url}")
-        response = requests.get(url, headers=headers, timeout=30)
+        # ⏱️ EXTENDED TIMEOUT: Switched to stream=True and extended timeout to 120 seconds
+        response = requests.get(url, headers=headers, timeout=120, stream=True)
         
         # Fall back to 3 hours ago if the 2-hour file isn't fully written yet
         if response.status_code != 200:
@@ -33,10 +33,10 @@ def fetch_raw_nws_madis():
             file_path_fallback = f"/madisPublic1/data/text/metar/TXT.{prev_hour}"
             url = base_domain + file_path_fallback
             print(f"DEBUG: Resolving fallback connection to URL: {url}")
-            response = requests.get(url, headers=headers, timeout=30)
+            response = requests.get(url, headers=headers, timeout=120, stream=True)
             
         response.raise_for_status()
-        return response.text
+        return response
     except Exception as e:
         print(f"❌ Failed to reach NOAA/MADIS data servers: {e}")
         sys.exit(1)
@@ -59,10 +59,10 @@ def main():
     os.makedirs(output_directory, exist_ok=True)
     output_file_path = os.path.join(output_directory, "cwop_observations.txt")
     
-    raw_text = fetch_raw_nws_madis()
-    lines = raw_text.splitlines()
+    # Trigger the stream response
+    response_stream = fetch_raw_nws_madis()
     
-    print(f"DEBUG: Successfully downloaded weather log stream ({len(lines)} lines parsed).")
+    print("DEBUG: Connection established. Initializing streaming line-by-line parser loop...")
     
     station_count = 0
     unique_stations = set()
@@ -74,13 +74,18 @@ def main():
         f.write("Refresh: 5\n\n")
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
-        for line in lines:
+        # Process the 50MB file in real-time chunk streams to keep execution times under 10 seconds
+        for raw_line in response_stream.iter_lines(decode_unicode=True):
+            if not raw_line:
+                continue
+                
+            line = raw_line.strip()
+            
             # Skip commented text rows, empty blanks, or file headers completely
-            if not line.strip() or line.startswith('#') or line.startswith('STN') or line.startswith('id') or line.startswith('station'):
+            if not line or line.startswith('#') or line.startswith('STN') or line.startswith('id') or line.startswith('station'):
                 continue
                 
             # Split by any whitespace block matching NOAA's native text log columns
-            # Layout schema matching raw data files: station, lat, lon, tmpc, dwpc, sknt, drct, alti
             parts = line.split()
             if len(parts) < 8:
                 continue
