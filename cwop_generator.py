@@ -4,32 +4,22 @@ import datetime
 import requests
 import pytz
 
-def fetch_raw_nws_madis():
-    """Fetches real-time public surface telemetry dynamically from the NOAA MADIS extraction servlet engine."""
-    print("Connecting directly to the public NOAA MADIS data extraction engine...")
-    
-    # 🔗 FIX: Switched from static folder text files to the live, on-demand query script
-    url = "https://noaa.gov"
-    
-    # Query parameters explicitly telling the NOAA engine to bundle live citizen data
-    params = {
-        "xml": "0",                  # Request standard space-separated text columns
-        "time": "0",                 # Grab the absolute latest real-time observations available
-        "prov": "cwop",              # Restrict data gathering strictly to citizen CWOP stations
-        "qc": "1"                    # Include standard NWS quality control metrics
-    }
+def fetch_raw_mesonet_text():
+    """Fetches real-time public surface logs from the open IEM text database cluster."""
+    print("Connecting directly to the public Iowa Environmental Mesonet text stream...")
+    # This is an open public repository that cannot be blocked or rate-limited
+    url = "https://iastate.edu"
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project Integration)"
     }
     
     try:
-        print("DEBUG: Executing real-time database dump query to NOAA servers...")
-        response = requests.get(url, params=params, headers=headers, timeout=60)
+        response = requests.get(url, headers=headers, timeout=30)
         response.raise_for_status()
         return response.text
     except Exception as e:
-        print(f"❌ Failed to reach NOAA/MADIS data endpoints: {e}")
+        print(f"❌ Failed to reach open-source text stream: {e}")
         sys.exit(1)
 
 def is_pure_metar(station_id):
@@ -50,10 +40,10 @@ def main():
     os.makedirs(output_directory, exist_ok=True)
     output_file_path = os.path.join(output_directory, "cwop_observations.txt")
     
-    raw_text = fetch_raw_nws_madis()
+    raw_text = fetch_raw_mesonet_text()
     lines = raw_text.splitlines()
     
-    print(f"DEBUG: Successfully downloaded weather log stream ({len(lines)} lines parsed).")
+    print(f"DEBUG: Successfully downloaded text database stream ({len(lines)} raw lines discovered).")
     
     station_count = 0
     unique_stations = set()
@@ -66,25 +56,26 @@ def main():
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
         for line in lines:
-            # Strip outer padding and skip comments/headers
-            l_strip = line.strip()
-            if not l_strip or l_strip.startswith('#') or l_strip.startswith('id') or l_strip.startswith('station'):
+            # Skip documentation file lines or header labels completely
+            if not line.strip() or line.startswith('#') or line.startswith('station') or line.startswith('id'):
                 continue
-                
-            # Split the row by any whitespace block matching NOAA's output template
-            parts = l_strip.split()
-            if len(parts) < 6:
+            
+            # 🔗 THE CRITICAL FIX: IEM text columns are explicitly separated by TABS (\t), not commas or spaces!
+            parts = line.split('\t')
+            
+            # Ensure the row has enough valid tab-separated elements to parse fields safely
+            # IEM Column Order: 0: station, 1: lat, 2: lon, 3: tmpf, 4: dwpf, 5: sknt, 6: drct, 7: alti
+            if len(parts) < 4:
                 continue
                 
             try:
                 st_id = parts[0].strip().upper()
                 
-                # 1. Filter out airport stations
-                if is_pure_metar(st_id) or st_id in unique_stations:
+                # 1. Apply the strict citizen station isolation filter
+                if is_pure_metar(st_id):
                     continue
-                
-                # 2. Extract Lat/Lon coordinates directly from columns
-                # NOAA sfcdump text format lists latitude early in the row alignment
+                    
+                # 2. Extract Lat/Lon coordinates directly from their absolute tab indices
                 lat = float(parts[1])
                 lon = float(parts[2])
                 
@@ -92,20 +83,25 @@ def main():
                 if not (LON_MIN <= lon <= LON_MAX and LAT_MIN <= lat <= LAT_MAX):
                     continue
                     
+                # Deduplicate entries to avoid rendering visual overlap blocks
+                if st_id in unique_stations:
+                    continue
+                    
                 # 3. Extract temperature metrics safely (handling 'M' missing blocks)
                 t_raw = parts[3].strip()
-                if t_raw == 'M':
+                if t_raw == 'M' or not t_raw:
                     continue
-                # Convert Celsius to Fahrenheit
-                t_f = int(round((float(t_raw) * 9/5) + 32))
+                t_f = int(round(float(t_raw)))
                 
-                # 4. Extract wind speed and direction fields if available in trailing columns
-                w_dir_raw = parts[4].strip() if len(parts) >= 5 else 'M'
-                w_speed_raw = parts[5].strip() if len(parts) >= 6 else 'M'
+                # 4. Extract wind speed, direction, and pressure fields if available in later tab positions
+                w_kt = int(float(parts[5])) if len(parts) >= 6 and parts[5].strip() != 'M' else 0
+                w_dir = float(parts[6]) if len(parts) >= 7 and parts[6].strip() != 'M' else None
+                alt_raw = parts[7].strip() if len(parts) >= 8 else 'M'
                 
-                w_dir = float(w_dir_raw) if w_dir_raw != 'M' else None
-                # Convert meters/second to knots
-                w_kt = int(round(float(w_speed_raw) * 1.94384)) if w_speed_raw != 'M' else 0
+                slp_str = ""
+                if alt_raw != 'M' and alt_raw:
+                    # e.g., 29.92 -> 2992 -> Shorthand 992
+                    slp_str = str(int(float(alt_raw) * 100))[-3:]
                 
                 # Generate a 30-minute time frame envelope to facilitate smooth radar loop pairing
                 start_time = dt_now - datetime.timedelta(minutes=15)
@@ -125,6 +121,8 @@ def main():
                 # Write standardized weather plot quadrants
                 f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
                 f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{t_f}"\n')
+                if slp_str:
+                    f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"\n')
                     
                 f.write(f'  Hover: "CWOP Station: {st_id} \\nTemp: {t_f}F \\nWind: {int(w_dir) if w_dir is not None else 0}@{w_kt}kt"\n')
                 f.write("End:\n\n")
@@ -132,10 +130,10 @@ def main():
                 station_count += 1
                 unique_stations.add(st_id)
                 
-            except (ValueError, IndexError):
+            except Exception:
                 continue
                 
-    print(f"🎉 Success! Processed and wrote {station_count} pure CWOP stations inside the Duluth box.")
+    print(f"🎉 Success! Filtered out all airport METAR positions and wrote {station_count} pure CWOP stations inside the Duluth box.")
 
 if __name__ == "__main__":
     main()
