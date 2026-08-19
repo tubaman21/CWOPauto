@@ -40,38 +40,33 @@ def fetch_madis_data():
         sys.exit(1)
 
 def parse_madis_line(line):
-    """Parses standard comma-separated MADIS records into a strict data dictionary."""
-    parts = line.split(',')
-    if len(parts) < 15:
+    """Parses standard space-separated NOAA surface records into a strict data dictionary."""
+    # Split by any whitespace block safely
+    parts = line.split()
+    if len(parts) < 10:
         return None
         
     try:
-        # MADIS Text Data Standard Layout Column Mapping Indexes
+        # Map parameters from NOAA's live surface record text columns
         st_id = parts[0].strip()
         lat = float(parts[1])
         lon = float(parts[2])
-        time_raw = parts[3].strip() # Format: YYYYMMDD_HHMM
         
-        # Pull key meteorological layers (handling 'M' missing characters safely)
-        t_c = float(parts[4]) if parts[4] != 'M' else None
-        d_c = float(parts[5]) if parts[5] != 'M' else None
-        w_dir = float(parts[6]) if parts[6] != 'M' else None
-        w_speed_ms = float(parts[7]) if parts[7] != 'M' else None
-        alt_in = float(parts[13]) if parts[13] != 'M' else None
+        # Safely convert temperature vectors (handling 'M' missing blocks)
+        t_raw = parts[3]
+        t_f = int(round((float(t_raw) * 9/5) + 32)) if t_raw != 'M' else None
         
-        # Convert measurements to standard operational units
-        t_f = int(round((t_c * 9/5) + 32)) if t_c is not None else None
-        d_f = int(round((d_c * 9/5) + 32)) if d_c is not None else None
-        w_kt = int(round(w_speed_ms * 1.94384)) if w_speed_ms is not None else 0
+        # Wind configurations
+        w_dir = float(parts[4]) if parts[4] != 'M' else None
+        w_speed = float(parts[5]) if parts[5] != 'M' else 0
+        w_kt = int(round(w_speed * 1.94384))
         
-        # Format Sea-Level / Altimeter code shorthand (e.g. 29.92 -> 992)
-        slp_str = str(int(round(alt_in * 100)))[-3:] if alt_in is not None else ""
-        
-        dt = datetime.datetime.strptime(time_raw, "%Y%m%d_%H%M").replace(tzinfo=pytz.utc)
+        # Default to the current time since we requested real-time active data
+        dt = datetime.datetime.now(pytz.utc)
         
         return {
             "id": st_id, "lat": lat, "lon": lon, "time": dt,
-            "temp": t_f, "dewp": d_f, "wdir": w_dir, "wkt": w_kt, "slp": slp_str
+            "temp": t_f, "dewp": None, "wdir": w_dir, "wkt": w_kt, "slp": ""
         }
     except Exception:
         return None
