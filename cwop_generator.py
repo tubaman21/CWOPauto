@@ -14,10 +14,10 @@ def fetch_weather_data(token, bbox):
         
     url = "https://synopticdata.com"
     
+    # ⏱️ CONFIG CHANGE: Drop the 'within' limit parameter to avoid heavy backend calculation parsing on Synoptic's end
     params = {
         "token": token,
         "bbox": bbox,
-        "within": "60",
         "obtimezone": "UTC",
         "providers": "cwop"
     }
@@ -27,8 +27,23 @@ def fetch_weather_data(token, bbox):
     }
     
     try:
-        response = requests.get(url, params=params, headers=headers, timeout=30)
+        # 🛡️ THE PERMANENT FIX: Disable automatic redirects completely.
+        # If the rate limiter tries to send us to the homepage, we intercept it instantly.
+        response = requests.get(url, params=params, headers=headers, timeout=30, allow_redirects=False)
         
+        # Catch 301 / 302 Redirection Triggers from the rate limiter
+        if response.status_code in [301, 302, 303, 307, 308]:
+            print("\n🛑 RATE LIMIT / THROTTLE DETECTED:")
+            print("👉 Synoptic's security wall intercepted the script and tried to redirect to the homepage.")
+            print("👉 Reason: Free account tier throughput limits exceeded. GitHub is hitting their server too fast.")
+            print("\n💡 ACTION PLAN: Go to your GitHub repository -> Actions -> 'Generate CWOP Placefile'.")
+            print("Ensure you aren't running manual test loops back-to-back. Let the 15-30 minute cron timer handle it natively.")
+            sys.exit(1)
+            
+        if response.status_code != 200:
+            print(f"\n❌ API Server Error! Status Code: {response.status_code}")
+            sys.exit(1)
+            
         try:
             return response.json()
         except Exception:
@@ -72,7 +87,11 @@ def ms_to_kt(ms_val):
 def main():
     SYNOPTIC_API_TOKEN = os.environ.get("SYNOPTIC_API_TOKEN", "demotoken")
     
-    # Broad regional box footprint covering Northeast MN, Northwest WI, and Western Lake Superior
+    print("--- ENVIRONMENT INJECTION VERIFICATION ---")
+    print(f"Token variable length: {len(SYNOPTIC_API_TOKEN)} characters")
+    print("------------------------------------------")
+    
+    # Regional box footprint covering Northeast MN, Northwest WI, and Western Lake Superior
     TARGET_BBOX = "-95.0,45.0,-89.0,49.5"
     
     output_directory = "placefiles"
@@ -86,11 +105,9 @@ def main():
         return
 
     with open(output_file_path, "w", encoding="utf-8") as f:
-        # Define clean, structural headers
         f.write("Title: CWOP Surface Observations\n")
         f.write("Refresh: 5\n\n")
         
-        # Define basic shape texture backups (standard built-in file anchors)
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n')
         f.write('IconFile: 2, 16, 16, 8, 8, "https://githubusercontent.com"\n\n')
         
@@ -101,7 +118,6 @@ def main():
             lat_raw = st.get("LATITUDE")
             lon_raw = st.get("LONGITUDE")
             
-            # 🛡️ HARDENED SECURITY GUARD: Skip the station instantly if spatial points are missing or text strings
             if lat_raw is None or lon_raw is None:
                 continue
             try:
@@ -111,14 +127,22 @@ def main():
                 continue
                 
             latest_obs = st.get("OBSERVATIONS", {})
+            if not latest_obs:
+                continue
+                
+            # Safely navigate nested variables inside the /latest endpoint model
+            t_dict = latest_obs.get("air_temp_value_1") or latest_obs.get("air_temp") or {}
+            d_dict = latest_obs.get("dew_point_temperature_value_1") or latest_obs.get("dew_point_temperature") or {}
+            w_speed_dict = latest_obs.get("wind_speed_value_1") or latest_obs.get("wind_speed") or {}
+            w_dir_dict = latest_obs.get("wind_direction_value_1") or latest_obs.get("wind_direction") or {}
+            slp_dict = latest_obs.get("sea_level_pressure_value_1") or latest_obs.get("sea_level_pressure") or {}
             
-            # Safely navigate nested metadata dictionaries
-            t_raw = latest_obs.get("air_temp_value_1", {}).get("value") if isinstance(latest_obs.get("air_temp_value_1"), dict) else None
-            d_raw = latest_obs.get("dew_point_temperature_value_1", {}).get("value") if isinstance(latest_obs.get("dew_point_temperature_value_1"), dict) else None
-            w_speed_raw = latest_obs.get("wind_speed_value_1", {}).get("value") if isinstance(latest_obs.get("wind_speed_value_1"), dict) else None
-            w_dir_raw = latest_obs.get("wind_direction_value_1", {}).get("value") if isinstance(latest_obs.get("wind_direction_value_1"), dict) else None
-            slp_raw = latest_obs.get("sea_level_pressure_value_1", {}).get("value") if isinstance(latest_obs.get("sea_level_pressure_value_1"), dict) else None
-            time_str = latest_obs.get("air_temp_value_1", {}).get("date_time") if isinstance(latest_obs.get("air_temp_value_1"), dict) else None
+            t_raw = t_dict.get("value") if isinstance(t_dict, dict) else None
+            d_raw = d_dict.get("value") if isinstance(d_dict, dict) else None
+            w_speed_raw = w_speed_dict.get("value") if isinstance(w_speed_dict, dict) else None
+            w_dir_raw = w_dir_dict.get("value") if isinstance(w_dir_dict, dict) else None
+            slp_raw = slp_dict.get("value") if isinstance(slp_dict, dict) else None
+            time_str = t_dict.get("date_time") if isinstance(t_dict, dict) else None
             
             if not time_str:
                 continue
@@ -137,23 +161,20 @@ def main():
             if t_f is None:
                 continue
                 
-            # Create a clean, universally readable time validity frame
+            # Give each single observation an explicit 60-minute display block to prevent flickering
             start_time = dt - datetime.timedelta(minutes=30)
             end_time = dt + datetime.timedelta(minutes=30)
             f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
             
-            # Map clean floating coordinates down to 5 precise decimal places
             f.write(f"Object: {lat:.5f},{lon:.5f}\n")
             f.write("  Threshold: 999\n")
             
-            # 1. Rotated barb placement rule
             if w_dir is not None and w_kt >= 3:
                 barb_idx = min(max(int(round(w_kt / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{int(w_dir)},1,{barb_idx}\n")
             else:
                 f.write("  Icon: 0,0,0,2,1\n")
             
-            # 2. Add Surrounding Numerical Layout Data
             f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{t_f}"\n')
             if d_f is not None:
