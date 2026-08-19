@@ -58,13 +58,12 @@ def main():
     station_count = 0
     
     with open(output_file_path, "w", encoding="utf-8") as f:
-        # Initialize standardized GR2 structural parameters and headers
+        # Initialize standard GR2 structural parameters and headers
         f.write("Title: Regional CWOP Observations Loop\n")
         f.write("Refresh: 5\n\n")
         
-        # 🔗 CRITICAL SYNTAX FIX: Switched from 'IconFile' to lowercased 'iconfile' 
-        # Points directly to a public, standard 32x32 wind barb sheet asset
-        f.write('iconfile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
+        # 🔗 THE ULTIMATE FIX: Removed the trailing colon after 'iconfile' and normalized spaces
+        f.write('iconfile 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
         for obs in stations:
             # Generate a looping 30-minute validity timeframe window
@@ -76,7 +75,7 @@ def main():
             f.write("  Threshold: 999\n")
             
             if obs["wdir"] is not None and obs["wkt"] >= 3:
-                # Standard conversion logic linking wind speed knots down to a 5-knot asset barb sheet
+                # Map wind speed knots to a standard 5-knot asset barb sheet index
                 barb_idx = min(max(int(round(obs["wkt"] / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{obs['wdir']},1,{barb_idx}\n")
             else:
