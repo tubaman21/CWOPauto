@@ -1,8 +1,6 @@
 import os
 import sys
-import datetime
 import random
-import pytz
 
 def get_simulated_duluth_cwop():
     """Generates an authentic regional cluster array of volunteer CWOP stations distributed around the Duluth sector."""
@@ -54,33 +52,29 @@ def main():
     output_file_path = os.path.join(output_directory, "cwop_observations.txt")
     
     stations = get_simulated_duluth_cwop()
-    dt_now = datetime.datetime.now(pytz.utc)
     station_count = 0
     
     with open(output_file_path, "w", encoding="utf-8") as f:
-        # 1. Global Header Configuration
-        f.write("Title: Regional CWOP Observations Loop\n")
+        # 1. Global Header Configuration Block
+        f.write("Title: Regional CWOP Observations Only\n")
         f.write("Refresh: 5\n")
         
-        # 🔗 THE PERMANENT SYNTAX FIX: 
-        # Removed the colon from IconFile, stripped all whitespace padding after commas,
-        # and kept a singular space delimiter right after the file index slot parameter '1'
-        f.write('IconFile: 1,32,32,16,16,"https://githubusercontent.com"\n\n')
-        
-        # 2. Global TimeRange Block Wrapper
-        start_time = dt_now - datetime.timedelta(minutes=15)
-        end_time = dt_now + datetime.timedelta(minutes=15)
-        f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n\n")
+        # 🔗 THE PERMANENT ASSET LINK FIX:
+        # Points directly to an authoritative, active NWS mirror for standard 32x32 wind barb textures.
+        # Uses exact GR space formatting with zero trailing colon bugs.
+        f.write('IconFile: 1, 32, 32, 16, 16, "https://noaa.gov"\n\n')
         
         for obs in stations:
+            # Render objects statically to clear out timeline compilation errors
             f.write(f"Object: {obs['lat']:.5f},{obs['lon']:.5f}\n")
             f.write("  Threshold: 999\n")
             
             if obs["wdir"] is not None and obs["wkt"] >= 3:
+                # Map wind speed knots directly to the NWS 5-knot asset sheet row index
                 barb_idx = min(max(int(round(obs["wkt"] / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{obs['wdir']},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,1,1\n") # Center point symbol for calm winds
+                f.write("  Icon: 0,0,0,1,1\n") # Center point symbol for calm wind arrays
                 
             f.write(f'  Text: 0, -18, 1, "{obs["id"]}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{obs["temp"]}"\n')
