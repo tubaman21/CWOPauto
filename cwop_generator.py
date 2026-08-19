@@ -4,190 +4,134 @@ import datetime
 import requests
 import pytz
 
-def fetch_weather_data(token, bbox):
-    """Fetches the latest real-time weather observations from the Synoptic API."""
-    print("Initializing lightweight telemetry download routine from Synoptic Networks...")
+def fetch_madis_data():
+    """Fetches real-time public surface telemetry directly from the NOAA MADIS data servers."""
+    print("Connecting directly to the public NOAA MADIS data streaming pipeline...")
     
-    if token == "demotoken":
-        print("\n❌ CRITICAL STOP: The script is using 'demotoken'. GitHub secrets are not being read!")
-        sys.exit(1)
-        
-    url = "https://synopticdata.com"
+    # MADIS provides real-time public text records aggregated by hour blocks
+    now = datetime.datetime.now(pytz.utc)
+    current_hour = now.strftime("%Y%m%d_%H00")
     
-    # ⏱️ CONFIG CHANGE: Drop the 'within' limit parameter to avoid heavy backend calculation parsing on Synoptic's end
-    params = {
-        "token": token,
-        "bbox": bbox,
-        "obtimezone": "UTC",
-        "providers": "cwop"
-    }
+    # Direct public access URL requiring no API tokens, accounts, or keys
+    url = f"https://noaa.gov.{current_hour}"
     
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project Integration)"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NWS-WFO-Project/1.0"
     }
     
     try:
-        # 🛡️ THE PERMANENT FIX: Disable automatic redirects completely.
-        # If the rate limiter tries to send us to the homepage, we intercept it instantly.
-        response = requests.get(url, params=params, headers=headers, timeout=30, allow_redirects=False)
-        
-        # Catch 301 / 302 Redirection Triggers from the rate limiter
-        if response.status_code in [301, 302, 303, 307, 308]:
-            print("\n🛑 RATE LIMIT / THROTTLE DETECTED:")
-            print("👉 Synoptic's security wall intercepted the script and tried to redirect to the homepage.")
-            print("👉 Reason: Free account tier throughput limits exceeded. GitHub is hitting their server too fast.")
-            print("\n💡 ACTION PLAN: Go to your GitHub repository -> Actions -> 'Generate CWOP Placefile'.")
-            print("Ensure you aren't running manual test loops back-to-back. Let the 15-30 minute cron timer handle it natively.")
-            sys.exit(1)
-            
+        response = requests.get(url, headers=headers, timeout=30)
         if response.status_code != 200:
-            print(f"\n❌ API Server Error! Status Code: {response.status_code}")
-            sys.exit(1)
+            # Fallback to the previous hour's file if we are right at the top of a new hour block
+            prev_hour = (now - datetime.timedelta(hours=1)).strftime("%Y%m%d_%H00")
+            url = f"https://noaa.gov.{prev_hour}"
+            response = requests.get(url, headers=headers, timeout=30)
             
-        try:
-            return response.json()
-        except Exception:
-            print("\n❌ CRITICAL CRASH: Server response could not be parsed into JSON!")
-            print(f"👉 Raw Server Response Text:\n{response.text[:500]}\n")
-            sys.exit(1)
-            
+        response.raise_for_status()
+        return response.text
     except Exception as e:
-        print(f"\n❌ Network processing exception during API fetch: {e}")
+        print(f"❌ Failed to reach NOAA/MADIS data endpoints: {e}")
         sys.exit(1)
 
-def format_slp(slp_val):
-    """Formats raw millibar sea-level pressure into standard 3-digit NWS shorthand."""
-    if slp_val is None:
-        return ""
-    try:
-        slp_str = f"{float(slp_val):.1f}"
-        parts = slp_str.replace('.', '')
-        return parts[-3:]
-    except (ValueError, TypeError):
-        return ""
-
-def c_to_f(c_val):
-    """Converts Celsius to Fahrenheit integer."""
-    if c_val is None:
+def parse_madis_line(line):
+    """Parses standard comma-separated MADIS records into a strict data dictionary."""
+    parts = line.split(',')
+    if len(parts) < 15:
         return None
+        
     try:
-        return int(round((float(c_val) * 9/5) + 32))
-    except (ValueError, TypeError):
+        # MADIS Text Data Standard Layout Column Mapping Indexes
+        st_id = parts[0].strip()
+        lat = float(parts[1])
+        lon = float(parts[2])
+        time_raw = parts[3].strip() # Format: YYYYMMDD_HHMM
+        
+        # Pull key meteorological layers (handling 'M' missing characters safely)
+        t_c = float(parts[5]) if parts[5] != 'M' else None
+        d_c = float(parts[6]) if parts[6] != 'M' else None
+        w_dir = float(parts[7]) if parts[7] != 'M' else None
+        w_speed_ms = float(parts[8]) if parts[8] != 'M' else None
+        alt_in = float(parts[11]) if parts[11] != 'M' else None
+        
+        # Convert measurements to standard operational units
+        t_f = int(round((t_c * 9/5) + 32)) if t_c is not None else None
+        d_f = int(round((d_c * 9/5) + 32)) if d_c is not None else None
+        w_kt = int(round(w_speed_ms * 1.94384)) if w_speed_ms is not None else 0
+        
+        # Format Sea-Level / Altimeter code shorthand (e.g. 29.92 -> 992)
+        slp_str = str(int(round(alt_in * 100)))[-3:] if alt_in is not None else ""
+        
+        dt = datetime.datetime.strptime(time_raw, "%Y%m%d_%H%M").replace(tzinfo=pytz.utc)
+        
+        return {
+            "id": st_id, "lat": lat, "lon": lon, "time": dt,
+            "temp": t_f, "dewp": d_f, "wdir": w_dir, "wkt": w_kt, "slp": slp_str
+        }
+    except Exception:
         return None
-
-def ms_to_kt(ms_val):
-    """Converts meters per second to knots integer."""
-    if ms_val is None:
-        return 0
-    try:
-        return int(round(float(ms_val) * 1.94384))
-    except (ValueError, TypeError):
-        return 0
 
 def main():
-    SYNOPTIC_API_TOKEN = os.environ.get("SYNOPTIC_API_TOKEN", "demotoken")
-    
-    print("--- ENVIRONMENT INJECTION VERIFICATION ---")
-    print(f"Token variable length: {len(SYNOPTIC_API_TOKEN)} characters")
-    print("------------------------------------------")
-    
-    # Regional box footprint covering Northeast MN, Northwest WI, and Western Lake Superior
-    TARGET_BBOX = "-95.0,45.0,-89.0,49.5"
+    # 🗺️ Define your spatial boundaries (WFO Duluth County Warning Area)
+    # Min/Max boundaries: Longitude (-95.0 to -89.0), Latitude (45.0 to 49.5)
+    LON_MIN, LAT_MIN, LON_MAX, LAT_MAX = -95.0, 45.0, -89.0, 49.5
     
     output_directory = "placefiles"
     os.makedirs(output_directory, exist_ok=True)
     output_file_path = os.path.join(output_directory, "cwop_observations.txt")
     
-    raw_data = fetch_weather_data(SYNOPTIC_API_TOKEN, TARGET_BBOX)
+    raw_text = fetch_madis_data()
+    lines = raw_text.splitlines()
     
-    if "STATION" not in raw_data or not raw_data["STATION"]:
-        print("⚠ Operational Warning: API returned success code, but zero stations reported in this bounding box.")
-        return
-
+    station_count = 0
+    
     with open(output_file_path, "w", encoding="utf-8") as f:
-        f.write("Title: CWOP Surface Observations\n")
+        f.write("Title: MADIS Looping Surface Observations\n")
         f.write("Refresh: 5\n\n")
-        
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n')
-        f.write('IconFile: 2, 16, 16, 8, 8, "https://githubusercontent.com"\n\n')
         
-        station_count = 0
-        
-        for st in raw_data["STATION"]:
-            st_id = st.get("STID", "UNKN")
-            lat_raw = st.get("LATITUDE")
-            lon_raw = st.get("LONGITUDE")
-            
-            if lat_raw is None or lon_raw is None:
-                continue
-            try:
-                lat = float(lat_raw)
-                lon = float(lon_raw)
-            except (ValueError, TypeError):
+        for line in lines:
+            if line.startswith('#') or not line.strip():
                 continue
                 
-            latest_obs = st.get("OBSERVATIONS", {})
-            if not latest_obs:
+            obs = parse_madis_line(line)
+            if not obs:
                 continue
                 
-            # Safely navigate nested variables inside the /latest endpoint model
-            t_dict = latest_obs.get("air_temp_value_1") or latest_obs.get("air_temp") or {}
-            d_dict = latest_obs.get("dew_point_temperature_value_1") or latest_obs.get("dew_point_temperature") or {}
-            w_speed_dict = latest_obs.get("wind_speed_value_1") or latest_obs.get("wind_speed") or {}
-            w_dir_dict = latest_obs.get("wind_direction_value_1") or latest_obs.get("wind_direction") or {}
-            slp_dict = latest_obs.get("sea_level_pressure_value_1") or latest_obs.get("sea_level_pressure") or {}
-            
-            t_raw = t_dict.get("value") if isinstance(t_dict, dict) else None
-            d_raw = d_dict.get("value") if isinstance(d_dict, dict) else None
-            w_speed_raw = w_speed_dict.get("value") if isinstance(w_speed_dict, dict) else None
-            w_dir_raw = w_dir_dict.get("value") if isinstance(w_dir_dict, dict) else None
-            slp_raw = slp_dict.get("value") if isinstance(slp_dict, dict) else None
-            time_str = t_dict.get("date_time") if isinstance(t_dict, dict) else None
-            
-            if not time_str:
+            # Filter positions using your exact bounding box parameters
+            if not (LON_MIN <= obs["lon"] <= LON_MAX and LAT_MIN <= obs["lat"] <= LAT_MAX):
                 continue
                 
-            try:
-                dt = datetime.datetime.strptime(time_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=pytz.utc)
-            except ValueError:
+            if obs["temp"] == None:
                 continue
                 
-            t_f = c_to_f(t_raw)
-            d_f = c_to_f(d_raw)
-            w_kt = ms_to_kt(w_speed_raw)
-            w_dir = float(w_dir_raw) if w_dir_raw is not None else None
-            slp_str = format_slp(slp_raw)
-            
-            if t_f is None:
-                continue
-                
-            # Give each single observation an explicit 60-minute display block to prevent flickering
-            start_time = dt - datetime.timedelta(minutes=30)
-            end_time = dt + datetime.timedelta(minutes=30)
+            # Calculate a time visibility range around the data packet
+            start_time = obs["time"] - datetime.timedelta(minutes=15)
+            end_time = obs["time"] + datetime.timedelta(minutes=15)
             f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
             
-            f.write(f"Object: {lat:.5f},{lon:.5f}\n")
+            f.write(f"Object: {obs['lat']:.5f},{obs['lon']:.5f}\n")
             f.write("  Threshold: 999\n")
             
-            if w_dir is not None and w_kt >= 3:
-                barb_idx = min(max(int(round(w_kt / 5)), 1), 25)
-                f.write(f"  Icon: 0,0,{int(w_dir)},1,{barb_idx}\n")
+            # Plot wind telemetry icons
+            if obs["wdir"] is not None and obs["wkt"] >= 3:
+                barb_idx = min(max(int(round(obs["wkt"] / 5)), 1), 25)
+                f.write(f"  Icon: 0,0,{int(obs['wdir'])},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,2,1\n")
-            
-            f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
-            f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{t_f}"\n')
-            if d_f is not None:
-                f.write(f'  Color: 100 255 100\n  Text: -20, 10, 1, "{d_f}"\n')
-            if slp_str:
-                f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"\n')
-            
-            f.write(f'  Hover: "Station: {st_id} \\nTime: {dt.strftime("%H:%M")} UTC \\nTemp: {t_f}F \\nDew Point: {d_f if d_f is not None else "M"}F \\nWind: {int(w_dir) if w_dir else 0}@{w_kt}kt"\n')
-            f.write("End:\n\n")
-            
-            station_count += 1
+                f.write("  Icon: 0,0,0,1,0\n") # Centered calm indicator node
                 
-        print(f"🎉 Success! Completely verified and wrote {station_count} clean stations.")
+            # Render standard weather plot quadrants
+            f.write(f'  Text: 0, -18, 1, "{obs["id"]}"\n')
+            f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{obs["temp"]}"\n')
+            if obs["dewp"] is not None:
+                f.write(f'  Color: 100 255 100\n  Text: -20, 10, 1, "{obs["dewp"]}"\n')
+            if obs["slp"]:
+                f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{obs["slp"]}"\n')
+                
+            f.write(f'  Hover: "Station: {obs["id"]} \\nTime: {obs["time"].strftime("%H:%M")} UTC \\nTemp: {obs["temp"]}F \\nDew Point: {obs["dewp"] if obs["dewp"] is not None else "M"}F \\nWind: {int(obs["wdir"]) if obs["wdir"] is not None else 0}@{obs["wkt"]}kt"\n')
+            f.write("End:\n\n")
+            station_count += 1
+            
+    print(f"🎉 Success! Processed and wrote {station_count} clean observations over the Duluth grid.")
 
 if __name__ == "__main__":
     main()
