@@ -27,15 +27,10 @@ def is_pure_metar(station_id):
     Returns False if it is a personal citizen weather station (CWOP/DW tag).
     """
     sid = station_id.strip().upper()
-    
-    # Extract standard international 4-character airport codes starting with 'K'
     if len(sid) == 4 and sid.startswith('K') and sid[1:].isalpha():
         return True
-        
-    # Extract 3-character regional airport identifiers
     if len(sid) == 3 and sid.isalpha():
         return True
-        
     return False
 
 def main():
@@ -66,11 +61,9 @@ def main():
             if not line.strip() or line.startswith('#') or line.startswith('station') or line.startswith('id'):
                 continue
             
-            # Standardize separation markers (replace commas with spaces)
-            cleaned_line = line.replace(',', ' ')
-            parts = cleaned_line.split()
+            # 🔗 FIX: Split cleanly by comma matching IEM's native layout matrix
+            parts = line.split(',')
             
-            # Ensure the row has enough valid space-separated elements to parse variables
             if len(parts) < 4:
                 continue
                 
@@ -81,17 +74,9 @@ def main():
                 if is_pure_metar(st_id):
                     continue
                     
-                # 2. Extract spatial metadata points safely
-                val_a = float(parts[1])
-                val_b = float(parts[2])
-                
-                # 🧭 FIXED: Auto-detect coordinate columns based on negative values (US Longitude)
-                if val_a < 0:
-                    lon = val_a
-                    lat = val_b
-                else:
-                    lat = val_a
-                    lon = val_b
+                # 2. Map coordinates precisely to their true comma indexes
+                lat = float(parts[1])
+                lon = float(parts[2])
                 
                 # Apply your exact geographical filter constraints
                 if not (LON_MIN <= lon <= LON_MAX and LAT_MIN <= lat <= LAT_MAX):
@@ -101,22 +86,19 @@ def main():
                 if st_id in unique_stations:
                     continue
                     
-                # 3. Extract temperature metrics (handling 'M' missing blocks safely)
-                t_raw = parts[3]
-                if t_raw == 'M':
+                # 3. Extract temperature metrics safely
+                t_raw = parts[3].strip()
+                if t_raw == 'M' or not t_raw:
                     continue
                 t_f = int(round(float(t_raw)))
                 
-                # 4. Extract wind speed and direction fields safely by indexing later columns
-                w_speed_raw = parts[5] if len(parts) >= 6 else 'M'
-                w_dir_raw = parts[6] if len(parts) >= 7 else 'M'
-                alt_raw = parts[7] if len(parts) >= 8 else 'M'
-                
-                w_kt = int(float(w_speed_raw)) if w_speed_raw != 'M' else 0
-                w_dir = float(w_dir_raw) if w_dir_raw != 'M' else None
+                # 4. Extract wind speed, direction, and pressure fields if available
+                w_kt = int(float(parts[5])) if len(parts) >= 6 and parts[5].strip() != 'M' else 0
+                w_dir = float(parts[6]) if len(parts) >= 7 and parts[6].strip() != 'M' else None
+                alt_raw = parts[7].strip() if len(parts) >= 8 else 'M'
                 
                 slp_str = ""
-                if alt_raw != 'M':
+                if alt_raw != 'M' and alt_raw:
                     # e.g., 29.92 -> 2992 -> Shorthand 992
                     slp_str = str(int(float(alt_raw) * 100))[-3:]
                 
@@ -148,7 +130,6 @@ def main():
                 unique_stations.add(st_id)
                 
             except Exception:
-                # Silently pass malformed rows to prevent whole-file parsing failure
                 continue
                 
     print(f"🎉 Success! Filtered out all airport METAR positions and wrote {station_count} pure CWOP stations inside the Duluth box.")
