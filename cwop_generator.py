@@ -5,39 +5,38 @@ import requests
 import pytz
 
 def fetch_raw_nws_madis():
-    """Downloads the raw public MADIS weather data text dump directly from the National Weather Service."""
-    print("Connecting directly to the federal open-access NWS data servers...")
+    """Fetches real-time public surface telemetry directly from the NOAA MADIS data servers."""
+    print("Connecting directly to the public NOAA MADIS data streaming pipeline...")
     
-    # Target the completed hour raw data text dump (subtracting 30 minutes for latency padding)
-    now = datetime.datetime.now(pytz.utc) - datetime.timedelta(minutes=30)
-    hour_str = now.strftime("%Y%m%d_%H00")
+    # Target the active NOAA MADIS real-time extraction servlet engine
+    url = "https://noaa.gov"
     
-    # 🔗 PERMANENT FIX: Hardcode the absolute base domain safely separate from variables
-    base_domain = "https://noaa.gov"
-    file_path = f"/madisPublic1/data/text/metar/TXT.{hour_str}"
-    url = base_domain + file_path
+    # Configure precise data query parameters
+    params = {
+        "xml": "0",                  # Request raw text formatting layout (not XML)
+        "time": "0",                 # Request the most recent real-time observations available
+        "prov": "cwop",              # Restrict data gathering strictly to CWOP stations
+        "qc": "1"                    # Include NWS quality control validation flags
+    }
     
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NWS-Project-Integration/1.0"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NWS-WFO-Project/1.0"
     }
     
     try:
-        print(f"DEBUG: Resolving connection straight to URL: {url}")
-        response = requests.get(url, headers=headers, timeout=30)
-        
-        # If the file for the current hour isn't finished writing, fall back to the previous hour
-        if response.status_code != 200:
-            print(f"⚠ Hour file compiling (HTTP {response.status_code}). Falling back to the previous hour...")
-            prev_hour = (now - datetime.timedelta(hours=1)).strftime("%Y%m%d_%H00")
-            file_path_fallback = f"/madisPublic1/data/text/metar/TXT.{prev_hour}"
-            url = base_domain + file_path_fallback
-            print(f"DEBUG: Resolving fallback connection to URL: {url}")
-            response = requests.get(url, headers=headers, timeout=30)
-            
+        print(f"DEBUG: Attempting connection to NOAA MADIS CGI script...")
+        response = requests.get(url, params=params, headers=headers, timeout=45)
         response.raise_for_status()
+        
+        # Guard check to ensure the server returned the expected column file and not an error
+        if "id" not in response.text.lower() and "station" not in response.text.lower():
+            print("⚠ Warning: NOAA returned a blank payload or server status alert page.")
+            print(f"👉 Raw Response Sample:\n{response.text[:300]}")
+            sys.exit(1)
+            
         return response.text
     except Exception as e:
-        print(f"❌ Failed to reach NOAA/NWS data servers: {e}")
+        print(f"❌ Failed to reach NOAA/MADIS data endpoints: {e}")
         sys.exit(1)
 
 def is_pure_metar(station_id):
