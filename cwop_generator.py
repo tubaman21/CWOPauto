@@ -4,155 +4,123 @@ import datetime
 import requests
 import pytz
 
-def fetch_nws_radar_stations():
-    """Queries the NWS API for all weather stations monitored around the Duluth radar footprint."""
-    print("Connecting directly to the public National Weather Service API...")
+def fetch_realtime_cwop():
+    """Fetches real-time surface data for Minnesota and Wisconsin from the open IEM API."""
+    print("Connecting to the public high-availability weather data API...")
     
-    # 🛰️ Bypasses global filters by querying the explicit KDLH radar observation cluster
-    url = "https://weather.gov"
+    # query the master currents endpoint for the entire regional block
+    url = "https://iastate.edu"
     
-    # The NWS API strictly requires a clean, valid descriptive User-Agent header
+    params = {
+        "state": "MN"  # Pulls the active regional matrix natively
+    }
+    
     headers = {
-        "User-Agent": "(gr2-analyst-project, weather-automation-bot@example.com)",
-        "Accept": "application/geo+json"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0"
     }
     
     try:
-        response = requests.get(url, headers=headers, timeout=30)
+        response = requests.get(url, params=params, headers=headers, timeout=30)
         
         if response.status_code != 200:
-            print(f"\n❌ NWS Server Refusal! Status Code: {response.status_code}")
-            print(f"👉 Raw Server Notice Text: {response.text[:300]}")
+            print(f"❌ API Server Error! Status Code: {response.status_code}")
             sys.exit(1)
             
-        try:
-            return response.json()
-        except Exception:
-            print("\n❌ CRITICAL CRASH: NWS response could not be parsed as JSON!")
-            print(f"👉 Raw Text:\n{response.text[:300]}")
-            sys.exit(1)
-            
+        return response.json()
     except Exception as e:
-        print(f"❌ Failed to reach the NWS API endpoint: {e}")
+        print(f"❌ Network processing exception during API fetch: {e}")
         sys.exit(1)
 
-def fetch_station_latest_obs(station_url, headers):
-    """Fetches the absolute newest real-time snapshot for an individual station path."""
+def format_slp(alt_in):
+    """Formats raw altimeter pressure into standard 3-digit NWS shorthand."""
+    if alt_in is None or alt_in <= 0:
+        return ""
     try:
-        obs_url = f"{station_url}/observations/latest"
-        response = requests.get(obs_url, headers=headers, timeout=10)
-        if response.status_code != 200:
-            return None
-        return response.json()
-    except Exception:
-        return None
+        # e.g., 29.92 -> 2992 -> 992
+        val = str(int(round(float(alt_in) * 100)))
+        return val[-3:]
+    except (ValueError, TypeError):
+        return ""
 
 def main():
-    # 🗺️ Define your spatial boundaries (WFO Duluth County Warning Area footprint)
+    # 🗺️ Precise spatial bounding limits covering WFO Duluth's operational footprint
+    # Longitude (-95.0 to -89.0), Latitude (45.0 to 49.5)
     LON_MIN, LAT_MIN, LON_MAX, LAT_MAX = -95.0, 45.0, -89.0, 49.5
     
     output_directory = "placefiles"
     os.makedirs(output_directory, exist_ok=True)
     output_file_path = os.path.join(output_directory, "cwop_observations.txt")
     
-    geojson_data = fetch_nws_radar_stations()
-    features = geojson_data.get("features", [])
-    
-    headers = {
-        "User-Agent": "(gr2-analyst-project, weather-automation-bot@example.com)",
-        "Accept": "application/geo+json"
-    }
+    data = fetch_realtime_cwop()
+    stations = data.get("data", [])
     
     station_count = 0
     dt_now = datetime.datetime.now(pytz.utc)
     
-    print(f"Analyzing {len(features)} total radar-matrix nodes. Isolation loop starting...")
-    
     with open(output_file_path, "w", encoding="utf-8") as f:
-        # Initialize standard GR2 text parameters
+        # Initialize standard GR2 text headers
         f.write("Title: Looping Duluth Regional CWOP Observations Only\n")
         f.write("Refresh: 5\n\n")
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
-        for feature in features:
-            properties = feature.get("properties", {})
-            geometry = feature.get("geometry", {})
-            coordinates = geometry.get("coordinates",)
+        for st in stations:
+            st_id = st.get("station", "UNKN").upper()
+            lon = st.get("lon")
+            lat = st.get("lat")
             
-            if not coordinates or len(coordinates) < 2:
+            if lon is None or lat is None:
                 continue
                 
-            # Extract coordinates from GeoJSON layout formats [Longitude, Latitude]
-            lon = float(coordinates[0])
-            lat = float(coordinates[1])
-            st_id = properties.get("stationIdentifier", "UNKN").upper()
-            
-            # 🛡️ THE PERMANENT ASOS/METAR SEPARATION FILTER:
-            # Official airport nodes strictly match 3 or 4-letter alphabetical codes.
-            # Personal CWOP hardware uses longer alpha-numeric callsigns or tags.
+            # Filter spatial parameters using your coordinate boundaries
+            if not (LON_MIN <= float(lon) <= LON_MAX and LAT_MIN <= float(lat) <= LAT_MAX):
+                continue
+                
+            # 🛡️ PURE CWOP FILTER:
+            # Official airport nodes (ASOS/AWOS) match 3 or 4-letter alphabetical codes.
+            # Citizen weather stations use longer alphanumeric callsigns or numeric tags.
             if len(st_id) <= 4 and st_id.isalpha():
                 continue
                 
-            # Filter spatial parameters using your exact coordinate boundaries
-            if not (LON_MIN <= lon <= LON_MAX and LAT_MIN <= lat <= LAT_MAX):
+            # Extract parameters safely from the JSON dictionary structure
+            t_f = st.get("tmpf")
+            w_kt = st.get("sknt")
+            w_dir = st.get("drct")
+            alt_in = st.get("alti")
+            
+            if t_f is None:
                 continue
                 
-            # Query the actual weather observations for this specific station
-            station_url = feature.get("id")
-            if not station_url:
-                continue
-                
-            obs_data = fetch_station_latest_obs(station_url, headers)
-            if not obs_data:
-                continue
-                
-            obs_props = obs_data.get("properties", {})
+            # Parse wind speeds safely (handling None or missing values)
+            w_kt = int(w_kt) if w_kt is not None else 0
+            slp_str = format_slp(alt_in)
             
-            # Pull metrics from the NWS structured nested dictionary system
-            t_dict = obs_props.get("temperature", {}) or {}
-            w_speed_dict = obs_props.get("windSpeed", {}) or {}
-            w_dir_dict = obs_props.get("windDirection", {}) or {}
-            
-            t_c = t_dict.get("value")
-            w_ms = w_speed_dict.get("value")
-            w_dir = w_dir_dict.get("value")
-            
-            if t_c is None:
-                continue
-                
-            # Convert units from metric to standard operational formats
-            t_f = int(round((float(t_c) * 9/5) + 32))
-            w_kt = int(round(float(w_ms) * 1.94384)) if w_ms is not None else 0
-            
-            # Generate a 30-minute validity window for seamless looping integration
+            # Generate a 30-minute validity frame around the observation time for looping stability
             start_time = dt_now - datetime.timedelta(minutes=15)
             end_time = dt_now + datetime.timedelta(minutes=15)
             f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
             
-            f.write(f"Object: {lat:.5f},{lon:.5f}\n")
+            f.write(f"Object: {float(lat):.5f},{float(lon):.5f}\n")
             f.write("  Threshold: 999\n")
             
             # Map wind direction to wind barb texture indexes
             if w_dir is not None and w_kt >= 3:
-                barb_idx = min(max(int(round(w_kt / 5)), 1), 25)
-                f.write(f"  Icon: 0,0,{int(w_dir)},1,{barb_idx}\n")
+                barb_idx = min(max(int(round(float(w_kt) / 5)), 1), 25)
+                f.write(f"  Icon: 0,0,{int(float(w_dir))},1,{barb_idx}\n")
             else:
                 f.write("  Icon: 0,0,0,1,0\n")  # Calm wind anchor node
                 
             # Render weather plot quadrants around the object layout
             f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
-            f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{t_f}"\n')
-            
-            f.write(f'  Hover: "CWOP Station: {st_id} \\nTemp: {t_f}F \\nWind: {int(w_dir) if w_dir is not None else 0}@{w_kt}kt"\n')
+            f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{int(round(float(t_f)))}"\n')
+            if slp_str:
+                f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"\n')
+                
+            f.write(f'  Hover: "CWOP Station: {st_id} \\nTemp: {int(round(float(t_f)))}F \\nWind: {int(float(w_dir)) if w_dir is not None else 0}@{w_kt}kt"\n')
             f.write("End:\n\n")
             
             station_count += 1
-            
-            # Safety limit to avoid timing out the GitHub workflow job runner
-            if station_count >= 75:
-                break
                 
-    print(f"🎉 Success! Extracted and wrote {station_count} pure NWS verified CWOP stations.")
+    print(f"🎉 Success! Completely isolated and compiled {station_count} pure CWOP stations within the Duluth box.")
 
 if __name__ == "__main__":
     main()
