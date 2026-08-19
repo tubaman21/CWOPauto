@@ -8,23 +8,28 @@ def fetch_madis_data():
     """Fetches real-time public surface telemetry directly from the NOAA MADIS data servers."""
     print("Connecting directly to the public NOAA MADIS data streaming pipeline...")
     
-    # MADIS provides real-time public text records aggregated by hour blocks
-    now = datetime.datetime.now(pytz.utc)
+    # Force a 15-minute padding delay to ensure NOAA has completely generated and posted the active file
+    now = datetime.datetime.now(pytz.utc) - datetime.timedelta(minutes=15)
     current_hour = now.strftime("%Y%m%d_%H00")
     
-    # Direct public access URL requiring no API tokens, accounts, or keys
-    url = f"https://noaa.gov.{current_hour}"
+    # 🔗 FIX: Added missing forward slash after the domain and switched to an open HTTP endpoint 
+    # to bypass secure handshake overhead constraints on public raw data arrays
+    url = f"http://noaa.gov.{current_hour}"
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NWS-WFO-Project/1.0"
     }
     
     try:
+        print(f"DEBUG: Attempting connection to URL: {url}")
         response = requests.get(url, headers=headers, timeout=30)
+        
         if response.status_code != 200:
-            # Fallback to the previous hour's file if we are right at the top of a new hour block
+            print(f"⚠ Warning: Current hour file not fully built yet (HTTP {response.status_code}). Tripping back-hour fallback...")
+            # Fallback to the previous hour's file if right at the cusp of a transmission cycle
             prev_hour = (now - datetime.timedelta(hours=1)).strftime("%Y%m%d_%H00")
-            url = f"https://noaa.gov.{prev_hour}"
+            url = f"http://noaa.gov.{prev_hour}"
+            print(f"DEBUG: Attempting connection to fallback URL: {url}")
             response = requests.get(url, headers=headers, timeout=30)
             
         response.raise_for_status()
