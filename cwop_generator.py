@@ -4,152 +4,100 @@ import datetime
 import requests
 import pytz
 
-def fetch_realtime_cwop_data(token, bbox):
-    """Fetches the latest real-time weather snapshots from the Synoptic API safely within free-tier profiles."""
-    print("Initializing lightweight telemetry download routine from Synoptic Networks...")
+def fetch_nws_zone_observations():
+    """Queries the public National Weather Service API for live observations inside the Duluth zone."""
+    print("Connecting directly to the public National Weather Service API endpoint...")
     
-    if token == "demotoken":
-        print("\n❌ CRITICAL STOP: The script is using 'demotoken'. GitHub secrets are not being read!")
-        sys.exit(1)
-        
-    url = "https://synopticdata.com"
+    # 🛰️ Queries the public NWS Zone observation database covering Saint Louis County / Duluth region natively
+    url = "https://weather.gov"
     
-    params = {
-        "token": token,
-        "bbox": bbox,
-        "within": "60",            
-        "obtimezone": "UTC",
-        "providers": "cwop"        
-    }
-    
+    # The NWS API strictly requires a clean, valid descriptive User-Agent header
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project Integration)"
+        "User-Agent": "(gr2-analyst-project, weather-automation-bot@example.com)",
+        "Accept": "application/geo+json"
     }
     
     try:
-        response = requests.get(url, params=params, headers=headers, timeout=30, allow_redirects=False)
+        response = requests.get(url, headers=headers, timeout=30)
         
-        # Print out the status code immediately to help troubleshoot
-        print(f"DEBUG: HTTP Server Status Code: {response.status_code}")
-        
-        if response.status_code in (301, 302):
-            print("\n🛑 RATE LIMIT / THROTTLE DETECTED:")
-            print("👉 Synoptic's security wall intercepted the script and tried to redirect to the homepage.")
-            sys.exit(1)
-            
         if response.status_code != 200:
-            print(f"\n❌ API Server Error! Status Code: {response.status_code}")
-            print(f"👉 Raw Text Response:\n{response.text[:500]}")
+            print(f"\n❌ NWS Server Refusal! Status Code: {response.status_code}")
             sys.exit(1)
             
-        # Safe JSON compiler guard check
-        try:
-            return response.json()
-        except Exception as json_err:
-            print("\n❌ CRITICAL ERR: Server returned HTTP 200, but data is not valid JSON!")
-            print("==================== RAW SERVER RESPONSE ====================")
-            print(response.text[:1000] if response.text else "[Response body is completely empty]")
-            print("=============================================================")
-            sys.exit(1)
-            
+        return response.json()
     except Exception as e:
-        print(f"\n❌ Network processing exception during API fetch: {e}")
+        print(f"❌ Failed to reach the NWS API endpoint: {e}")
         sys.exit(1)
-
-def format_slp(slp_val):
-    """Formats raw millibar sea-level pressure into standard 3-digit NWS shorthand."""
-    if slp_val is None:
-        return ""
-    try:
-        slp_str = f"{float(slp_val):.1f}"
-        parts = slp_str.replace('.', '')
-        return parts[-3:]
-    except (ValueError, TypeError):
-        return ""
-
-def c_to_f(c_val):
-    """Converts Celsius to Fahrenheit integer."""
-    if c_val is None:
-        return None
-    try:
-        return int(round((float(c_val) * 9/5) + 32))
-    except (ValueError, TypeError):
-        return None
-
-def ms_to_kt(ms_val):
-    """Converts meters per second to knots integer."""
-    if ms_val is None:
-        return 0
-    try:
-        return int(round(float(ms_val) * 1.94384))
-    except (ValueError, TypeError):
-        return 0
 
 def main():
-    SYNOPTIC_API_TOKEN = os.environ.get("SYNOPTIC_API_TOKEN", "demotoken")
-    
-    print("--- ENVIRONMENT INJECTION VERIFICATION ---")
-    print(f"Token variable length: {len(SYNOPTIC_API_TOKEN)} characters")
-    print("------------------------------------------")
-    
-    TARGET_BBOX = "-95.0,45.0,-89.0,49.5"
+    # 🗺️ Precise spatial bounding limits covering WFO Duluth's operational county footprint
+    LON_MIN, LAT_MIN, LON_MAX, LAT_MAX = -95.0, 45.0, -89.0, 49.5
     
     output_directory = "placefiles"
     os.makedirs(output_directory, exist_ok=True)
     output_file_path = os.path.join(output_directory, "cwop_observations.txt")
     
-    raw_data = fetch_realtime_cwop_data(SYNOPTIC_API_TOKEN, TARGET_BBOX)
+    geojson_data = fetch_nws_zone_observations()
+    features = geojson_data.get("features", [])
     
-    if "STATION" not in raw_data or not raw_data["STATION"]:
-        print("⚠ Operational Warning: API returned success code, but zero stations reported in this bounding box.")
-        return
-
+    station_count = 0
+    unique_stations = set()
+    dt_now = datetime.datetime.now(pytz.utc)
+    
+    print(f"Analyzing {len(features)} live regional weather observations. Isolation loop starting...")
+    
     with open(output_file_path, "w", encoding="utf-8") as f:
-        f.write("Title: CWOP Surface Observations Only\n")
+        # Initialize standard GR2 text parameters
+        f.write("Title: Looping Regional CWOP Observations Only\n")
         f.write("Refresh: 5\n\n")
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
-        station_count = 0
-        dt_now = datetime.datetime.now(pytz.utc)
-        
-        for st in raw_data["STATION"]:
-            st_id = st.get("STID", "UNKN").upper()
-            lat_raw = st.get("LATITUDE")
-            lon_raw = st.get("LONGITUDE")
+        for feature in features:
+            properties = feature.get("properties", {})
+            geometry = feature.get("geometry", {})
+            coordinates = geometry.get("coordinates",)
             
-            if lat_raw is None or lon_raw is None:
-                continue
-            try:
-                lat = float(lat_raw)
-                lon = float(lon_raw)
-            except (ValueError, TypeError):
+            if not coordinates or len(coordinates) < 2:
                 continue
                 
+            # Extract coordinates from GeoJSON layout formats [Longitude, Latitude]
+            lon = float(coordinates[0])
+            lat = float(coordinates[1])
+            
+            # Extract Station ID URL string and format out the clean name
+            station_url = properties.get("station", "")
+            st_id = station_url.split('/')[-1].upper() if station_url else "UNKN"
+            
+            if st_id == "UNKN" or st_id in unique_stations:
+                continue
+                
+            # 🛡️ THE PERMANENT ASOS/METAR SEPARATION FILTER:
+            # Official airport nodes strictly match 3 or 4-letter alphabetical codes.
+            # Personal CWOP hardware uses longer alpha-numeric callsigns or tags.
             if len(st_id) <= 4 and st_id.isalpha():
                 continue
                 
-            latest_obs = st.get("OBSERVATIONS", {})
-            if not latest_obs:
+            # Filter spatial parameters using your exact coordinate boundaries
+            if not (LON_MIN <= lon <= LON_MAX and LAT_MIN <= lat <= LAT_MAX):
                 continue
                 
-            t_dict = latest_obs.get("air_temp_value_1") or latest_obs.get("air_temp") or {}
-            w_speed_dict = latest_obs.get("wind_speed_value_1") or latest_obs.get("wind_speed") or {}
-            w_dir_dict = latest_obs.get("wind_direction_value_1") or latest_obs.get("wind_direction") or {}
-            slp_dict = latest_obs.get("sea_level_pressure_value_1") or latest_obs.get("sea_level_pressure") or {}
+            # Pull metrics from the NWS structured nested dictionary system
+            t_dict = properties.get("temperature", {}) or {}
+            w_speed_dict = properties.get("windSpeed", {}) or {}
+            w_dir_dict = properties.get("windDirection", {}) or {}
             
-            t_raw = t_dict.get("value") if isinstance(t_dict, dict) else None
-            w_speed_raw = w_speed_dict.get("value") if isinstance(w_speed_dict, dict) else None
-            w_dir_raw = w_dir_dict.get("value") if isinstance(w_dir_dict, dict) else None
-            slp_raw = slp_dict.get("value") if isinstance(slp_dict, dict) else None
+            t_c = t_dict.get("value")
+            w_ms = w_speed_dict.get("value")
+            w_dir = w_dir_dict.get("value")
             
-            t_f = c_to_f(t_raw)
-            w_kt = ms_to_kt(w_speed_raw)
-            w_dir = float(w_dir_raw) if w_dir_raw is not None else None
-            slp_str = format_slp(slp_raw)
-            
-            if t_f is None:
+            if t_c is None:
                 continue
                 
+            # Convert units from metric to standard operational formats
+            t_f = int(round((float(t_c) * 9/5) + 32))
+            w_kt = int(round(float(w_ms) * 1.94384)) if w_ms is not None else 0
+            
+            # Generate a 30-minute validity window for seamless looping integration
             start_time = dt_now - datetime.timedelta(minutes=15)
             end_time = dt_now + datetime.timedelta(minutes=15)
             f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
@@ -157,23 +105,24 @@ def main():
             f.write(f"Object: {lat:.5f},{lon:.5f}\n")
             f.write("  Threshold: 999\n")
             
+            # Map wind direction to wind barb texture indexes
             if w_dir is not None and w_kt >= 3:
                 barb_idx = min(max(int(round(w_kt / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{int(w_dir)},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,1,0\n")  
-            
+                f.write("  Icon: 0,0,0,1,0\n")  # Calm wind anchor node
+                
+            # Render weather plot quadrants around the object layout
             f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{t_f}"\n')
-            if slp_str:
-                f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"\n')
             
             f.write(f'  Hover: "CWOP Station: {st_id} \\nTemp: {t_f}F \\nWind: {int(w_dir) if w_dir is not None else 0}@{w_kt}kt"\n')
             f.write("End:\n\n")
             
             station_count += 1
+            unique_stations.add(st_id)
                 
-        print(f"🎉 Success! Completely verified and wrote {station_count} clean CWOP stations.")
+    print(f"🎉 Success! Extracted and wrote {station_count} pure NWS verified CWOP stations.")
 
 if __name__ == "__main__":
     main()
