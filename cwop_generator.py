@@ -60,9 +60,11 @@ def main():
     with open(output_file_path, "w", encoding="utf-8") as f:
         # Initialize standard GR2 structural parameters and headers
         f.write("Title: Regional CWOP Observations Loop\n")
-        f.write("Refresh: 5\n\n")
+        f.write("Refresh: 5\n")
         
-        # 🔗 THE CRITICAL GRAMMAR FIX: Capitalized 'IconFile' and removed the first comma following the index number
+        # 🔗 THE CRITICAL SPECIFICATION FIX: 
+        # Must be exact match: 'IconFile: [FileNum], [Width], [Height], [XHot], [YHot], "[URL]"'
+        # Crucially, note the space spacing configuration. No trailing colon bugs.
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
         for obs in stations:
