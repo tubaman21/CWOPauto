@@ -4,69 +4,81 @@ import datetime
 import requests
 import pytz
 
-def fetch_nws_zone_observations():
-    """Queries the public National Weather Service API for live observations inside the Duluth zone."""
-    print("Connecting directly to the public National Weather Service API endpoint...")
+def fetch_state_geojson(state_code):
+    """Fetches real-time comprehensive mesonet observations for a specific state from open IEM servers."""
+    print(f"Connecting to the open public state data pipeline for {state_code}...")
     
-    # 🛰️ Queries the public NWS Zone observation database covering Saint Louis County / Duluth region natively
-    url = "https://weather.gov"
+    # 🔗 Direct open access GeoJSON feed mapping all real-time state observations
+    url = f"https://iastate.edu"
+    params = {
+        "state": state_code
+    }
     
-    # The NWS API strictly requires a clean, valid descriptive User-Agent header
     headers = {
-        "User-Agent": "(gr2-analyst-project, weather-automation-bot@example.com)",
-        "Accept": "application/geo+json"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project Integration)"
     }
     
     try:
-        response = requests.get(url, headers=headers, timeout=30)
-        
+        response = requests.get(url, params=params, headers=headers, timeout=30)
         if response.status_code != 200:
-            print(f"\n❌ NWS Server Refusal! Status Code: {response.status_code}")
-            sys.exit(1)
-            
-        return response.json()
+            print(f"⚠ Warning: State pipeline server returned status code: {response.status_code}")
+            return []
+        
+        data = response.json()
+        return data.get("features", [])
     except Exception as e:
-        print(f"❌ Failed to reach the NWS API endpoint: {e}")
-        sys.exit(1)
+        print(f"⚠ Warning: Network processing exception during {state_code} API fetch: {e}")
+        return []
+
+def format_slp(alt_in):
+    """Formats raw altimeter pressure into standard 3-digit NWS shorthand."""
+    if alt_in is None or alt_in <= 0:
+        return ""
+    try:
+        # e.g., 29.92 -> 2992 -> Shorthand 992
+        val = str(int(round(float(alt_in) * 100)))
+        return val[-3:]
+    except (ValueError, TypeError):
+        return ""
 
 def main():
-    # 🗺️ Precise spatial bounding limits covering WFO Duluth's operational county footprint
+    # 🗺️ Define your spatial boundaries (WFO Duluth County Warning Area footprint)
+    # Longitude (-95.0 to -89.0), Latitude (45.0 to 49.5)
     LON_MIN, LAT_MIN, LON_MAX, LAT_MAX = -95.0, 45.0, -89.0, 49.5
     
     output_directory = "placefiles"
     os.makedirs(output_directory, exist_ok=True)
     output_file_path = os.path.join(output_directory, "cwop_observations.txt")
     
-    geojson_data = fetch_nws_zone_observations()
-    features = geojson_data.get("features", [])
+    # Ingest data matrices from both neighboring forecast states
+    features_mn = fetch_state_geojson("MN")
+    features_wi = fetch_state_geojson("WI")
+    all_features = features_mn + features_wi
+    
+    print(f"DEBUG: Processing {len(all_features)} total regional observation packets...")
     
     station_count = 0
     unique_stations = set()
     dt_now = datetime.datetime.now(pytz.utc)
     
-    print(f"Analyzing {len(features)} live regional weather observations. Isolation loop starting...")
-    
     with open(output_file_path, "w", encoding="utf-8") as f:
-        # Initialize standard GR2 text parameters
+        # Initialize standard GR2 text headers
         f.write("Title: Looping Regional CWOP Observations Only\n")
         f.write("Refresh: 5\n\n")
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
-        for feature in features:
-            properties = feature.get("properties", {})
+        for feature in all_features:
             geometry = feature.get("geometry", {})
-            coordinates = geometry.get("coordinates",)
+            properties = feature.get("properties", {})
+            coordinates = geometry.get("coordinates", [])
             
             if not coordinates or len(coordinates) < 2:
                 continue
                 
-            # Extract coordinates from GeoJSON layout formats [Longitude, Latitude]
+            # GeoJSON coordinate formatting indexes: [Longitude, Latitude]
             lon = float(coordinates[0])
             lat = float(coordinates[1])
-            
-            # Extract Station ID URL string and format out the clean name
-            station_url = properties.get("station", "")
-            st_id = station_url.split('/')[-1].upper() if station_url else "UNKN"
+            st_id = properties.get("sid", "UNKN").upper()
             
             if st_id == "UNKN" or st_id in unique_stations:
                 continue
@@ -81,23 +93,25 @@ def main():
             if not (LON_MIN <= lon <= LON_MAX and LAT_MIN <= lat <= LAT_MAX):
                 continue
                 
-            # Pull metrics from the NWS structured nested dictionary system
-            t_dict = properties.get("temperature", {}) or {}
-            w_speed_dict = properties.get("windSpeed", {}) or {}
-            w_dir_dict = properties.get("windDirection", {}) or {}
+            # Extract variables cleanly from the IEM property dictionary block
+            t_f = properties.get("tmpf")
+            w_kt = properties.get("sknt")
+            w_dir = properties.get("drct")
+            alt_in = properties.get("alti")
             
-            t_c = t_dict.get("value")
-            w_ms = w_speed_dict.get("value")
-            w_dir = w_dir_dict.get("value")
-            
-            if t_c is None:
+            if t_f is None:
                 continue
                 
-            # Convert units from metric to standard operational formats
-            t_f = int(round((float(t_c) * 9/5) + 32))
-            w_kt = int(round(float(w_ms) * 1.94384)) if w_ms is not None else 0
+            try:
+                temp_val = int(round(float(t_f)))
+                wind_speed = int(round(float(w_kt))) if w_kt is not None else 0
+                wind_dir = int(round(float(w_dir))) if w_dir is not None else None
+            except (ValueError, TypeError):
+                continue
+                
+            slp_str = format_slp(alt_in)
             
-            # Generate a 30-minute validity window for seamless looping integration
+            # Generate a 30-minute validity window for seamless radar loop pairing
             start_time = dt_now - datetime.timedelta(minutes=15)
             end_time = dt_now + datetime.timedelta(minutes=15)
             f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
@@ -106,23 +120,25 @@ def main():
             f.write("  Threshold: 999\n")
             
             # Map wind direction to wind barb texture indexes
-            if w_dir is not None and w_kt >= 3:
-                barb_idx = min(max(int(round(w_kt / 5)), 1), 25)
-                f.write(f"  Icon: 0,0,{int(w_dir)},1,{barb_idx}\n")
+            if wind_dir is not None and wind_speed >= 3:
+                barb_idx = min(max(int(round(wind_speed / 5)), 1), 25)
+                f.write(f"  Icon: 0,0,{wind_dir},1,{barb_idx}\n")
             else:
                 f.write("  Icon: 0,0,0,1,0\n")  # Calm wind anchor node
                 
-            # Render weather plot quadrants around the object layout
+            # Render standard weather plot quadrants around the object layout
             f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
-            f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{t_f}"\n')
-            
-            f.write(f'  Hover: "CWOP Station: {st_id} \\nTemp: {t_f}F \\nWind: {int(w_dir) if w_dir is not None else 0}@{w_kt}kt"\n')
+            f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{temp_val}"\n')
+            if slp_str:
+                f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"\n')
+                
+            f.write(f'  Hover: "CWOP Station: {st_id} \\nTemp: {temp_val}F \\nWind: {wind_dir if wind_dir is not None else 0}@{wind_speed}kt"\n')
             f.write("End:\n\n")
             
             station_count += 1
             unique_stations.add(st_id)
                 
-    print(f"🎉 Success! Extracted and wrote {station_count} pure NWS verified CWOP stations.")
+    print(f"🎉 Success! Filtered out all airport METAR positions and wrote {station_count} pure CWOP stations.")
 
 if __name__ == "__main__":
     main()
