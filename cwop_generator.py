@@ -20,18 +20,17 @@ def fetch_raw_nws_madis():
     }
     
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NWS-WFO-Project/1.0"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project Integration)"
     }
     
     try:
-        print(f"DEBUG: Attempting connection to NOAA MADIS CGI script...")
+        print("DEBUG: Attempting connection to NOAA MADIS CGI script...")
         response = requests.get(url, params=params, headers=headers, timeout=45)
         response.raise_for_status()
         
-        # Guard check to ensure the server returned the expected column file and not an error
+        # Guard check to ensure the server returned the expected data text layout
         if "id" not in response.text.lower() and "station" not in response.text.lower():
             print("⚠ Warning: NOAA returned a blank payload or server status alert page.")
-            print(f"👉 Raw Response Sample:\n{response.text[:300]}")
             sys.exit(1)
             
         return response.text
@@ -71,14 +70,14 @@ def main():
         f.write("Refresh: 5\n\n")
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
-               for line in lines:
+        for line in lines:
             # Skip commented text rows or file headers
-            if not line.strip() or line.startswith('#') or line.startswith('STN') or line.startswith('id'):
+            if not line.strip() or line.startswith('#') or line.startswith('STN') or line.startswith('id') or line.startswith('station'):
                 continue
                 
-            # Split by any whitespace block safely
+            # Split by whitespace block safely matching NOAA's variable columns
             parts = line.split()
-            if len(parts) < 10:
+            if len(parts) < 6:
                 continue
                 
             try:
@@ -88,7 +87,7 @@ def main():
                 if is_pure_metar(st_id) or st_id in unique_stations:
                     continue
                 
-                # 2. Extract Lat/Lon coordinates directly from the NWS string indexes
+                # 2. Extract Lat/Lon coordinates directly from columns (MADIS column layouts map positions early)
                 lat = float(parts[1])
                 lon = float(parts[2])
                 
@@ -103,18 +102,13 @@ def main():
                 # Convert Celsius to Fahrenheit
                 t_f = int(round((float(t_raw) * 9/5) + 32))
                 
-                # 4. Extract wind speed and direction fields if available
-                w_dir_raw = parts[5].strip() if len(parts) >= 6 else 'M'
-                w_speed_raw = parts[6].strip() if len(parts) >= 7 else 'M'
-                alt_raw = parts[7].strip() if len(parts) >= 8 else 'M'
+                # 4. Extract wind direction and speed fields safely if available in trailing columns
+                w_dir_raw = parts[4].strip() if len(parts) >= 5 else 'M'
+                w_speed_raw = parts[5].strip() if len(parts) >= 6 else 'M'
                 
                 w_dir = float(w_dir_raw) if w_dir_raw != 'M' else None
                 # Convert meters/second to knots
                 w_kt = int(round(float(w_speed_raw) * 1.94384)) if w_speed_raw != 'M' else 0
-                
-                slp_str = ""
-                if alt_raw != 'M':
-                    slp_str = str(int(float(alt_raw) * 100))[-3:]
                 
                 # Generate a 30-minute time frame envelope to facilitate smooth radar loop pairing
                 start_time = dt_now - datetime.timedelta(minutes=15)
@@ -134,8 +128,6 @@ def main():
                 # Write standardized weather plot quadrants
                 f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
                 f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{t_f}"\n')
-                if slp_str:
-                    f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"\n')
                     
                 f.write(f'  Hover: "CWOP Station: {st_id} \\nTemp: {t_f}F \\nWind: {int(w_dir) if w_dir is not None else 0}@{w_kt}kt"\n')
                 f.write("End:\n\n")
@@ -143,9 +135,8 @@ def main():
                 station_count += 1
                 unique_stations.add(st_id)
                 
-            except Exception:
+            except (ValueError, IndexError):
                 continue
-
                 
     print(f"🎉 Success! Processed and wrote {station_count} pure CWOP stations inside the Duluth box.")
 
