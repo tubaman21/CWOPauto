@@ -5,18 +5,17 @@ import requests
 import pytz
 
 def fetch_realtime_cwop():
-    """Fetches real-time surface data for Minnesota and Wisconsin from the open IEM API."""
-    print("Connecting to the public high-availability weather data API...")
+    """Fetches real-time public CWOP/APRS telemetry directly from the open IEM JSON engine."""
+    print("Connecting to the public high-availability CWOP data pipeline...")
     
-    # query the master currents endpoint for the entire regional block
+    # 🔗 Direct data endpoint dedicated strictly to volunteer/citizen tracking streams
     url = "https://iastate.edu"
-    
     params = {
-        "state": "MN"  # Pulls the active regional matrix natively
+        "network": "MADIS"  # Forces the API to extract pure MADIS/CWOP citizen packets only
     }
     
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project)"
     }
     
     try:
@@ -24,6 +23,12 @@ def fetch_realtime_cwop():
         
         if response.status_code != 200:
             print(f"❌ API Server Error! Status Code: {response.status_code}")
+            sys.exit(1)
+            
+        # Error Guard: Read what the text layer says before crashing into JSON conversion
+        if "data" not in response.text.lower():
+            print("\n❌ CRITICAL RESPONSE ERROR: The server did not deliver a valid station dataset.")
+            print(f"👉 Raw Server Context (First 300 chars):\n{response.text[:300]}")
             sys.exit(1)
             
         return response.json()
@@ -36,7 +41,7 @@ def format_slp(alt_in):
     if alt_in is None or alt_in <= 0:
         return ""
     try:
-        # e.g., 29.92 -> 2992 -> 992
+        # e.g., 29.92 -> 2992 -> Shorthand 992
         val = str(int(round(float(alt_in) * 100)))
         return val[-3:]
     except (ValueError, TypeError):
@@ -71,17 +76,22 @@ def main():
             if lon is None or lat is None:
                 continue
                 
-            # Filter spatial parameters using your coordinate boundaries
-            if not (LON_MIN <= float(lon) <= LON_MAX and LAT_MIN <= float(lat) <= LAT_MAX):
+            try:
+                lon_f = float(lon)
+                lat_f = float(lat)
+            except (ValueError, TypeError):
                 continue
                 
-            # 🛡️ PURE CWOP FILTER:
-            # Official airport nodes (ASOS/AWOS) match 3 or 4-letter alphabetical codes.
-            # Citizen weather stations use longer alphanumeric callsigns or numeric tags.
+            # Filter spatial parameters using your exact coordinate boundaries
+            if not (LON_MIN <= lon_f <= LON_MAX and LAT_MIN <= lat_f <= LAT_MAX):
+                continue
+                
+            # 🛡️ DUAL LAYER METAR CLEANER:
+            # Drop any official airport tags that happen to stream through the MADIS core index
             if len(st_id) <= 4 and st_id.isalpha():
                 continue
                 
-            # Extract parameters safely from the JSON dictionary structure
+            # Extract parameters safely from the JSON dictionary layers
             t_f = st.get("tmpf")
             w_kt = st.get("sknt")
             w_dir = st.get("drct")
@@ -90,7 +100,7 @@ def main():
             if t_f is None:
                 continue
                 
-            # Parse wind speeds safely (handling None or missing values)
+            # Parse metrics into standard formats safely
             w_kt = int(w_kt) if w_kt is not None else 0
             slp_str = format_slp(alt_in)
             
@@ -99,17 +109,17 @@ def main():
             end_time = dt_now + datetime.timedelta(minutes=15)
             f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
             
-            f.write(f"Object: {float(lat):.5f},{float(lon):.5f}\n")
+            f.write(f"Object: {lat_f:.5f},{lon_f:.5f}\n")
             f.write("  Threshold: 999\n")
             
-            # Map wind direction to wind barb texture indexes
+            # Map wind direction angles directly to standard 5-knot increment barb indices
             if w_dir is not None and w_kt >= 3:
                 barb_idx = min(max(int(round(float(w_kt) / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{int(float(w_dir))},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,1,0\n")  # Calm wind anchor node
+                f.write("  Icon: 0,0,0,1,0\n")  # Calm wind central dot anchor node
                 
-            # Render weather plot quadrants around the object layout
+            # Format text quadrants around the map object matrix
             f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{int(round(float(t_f)))}"\n')
             if slp_str:
@@ -120,7 +130,7 @@ def main():
             
             station_count += 1
                 
-    print(f"🎉 Success! Completely isolated and compiled {station_count} pure CWOP stations within the Duluth box.")
+    print(f"🎉 Success! Completely isolated and compiled {station_count} pure CWOP stations inside the Duluth box.")
 
 if __name__ == "__main__":
     main()
