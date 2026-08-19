@@ -14,13 +14,12 @@ def fetch_realtime_cwop_data(token, bbox):
         
     url = "https://synopticdata.com"
     
-    # CONFIG: Query only basic variables over the box to stay within free-tier limits
     params = {
         "token": token,
         "bbox": bbox,
-        "within": "60",            # Only grab stations that reported in the last hour
+        "within": "60",            
         "obtimezone": "UTC",
-        "providers": "cwop"        # Restrict data gathering strictly to citizen CWOP stations
+        "providers": "cwop"        
     }
     
     headers = {
@@ -28,10 +27,11 @@ def fetch_realtime_cwop_data(token, bbox):
     }
     
     try:
-        # Explicitly disable redirects to prevent the server from sending the script to the homepage if throttled
         response = requests.get(url, params=params, headers=headers, timeout=30, allow_redirects=False)
         
-        # ✅ FIXED: Added the explicit tuple block for HTTP redirects
+        # Print out the status code immediately to help troubleshoot
+        print(f"DEBUG: HTTP Server Status Code: {response.status_code}")
+        
         if response.status_code in (301, 302):
             print("\n🛑 RATE LIMIT / THROTTLE DETECTED:")
             print("👉 Synoptic's security wall intercepted the script and tried to redirect to the homepage.")
@@ -39,9 +39,19 @@ def fetch_realtime_cwop_data(token, bbox):
             
         if response.status_code != 200:
             print(f"\n❌ API Server Error! Status Code: {response.status_code}")
+            print(f"👉 Raw Text Response:\n{response.text[:500]}")
             sys.exit(1)
             
-        return response.json()
+        # Safe JSON compiler guard check
+        try:
+            return response.json()
+        except Exception as json_err:
+            print("\n❌ CRITICAL ERR: Server returned HTTP 200, but data is not valid JSON!")
+            print("==================== RAW SERVER RESPONSE ====================")
+            print(response.text[:1000] if response.text else "[Response body is completely empty]")
+            print("=============================================================")
+            sys.exit(1)
+            
     except Exception as e:
         print(f"\n❌ Network processing exception during API fetch: {e}")
         sys.exit(1)
@@ -78,7 +88,10 @@ def ms_to_kt(ms_val):
 def main():
     SYNOPTIC_API_TOKEN = os.environ.get("SYNOPTIC_API_TOKEN", "demotoken")
     
-    # Broad regional box footprint covering Northeast MN, Northwest WI, and Western Lake Superior
+    print("--- ENVIRONMENT INJECTION VERIFICATION ---")
+    print(f"Token variable length: {len(SYNOPTIC_API_TOKEN)} characters")
+    print("------------------------------------------")
+    
     TARGET_BBOX = "-95.0,45.0,-89.0,49.5"
     
     output_directory = "placefiles"
@@ -94,8 +107,6 @@ def main():
     with open(output_file_path, "w", encoding="utf-8") as f:
         f.write("Title: CWOP Surface Observations Only\n")
         f.write("Refresh: 5\n\n")
-        
-        # Define basic wind barb texture pointers
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
         station_count = 0
@@ -114,7 +125,6 @@ def main():
             except (ValueError, TypeError):
                 continue
                 
-            # 🛡️ PURE CWOP FILTER: Drop any official airport tags that happen to stream through the index
             if len(st_id) <= 4 and st_id.isalpha():
                 continue
                 
@@ -122,7 +132,6 @@ def main():
             if not latest_obs:
                 continue
                 
-            # Extract variables safely from the nested Synoptic dictionary structure
             t_dict = latest_obs.get("air_temp_value_1") or latest_obs.get("air_temp") or {}
             w_speed_dict = latest_obs.get("wind_speed_value_1") or latest_obs.get("wind_speed") or {}
             w_dir_dict = latest_obs.get("wind_direction_value_1") or latest_obs.get("wind_direction") or {}
@@ -141,23 +150,19 @@ def main():
             if t_f is None:
                 continue
                 
-            # Generate a 30-minute validity window for this single packet so GR2 loops it smoothly
             start_time = dt_now - datetime.timedelta(minutes=15)
             end_time = dt_now + datetime.timedelta(minutes=15)
             f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
             
-            # Map clean coordinates down to 5 precise decimal places
             f.write(f"Object: {lat:.5f},{lon:.5f}\n")
             f.write("  Threshold: 999\n")
             
-            # Plot wind direction barb icons
             if w_dir is not None and w_kt >= 3:
                 barb_idx = min(max(int(round(w_kt / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{int(w_dir)},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,1,0\n")  # Calm wind anchor node
+                f.write("  Icon: 0,0,0,1,0\n")  
             
-            # Render weather plot quadrants around the station object layout
             f.write(f'  Text: 0, -18, 1, "{st_id}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{t_f}"\n')
             if slp_str:
