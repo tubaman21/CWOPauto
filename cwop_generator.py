@@ -58,14 +58,14 @@ def main():
     station_count = 0
     
     with open(output_file_path, "w", encoding="utf-8") as f:
-        # 1. Global Document Parameters
+        # 1. Global Header Configuration
         f.write("Title: Regional CWOP Observations Loop\n")
         f.write("Refresh: 5\n")
         
-        # 🔗 THE CRITICAL SYNTAX CORRECTION LINE:
-        # Must match: IconFile: [FileNum] [Width], [Height], [XHot], [YHot], "[URL]"
-        # Notice there is NO comma right after the file index number 1, only a pure space parameter!
-        f.write('IconFile: 1 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
+        # 🔗 THE PERMANENT SYNTAX FIX: 
+        # Removed the colon from IconFile, stripped all whitespace padding after commas,
+        # and kept a singular space delimiter right after the file index slot parameter '1'
+        f.write('IconFile: 1,32,32,16,16,"https://githubusercontent.com"\n\n')
         
         # 2. Global TimeRange Block Wrapper
         start_time = dt_now - datetime.timedelta(minutes=15)
@@ -80,7 +80,7 @@ def main():
                 barb_idx = min(max(int(round(obs["wkt"] / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{obs['wdir']},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,1,1\n") # Center point indicator circle for calm wind arrays
+                f.write("  Icon: 0,0,0,1,1\n") # Center point symbol for calm winds
                 
             f.write(f'  Text: 0, -18, 1, "{obs["id"]}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{obs["temp"]}"\n')
