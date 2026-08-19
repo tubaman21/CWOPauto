@@ -58,20 +58,21 @@ def main():
     station_count = 0
     
     with open(output_file_path, "w", encoding="utf-8") as f:
-        # Initialize standard GR2 structural parameters and headers
+        # 1. Global Document Parameters
         f.write("Title: Regional CWOP Observations Loop\n")
-        f.write("Refresh: 5\n")
+        f.write("Refresh: 5\n\n")
         
-        # 🔗 THE CRITICAL SPECIFICATION FIX: 
-        # Must be exact match: 'IconFile: [FileNum], [Width], [Height], [XHot], [YHot], "[URL]"'
-        # Crucially, note the space spacing configuration. No trailing colon bugs.
+        # 2. Global Asset Preload Layer (Must exist outside and above all TimeRange sequences)
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
+        # 3. GLOBAL TIMEFRAME BLOCK WRAPPER:
+        # Establish a unified global timeframe block enclosing the entire database list
+        start_time = dt_now - datetime.timedelta(minutes=15)
+        end_time = dt_now + datetime.timedelta(minutes=15)
+        f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n\n")
+        
         for obs in stations:
-            start_time = dt_now - datetime.timedelta(minutes=15)
-            end_time = dt_now + datetime.timedelta(minutes=15)
-            
-            f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
+            # Map object geographic anchors cleanly
             f.write(f"Object: {obs['lat']:.5f},{obs['lon']:.5f}\n")
             f.write("  Threshold: 999\n")
             
@@ -79,7 +80,7 @@ def main():
                 barb_idx = min(max(int(round(obs["wkt"] / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{obs['wdir']},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,1,1\n") 
+                f.write("  Icon: 0,0,0,1,1\n") # Center point symbol for calm wind conditions
                 
             f.write(f'  Text: 0, -18, 1, "{obs["id"]}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{obs["temp"]}"\n')
