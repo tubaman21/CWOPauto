@@ -5,9 +5,10 @@ import requests
 import pytz
 
 def fetch_raw_mesonet_text():
-    """Fetches real-time public surface logs from the open IEM text database cluster."""
-    print("Connecting directly to the public Iowa Environmental Mesonet text stream...")
-    # This is an open public repository that cannot be blocked or rate-limited
+    """Fetches real-time public surface logs from the open IEM MADIS text database cluster."""
+    print("Connecting directly to the public Iowa Environmental Mesonet MADIS/CWOP text stream...")
+    
+    # 🔗 THE PERMANENT ENDPOINT FIX: Targets the dedicated, live MADIS/CWOP data file
     url = "https://iastate.edu"
     
     headers = {
@@ -60,12 +61,11 @@ def main():
             if not line.strip() or line.startswith('#') or line.startswith('station') or line.startswith('id'):
                 continue
             
-            # 🔗 THE CRITICAL FIX: IEM text columns are explicitly separated by TABS (\t), not commas or spaces!
-            parts = line.split('\t')
+            # The MADIS.txt file natively splits rows by commas
+            # Expected format columns: station, station_name, lat, lon, tmpf, dwpf, sknt, drct, alti
+            parts = line.split(',')
             
-            # Ensure the row has enough valid tab-separated elements to parse fields safely
-            # IEM Column Order: 0: station, 1: lat, 2: lon, 3: tmpf, 4: dwpf, 5: sknt, 6: drct, 7: alti
-            if len(parts) < 4:
+            if len(parts) < 8:
                 continue
                 
             try:
@@ -75,9 +75,9 @@ def main():
                 if is_pure_metar(st_id):
                     continue
                     
-                # 2. Extract Lat/Lon coordinates directly from their absolute tab indices
-                lat = float(parts[1])
-                lon = float(parts[2])
+                # 2. Map coordinates precisely to their true comma indexes in the MADIS text matrix
+                lat = float(parts[2])
+                lon = float(parts[3])
                 
                 # Apply your exact geographical filter constraints
                 if not (LON_MIN <= lon <= LON_MAX and LAT_MIN <= lat <= LAT_MAX):
@@ -88,15 +88,15 @@ def main():
                     continue
                     
                 # 3. Extract temperature metrics safely (handling 'M' missing blocks)
-                t_raw = parts[3].strip()
+                t_raw = parts[4].strip()
                 if t_raw == 'M' or not t_raw:
                     continue
                 t_f = int(round(float(t_raw)))
                 
-                # 4. Extract wind speed, direction, and pressure fields if available in later tab positions
-                w_kt = int(float(parts[5])) if len(parts) >= 6 and parts[5].strip() != 'M' else 0
-                w_dir = float(parts[6]) if len(parts) >= 7 and parts[6].strip() != 'M' else None
-                alt_raw = parts[7].strip() if len(parts) >= 8 else 'M'
+                # 4. Extract wind speed, direction, and pressure fields if available
+                w_kt = int(float(parts[6])) if parts[6].strip() != 'M' else 0
+                w_dir = float(parts[7]) if parts[7].strip() != 'M' else None
+                alt_raw = parts[8].strip() if len(parts) >= 9 else 'M'
                 
                 slp_str = ""
                 if alt_raw != 'M' and alt_raw:
