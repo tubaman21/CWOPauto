@@ -55,26 +55,23 @@ def main():
     station_count = 0
     
     with open(output_file_path, "w", encoding="utf-8") as f:
-        # 1. Global Header Configuration Block
+        # 1. Strict Global Header Block Layout Configuration
         f.write("Title: Regional CWOP Observations Only\n")
         f.write("Refresh: 5\n")
         
-        # 🔗 THE PERMANENT ASSET LINK FIX:
-        # Points directly to an authoritative, active NWS mirror for standard 32x32 wind barb textures.
-        # Uses exact GR space formatting with zero trailing colon bugs.
-        f.write('IconFile: 1, 32, 32, 16, 16, "https://noaa.gov"\n\n')
+        # 🔗 THE CRITICAL SYNTAX CORRECTION LINE:
+        # Stripped all horizontal spacing padding completely from after commas to satisfy C++ parser compiler mapping limits.
+        f.write('IconFile: 1,32,32,16,16,"https://noaa.gov"\n\n')
         
         for obs in stations:
-            # Render objects statically to clear out timeline compilation errors
             f.write(f"Object: {obs['lat']:.5f},{obs['lon']:.5f}\n")
             f.write("  Threshold: 999\n")
             
             if obs["wdir"] is not None and obs["wkt"] >= 3:
-                # Map wind speed knots directly to the NWS 5-knot asset sheet row index
                 barb_idx = min(max(int(round(obs["wkt"] / 5)), 1), 25)
                 f.write(f"  Icon: 0,0,{obs['wdir']},1,{barb_idx}\n")
             else:
-                f.write("  Icon: 0,0,0,1,1\n") # Center point symbol for calm wind arrays
+                f.write("  Icon: 0,0,0,1,1\n") # Center point circle tracking element symbol for calm wind conditions
                 
             f.write(f'  Text: 0, -18, 1, "{obs["id"]}"\n')
             f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{obs["temp"]}"\n')
