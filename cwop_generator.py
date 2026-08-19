@@ -62,9 +62,8 @@ def main():
         f.write("Title: Regional CWOP Observations Loop\n")
         f.write("Refresh: 5\n\n")
         
-        # 🔗 THE CRITICAL REAL-WORLD RECONCILED SYNTAX FIX:
-        # Removed the comma directly following the number 1. Format is: iconfile [index] [comma-separated geometry]
-        f.write('iconfile 1 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
+        # 🔗 THE CRITICAL GRAMMAR FIX: Capitalized 'IconFile' and removed the first comma following the index number
+        f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
         for obs in stations:
             start_time = dt_now - datetime.timedelta(minutes=15)
