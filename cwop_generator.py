@@ -5,21 +5,17 @@ import requests
 import pytz
 
 def fetch_raw_nws_madis():
-    """Downloads the raw public hourly MADIS weather data text dump directly from the NOAA file repository."""
+    """Downloads the raw public hourly MADIS weather data text dump directly from the correct NOAA file path."""
     print("Connecting directly to the federal open-access NOAA text servers...")
     
-    # Target an older, permanently compiled text log file (26 hours ago)
-    # This completely bypasses real-time writing/compiling locks on the server
-    now = datetime.datetime.now(pytz.utc) - datetime.timedelta(hours=26)
+    # Target an older, completely compiled text log file (2 hours ago)
+    # This ensures the hourly text file is completely written and finalized on NOAA's servers
+    now = datetime.datetime.now(pytz.utc) - datetime.timedelta(hours=2)
     hour_str = now.strftime("%Y%m%d_%H00")
     
-    # 🔗 FIX: Constructing the domain out of isolated pieces to bypass any automatic proxy filtering
-    sub = "madis-data"
-    mid = "ncep"
-    dom = "noaa.gov"
-    base_domain = f"https://{sub}.{mid}.{dom}"
-    
-    file_path = f"/public/txt/metar/TXT.{hour_str}"
+    # 🔗 PERMANENT FIX: Corrected directory folder routing to match the true NOAA server structure
+    base_domain = "https://madis-data.ncep.noaa.gov"
+    file_path = f"/madisPublic1/data/text/metar/TXT.{hour_str}"
     url = base_domain + file_path
     
     headers = {
@@ -30,11 +26,11 @@ def fetch_raw_nws_madis():
         print(f"DEBUG: Resolving connection straight to URL: {url}")
         response = requests.get(url, headers=headers, timeout=30)
         
-        # Fall back to 27 hours ago if the 26-hour file isn't completed
+        # Fall back to 3 hours ago if the 2-hour file isn't fully written yet
         if response.status_code != 200:
             print(f"⚠ Target file missing (HTTP {response.status_code}). Falling back one extra hour...")
             prev_hour = (now - datetime.timedelta(hours=1)).strftime("%Y%m%d_%H00")
-            file_path_fallback = f"/public/txt/metar/TXT.{prev_hour}"
+            file_path_fallback = f"/madisPublic1/data/text/metar/TXT.{prev_hour}"
             url = base_domain + file_path_fallback
             print(f"DEBUG: Resolving fallback connection to URL: {url}")
             response = requests.get(url, headers=headers, timeout=30)
@@ -83,7 +79,8 @@ def main():
             if not line.strip() or line.startswith('#') or line.startswith('STN') or line.startswith('id') or line.startswith('station'):
                 continue
                 
-            # Split by whitespace block matching NOAA's native text log columns
+            # Split by any whitespace block matching NOAA's native text log columns
+            # Layout schema matching raw data files: station, lat, lon, tmpc, dwpc, sknt, drct, alti
             parts = line.split()
             if len(parts) < 8:
                 continue
