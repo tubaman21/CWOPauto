@@ -60,19 +60,20 @@ def main():
     with open(output_file_path, "w", encoding="utf-8") as f:
         # 1. Global Document Parameters
         f.write("Title: Regional CWOP Observations Loop\n")
-        f.write("Refresh: 5\n\n")
+        f.write("Refresh: 5\n")
         
         # 2. Global Asset Preload Layer (Must exist outside and above all TimeRange sequences)
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
-        # 3. GLOBAL TIMEFRAME BLOCK WRAPPER:
-        # Establish a unified global timeframe block enclosing the entire database list
-        start_time = dt_now - datetime.timedelta(minutes=15)
-        end_time = dt_now + datetime.timedelta(minutes=15)
-        f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n\n")
-        
         for obs in stations:
-            # Map object geographic anchors cleanly
+            # 3. SELF-CONTAINED TIMEFRAME BLOCK WRAPPER:
+            # Establish a timeline scope specifically for this single station asset element
+            start_time = dt_now - datetime.timedelta(minutes=15)
+            end_time = dt_now + datetime.timedelta(minutes=15)
+            
+            f.write(f"TimeRange: {start_time.strftime('%Y-%m-%dT%H:%M:%SZ')} {end_time.strftime('%Y-%m-%dT%H:%M:%SZ')}\n")
+            
+            # Map object geographic anchors cleanly inside the timeframe block
             f.write(f"Object: {obs['lat']:.5f},{obs['lon']:.5f}\n")
             f.write("  Threshold: 999\n")
             
@@ -88,7 +89,12 @@ def main():
                 f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{obs["slp"]}"\n')
                 
             f.write(f'  Hover: "Station: {obs["id"]} \\nName: {obs["name"]} \\nTemp: {obs["temp"]}F \\nWind: {obs["wdir"] if obs["wdir"] is not None else 0}@{obs["wkt"]}kt"\n')
+            f.write("End:\n")
+            
+            # 🚨 THE VITAL SYNTAX FIX: Explicitly terminate the TimeRange block scope 
+            # so it doesn't leak or corrupt the global layout matrix parser
             f.write("End:\n\n")
+            
             station_count += 1
             
     print(f"🎉 Success! Completely verified and wrote {station_count} pure CWOP stations to {output_file_path}")
