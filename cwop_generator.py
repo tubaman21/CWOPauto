@@ -31,6 +31,7 @@ def fetch_realtime_cwop_data(token, bbox):
         # Explicitly disable redirects to prevent the server from sending the script to the homepage if throttled
         response = requests.get(url, params=params, headers=headers, timeout=30, allow_redirects=False)
         
+        # 🔗 FIX: Explicitly check for 301 and 302 redirect codes
         if response.status_code in:
             print("\n🛑 RATE LIMIT / THROTTLE DETECTED:")
             print("👉 Synoptic's security wall intercepted the script and tried to redirect to the homepage.")
