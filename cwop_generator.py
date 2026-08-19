@@ -8,33 +8,32 @@ def fetch_madis_data():
     """Fetches real-time public surface telemetry directly from the NOAA MADIS data servers."""
     print("Connecting directly to the public NOAA MADIS data streaming pipeline...")
     
-    # Force a 15-minute padding delay to ensure NOAA has completely generated and posted the active file
-    now = datetime.datetime.now(pytz.utc) - datetime.timedelta(minutes=15)
-    current_hour = now.strftime("%Y%m%d_%H00")
+    # Target the active NOAA MADIS real-time extraction servlet engine
+    url = "https://noaa.gov"
     
-    # 🔗 FIX: Kept the domain hardcoded as a strict base string to prevent any variable merging issues
-    base_domain = "http://madis-data.ncep.noaa.gov"
-    path_string = f"/madisPublic1/data/text/metar/TXT.{current_hour}"
-    url = base_domain + path_string
+    # Configure precise data query parameters
+    params = {
+        "xml": "0",                  # Request raw text formatting layout (not XML)
+        "time": "0",                 # Request the most recent real-time observations available
+        "prov": "cwop",              # Restrict data gathering strictly to CWOP stations
+        "qc": "1"                    # Include NWS quality control validation flags
+    }
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NWS-WFO-Project/1.0"
     }
     
     try:
-        print(f"DEBUG: Attempting connection to URL: {url}")
-        response = requests.get(url, headers=headers, timeout=30)
-        
-        if response.status_code != 200:
-            print(f"⚠ Warning: Current hour file not fully built yet (HTTP {response.status_code}). Tripping back-hour fallback...")
-            # Fallback to the previous hour's file if right at the cusp of a transmission cycle
-            prev_hour = (now - datetime.timedelta(hours=1)).strftime("%Y%m%d_%H00")
-            path_string_fallback = f"/madisPublic1/data/text/metar/TXT.{prev_hour}"
-            url = base_domain + path_string_fallback
-            print(f"DEBUG: Attempting connection to fallback URL: {url}")
-            response = requests.get(url, headers=headers, timeout=30)
-            
+        print(f"DEBUG: Attempting connection to NOAA MADIS CGI script...")
+        response = requests.get(url, params=params, headers=headers, timeout=45)
         response.raise_for_status()
+        
+        # Guard check to ensure the server returned the expected column file and not an error
+        if "id" not in response.text.lower() and "station" not in response.text.lower():
+            print("⚠ Warning: NOAA returned a blank payload or server status alert page.")
+            print(f"👉 Raw Response Sample:\n{response.text[:300]}")
+            sys.exit(1)
+            
         return response.text
     except Exception as e:
         print(f"❌ Failed to reach NOAA/MADIS data endpoints: {e}")
