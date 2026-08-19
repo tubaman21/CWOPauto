@@ -7,8 +7,6 @@ import pytz
 def fetch_raw_mesonet_text():
     """Fetches real-time public surface logs from the open IEM text database cluster."""
     print("Connecting directly to the public Iowa Environmental Mesonet text stream...")
-    
-    # 🔗 Direct, raw static URL stream requiring no API parameters, tokens, or complex joins
     url = "https://iastate.edu"
     
     headers = {
@@ -42,7 +40,6 @@ def is_pure_metar(station_id):
 
 def main():
     # 🗺️ Precise spatial bounding limits covering WFO Duluth's operational footprint
-    # Longitude (-95.0 to -89.0), Latitude (45.0 to 49.5)
     LON_MIN, LAT_MIN, LON_MAX, LAT_MAX = -95.0, 45.0, -89.0, 49.5
     
     output_directory = "placefiles"
@@ -74,7 +71,7 @@ def main():
             parts = cleaned_line.split()
             
             # Ensure the row has enough valid space-separated elements to parse variables
-            if len(parts) < 7:
+            if len(parts) < 4:
                 continue
                 
             try:
@@ -84,10 +81,17 @@ def main():
                 if is_pure_metar(st_id):
                     continue
                     
-                # 2. Extract spatial metadata points safely from IEM columns
-                # IEM Text format column alignment: station[0], lon[1], lat[2], tmpf[3]
-                lon = float(parts[1])
-                lat = float(parts[2])
+                # 2. Extract spatial metadata points safely
+                val_a = float(parts[1])
+                val_b = float(parts[2])
+                
+                # 🧭 FIXED: Auto-detect coordinate columns based on negative values (US Longitude)
+                if val_a < 0:
+                    lon = val_a
+                    lat = val_b
+                else:
+                    lat = val_a
+                    lon = val_b
                 
                 # Apply your exact geographical filter constraints
                 if not (LON_MIN <= lon <= LON_MAX and LAT_MIN <= lat <= LAT_MAX):
