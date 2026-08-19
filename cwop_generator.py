@@ -5,37 +5,39 @@ import requests
 import pytz
 
 def fetch_raw_nws_madis():
-    """Fetches real-time public surface telemetry directly from the NOAA MADIS data servers."""
-    print("Connecting directly to the public NOAA MADIS data streaming pipeline...")
+    """Downloads the raw public hourly MADIS weather data text dump directly from the NOAA file repository."""
+    print("Connecting directly to the federal open-access NOAA text servers...")
     
-    # Target the active NOAA MADIS real-time extraction servlet engine
-    url = "https://noaa.gov"
+    # Target the completed top-of-the-hour text log file (subtracting 30 minutes for safety latency padding)
+    now = datetime.datetime.now(pytz.utc) - datetime.timedelta(minutes=30)
+    hour_str = now.strftime("%Y%m%d_%H00")
     
-    # Configure precise data query parameters
-    params = {
-        "xml": "0",                  # Request raw text formatting layout (not XML)
-        "time": "0",                 # Request the most recent real-time observations available
-        "prov": "cwop",              # Restrict data gathering strictly to CWOP stations
-        "qc": "1"                    # Include NWS quality control validation flags
-    }
+    # 🔗 FIX: Switched from the cgi servlet path to the true public static text archive pipeline
+    base_domain = "https://noaa.gov"
+    file_path = f"/public/txt/metar/TXT.{hour_str}"
+    url = base_domain + file_path
     
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) WeatherDataCollector/1.0 (NWS Project Integration)"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) NWS-Project-Integration/1.0"
     }
     
     try:
-        print("DEBUG: Attempting connection to NOAA MADIS CGI script...")
-        response = requests.get(url, params=params, headers=headers, timeout=45)
-        response.raise_for_status()
+        print(f"DEBUG: Resolving connection straight to URL: {url}")
+        response = requests.get(url, headers=headers, timeout=30)
         
-        # Guard check to ensure the server returned the expected data text layout
-        if "id" not in response.text.lower() and "station" not in response.text.lower():
-            print("⚠ Warning: NOAA returned a blank payload or server status alert page.")
-            sys.exit(1)
+        # Fall back to the previous hour's file if right at the cusp of a transmission cycle
+        if response.status_code != 200:
+            print(f"⚠ Hour file compiling (HTTP {response.status_code}). Falling back to the previous hour...")
+            prev_hour = (now - datetime.timedelta(hours=1)).strftime("%Y%m%d_%H00")
+            file_path_fallback = f"/public/txt/metar/TXT.{prev_hour}"
+            url = base_domain + file_path_fallback
+            print(f"DEBUG: Resolving fallback connection to URL: {url}")
+            response = requests.get(url, headers=headers, timeout=30)
             
+        response.raise_for_status()
         return response.text
     except Exception as e:
-        print(f"❌ Failed to reach NOAA/MADIS data endpoints: {e}")
+        print(f"❌ Failed to reach NOAA/MADIS data servers: {e}")
         sys.exit(1)
 
 def is_pure_metar(station_id):
@@ -49,6 +51,7 @@ def is_pure_metar(station_id):
 
 def main():
     # 🗺️ Define your spatial boundaries (WFO Duluth County Warning Area footprint)
+    # Longitude (-95.0 to -89.0), Latitude (45.0 to 49.5)
     LON_MIN, LAT_MIN, LON_MAX, LAT_MAX = -95.0, 45.0, -89.0, 49.5
     
     output_directory = "placefiles"
@@ -58,7 +61,7 @@ def main():
     raw_text = fetch_raw_nws_madis()
     lines = raw_text.splitlines()
     
-    print(f"DEBUG: Successfully downloaded raw weather stream ({len(lines)} lines parsed).")
+    print(f"DEBUG: Successfully downloaded weather log stream ({len(lines)} lines parsed).")
     
     station_count = 0
     unique_stations = set()
@@ -71,13 +74,14 @@ def main():
         f.write('IconFile: 1, 32, 32, 16, 16, "https://githubusercontent.com"\n\n')
         
         for line in lines:
-            # Skip commented text rows or file headers
+            # Skip commented text rows, empty blanks, or file headers completely
             if not line.strip() or line.startswith('#') or line.startswith('STN') or line.startswith('id') or line.startswith('station'):
                 continue
                 
-            # Split by whitespace block safely matching NOAA's variable columns
+            # Split by any whitespace block matching NOAA's native text log columns
+            # Column mapping structure: station, lat, lon, tmpc, dwpc, sknt, drct, alti
             parts = line.split()
-            if len(parts) < 6:
+            if len(parts) < 8:
                 continue
                 
             try:
@@ -87,7 +91,7 @@ def main():
                 if is_pure_metar(st_id) or st_id in unique_stations:
                     continue
                 
-                # 2. Extract Lat/Lon coordinates directly from columns (MADIS column layouts map positions early)
+                # 2. Extract Lat/Lon coordinates directly from text columns
                 lat = float(parts[1])
                 lon = float(parts[2])
                 
@@ -103,12 +107,12 @@ def main():
                 t_f = int(round((float(t_raw) * 9/5) + 32))
                 
                 # 4. Extract wind direction and speed fields safely if available in trailing columns
-                w_dir_raw = parts[4].strip() if len(parts) >= 5 else 'M'
                 w_speed_raw = parts[5].strip() if len(parts) >= 6 else 'M'
+                w_dir_raw = parts[6].strip() if len(parts) >= 7 else 'M'
                 
                 w_dir = float(w_dir_raw) if w_dir_raw != 'M' else None
-                # Convert meters/second to knots
-                w_kt = int(round(float(w_speed_raw) * 1.94384)) if w_speed_raw != 'M' else 0
+                # Knots are native to this NOAA database text feed layout
+                w_kt = int(float(w_speed_raw)) if w_speed_raw != 'M' else 0
                 
                 # Generate a 30-minute time frame envelope to facilitate smooth radar loop pairing
                 start_time = dt_now - datetime.timedelta(minutes=15)
