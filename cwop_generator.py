@@ -63,11 +63,18 @@ def get_sky_cover_icon(cloud_cov_str):
 def main():
     print("Initializing dynamic telemetry download routine from Synoptic Networks...")
     
+    # Securely pull the token from the GitHub Actions environment
+    api_token = os.environ.get("SYNOPTIC_API_TOKEN")
+    if not api_token:
+        print("Error: SYNOPTIC_API_TOKEN environment variable is missing!")
+        sys.exit(1)
+    
     end_time = datetime.now(timezone.utc)
     start_time = end_time - timedelta(hours=2)
     
-    # Token parameter removed as requested
+    # Token parameter re-added here
     api_params = {
+        "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
         "vars": "air_temp,dew_point_temperature,wind_speed,wind_direction,sea_level_pressure,cloud_layer_1_code",
         "start": start_time.strftime("%Y%m%d%H%M"),
