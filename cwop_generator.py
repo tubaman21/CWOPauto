@@ -99,8 +99,10 @@ def main():
     placefile_lines.append("; Generated dynamically via automated GitHub Action workflows.")
     placefile_lines.append("Refresh: 5")
     placefile_lines.append("Threshold: 999")
-    placefile_lines.append(f'IconFile: 1, 32, 32, 16, 16, "{WIND_BARB_ICON_URL}"')
-    placefile_lines.append(f'IconFile: 2, 16, 16, 8, 8, "{SKY_COVER_ICON_URL}"')
+    # Wind barbs updated to 75x75 with a center hotspot of 37,37
+    placefile_lines.append(f'IconFile: 1, 75, 75, 37, 37, "{WIND_BARB_ICON_URL}"')
+    # Sky cover slightly increased to standard 21x21 just in case
+    placefile_lines.append(f'IconFile: 2, 21, 21, 10, 10, "{SKY_COVER_ICON_URL}"')
     placefile_lines.append("Font: 1, 11, 400, 0")
     placefile_lines.append("")
 
@@ -155,12 +157,14 @@ def main():
             placefile_lines.append(f"TimeRange: {start_range} {end_range}")
             placefile_lines.append(f"Object: {lat:.5f},{lon:.5f}")
             
-            placefile_lines.append(f"  Icon: 0,0,0,2,{sky_icon_idx}")
-            
+           # 1. Draw the Wind Barb first (Bottom Layer)
             if speed_kt >= 3 and wind_dir is not None:
                 barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                 if barb_val > 0:
                     placefile_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
+
+            # 2. Draw the Sky Cover second (Top Layer - neatly covers the base of the barb)
+            placefile_lines.append(f"  Icon: 0,0,0,2,{sky_icon_idx}")
 
             hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
             
