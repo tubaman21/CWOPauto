@@ -51,8 +51,8 @@ def get_wind_barb_index(speed_knots, direction_deg):
     return idx, int(direction_deg)
 
 def get_sky_cover_icon(cloud_cov_str):
-    # Index 2 is the hollow/open circle on the Saratoga sky cover sprite sheet
-    return 2          
+    # Index 5 is the hollow/open circle on the Saratoga sky cover sprite sheet
+    return 5          
 
 # ==========================================
 # MAIN IMPLEMENTATION LOGIC
