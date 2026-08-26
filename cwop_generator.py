@@ -21,8 +21,8 @@ LAT_MIN, LAT_MAX = 45.0, 49.5
 LON_MIN, LON_MAX = -95.0, -89.0
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
-WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/github-actions-wfo/gr2_assets/main/wind_barbs.png"
-SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/github-actions-wfo/gr2_assets/main/sky_cover.png"
+WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
+SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/cloudcover_new.png"
 
 # ==========================================
 # UTILITY HELPER FUNCTIONS
