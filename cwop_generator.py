@@ -139,12 +139,23 @@ def main():
             try:
                 dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                 
-                # --- RESIDENCE TIME TWEAK ---
-                # Padded backward 5 minutes to catch earlier radar sweeps
-                window_start = dt_ob - timedelta(minutes=5)
-                # Extended forward 15 minutes to prevent blinking between irregular reports
+                # Start exactly at the observation time
+                window_start = dt_ob
+                
+                # Give ONLY the very first historical observation a backward pad 
+                # to catch the earliest radar sweeps in the loop without overlapping
+                if i == 0:
+                    window_start = dt_ob - timedelta(minutes=5)
+                
+                # Default residence time is up to 15 minutes...
                 window_end = dt_ob + timedelta(minutes=15)
-                # ----------------------------
+                
+                # ...BUT if a newer observation exists in the timeline, cap the end 
+                # time exactly when the next one begins to prevent stacking!
+                if i + 1 < len(timestamps):
+                    next_dt_ob = datetime.strptime(timestamps[i + 1], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+                    if window_end > next_dt_ob:
+                        window_end = next_dt_ob
                 
                 start_range = window_start.strftime("%Y-%m-%dT%H:%M:%SZ")
                 end_range = window_end.strftime("%Y-%m-%dT%H:%M:%SZ")
