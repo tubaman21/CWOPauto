@@ -99,7 +99,12 @@ def main():
     placefile_lines = []
     
     placefile_lines.append("; GR2Analyst Time-Sourced Historical Loop Dataset")
-    placefile_lines.append("; Generated dynamically via automated GitHub Action workflows.")
+    
+    # --- ADD THIS TIMESTAMP LINE ---
+    run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
+    placefile_lines.append(f"; Generated dynamically: {run_time}")
+    # -------------------------------
+    
     placefile_lines.append("Refresh: 5")
     placefile_lines.append("Threshold: 999")
    # Wind barbs: 43x68 grid, with the base of the stem pinned at 29, 67
