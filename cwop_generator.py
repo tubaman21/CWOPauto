@@ -51,12 +51,8 @@ def get_wind_barb_index(speed_knots, direction_deg):
     return idx, int(direction_deg)
 
 def get_sky_cover_icon(cloud_cov_str):
-    mapping = {
-        "CLR": 1, "SKC": 1,
-        "FEW": 2,          
-        "SCT": 3,          
-        "BKN": 4,          
-        "OVC": 5           
+    # Always return 1 for a clean, open circle on CWOP stations
+    return 1           
     }
     return mapping.get(str(cloud_cov_str).upper(), 7)
 
@@ -193,6 +189,9 @@ def main():
                 barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                 if barb_val > 0:
                     placefile_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
+
+            # 2. Draw the Open Circle second (Top Layer - pins cleanly over the barb stem)
+            placefile_lines.append(f"  Icon: 0,0,0,2,{sky_icon_idx}")
 
             hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
             
