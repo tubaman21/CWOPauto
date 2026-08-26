@@ -114,7 +114,7 @@ def main():
         
        # --- NEW FILTER ---
         # 1. Skip specific rogue stations by exact match
-        if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4]:
+        if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4"]:
             continue
 
         # 2. Skip ASOS/AWOS sites (3 or 4 purely alphabetical characters)
