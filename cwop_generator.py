@@ -1,88 +1,171 @@
 import os
 import sys
-import random
+import json
+import math
+from datetime import datetime, timedelta, timezone
 
-def get_simulated_duluth_cwop():
-    """Generates an authentic regional cluster array of volunteer CWOP stations distributed around the Duluth sector."""
-    station_templates = [
-        {"id": "CW1045", "name": "Duluth Harbor Node", "lat": 46.7801, "lon": -92.0910},
-        {"id": "CW4921", "name": "Superior Front St", "lat": 46.7205, "lon": -92.0620},
-        {"id": "CW0812", "name": "Hermantown Heights", "lat": 46.8122, "lon": -92.2355},
-        {"id": "CW1792", "name": "Cloquet Scanner Node", "lat": 46.7214, "lon": -92.4720},
-        {"id": "CW7710", "name": "Two Harbors Shoreline", "lat": 47.0211, "lon": -91.6690},
-        {"id": "CW3324", "name": "Grand Marais Harbor", "lat": 47.7485, "lon": -90.3450},
-        {"id": "CW2150", "name": "Hibbing Citizen Array", "lat": 47.4250, "lon": -92.9360},
-        {"id": "CW8112", "name": "Virginia Ridge Network", "lat": 47.5233, "lon": -92.5366},
-        {"id": "CW6041", "name": "Ely Woods Volunteer", "lat": 47.9030, "lon": -91.8670},
-        {"id": "CW9102", "name": "Silver Bay Cliffs", "lat": 47.2910, "lon": -91.2610},
-        {"id": "CW5541", "name": "Moose Lake Township", "lat": 46.4520, "lon": -92.7630},
-        {"id": "CW1412", "name": "Aitkin Bog Tracker", "lat": 46.5330, "lon": -93.7080},
-        {"id": "CW2991", "name": "Brainerd Lake Monitor", "lat": 46.3580, "lon": -94.2010},
-        {"id": "CW0450", "name": "Grand Rapids Valley", "lat": 47.2372, "lon": -93.5250},
-        {"id": "CW6811", "name": "Ashland Coastal Array", "lat": 46.5910, "lon": -90.8750},
-        {"id": "CW7345", "name": "Bayfield Peninsula Peak", "lat": 46.8110, "lon": -90.8180},
-        {"id": "CW0911", "name": "Ironwood Boundary Ridge", "lat": 46.4533, "lon": -90.1711},
-        {"id": "CW5231", "name": "Hayward Northwoods Cabin", "lat": 46.0120, "lon": -91.4840},
-        {"id": "CW1677", "name": "Spooner Junction Matrix", "lat": 45.8210, "lon": -91.8910},
-        {"id": "CW4402", "name": "International Falls South", "lat": 48.5830, "lon": -93.4120}
-    ]
-    
-    simulated_dataset = []
-    base_temp = 68.0
-    base_altimeter = 29.92
-    
-    for st in station_templates:
-        t_f = int(round(base_temp + random.uniform(-6.0, 5.0)))
-        w_kt = int(max(0, round(random.uniform(0.0, 18.0))))
-        w_dir = int(round(random.uniform(0.0, 359.0))) if w_kt >= 3 else None
-        
-        alt_val = base_altimeter + random.uniform(-0.15, 0.12)
-        slp_str = str(int(round(alt_val * 100)))[-3:]
-        
-        simulated_dataset.append({
-            "id": st["id"], "name": st["name"], "lat": st["lat"], "lon": st["lon"],
-            "temp": t_f, "wkt": w_kt, "wdir": w_dir, "slp": slp_str
-        })
-        
-    return simulated_dataset
+try:
+    import requests
+except ImportError:
+    print("Error: The 'requests' library is required to run this script.")
+    print("Please install it using: pip install requests")
+    sys.exit(1)
 
+# ==========================================
+# CONFIGURATION & PARAMETERS
+# ==========================================
+OUTPUT_DIR = "placefiles"
+OUTPUT_FILE = "cwop_observations.txt"
+
+LAT_MIN, LAT_MAX = 45.0, 49.5
+LON_MIN, LON_MAX = -95.0, -89.0
+
+SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
+WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/github-actions-wfo/gr2_assets/main/wind_barbs.png"
+SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/github-actions-wfo/gr2_assets/main/sky_cover.png"
+
+# ==========================================
+# UTILITY HELPER FUNCTIONS
+# ==========================================
+def sanitize_slp(pressure_mb):
+    if pressure_mb is None or math.isnan(pressure_mb):
+        return "M"
+    try:
+        val = int(round(pressure_mb * 10))
+        code_str = str(val)[-3:]
+        return code_str
+    except Exception:
+        return "M"
+
+def get_wind_barb_index(speed_knots, direction_deg):
+    if speed_knots is None or speed_knots < 3 or direction_deg is None:
+        return 0, 0
+        
+    base_idx = int(round(speed_knots / 5.0)) * 5
+    if base_idx < 5: base_idx = 5
+    if base_idx > 100: base_idx = 100
+    
+    return base_idx, int(direction_deg)
+
+def get_sky_cover_icon(cloud_cov_str):
+    mapping = {
+        "CLR": 1, "SKC": 1,
+        "FEW": 2,          
+        "SCT": 3,          
+        "BKN": 4,          
+        "OVC": 5           
+    }
+    return mapping.get(str(cloud_cov_str).upper(), 1)
+
+# ==========================================
+# MAIN IMPLEMENTATION LOGIC
+# ==========================================
 def main():
-    output_directory = "placefiles"
-    os.makedirs(output_directory, exist_ok=True)
-    output_file_path = os.path.join(output_directory, "cwop_observations.txt")
+    print("Initializing dynamic telemetry download routine from Synoptic Networks...")
     
-    stations = get_simulated_duluth_cwop()
-    station_count = 0
+    end_time = datetime.now(timezone.utc)
+    start_time = end_time - timedelta(hours=2)
     
-    with open(output_file_path, "w", encoding="utf-8") as f:
-        # 1. Strict Global Header Block Layout Configuration
-        f.write("Title: Regional CWOP Observations Only\n")
-        f.write("Refresh: 5\n")
+    # Token parameter removed as requested
+    api_params = {
+        "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
+        "vars": "air_temp,dew_point_temperature,wind_speed,wind_direction,sea_level_pressure,cloud_layer_1_code",
+        "start": start_time.strftime("%Y%m%d%H%M"),
+        "end": end_time.strftime("%Y%m%d%H%M"),
+        "obtimezone": "UTC",
+        "providers": "cwop"
+    }
+    
+    try:
+        response = requests.get(SYNOPTIC_API_URL, params=api_params, timeout=25)
+        response.raise_for_status()
+        data = response.json()
+    except Exception as e:
+        print(f"Network processing exception during API fetch: {e}")
+        sys.exit(1)
         
-        # 🔗 THE CRITICAL SYNTAX CORRECTION LINE:
-        # Stripped all horizontal spacing padding completely from after commas to satisfy C++ parser compiler mapping limits.
-        f.write('IconFile: 1,32,32,16,16,"https://noaa.gov"\n\n')
+    if "STATION" not in data or not data["STATION"]:
+        print("Warning: Network returned successfully but no matching active stations found.")
+        return
+
+    placefile_lines = []
+    
+    placefile_lines.append("; GR2Analyst Time-Sourced Historical Loop Dataset")
+    placefile_lines.append("; Generated dynamically via automated GitHub Action workflows.")
+    placefile_lines.append("Refresh: 5")
+    placefile_lines.append("Threshold: 999")
+    placefile_lines.append(f'IconFile: 1, 32, 32, 16, 16, "{WIND_BARB_ICON_URL}"')
+    placefile_lines.append(f'IconFile: 2, 16, 16, 8, 8, "{SKY_COVER_ICON_URL}"')
+    placefile_lines.append("Font: 1, 11, 400, 0")
+    placefile_lines.append("")
+
+    for station in data["STATION"]:
+        stid = station.get("STID", "UNKNOWN")
+        lat = station.get("LATITUDE")
+        lon = station.get("LONGITUDE")
         
-        for obs in stations:
-            f.write(f"Object: {obs['lat']:.5f},{obs['lon']:.5f}\n")
-            f.write("  Threshold: 999\n")
+        if not lat or not lon:
+            continue
             
-            if obs["wdir"] is not None and obs["wkt"] >= 3:
-                barb_idx = min(max(int(round(obs["wkt"] / 5)), 1), 25)
-                f.write(f"  Icon: 0,0,{obs['wdir']},1,{barb_idx}\n")
-            else:
-                f.write("  Icon: 0,0,0,1,1\n") # Center point circle tracking element symbol for calm wind conditions
+        observations = station.get("OBSERVATIONS", {})
+        timestamps = observations.get("date_time", [])
+        
+        for i, ts_str in enumerate(timestamps):
+            try:
+                dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                 
-            f.write(f'  Text: 0, -18, 1, "{obs["id"]}"\n')
-            f.write(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{obs["temp"]}"\n')
-            if obs["slp"]:
-                f.write(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{obs["slp"]}"\n')
+                window_start = dt_ob - timedelta(minutes=2, seconds=30)
+                window_end = dt_ob + timedelta(minutes=2, seconds=30)
                 
-            f.write(f'  Hover: "Station: {obs["id"]} \\nName: {obs["name"]} \\nTemp: {obs["temp"]}F \\nWind: {obs["wdir"] if obs["wdir"] is not None else 0}@{obs["wkt"]}kt"\n')
-            f.write("End:\n\n")
-            station_count += 1
+                start_range = window_start.strftime("%Y-%m-%dT%H:%M:%SZ")
+                end_range = window_end.strftime("%Y-%m-%dT%H:%M:%SZ")
+            except Exception:
+                continue
+
+            # Fallback array added to prevent crash on explicit None values
+            fallback = [None] * len(timestamps)
+            temp_c = (observations.get("air_temp_value_1") or fallback)[i]
+            dew_c = (observations.get("dew_point_temperature_value_1") or fallback)[i]
+            speed_ms = (observations.get("wind_speed_value_1") or fallback)[i]
+            wind_dir = (observations.get("wind_direction_value_1") or fallback)[i]
+            slp_mb = (observations.get("sea_level_pressure_value_1") or fallback)[i]
+            sky_code = (observations.get("cloud_layer_1_code_value_1") or fallback)[i]
+
+            temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
+            dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
+            speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
+            slp_str = sanitize_slp(slp_mb)
+            sky_icon_idx = get_sky_cover_icon(sky_code)
             
-    print(f"🎉 Success! Completely verified and wrote {station_count} pure CWOP stations to {output_file_path}")
+            tf_display = f"{temp_f}" if temp_f is not None else "M"
+            df_display = f"{dew_f}" if dew_f is not None else "M"
+            
+            placefile_lines.append(f"TimeRange: {start_range} {end_range}")
+            placefile_lines.append(f"Object: {lat:.5f},{lon:.5f}")
+            
+            placefile_lines.append(f"  Icon: 0,0,0,2,{sky_icon_idx}")
+            
+            if speed_kt >= 3 and wind_dir is not None:
+                barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
+                if barb_val > 0:
+                    placefile_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
+
+            placefile_lines.append(f'  Text: 0, -18, 1, "{stid}"')
+            placefile_lines.append(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{tf_display}"')
+            placefile_lines.append(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"')
+            placefile_lines.append(f'  Color: 100 255 100\n  Text: -20, 10, 1, "{df_display}"')
+            
+            hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir or 0:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
+            placefile_lines.append(f'  Hover: "{hover_text}"')
+            
+            placefile_lines.append("End:")
+            placefile_lines.append("")
+
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    with open(os.path.join(OUTPUT_DIR, OUTPUT_FILE), "w") as f:
+        f.write("\n".join(placefile_lines))
+        
+    print(f"Success! Time-looped script processing completed. Destination file compiled: {os.path.join(OUTPUT_DIR, OUTPUT_FILE)}")
 
 if __name__ == "__main__":
     main()
