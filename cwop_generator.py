@@ -113,12 +113,16 @@ def main():
         stid = station.get("STID", "UNKNOWN")
         
        # --- NEW FILTER ---
-        # Skip ASOS/AWOS sites (3 or 4 purely alphabetical characters)
+        # 1. Skip specific rogue stations by exact match
+        if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3"]:
+            continue
+
+        # 2. Skip ASOS/AWOS sites (3 or 4 purely alphabetical characters)
         if len(stid) in [3, 4] and stid.isalpha():
             continue
             
-        # Skip NDBC stations (Identifiers starting with "NDBC")
-        if stid.startswith("NDBC"):
+        # 3. Skip NDBC buoys (Blocks BOTH "NDBCXXXXX" prefixed IDs and raw "XXXXX" 5-digit IDs)
+        if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
             continue
         # ------------------
         
