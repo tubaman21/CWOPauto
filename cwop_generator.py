@@ -172,9 +172,16 @@ def main():
             hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
             
             placefile_lines.append(f'  Text: 0, -18, 1, "{stid}", "{hover_text}"')
-            placefile_lines.append(f'  Color: 255 100 100\n  Text: -20, 10, 1, "{tf_display}"')
-            placefile_lines.append(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"')
-            placefile_lines.append(f'  Color: 100 255 100\n  Text: -20, -10, 1, "{df_display}"')
+            
+            # Only draw the text on the map if the value is not "M"
+            if tf_display != "M":
+                placefile_lines.append(f'  Color: 255 100 100\n  Text: -20, 10, 1, "{tf_display}"')
+            
+            if slp_str != "M":
+                placefile_lines.append(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"')
+                
+            if df_display != "M":
+                placefile_lines.append(f'  Color: 100 255 100\n  Text: -20, -10, 1, "{df_display}"')
             
             placefile_lines.append("End:")
             placefile_lines.append("")
