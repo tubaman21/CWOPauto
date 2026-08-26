@@ -112,9 +112,13 @@ def main():
     for station in data["STATION"]:
         stid = station.get("STID", "UNKNOWN")
         
-        # --- NEW FILTER ---
+       # --- NEW FILTER ---
         # Skip ASOS/AWOS sites (3 or 4 purely alphabetical characters)
         if len(stid) in [3, 4] and stid.isalpha():
+            continue
+            
+        # Skip NDBC stations (Identifiers starting with "NDBC")
+        if stid.startswith("NDBC"):
             continue
         # ------------------
         
