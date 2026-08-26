@@ -58,7 +58,7 @@ def get_sky_cover_icon(cloud_cov_str):
         "BKN": 4,          
         "OVC": 5           
     }
-    return mapping.get(str(cloud_cov_str).upper(), 1)
+    return mapping.get(str(cloud_cov_str).upper(), 7)
 
 # ==========================================
 # MAIN IMPLEMENTATION LOGIC
