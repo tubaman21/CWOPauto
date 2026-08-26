@@ -166,12 +166,12 @@ def main():
             # The hover text now uses wind_dir_display
             hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
             
-            # FIX 2: Order of strings swapped! {stid} (Display) is now first, {hover_text} (Hover) is second.
-            placefile_lines.append(f'  Text: 0, -18, 1, "{stid}", "{hover_text}"')
-            
-            placefile_lines.append(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{tf_display}"')
+           placefile_lines.append(f'  Text: 0, -18, 1, "{stid}", "{hover_text}"')
+            # Temperature moved down (Y coordinate changed to 10)
+            placefile_lines.append(f'  Color: 255 100 100\n  Text: -20, 10, 1, "{tf_display}"')
             placefile_lines.append(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"')
-            placefile_lines.append(f'  Color: 100 255 100\n  Text: -20, 10, 1, "{df_display}"')
+            # Dewpoint moved up (Y coordinate changed to -10)
+            placefile_lines.append(f'  Color: 100 255 100\n  Text: -20, -10, 1, "{df_display}"')
             
             # The invalid Hover keyword line has been completely removed!
             
