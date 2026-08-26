@@ -102,10 +102,10 @@ def main():
     placefile_lines.append("; Generated dynamically via automated GitHub Action workflows.")
     placefile_lines.append("Refresh: 5")
     placefile_lines.append("Threshold: 999")
-    # Wind barbs updated to 75x75 with a center hotspot of 37,37
-    placefile_lines.append(f'IconFile: 1, 74, 74, 37, 37, "{WIND_BARB_ICON_URL}"')
-    # Sky cover slightly increased to standard 21x21 just in case
-    placefile_lines.append(f'IconFile: 2, 21, 21, 10, 10, "{SKY_COVER_ICON_URL}"')
+   # Wind barbs: 43x68 grid, with the base of the stem pinned at 29, 67
+    placefile_lines.append(f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"')
+    # Sky cover: 15x15 grid, perfectly centered at 8, 8
+    placefile_lines.append(f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"')
     placefile_lines.append("Font: 1, 11, 400, 0")
     placefile_lines.append("")
 
