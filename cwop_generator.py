@@ -194,9 +194,6 @@ def main():
                 if barb_val > 0:
                     placefile_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
-            # 2. Draw the Sky Cover second (Top Layer - neatly covers the base of the barb)
-            placefile_lines.append(f"  Icon: 0,0,0,2,{sky_icon_idx}")
-
             hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
             
             placefile_lines.append(f'  Text: 0, -18, 1, "{stid}", "{hover_text}"')
