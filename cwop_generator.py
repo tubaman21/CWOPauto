@@ -63,7 +63,6 @@ def get_sky_cover_icon(cloud_cov_str):
 def main():
     print("Initializing dynamic telemetry download routine from Synoptic Networks...")
     
-    # Securely pull the token from the GitHub Actions environment
     api_token = os.environ.get("SYNOPTIC_API_TOKEN")
     if not api_token:
         print("Error: SYNOPTIC_API_TOKEN environment variable is missing!")
@@ -72,7 +71,6 @@ def main():
     end_time = datetime.now(timezone.utc)
     start_time = end_time - timedelta(hours=2)
     
-    # Token parameter re-added here
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
@@ -108,12 +106,10 @@ def main():
 
     for station in data["STATION"]:
         stid = station.get("STID", "UNKNOWN")
-        
         try:
             lat = float(station.get("LATITUDE"))
             lon = float(station.get("LONGITUDE"))
         except (TypeError, ValueError):
-            # Skips the station if lat/lon are missing or invalid
             continue
             
         observations = station.get("OBSERVATIONS", {})
@@ -131,16 +127,12 @@ def main():
             except Exception:
                 continue
 
-            # FIX 1: Updated keys from _value_1 to _set_1 to match Synoptic's JSON format
             fallback = [None] * len(timestamps)
             temp_c = (observations.get("air_temp_set_1") or fallback)[i]
             dew_c = (observations.get("dew_point_temperature_set_1") or fallback)[i]
             speed_ms = (observations.get("wind_speed_set_1") or fallback)[i]
             wind_dir = (observations.get("wind_direction_set_1") or fallback)[i]
             slp_mb = (observations.get("sea_level_pressure_set_1") or fallback)[i]
-            
-            # Note: Cloud codes sometimes still use _value_1 depending on the provider, 
-            # so we use a dual-fallback just in case to be safe!
             sky_code = (observations.get("cloud_layer_1_code_set_1") or observations.get("cloud_layer_1_code_value_1") or fallback)[i]
 
             temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
@@ -163,17 +155,12 @@ def main():
                 if barb_val > 0:
                     placefile_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
-            # The hover text now uses wind_dir_display
             hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
             
-           placefile_lines.append(f'  Text: 0, -18, 1, "{stid}", "{hover_text}"')
-            # Temperature moved down (Y coordinate changed to 10)
+            placefile_lines.append(f'  Text: 0, -18, 1, "{stid}", "{hover_text}"')
             placefile_lines.append(f'  Color: 255 100 100\n  Text: -20, 10, 1, "{tf_display}"')
             placefile_lines.append(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"')
-            # Dewpoint moved up (Y coordinate changed to -10)
             placefile_lines.append(f'  Color: 100 255 100\n  Text: -20, -10, 1, "{df_display}"')
-            
-            # The invalid Hover keyword line has been completely removed!
             
             placefile_lines.append("End:")
             placefile_lines.append("")
