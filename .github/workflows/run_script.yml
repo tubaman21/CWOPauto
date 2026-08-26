@@ -2,7 +2,7 @@ name: Generate CWOP Placefile
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Runs automatically every 15 minutes
+    - cron: '3-59/15 * * * *'  # Runs at :03, :18, :33, :48 past the hour
   workflow_dispatch:        # Allows you to manually trigger a run anytime
 
 jobs:
