@@ -53,8 +53,6 @@ def get_wind_barb_index(speed_knots, direction_deg):
 def get_sky_cover_icon(cloud_cov_str):
     # Always return 1 for a clean, open circle on CWOP stations
     return 1           
-    }
-    return mapping.get(str(cloud_cov_str).upper(), 7)
 
 # ==========================================
 # MAIN IMPLEMENTATION LOGIC
