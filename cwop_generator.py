@@ -151,6 +151,7 @@ def main():
             
             tf_display = f"{temp_f}" if temp_f is not None else "M"
             df_display = f"{dew_f}" if dew_f is not None else "M"
+            wind_dir_display = int(wind_dir) if wind_dir is not None else 0
             
             placefile_lines.append(f"TimeRange: {start_range} {end_range}")
             placefile_lines.append(f"Object: {lat:.5f},{lon:.5f}")
@@ -162,7 +163,8 @@ def main():
                 if barb_val > 0:
                     placefile_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
-            hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir or 0:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
+            # The hover text now uses wind_dir_display
+            hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
             
             # FIX 2: Order of strings swapped! {stid} (Display) is now first, {hover_text} (Hover) is second.
             placefile_lines.append(f'  Text: 0, -18, 1, "{stid}", "{hover_text}"')
