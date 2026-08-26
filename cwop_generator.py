@@ -108,10 +108,12 @@ def main():
 
     for station in data["STATION"]:
         stid = station.get("STID", "UNKNOWN")
-        lat = station.get("LATITUDE")
-        lon = station.get("LONGITUDE")
         
-        if not lat or not lon:
+        try:
+            lat = float(station.get("LATITUDE"))
+            lon = float(station.get("LONGITUDE"))
+        except (TypeError, ValueError):
+            # Skips the station if lat/lon are missing or invalid
             continue
             
         observations = station.get("OBSERVATIONS", {})
