@@ -114,7 +114,7 @@ def main():
         
        # --- NEW FILTER ---
         # 1. Skip specific rogue stations by exact match
-        if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3"]:
+        if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4]:
             continue
 
         # 2. Skip ASOS/AWOS sites (3 or 4 purely alphabetical characters)
@@ -139,8 +139,12 @@ def main():
             try:
                 dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                 
-                window_start = dt_ob - timedelta(minutes=2, seconds=30)
-                window_end = dt_ob + timedelta(minutes=2, seconds=30)
+                # --- RESIDENCE TIME TWEAK ---
+                # Padded backward 5 minutes to catch earlier radar sweeps
+                window_start = dt_ob - timedelta(minutes=5)
+                # Extended forward 15 minutes to prevent blinking between irregular reports
+                window_end = dt_ob + timedelta(minutes=15)
+                # ----------------------------
                 
                 start_range = window_start.strftime("%Y-%m-%dT%H:%M:%SZ")
                 end_range = window_end.strftime("%Y-%m-%dT%H:%M:%SZ")
