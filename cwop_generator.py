@@ -131,14 +131,17 @@ def main():
             except Exception:
                 continue
 
-            # Fallback array added to prevent crash on explicit None values
+            # FIX 1: Updated keys from _value_1 to _set_1 to match Synoptic's JSON format
             fallback = [None] * len(timestamps)
-            temp_c = (observations.get("air_temp_value_1") or fallback)[i]
-            dew_c = (observations.get("dew_point_temperature_value_1") or fallback)[i]
-            speed_ms = (observations.get("wind_speed_value_1") or fallback)[i]
-            wind_dir = (observations.get("wind_direction_value_1") or fallback)[i]
-            slp_mb = (observations.get("sea_level_pressure_value_1") or fallback)[i]
-            sky_code = (observations.get("cloud_layer_1_code_value_1") or fallback)[i]
+            temp_c = (observations.get("air_temp_set_1") or fallback)[i]
+            dew_c = (observations.get("dew_point_temperature_set_1") or fallback)[i]
+            speed_ms = (observations.get("wind_speed_set_1") or fallback)[i]
+            wind_dir = (observations.get("wind_direction_set_1") or fallback)[i]
+            slp_mb = (observations.get("sea_level_pressure_set_1") or fallback)[i]
+            
+            # Note: Cloud codes sometimes still use _value_1 depending on the provider, 
+            # so we use a dual-fallback just in case to be safe!
+            sky_code = (observations.get("cloud_layer_1_code_set_1") or observations.get("cloud_layer_1_code_value_1") or fallback)[i]
 
             temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
             dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
@@ -159,11 +162,10 @@ def main():
                 if barb_val > 0:
                     placefile_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
-            # Define the hover text first
             hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir or 0:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
             
-            # Attach hover text as the 4th parameter, and the displayed station ID as the 5th parameter
-            placefile_lines.append(f'  Text: 0, -18, 1, "{hover_text}", "{stid}"')
+            # FIX 2: Order of strings swapped! {stid} (Display) is now first, {hover_text} (Hover) is second.
+            placefile_lines.append(f'  Text: 0, -18, 1, "{stid}", "{hover_text}"')
             
             placefile_lines.append(f'  Color: 255 100 100\n  Text: -20, -10, 1, "{tf_display}"')
             placefile_lines.append(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"')
