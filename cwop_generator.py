@@ -41,11 +41,14 @@ def get_wind_barb_index(speed_knots, direction_deg):
     if speed_knots is None or speed_knots < 3 or direction_deg is None:
         return 0, 0
         
-    base_idx = int(round(speed_knots / 5.0)) * 5
-    if base_idx < 5: base_idx = 5
-    if base_idx > 100: base_idx = 100
+    # Map index sequentially: 5kt = 1, 10kt = 2, 15kt = 3, etc.
+    idx = int(round(speed_knots / 5.0))
     
-    return base_idx, int(direction_deg)
+    # Cap the index so it doesn't try to pull a row that doesn't exist
+    if idx < 1: idx = 1
+    if idx > 26: idx = 26 
+    
+    return idx, int(direction_deg)
 
 def get_sky_cover_icon(cloud_cov_str):
     mapping = {
@@ -100,7 +103,7 @@ def main():
     placefile_lines.append("Refresh: 5")
     placefile_lines.append("Threshold: 999")
     # Wind barbs updated to 75x75 with a center hotspot of 37,37
-    placefile_lines.append(f'IconFile: 1, 75, 75, 37, 37, "{WIND_BARB_ICON_URL}"')
+    placefile_lines.append(f'IconFile: 1, 74, 74, 37, 37, "{WIND_BARB_ICON_URL}"')
     # Sky cover slightly increased to standard 21x21 just in case
     placefile_lines.append(f'IconFile: 2, 21, 21, 10, 10, "{SKY_COVER_ICON_URL}"')
     placefile_lines.append("Font: 1, 11, 400, 0")
