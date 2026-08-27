@@ -114,7 +114,9 @@ def main():
 
     for station in data["STATION"]:
         stid = station.get("STID", "UNKNOWN")
-        mnet = station.get("MNET_SHORTNAME") or station.get("MNET_NAME") or "CWOP"
+        
+        # Check MNET_SHORTNAME first, then MNET_NAME, defaulting to 'Mesonet' if unidentified
+        mnet = station.get("MNET_SHORTNAME") or station.get("MNET_NAME") or "Mesonet"
         
         # --- FILTERS ---
         # 1. Skip specific rogue stations by exact match
