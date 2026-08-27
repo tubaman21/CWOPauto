@@ -81,8 +81,8 @@ def main():
         "start": start_time.strftime("%Y%m%d%H%M"),
         "end": end_time.strftime("%Y%m%d%H%M"),
         "obtimezone": "UTC",
-        #"providers": "cwop"
-        "output": "json"
+        #"providers": "cwop",
+        "output": "json",
         "extra": "metadata"  # Force Synoptic to return MNET_SHORTNAME and MNET_NAME
     }
     
