@@ -66,7 +66,7 @@ def main():
         sys.exit(1)
     
     end_time = datetime.now(timezone.utc)
-    start_time = end_time - timedelta(hours=2)
+    start_time = end_time - timedelta(hours=6)
     
     api_params = {
         "token": api_token,
@@ -147,7 +147,7 @@ def main():
                     window_start = dt_ob - timedelta(minutes=5)
                 
                 # Default residence time is up to 15 minutes...
-                window_end = dt_ob + timedelta(minutes=15)
+                window_end = dt_ob + timedelta(hours=1)
                 
                 # ...BUT if a newer observation exists in the timeline, cap the end 
                 # time exactly when the next one begins to prevent stacking!
