@@ -93,6 +93,8 @@ def main():
     placefile_lines = []
     
     placefile_lines.append("; GR2Analyst Time-Sourced Historical Loop Dataset")
+    placefile_lines.append("; Created by Bryan Howell and Gemini")
+    placefile_lines.append("; Code last updated: 08-27-2026")
     
     # --- ADD THIS TIMESTAMP LINE ---
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
