@@ -92,6 +92,7 @@ def main():
 
     placefile_lines = []
     
+    placefile_lines.append(f'Title: CWOP Surface Observations ({run_time})')
     placefile_lines.append("; GR2Analyst Time-Sourced Historical Loop Dataset")
     placefile_lines.append("; Created by Bryan Howell and Gemini")
     placefile_lines.append("; Code last updated: 08-27-2026")
@@ -191,11 +192,11 @@ def main():
                     placefile_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
             # 2. Draw the Open Circle second (Top Layer - pins cleanly over the barb stem)
-            placefile_lines.append(f"  Icon: 0,0,0,2,{sky_icon_idx}")
+            placefile_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
 
             hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
             
-            placefile_lines.append(f'  Text: 0, -18, 0, "{stid}", "{hover_text}"')
+            #placefile_lines.append(f'  Text: 0, -18, 0, "{stid}", "{hover_text}"')
             
             # Only draw the text on the map if the value is not "M"
             if tf_display != "M":
