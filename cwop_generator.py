@@ -77,7 +77,7 @@ def main():
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-        "vars": "air_temp,dew_point_temperature,wind_speed,wind_direction,sea_level_pressure,cloud_layer_1_code",
+        "vars": "air_temp,dew_point_temperature,wind_speed,wind_direction,wind_gust,sea_level_pressure,cloud_layer_1_code",
         "start": start_time.strftime("%Y%m%d%H%M"),
         "end": end_time.strftime("%Y%m%d%H%M"),
         "obtimezone": "UTC",
@@ -194,6 +194,7 @@ def main():
             temp_c = (observations.get("air_temp_set_1") or fallback)[i]
             dew_c = (observations.get("dew_point_temperature_set_1") or fallback)[i]
             speed_ms = (observations.get("wind_speed_set_1") or fallback)[i]
+            gust_ms = (observations.get("wind_gust_set_1") or fallback)[i]  # <-- Extract gust
             wind_dir = (observations.get("wind_direction_set_1") or fallback)[i]
             slp_mb = (observations.get("sea_level_pressure_set_1") or fallback)[i]
             sky_code = (observations.get("cloud_layer_1_code_set_1") or observations.get("cloud_layer_1_code_value_1") or fallback)[i]
@@ -201,6 +202,8 @@ def main():
             temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
             dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
             speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
+            gust_kt = int(round(gust_ms * 1.94384)) if gust_ms is not None else None  # <-- Convert to Knots
+            
             slp_str = sanitize_slp(slp_mb)
             sky_icon_idx = get_sky_cover_icon(sky_code)
             
@@ -208,8 +211,14 @@ def main():
             df_display = f"{dew_f}" if dew_f is not None else "M"
             wind_dir_display = int(wind_dir) if wind_dir is not None else 0
             
-            # Construct hover string with station metadata & type
-            hover_text = f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
+            # --- WIND DISPLAY STRING (WITH GUST HANDLING) ---
+            if gust_kt is not None and gust_kt > speed_kt and gust_kt >= 10:
+                wind_display = f"{wind_dir_display:03d}@{speed_kt}G{gust_kt}KT"
+            else:
+                wind_display = f"{wind_dir_display:03d}@{speed_kt}KT"
+            
+            # Construct hover string with new wind_display field
+            hover_text = f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | SLP: {slp_mb or 'M'}mb"
             
             placefile_lines.append(f"TimeRange: {start_range} {end_range}")
             placefile_lines.append(f"Object: {lat:.5f},{lon:.5f}")
