@@ -1,5 +1,7 @@
 ; GR2Analyst Time-Sourced Historical Loop Dataset
-; Generated dynamically: 2026-08-27 20:53:14 UTC
+; Created by Bryan Howell and Gemini
+; Code last updated: 08-27-2026
+; Generated dynamically: 2026-08-27 20:55:26 UTC
 Refresh: 5
 Threshold: 999
 IconFile: 1, 43, 68, 29, 67, "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
@@ -4183,6 +4185,15 @@ Object: 46.53722,-93.28750
   Text: -20, 10, 1, "77"
 End:
 
+TimeRange: 2026-08-27T20:52:00Z 2026-08-27T21:52:00Z
+Object: 46.53722,-93.28750
+  Icon: 0,0,347,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "RLKM5", "Station: RLKM5 | Temp: 77F | Dewpt: MF | Wind: 347@3KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "77"
+End:
+
 TimeRange: 2026-08-27T15:26:00Z 2026-08-27T16:31:00Z
 Object: 46.03964,-89.09575
   Icon: 0,0,7,1,1
@@ -5089,15 +5100,7 @@ Object: 46.85867,-92.21833
   Text: -20, 10, 1, "75"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:56:00Z
-Object: 46.81117,-90.84883
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "AS104", "Station: AS104 | Temp: 69F | Dewpt: MF | Wind: 315@0KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "69"
-End:
-
-TimeRange: 2026-08-27T14:56:00Z 2026-08-27T15:03:00Z
+TimeRange: 2026-08-27T14:51:00Z 2026-08-27T15:03:00Z
 Object: 46.81117,-90.84883
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "AS104", "Station: AS104 | Temp: 69F | Dewpt: MF | Wind: 315@0KT | SLP: Mmb"
@@ -5657,15 +5660,7 @@ Object: 46.81117,-90.84883
   Text: -20, 10, 1, "75"
 End:
 
-TimeRange: 2026-08-27T14:49:00Z 2026-08-27T14:59:00Z
-Object: 45.15800,-93.13400
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "AS215", "Station: AS215 | Temp: 76F | Dewpt: MF | Wind: 218@0KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "76"
-End:
-
-TimeRange: 2026-08-27T14:59:00Z 2026-08-27T15:04:00Z
+TimeRange: 2026-08-27T14:54:00Z 2026-08-27T15:04:00Z
 Object: 45.15800,-93.13400
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "AS215", "Station: AS215 | Temp: 76F | Dewpt: MF | Wind: 348@1KT | SLP: Mmb"
@@ -7160,13 +7155,22 @@ Object: 46.71653,-92.24900
   Text: -20, 10, 1, "76"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.71653,-92.24900
   Icon: 0,0,318,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN080", "Station: MN080 | Temp: 75F | Dewpt: MF | Wind: 318@3KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "75"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.71653,-92.24900
+  Icon: 0,0,287,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN080", "Station: MN080 | Temp: 74F | Dewpt: MF | Wind: 287@3KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "74"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -7721,7 +7725,15 @@ Object: 46.21256,-92.83853
   Text: -20, 10, 1, "76"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
+Object: 46.21256,-92.83853
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN005", "Station: MN005 | Temp: 77F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "77"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
 Object: 46.21256,-92.83853
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN005", "Station: MN005 | Temp: 77F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
@@ -8358,11 +8370,20 @@ Object: 45.71313,-94.93148
   Text: -20, 10, 1, "78"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.71313,-94.93148
   Icon: 0,0,5,1,2
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN016", "Station: MN016 | Temp: 77F | Dewpt: MF | Wind: 005@8KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "77"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.71313,-94.93148
+  Icon: 0,0,5,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN016", "Station: MN016 | Temp: 77F | Dewpt: MF | Wind: 005@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "77"
 End:
@@ -8994,13 +9015,22 @@ Object: 47.87432,-94.43240
   Text: -20, 10, 1, "71"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.87432,-94.43240
   Icon: 0,0,325,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN018", "Station: MN018 | Temp: 72F | Dewpt: MF | Wind: 325@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "72"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.87432,-94.43240
+  Icon: 0,0,0,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN018", "Station: MN018 | Temp: 71F | Dewpt: MF | Wind: 000@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "71"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -9631,11 +9661,20 @@ Object: 47.85440,-92.04817
   Text: -20, 10, 1, "71"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.85440,-92.04817
   Icon: 0,0,316,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN019", "Station: MN019 | Temp: 71F | Dewpt: MF | Wind: 316@6KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "71"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.85440,-92.04817
+  Icon: 0,0,326,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN019", "Station: MN019 | Temp: 71F | Dewpt: MF | Wind: 326@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "71"
 End:
@@ -10269,13 +10308,22 @@ Object: 46.68825,-93.95447
   Text: -20, 10, 1, "75"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.68825,-93.95447
   Icon: 0,0,332,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN020", "Station: MN020 | Temp: 75F | Dewpt: MF | Wind: 332@7KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "75"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.68825,-93.95447
+  Icon: 0,0,311,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN020", "Station: MN020 | Temp: 74F | Dewpt: MF | Wind: 311@6KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "74"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -10908,13 +10956,22 @@ Object: 48.62767,-94.06702
   Text: -20, 10, 1, "70"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 48.62767,-94.06702
   Icon: 0,0,293,1,2
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN026", "Station: MN026 | Temp: 70F | Dewpt: MF | Wind: 293@9KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "70"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 48.62767,-94.06702
+  Icon: 0,0,339,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN026", "Station: MN026 | Temp: 71F | Dewpt: MF | Wind: 339@6KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "71"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -11537,11 +11594,19 @@ Object: 45.60781,-94.03078
   Text: -20, 10, 1, "79"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.60781,-94.03078
   Icon: 0,0,30,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN034", "Station: MN034 | Temp: 79F | Dewpt: MF | Wind: 030@3KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "79"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.60781,-94.03078
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN034", "Station: MN034 | Temp: 79F | Dewpt: MF | Wind: 025@2KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "79"
 End:
@@ -12173,11 +12238,20 @@ Object: 46.14423,-94.10412
   Text: -20, 10, 1, "76"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.14423,-94.10412
   Icon: 0,0,5,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN035", "Station: MN035 | Temp: 76F | Dewpt: MF | Wind: 005@7KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "76"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.14423,-94.10412
+  Icon: 0,0,1,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN035", "Station: MN035 | Temp: 76F | Dewpt: MF | Wind: 001@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "76"
 End:
@@ -12804,11 +12878,20 @@ Object: 47.60357,-94.12677
   Text: -20, 10, 1, "74"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.60357,-94.12677
   Icon: 0,0,295,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN041", "Station: MN041 | Temp: 74F | Dewpt: MF | Wind: 295@5KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "74"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.60357,-94.12677
+  Icon: 0,0,300,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN041", "Station: MN041 | Temp: 74F | Dewpt: MF | Wind: 300@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "74"
 End:
@@ -13443,13 +13526,22 @@ Object: 45.43232,-94.93238
   Text: -20, 10, 1, "77"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.43232,-94.93238
   Icon: 0,0,0,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN043", "Station: MN043 | Temp: 77F | Dewpt: MF | Wind: 000@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "77"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.43232,-94.93238
+  Icon: 0,0,355,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN043", "Station: MN043 | Temp: 78F | Dewpt: MF | Wind: 355@5KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "78"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -14078,13 +14170,22 @@ Object: 46.91178,-94.72293
   Text: -20, 10, 1, "76"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.91178,-94.72293
   Icon: 0,0,280,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN049", "Station: MN049 | Temp: 77F | Dewpt: MF | Wind: 280@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "77"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.91178,-94.72293
+  Icon: 0,0,345,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN049", "Station: MN049 | Temp: 76F | Dewpt: MF | Wind: 345@3KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "76"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -14708,13 +14809,22 @@ Object: 46.33954,-93.26208
   Text: -20, 10, 1, "74"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.33954,-93.26208
   Icon: 0,0,340,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN050", "Station: MN050 | Temp: 76F | Dewpt: MF | Wind: 340@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "76"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.33954,-93.26208
+  Icon: 0,0,0,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN050", "Station: MN050 | Temp: 75F | Dewpt: MF | Wind: 000@6KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "75"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -15332,11 +15442,20 @@ Object: 46.97845,-93.27368
   Text: -20, 10, 1, "74"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.97845,-93.27368
   Icon: 0,0,245,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN051", "Station: MN051 | Temp: 75F | Dewpt: MF | Wind: 245@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "75"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.97845,-93.27368
+  Icon: 0,0,254,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN051", "Station: MN051 | Temp: 75F | Dewpt: MF | Wind: 254@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "75"
 End:
@@ -15961,11 +16080,20 @@ Object: 47.84037,-93.48527
   Text: -20, 10, 1, "74"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.84037,-93.48527
   Icon: 0,0,274,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN052", "Station: MN052 | Temp: 74F | Dewpt: MF | Wind: 274@6KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "74"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.84037,-93.48527
+  Icon: 0,0,287,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN052", "Station: MN052 | Temp: 74F | Dewpt: MF | Wind: 287@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "74"
 End:
@@ -16530,12 +16658,20 @@ Object: 48.20720,-94.55400
   Text: -20, 10, 1, "71"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 48.20720,-94.55400
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN053", "Station: MN053 | Temp: 71F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "71"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 48.20720,-94.55400
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN053", "Station: MN053 | Temp: 70F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "70"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -17168,11 +17304,20 @@ Object: 47.37995,-94.58698
   Text: -20, 10, 1, "74"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.37995,-94.58698
   Icon: 0,0,330,1,2
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN061", "Station: MN061 | Temp: 73F | Dewpt: MF | Wind: 330@9KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "73"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.37995,-94.58698
+  Icon: 0,0,340,1,2
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN061", "Station: MN061 | Temp: 73F | Dewpt: MF | Wind: 340@8KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "73"
 End:
@@ -17807,13 +17952,22 @@ Object: 45.76635,-94.23270
   Text: -20, 10, 1, "77"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.76635,-94.23270
   Icon: 0,0,45,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN064", "Station: MN064 | Temp: 77F | Dewpt: MF | Wind: 045@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "77"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.76635,-94.23270
+  Icon: 0,0,0,1,2
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN064", "Station: MN064 | Temp: 79F | Dewpt: MF | Wind: 000@8KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "79"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -18436,13 +18590,22 @@ Object: 48.29422,-92.97047
   Text: -20, 10, 1, "71"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 48.29422,-92.97047
   Icon: 0,0,25,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN067", "Station: MN067 | Temp: 70F | Dewpt: MF | Wind: 025@3KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "70"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 48.29422,-92.97047
+  Icon: 0,0,80,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN067", "Station: MN067 | Temp: 71F | Dewpt: MF | Wind: 080@7KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "71"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -19075,11 +19238,20 @@ Object: 45.87595,-93.66410
   Text: -20, 10, 1, "76"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.87595,-93.66410
   Icon: 0,0,357,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN076", "Station: MN076 | Temp: 76F | Dewpt: MF | Wind: 357@6KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "76"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.87595,-93.66410
+  Icon: 0,0,346,1,2
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN076", "Station: MN076 | Temp: 76F | Dewpt: MF | Wind: 346@9KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "76"
 End:
@@ -19704,13 +19876,22 @@ Object: 45.98501,-92.94823
   Text: -20, 10, 1, "79"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.98501,-92.94823
   Icon: 0,0,259,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN077", "Station: MN077 | Temp: 81F | Dewpt: MF | Wind: 259@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "81"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.98501,-92.94823
+  Icon: 0,0,240,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN077", "Station: MN077 | Temp: 80F | Dewpt: MF | Wind: 240@3KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "80"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -20343,11 +20524,20 @@ Object: 47.51576,-92.52679
   Text: -20, 10, 1, "72"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.51576,-92.52679
   Icon: 0,0,62,1,4
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN084", "Station: MN084 | Temp: 74F | Dewpt: MF | Wind: 062@21KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "74"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.51576,-92.52679
+  Icon: 0,0,65,1,3
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN084", "Station: MN084 | Temp: 74F | Dewpt: MF | Wind: 065@16KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "74"
 End:
@@ -20980,13 +21170,22 @@ Object: 45.09209,-93.44753
   Text: -20, 10, 1, "81"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.09209,-93.44753
   Icon: 0,0,252,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN087", "Station: MN087 | Temp: 80F | Dewpt: MF | Wind: 252@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "80"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.09209,-93.44753
+  Icon: 0,0,255,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN087", "Station: MN087 | Temp: 81F | Dewpt: MF | Wind: 255@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "81"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -21477,11 +21676,18 @@ Object: 47.44523,-92.88768
   Text: 0, -18, 1, "MN092", "Station: MN092 | Temp: MF | Dewpt: MF | Wind: 085@5KT | SLP: Mmb"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.44523,-92.88768
   Icon: 0,0,125,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN092", "Station: MN092 | Temp: MF | Dewpt: MF | Wind: 125@5KT | SLP: Mmb"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.44523,-92.88768
+  Icon: 0,0,130,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN092", "Station: MN092 | Temp: MF | Dewpt: MF | Wind: 130@7KT | SLP: Mmb"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -22086,13 +22292,22 @@ Object: 46.73457,-92.09760
   Text: -20, 10, 1, "79"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.73457,-92.09760
   Icon: 0,0,334,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN095", "Station: MN095 | Temp: 79F | Dewpt: MF | Wind: 334@3KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "79"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.73457,-92.09760
+  Icon: 0,0,293,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN095", "Station: MN095 | Temp: 78F | Dewpt: MF | Wind: 293@3KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "78"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -22713,11 +22928,20 @@ Object: 48.60179,-93.37356
   Text: -20, 10, 1, "74"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 48.60179,-93.37356
   Icon: 0,0,21,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN027", "Station: MN027 | Temp: 75F | Dewpt: MF | Wind: 021@3KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "75"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 48.60179,-93.37356
+  Icon: 0,0,11,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN027", "Station: MN027 | Temp: 75F | Dewpt: MF | Wind: 011@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "75"
 End:
@@ -23343,10 +23567,19 @@ Object: 46.77147,-92.11545
   Text: -20, 10, 1, "80"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.77147,-92.11545
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN082", "Station: MN082 | Temp: 80F | Dewpt: MF | Wind: 279@2KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "80"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.77147,-92.11545
+  Icon: 0,0,288,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN082", "Station: MN082 | Temp: 80F | Dewpt: MF | Wind: 288@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "80"
 End:
@@ -23978,11 +24211,20 @@ Object: 46.92380,-92.41302
   Text: -20, 10, 1, "73"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.92380,-92.41302
   Icon: 0,0,315,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN091", "Station: MN091 | Temp: 73F | Dewpt: MF | Wind: 315@5KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "73"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.92380,-92.41302
+  Icon: 0,0,330,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN091", "Station: MN091 | Temp: 73F | Dewpt: MF | Wind: 330@3KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "73"
 End:
@@ -24609,11 +24851,20 @@ Object: 47.97640,-89.68498
   Text: -20, 10, 1, "62"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.97640,-89.68498
   Icon: 0,0,168,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN048", "Station: MN048 | Temp: 62F | Dewpt: MF | Wind: 168@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "62"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.97640,-89.68498
+  Icon: 0,0,179,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN048", "Station: MN048 | Temp: 62F | Dewpt: MF | Wind: 179@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "62"
 End:
@@ -25184,12 +25435,21 @@ Object: 47.09483,-91.55403
   Text: -20, 10, 1, "76"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.09483,-91.55403
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN083", "Station: MN083 | Temp: 75F | Dewpt: MF | Wind: 130@2KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "75"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.09483,-91.55403
+  Icon: 0,0,75,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN083", "Station: MN083 | Temp: 74F | Dewpt: MF | Wind: 075@3KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "74"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -25799,13 +26059,22 @@ Object: 46.74691,-92.09952
   Text: -20, 10, 1, "79"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.74691,-92.09952
   Icon: 0,0,320,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN081", "Station: MN081 | Temp: 79F | Dewpt: MF | Wind: 320@6KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "79"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.74691,-92.09952
+  Icon: 0,0,297,1,2
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN081", "Station: MN081 | Temp: 78F | Dewpt: MF | Wind: 297@10KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "78"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -26436,11 +26705,20 @@ Object: 45.39472,-94.02563
   Text: -20, 10, 1, "79"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.39472,-94.02563
   Icon: 0,0,334,1,2
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN017", "Station: MN017 | Temp: 81F | Dewpt: MF | Wind: 334@8KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "81"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.39472,-94.02563
+  Icon: 0,0,2,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN017", "Station: MN017 | Temp: 81F | Dewpt: MF | Wind: 002@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "81"
 End:
@@ -26930,11 +27208,18 @@ Object: 47.21123,-92.48770
   Text: 0, -18, 1, "MN066", "Station: MN066 | Temp: MF | Dewpt: MF | Wind: 357@8KT | SLP: Mmb"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.21123,-92.48770
   Icon: 0,0,353,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN066", "Station: MN066 | Temp: MF | Dewpt: MF | Wind: 353@7KT | SLP: Mmb"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.21123,-92.48770
+  Icon: 0,0,345,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN066", "Station: MN066 | Temp: MF | Dewpt: MF | Wind: 345@3KT | SLP: Mmb"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -27567,11 +27852,20 @@ Object: 45.64290,-92.99276
   Text: -20, 10, 1, "78"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.64290,-92.99276
   Icon: 0,0,127,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN004", "Station: MN004 | Temp: 78F | Dewpt: MF | Wind: 127@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "78"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.64290,-92.99276
+  Icon: 0,0,180,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN004", "Station: MN004 | Temp: 78F | Dewpt: MF | Wind: 180@3KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "78"
 End:
@@ -28913,12 +29207,20 @@ Object: 47.06997,-91.59155
   Text: -20, 10, 1, "71"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.06997,-91.59155
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN093", "Station: MN093 | Temp: 69F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "69"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.06997,-91.59155
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN093", "Station: MN093 | Temp: 70F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "70"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -29539,7 +29841,7 @@ Object: 48.13470,-93.87840
   Text: -20, 10, 1, "75"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 48.13470,-93.87840
   Icon: 0,0,319,1,1
   Icon: 0,0,0,2,5
@@ -29548,16 +29850,16 @@ Object: 48.13470,-93.87840
   Text: -20, 10, 1, "74"
 End:
 
-TimeRange: 2026-08-27T14:49:00Z 2026-08-27T15:00:00Z
-Object: 46.77570,-92.09200
-  Icon: 0,0,181,1,1
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 48.13470,-93.87840
+  Icon: 0,0,323,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "DULM5", "Station: DULM5 | Temp: 67F | Dewpt: MF | Wind: 181@3KT | SLP: Mmb"
+  Text: 0, -18, 1, "MN072", "Station: MN072 | Temp: 71F | Dewpt: MF | Wind: 323@4KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "67"
+  Text: -20, 10, 1, "71"
 End:
 
-TimeRange: 2026-08-27T15:00:00Z 2026-08-27T15:06:00Z
+TimeRange: 2026-08-27T14:55:00Z 2026-08-27T15:06:00Z
 Object: 46.77570,-92.09200
   Icon: 0,0,188,1,1
   Icon: 0,0,0,2,5
@@ -30059,15 +30361,7 @@ Object: 46.77570,-92.09200
   Text: -20, 10, 1, "78"
 End:
 
-TimeRange: 2026-08-27T14:49:00Z 2026-08-27T15:00:00Z
-Object: 47.74783,-90.34133
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "GDMM5", "Station: GDMM5 | Temp: 63F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "63"
-End:
-
-TimeRange: 2026-08-27T15:00:00Z 2026-08-27T15:06:00Z
+TimeRange: 2026-08-27T14:55:00Z 2026-08-27T15:06:00Z
 Object: 47.74783,-90.34133
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "GDMM5", "Station: GDMM5 | Temp: 64F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
@@ -35523,13 +35817,22 @@ Object: 45.03766,-93.09236
   Text: -20, 10, 1, "81"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.03766,-93.09236
   Icon: 0,0,260,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN088", "Station: MN088 | Temp: 81F | Dewpt: MF | Wind: 260@6KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "81"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.03766,-93.09236
+  Icon: 0,0,330,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN088", "Station: MN088 | Temp: 80F | Dewpt: MF | Wind: 330@7KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "80"
 End:
 
 TimeRange: 2026-08-27T15:10:00Z 2026-08-27T16:15:00Z
@@ -38801,15 +39104,7 @@ Object: 45.13283,-93.01083
   Text: -20, 10, 1, "82"
 End:
 
-TimeRange: 2026-08-27T14:49:00Z 2026-08-27T14:59:00Z
-Object: 45.16750,-92.97883
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "AU680", "Station: AU680 | Temp: 68F | Dewpt: MF | Wind: 355@2KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "68"
-End:
-
-TimeRange: 2026-08-27T14:59:00Z 2026-08-27T15:04:00Z
+TimeRange: 2026-08-27T14:54:00Z 2026-08-27T15:04:00Z
 Object: 45.16750,-92.97883
   Icon: 0,0,298,1,1
   Icon: 0,0,0,2,5
@@ -39648,15 +39943,7 @@ Object: 45.14250,-93.21390
   Text: 0, -18, 1, "A1183", "Station: A1183 | Temp: MF | Dewpt: MF | Wind: 330@4KT | SLP: Mmb"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T15:03:00Z
-Object: 46.84567,-92.46917
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "E3146", "Station: E3146 | Temp: 62F | Dewpt: MF | Wind: 310@1KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "62"
-End:
-
-TimeRange: 2026-08-27T15:03:00Z 2026-08-27T15:13:00Z
+TimeRange: 2026-08-27T14:58:00Z 2026-08-27T15:13:00Z
 Object: 46.84567,-92.46917
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "E3146", "Station: E3146 | Temp: 64F | Dewpt: MF | Wind: 324@1KT | SLP: Mmb"
@@ -40461,15 +40748,7 @@ Object: 48.51278,-93.79944
   Text: -20, 10, 1, "72"
 End:
 
-TimeRange: 2026-08-27T14:49:00Z 2026-08-27T14:59:00Z
-Object: 47.58500,-94.92200
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "E4713", "Station: E4713 | Temp: 65F | Dewpt: MF | Wind: 120@0KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "65"
-End:
-
-TimeRange: 2026-08-27T14:59:00Z 2026-08-27T15:04:00Z
+TimeRange: 2026-08-27T14:54:00Z 2026-08-27T15:04:00Z
 Object: 47.58500,-94.92200
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "E4713", "Station: E4713 | Temp: 65F | Dewpt: MF | Wind: 258@0KT | SLP: Mmb"
@@ -42226,15 +42505,7 @@ Object: 45.08275,-91.33132
   Text: -20, 10, 1, "81"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:58:00Z
-Object: 46.62785,-92.53187
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "MN097", "Station: MN097 | Temp: 66F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "66"
-End:
-
-TimeRange: 2026-08-27T14:58:00Z 2026-08-27T15:03:00Z
+TimeRange: 2026-08-27T14:53:00Z 2026-08-27T15:03:00Z
 Object: 46.62785,-92.53187
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN097", "Station: MN097 | Temp: 67F | Dewpt: MF | Wind: 006@1KT | SLP: Mmb"
@@ -42843,11 +43114,20 @@ Object: 46.62785,-92.53187
   Text: -20, 10, 1, "76"
 End:
 
-TimeRange: 2026-08-27T20:48:00Z 2026-08-27T21:48:00Z
+TimeRange: 2026-08-27T20:48:00Z 2026-08-27T20:53:00Z
 Object: 46.62785,-92.53187
   Icon: 0,0,18,1,2
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN097", "Station: MN097 | Temp: 75F | Dewpt: MF | Wind: 018@8KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "75"
+End:
+
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T21:53:00Z
+Object: 46.62785,-92.53187
+  Icon: 0,0,17,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN097", "Station: MN097 | Temp: 75F | Dewpt: MF | Wind: 017@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "75"
 End:
@@ -43474,7 +43754,16 @@ Object: 46.79476,-92.15696
   Text: -20, 10, 1, "75"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
+Object: 46.79476,-92.15696
+  Icon: 0,0,5,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN046", "Station: MN046 | Temp: 75F | Dewpt: MF | Wind: 005@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "75"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
 Object: 46.79476,-92.15696
   Icon: 0,0,5,1,1
   Icon: 0,0,0,2,5
@@ -46749,12 +47038,20 @@ Object: 46.66919,-92.31818
   Text: -20, 10, 1, "79"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.66919,-92.31818
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN094", "Station: MN094 | Temp: 78F | Dewpt: MF | Wind: 149@1KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "78"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.66919,-92.31818
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN094", "Station: MN094 | Temp: 76F | Dewpt: MF | Wind: 171@1KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "76"
 End:
 
 TimeRange: 2026-08-27T15:03:00Z 2026-08-27T16:08:00Z
@@ -46811,25 +47108,7 @@ Object: 45.18641,-92.65029
   Text: -20, 10, 1, "81"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.18800,-93.13250
-  Icon: 0,0,73,1,1
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "F4770", "Station: F4770 | Temp: 70F | Dewpt: MF | Wind: 073@3KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "70"
-End:
-
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:56:00Z
-Object: 45.18800,-93.13250
-  Icon: 0,0,44,1,1
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "F4770", "Station: F4770 | Temp: 70F | Dewpt: MF | Wind: 044@3KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "70"
-End:
-
-TimeRange: 2026-08-27T14:56:00Z 2026-08-27T14:57:00Z
+TimeRange: 2026-08-27T14:51:00Z 2026-08-27T14:57:00Z
 Object: 45.18800,-93.13250
   Icon: 0,0,20,1,1
   Icon: 0,0,0,2,5
@@ -49840,15 +50119,7 @@ Object: 45.94683,-92.30514
   Text: -20, 10, 1, "80"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:58:00Z
-Object: 45.24233,-93.32600
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "F4606", "Station: F4606 | Temp: 68F | Dewpt: MF | Wind: 204@0KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "68"
-End:
-
-TimeRange: 2026-08-27T14:58:00Z 2026-08-27T15:03:00Z
+TimeRange: 2026-08-27T14:53:00Z 2026-08-27T15:03:00Z
 Object: 45.24233,-93.32600
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "F4606", "Station: F4606 | Temp: 69F | Dewpt: MF | Wind: 107@0KT | SLP: Mmb"
@@ -52600,28 +52871,7 @@ Object: 45.24983,-93.29283
   Text: -20, 10, 1, "80"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.11820,-93.42830
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN02", "Station: HPN02 | Temp: 69F | Dewpt: 60F | Wind: 292@1KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "69"
-  Color: 100 255 100
-  Text: -20, -10, 1, "60"
-End:
-
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.11820,-93.42830
-  Icon: 0,0,347,1,1
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN02", "Station: HPN02 | Temp: 69F | Dewpt: 60F | Wind: 347@4KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "69"
-  Color: 100 255 100
-  Text: -20, -10, 1, "60"
-End:
-
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.11820,-93.42830
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "HPN02", "Station: HPN02 | Temp: 69F | Dewpt: 60F | Wind: 349@2KT | SLP: Mmb"
@@ -56507,7 +56757,7 @@ Object: 45.11820,-93.42830
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T20:53:00Z 2026-08-27T21:53:00Z
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T20:54:00Z
 Object: 45.11820,-93.42830
   Icon: 0,0,13,1,1
   Icon: 0,0,0,2,5
@@ -56518,28 +56768,29 @@ Object: 45.11820,-93.42830
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.16770,-93.63433
-  Icon: 0,0,278,1,1
+TimeRange: 2026-08-27T20:54:00Z 2026-08-27T20:55:00Z
+Object: 45.11820,-93.42830
+  Icon: 0,0,3,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN04", "Station: HPN04 | Temp: 69F | Dewpt: 59F | Wind: 278@5KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN02", "Station: HPN02 | Temp: 80F | Dewpt: 52F | Wind: 003@4KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "69"
+  Text: -20, 10, 1, "80"
   Color: 100 255 100
-  Text: -20, -10, 1, "59"
+  Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.16770,-93.63433
+TimeRange: 2026-08-27T20:55:00Z 2026-08-27T21:55:00Z
+Object: 45.11820,-93.42830
+  Icon: 0,0,350,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN04", "Station: HPN04 | Temp: 68F | Dewpt: 59F | Wind: 306@2KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN02", "Station: HPN02 | Temp: 80F | Dewpt: 52F | Wind: 350@4KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "68"
+  Text: -20, 10, 1, "80"
   Color: 100 255 100
-  Text: -20, -10, 1, "59"
+  Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.16770,-93.63433
   Icon: 0,0,281,1,1
   Icon: 0,0,0,2,5
@@ -60404,7 +60655,7 @@ Object: 45.16770,-93.63433
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T20:53:00Z 2026-08-27T21:53:00Z
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T20:54:00Z
 Object: 45.16770,-93.63433
   Icon: 0,0,296,1,1
   Icon: 0,0,0,2,5
@@ -60415,28 +60666,29 @@ Object: 45.16770,-93.63433
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.05155,-93.56948
+TimeRange: 2026-08-27T20:54:00Z 2026-08-27T20:55:00Z
+Object: 45.16770,-93.63433
+  Icon: 0,0,321,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN05", "Station: HPN05 | Temp: 69F | Dewpt: 61F | Wind: 293@2KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN04", "Station: HPN04 | Temp: 80F | Dewpt: 53F | Wind: 321@4KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "69"
+  Text: -20, 10, 1, "80"
   Color: 100 255 100
-  Text: -20, -10, 1, "61"
+  Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.05155,-93.56948
-  Icon: 0,0,291,1,1
+TimeRange: 2026-08-27T20:55:00Z 2026-08-27T21:55:00Z
+Object: 45.16770,-93.63433
+  Icon: 0,0,327,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN05", "Station: HPN05 | Temp: 69F | Dewpt: 60F | Wind: 291@4KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN04", "Station: HPN04 | Temp: 80F | Dewpt: 53F | Wind: 327@4KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "69"
+  Text: -20, 10, 1, "80"
   Color: 100 255 100
-  Text: -20, -10, 1, "60"
+  Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.05155,-93.56948
   Icon: 0,0,289,1,1
   Icon: 0,0,0,2,5
@@ -64290,7 +64542,7 @@ Object: 45.05155,-93.56948
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T20:53:00Z 2026-08-27T21:53:00Z
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T20:54:00Z
 Object: 45.05155,-93.56948
   Icon: 0,0,245,1,1
   Icon: 0,0,0,2,5
@@ -64301,27 +64553,29 @@ Object: 45.05155,-93.56948
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.09689,-93.74369
+TimeRange: 2026-08-27T20:54:00Z 2026-08-27T20:55:00Z
+Object: 45.05155,-93.56948
+  Icon: 0,0,238,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN10", "Station: HPN10 | Temp: 70F | Dewpt: 60F | Wind: 353@2KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN05", "Station: HPN05 | Temp: 79F | Dewpt: 53F | Wind: 238@5KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "70"
+  Text: -20, 10, 1, "79"
   Color: 100 255 100
-  Text: -20, -10, 1, "60"
+  Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.09689,-93.74369
+TimeRange: 2026-08-27T20:55:00Z 2026-08-27T21:55:00Z
+Object: 45.05155,-93.56948
+  Icon: 0,0,272,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN10", "Station: HPN10 | Temp: 70F | Dewpt: 60F | Wind: 024@2KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN05", "Station: HPN05 | Temp: 79F | Dewpt: 52F | Wind: 272@4KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "70"
+  Text: -20, 10, 1, "79"
   Color: 100 255 100
-  Text: -20, -10, 1, "60"
+  Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.09689,-93.74369
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "HPN10", "Station: HPN10 | Temp: 69F | Dewpt: 60F | Wind: 032@1KT | SLP: Mmb"
@@ -68052,7 +68306,7 @@ Object: 45.09689,-93.74369
   Text: -20, -10, 1, "54"
 End:
 
-TimeRange: 2026-08-27T20:53:00Z 2026-08-27T21:53:00Z
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T20:54:00Z
 Object: 45.09689,-93.74369
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "HPN10", "Station: HPN10 | Temp: 80F | Dewpt: 53F | Wind: 155@1KT | SLP: Mmb"
@@ -68062,29 +68316,27 @@ Object: 45.09689,-93.74369
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.08797,-93.69137
-  Icon: 0,0,19,1,1
+TimeRange: 2026-08-27T20:54:00Z 2026-08-27T20:55:00Z
+Object: 45.09689,-93.74369
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN19", "Station: HPN19 | Temp: 68F | Dewpt: 60F | Wind: 019@5KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN10", "Station: HPN10 | Temp: 80F | Dewpt: 52F | Wind: 113@1KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "68"
+  Text: -20, 10, 1, "80"
   Color: 100 255 100
-  Text: -20, -10, 1, "60"
+  Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.08797,-93.69137
-  Icon: 0,0,10,1,1
+TimeRange: 2026-08-27T20:55:00Z 2026-08-27T21:55:00Z
+Object: 45.09689,-93.74369
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN19", "Station: HPN19 | Temp: 68F | Dewpt: 60F | Wind: 010@3KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN10", "Station: HPN10 | Temp: 80F | Dewpt: 54F | Wind: 352@2KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "68"
+  Text: -20, 10, 1, "80"
   Color: 100 255 100
-  Text: -20, -10, 1, "60"
+  Text: -20, -10, 1, "54"
 End:
 
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.08797,-93.69137
   Icon: 0,0,7,1,1
   Icon: 0,0,0,2,5
@@ -71960,7 +72212,7 @@ Object: 45.08797,-93.69137
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T20:53:00Z 2026-08-27T21:53:00Z
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T20:54:00Z
 Object: 45.08797,-93.69137
   Icon: 0,0,306,1,1
   Icon: 0,0,0,2,5
@@ -71971,28 +72223,29 @@ Object: 45.08797,-93.69137
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.04889,-93.27611
+TimeRange: 2026-08-27T20:54:00Z 2026-08-27T20:55:00Z
+Object: 45.08797,-93.69137
+  Icon: 0,0,287,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN21", "Station: HPN21 | Temp: 69F | Dewpt: 59F | Wind: 021@2KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN19", "Station: HPN19 | Temp: 77F | Dewpt: 52F | Wind: 287@3KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "69"
+  Text: -20, 10, 1, "77"
   Color: 100 255 100
-  Text: -20, -10, 1, "59"
+  Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.04889,-93.27611
-  Icon: 0,0,353,1,1
+TimeRange: 2026-08-27T20:55:00Z 2026-08-27T21:55:00Z
+Object: 45.08797,-93.69137
+  Icon: 0,0,306,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN21", "Station: HPN21 | Temp: 69F | Dewpt: 59F | Wind: 353@3KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN19", "Station: HPN19 | Temp: 77F | Dewpt: 53F | Wind: 306@3KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "69"
+  Text: -20, 10, 1, "77"
   Color: 100 255 100
-  Text: -20, -10, 1, "59"
+  Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.04889,-93.27611
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "HPN21", "Station: HPN21 | Temp: 69F | Dewpt: 59F | Wind: 358@2KT | SLP: Mmb"
@@ -75891,7 +76144,7 @@ Object: 45.04889,-93.27611
   Text: -20, -10, 1, "50"
 End:
 
-TimeRange: 2026-08-27T20:53:00Z 2026-08-27T21:53:00Z
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T20:54:00Z
 Object: 45.04889,-93.27611
   Icon: 0,0,353,1,2
   Icon: 0,0,0,2,5
@@ -75902,29 +76155,29 @@ Object: 45.04889,-93.27611
   Text: -20, -10, 1, "51"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.20420,-93.48487
-  Icon: 0,0,279,1,1
+TimeRange: 2026-08-27T20:54:00Z 2026-08-27T20:55:00Z
+Object: 45.04889,-93.27611
+  Icon: 0,0,339,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN27", "Station: HPN27 | Temp: 68F | Dewpt: 59F | Wind: 279@3KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN21", "Station: HPN21 | Temp: 81F | Dewpt: 50F | Wind: 339@7KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "68"
+  Text: -20, 10, 1, "81"
   Color: 100 255 100
-  Text: -20, -10, 1, "59"
+  Text: -20, -10, 1, "50"
 End:
 
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.20420,-93.48487
-  Icon: 0,0,281,1,1
+TimeRange: 2026-08-27T20:55:00Z 2026-08-27T21:55:00Z
+Object: 45.04889,-93.27611
+  Icon: 0,0,355,1,2
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN27", "Station: HPN27 | Temp: 68F | Dewpt: 59F | Wind: 281@3KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN21", "Station: HPN21 | Temp: 80F | Dewpt: 51F | Wind: 355@9KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "68"
+  Text: -20, 10, 1, "80"
   Color: 100 255 100
-  Text: -20, -10, 1, "59"
+  Text: -20, -10, 1, "51"
 End:
 
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.20420,-93.48487
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "HPN27", "Station: HPN27 | Temp: 68F | Dewpt: 60F | Wind: 309@2KT | SLP: Mmb"
@@ -79803,7 +80056,7 @@ Object: 45.20420,-93.48487
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T20:51:00Z 2026-08-27T21:51:00Z
+TimeRange: 2026-08-27T20:51:00Z 2026-08-27T20:52:00Z
 Object: 45.20420,-93.48487
   Icon: 0,0,332,1,1
   Icon: 0,0,0,2,5
@@ -79814,28 +80067,40 @@ Object: 45.20420,-93.48487
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.13550,-93.56271
+TimeRange: 2026-08-27T20:52:00Z 2026-08-27T20:53:00Z
+Object: 45.20420,-93.48487
+  Icon: 0,0,328,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN28", "Station: HPN28 | Temp: 68F | Dewpt: 60F | Wind: 337@1KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN27", "Station: HPN27 | Temp: 79F | Dewpt: 52F | Wind: 328@5KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "68"
+  Text: -20, 10, 1, "79"
   Color: 100 255 100
-  Text: -20, -10, 1, "60"
+  Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.13550,-93.56271
-  Icon: 0,0,0,1,1
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T20:54:00Z
+Object: 45.20420,-93.48487
+  Icon: 0,0,309,1,1
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN28", "Station: HPN28 | Temp: 68F | Dewpt: 60F | Wind: 000@3KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN27", "Station: HPN27 | Temp: 79F | Dewpt: 53F | Wind: 309@4KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "68"
+  Text: -20, 10, 1, "79"
   Color: 100 255 100
-  Text: -20, -10, 1, "60"
+  Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T20:54:00Z 2026-08-27T21:54:00Z
+Object: 45.20420,-93.48487
+  Icon: 0,0,324,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "HPN27", "Station: HPN27 | Temp: 79F | Dewpt: 52F | Wind: 324@7KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "79"
+  Color: 100 255 100
+  Text: -20, -10, 1, "52"
+End:
+
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.13550,-93.56271
   Icon: 0,0,5,1,1
   Icon: 0,0,0,2,5
@@ -83716,7 +83981,7 @@ Object: 45.13550,-93.56271
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T20:52:00Z 2026-08-27T21:52:00Z
+TimeRange: 2026-08-27T20:52:00Z 2026-08-27T20:53:00Z
 Object: 45.13550,-93.56271
   Icon: 0,0,12,1,1
   Icon: 0,0,0,2,5
@@ -83727,29 +83992,37 @@ Object: 45.13550,-93.56271
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.16541,-93.22459
-  Icon: 0,0,341,1,1
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T20:54:00Z
+Object: 45.13550,-93.56271
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN31", "Station: HPN31 | Temp: 69F | Dewpt: 58F | Wind: 341@4KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN28", "Station: HPN28 | Temp: 78F | Dewpt: 54F | Wind: 061@2KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "69"
+  Text: -20, 10, 1, "78"
   Color: 100 255 100
-  Text: -20, -10, 1, "58"
+  Text: -20, -10, 1, "54"
 End:
 
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.16541,-93.22459
-  Icon: 0,0,342,1,1
+TimeRange: 2026-08-27T20:54:00Z 2026-08-27T20:55:00Z
+Object: 45.13550,-93.56271
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN31", "Station: HPN31 | Temp: 69F | Dewpt: 58F | Wind: 342@5KT | SLP: Mmb"
+  Text: 0, -18, 1, "HPN28", "Station: HPN28 | Temp: 78F | Dewpt: 54F | Wind: 016@2KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "69"
+  Text: -20, 10, 1, "78"
   Color: 100 255 100
-  Text: -20, -10, 1, "58"
+  Text: -20, -10, 1, "54"
 End:
 
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T20:55:00Z 2026-08-27T21:55:00Z
+Object: 45.13550,-93.56271
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "HPN28", "Station: HPN28 | Temp: 78F | Dewpt: 55F | Wind: 019@2KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "78"
+  Color: 100 255 100
+  Text: -20, -10, 1, "55"
+End:
+
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.16541,-93.22459
   Icon: 0,0,342,1,1
   Icon: 0,0,0,2,5
@@ -87656,7 +87929,7 @@ Object: 45.16541,-93.22459
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T20:52:00Z 2026-08-27T21:52:00Z
+TimeRange: 2026-08-27T20:52:00Z 2026-08-27T20:53:00Z
 Object: 45.16541,-93.22459
   Icon: 0,0,332,1,2
   Icon: 0,0,0,2,5
@@ -87665,6 +87938,39 @@ Object: 45.16541,-93.22459
   Text: -20, 10, 1, "79"
   Color: 100 255 100
   Text: -20, -10, 1, "50"
+End:
+
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T20:54:00Z
+Object: 45.16541,-93.22459
+  Icon: 0,0,319,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "HPN31", "Station: HPN31 | Temp: 79F | Dewpt: 51F | Wind: 319@7KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "79"
+  Color: 100 255 100
+  Text: -20, -10, 1, "51"
+End:
+
+TimeRange: 2026-08-27T20:54:00Z 2026-08-27T20:55:00Z
+Object: 45.16541,-93.22459
+  Icon: 0,0,322,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "HPN31", "Station: HPN31 | Temp: 79F | Dewpt: 50F | Wind: 322@6KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "79"
+  Color: 100 255 100
+  Text: -20, -10, 1, "50"
+End:
+
+TimeRange: 2026-08-27T20:55:00Z 2026-08-27T21:55:00Z
+Object: 45.16541,-93.22459
+  Icon: 0,0,299,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "HPN31", "Station: HPN31 | Temp: 79F | Dewpt: 51F | Wind: 299@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "79"
+  Color: 100 255 100
+  Text: -20, -10, 1, "51"
 End:
 
 TimeRange: 2026-08-27T14:55:00Z 2026-08-27T15:10:00Z
@@ -92544,15 +92850,7 @@ Object: 45.82700,-91.86140
   Text: -20, 10, 1, "78"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:58:00Z
-Object: 45.13533,-93.58833
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "G0881", "Station: G0881 | Temp: 67F | Dewpt: MF | Wind: 165@1KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "67"
-End:
-
-TimeRange: 2026-08-27T14:58:00Z 2026-08-27T15:03:00Z
+TimeRange: 2026-08-27T14:53:00Z 2026-08-27T15:03:00Z
 Object: 45.13533,-93.58833
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "G0881", "Station: G0881 | Temp: 67F | Dewpt: MF | Wind: 290@1KT | SLP: Mmb"
@@ -93351,15 +93649,7 @@ Object: 45.60183,-94.19917
   Text: -20, 10, 1, "79"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:58:00Z
-Object: 45.58333,-92.97333
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "G1685", "Station: G1685 | Temp: 68F | Dewpt: MF | Wind: 073@2KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "68"
-End:
-
-TimeRange: 2026-08-27T14:58:00Z 2026-08-27T15:03:00Z
+TimeRange: 2026-08-27T14:53:00Z 2026-08-27T15:03:00Z
 Object: 45.58333,-92.97333
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "G1685", "Station: G1685 | Temp: 68F | Dewpt: MF | Wind: 079@2KT | SLP: Mmb"
@@ -94529,16 +94819,7 @@ Object: 45.24483,-93.29783
   Text: -20, 10, 1, "83"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:58:00Z
-Object: 45.03917,-93.42733
-  Icon: 0,0,298,1,1
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "G1985", "Station: G1985 | Temp: 69F | Dewpt: MF | Wind: 298@4KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "69"
-End:
-
-TimeRange: 2026-08-27T14:58:00Z 2026-08-27T15:03:00Z
+TimeRange: 2026-08-27T14:53:00Z 2026-08-27T15:03:00Z
 Object: 45.03917,-93.42733
   Icon: 0,0,308,1,1
   Icon: 0,0,0,2,5
@@ -96303,11 +96584,20 @@ Object: 48.89451,-94.56026
   Text: -20, 10, 1, "70"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 48.89451,-94.56026
   Icon: 0,0,337,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN116", "Station: MN116 | Temp: 71F | Dewpt: MF | Wind: 337@5KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "71"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 48.89451,-94.56026
+  Icon: 0,0,333,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN116", "Station: MN116 | Temp: 71F | Dewpt: MF | Wind: 333@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "71"
 End:
@@ -96941,13 +97231,22 @@ Object: 45.34667,-93.23731
   Text: -20, 10, 1, "77"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.34667,-93.23731
   Icon: 0,0,278,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN140", "Station: MN140 | Temp: 77F | Dewpt: MF | Wind: 278@6KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "77"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.34667,-93.23731
+  Icon: 0,0,292,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN140", "Station: MN140 | Temp: 78F | Dewpt: MF | Wind: 292@5KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "78"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -97580,11 +97879,20 @@ Object: 45.13905,-94.81176
   Text: -20, 10, 1, "75"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.13905,-94.81176
   Icon: 0,0,305,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN159", "Station: MN159 | Temp: 76F | Dewpt: MF | Wind: 305@7KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "76"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.13905,-94.81176
+  Icon: 0,0,156,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN159", "Station: MN159 | Temp: 76F | Dewpt: MF | Wind: 156@7KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "76"
 End:
@@ -98168,7 +98476,7 @@ Object: 45.03545,-93.76607
   Text: -20, 10, 1, "79"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.03545,-93.76607
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN161", "Station: MN161 | Temp: 80F | Dewpt: MF | Wind: 347@2KT | SLP: Mmb"
@@ -98176,28 +98484,15 @@ Object: 45.03545,-93.76607
   Text: -20, 10, 1, "80"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.03149,-93.30293
-  Icon: 0,0,353,1,1
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.03545,-93.76607
   Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN42", "Station: HPN42 | Temp: 69F | Dewpt: 58F | Wind: 353@4KT | SLP: Mmb"
+  Text: 0, -18, 1, "MN161", "Station: MN161 | Temp: 80F | Dewpt: MF | Wind: 277@2KT | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "69"
-  Color: 100 255 100
-  Text: -20, -10, 1, "58"
+  Text: -20, 10, 1, "80"
 End:
 
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.03149,-93.30293
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN42", "Station: HPN42 | Temp: 69F | Dewpt: 58F | Wind: 352@2KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "69"
-  Color: 100 255 100
-  Text: -20, -10, 1, "58"
-End:
-
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.03149,-93.30293
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "HPN42", "Station: HPN42 | Temp: 69F | Dewpt: 58F | Wind: 345@2KT | SLP: Mmb"
@@ -102077,7 +102372,7 @@ Object: 45.03149,-93.30293
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T20:52:00Z 2026-08-27T21:52:00Z
+TimeRange: 2026-08-27T20:52:00Z 2026-08-27T20:53:00Z
 Object: 45.03149,-93.30293
   Icon: 0,0,316,1,1
   Icon: 0,0,0,2,5
@@ -102086,6 +102381,39 @@ Object: 45.03149,-93.30293
   Text: -20, 10, 1, "81"
   Color: 100 255 100
   Text: -20, -10, 1, "52"
+End:
+
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T20:54:00Z
+Object: 45.03149,-93.30293
+  Icon: 0,0,319,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "HPN42", "Station: HPN42 | Temp: 81F | Dewpt: 52F | Wind: 319@5KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "81"
+  Color: 100 255 100
+  Text: -20, -10, 1, "52"
+End:
+
+TimeRange: 2026-08-27T20:54:00Z 2026-08-27T20:55:00Z
+Object: 45.03149,-93.30293
+  Icon: 0,0,346,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "HPN42", "Station: HPN42 | Temp: 80F | Dewpt: 51F | Wind: 346@5KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "80"
+  Color: 100 255 100
+  Text: -20, -10, 1, "51"
+End:
+
+TimeRange: 2026-08-27T20:55:00Z 2026-08-27T21:55:00Z
+Object: 45.03149,-93.30293
+  Icon: 0,0,335,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "HPN42", "Station: HPN42 | Temp: 80F | Dewpt: 51F | Wind: 335@5KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "80"
+  Color: 100 255 100
+  Text: -20, -10, 1, "51"
 End:
 
 TimeRange: 2026-08-27T14:52:00Z 2026-08-27T15:02:00Z
@@ -105105,11 +105433,20 @@ Object: 47.58537,-93.67510
   Text: -20, 10, 1, "73"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.58537,-93.67510
   Icon: 0,0,316,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN100", "Station: MN100 | Temp: 72F | Dewpt: MF | Wind: 316@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "72"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.58537,-93.67510
+  Icon: 0,0,297,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN100", "Station: MN100 | Temp: 72F | Dewpt: MF | Wind: 297@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "72"
 End:
@@ -105743,11 +106080,20 @@ Object: 46.64414,-93.07975
   Text: -20, 10, 1, "74"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.64414,-93.07975
   Icon: 0,0,55,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN101", "Station: MN101 | Temp: 75F | Dewpt: MF | Wind: 055@5KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "75"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.64414,-93.07975
+  Icon: 0,0,43,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN101", "Station: MN101 | Temp: 75F | Dewpt: MF | Wind: 043@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "75"
 End:
@@ -106379,11 +106725,20 @@ Object: 46.87305,-92.86100
   Text: -20, 10, 1, "73"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.87305,-92.86100
   Icon: 0,0,282,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN103", "Station: MN103 | Temp: 73F | Dewpt: MF | Wind: 282@7KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "73"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.87305,-92.86100
+  Icon: 0,0,285,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN103", "Station: MN103 | Temp: 73F | Dewpt: MF | Wind: 285@6KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "73"
 End:
@@ -107018,13 +107373,22 @@ Object: 47.29679,-93.70241
   Text: -20, 10, 1, "71"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.29679,-93.70241
   Icon: 0,0,271,1,2
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN105", "Station: MN105 | Temp: 71F | Dewpt: MF | Wind: 271@9KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "71"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.29679,-93.70241
+  Icon: 0,0,266,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN105", "Station: MN105 | Temp: 72F | Dewpt: MF | Wind: 266@7KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "72"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -107657,11 +108021,20 @@ Object: 47.89174,-92.77429
   Text: -20, 10, 1, "71"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.89174,-92.77429
   Icon: 0,0,42,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN106", "Station: MN106 | Temp: 71F | Dewpt: MF | Wind: 042@6KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "71"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.89174,-92.77429
+  Icon: 0,0,38,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN106", "Station: MN106 | Temp: 71F | Dewpt: MF | Wind: 038@7KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "71"
 End:
@@ -108285,13 +108658,22 @@ Object: 47.61226,-93.19428
   Text: -20, 10, 1, "72"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.61226,-93.19428
   Icon: 0,0,340,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN108", "Station: MN108 | Temp: 72F | Dewpt: MF | Wind: 340@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "72"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.61226,-93.19428
+  Icon: 0,0,337,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN108", "Station: MN108 | Temp: 70F | Dewpt: MF | Wind: 337@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "70"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -108924,13 +109306,22 @@ Object: 46.11394,-94.91677
   Text: -20, 10, 1, "75"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.11394,-94.91677
   Icon: 0,0,63,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN121", "Station: MN121 | Temp: 75F | Dewpt: MF | Wind: 063@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "75"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.11394,-94.91677
+  Icon: 0,0,69,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN121", "Station: MN121 | Temp: 74F | Dewpt: MF | Wind: 069@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "74"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -109563,11 +109954,20 @@ Object: 47.05282,-94.21450
   Text: -20, 10, 1, "73"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.05282,-94.21450
   Icon: 0,0,326,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN122", "Station: MN122 | Temp: 72F | Dewpt: MF | Wind: 326@6KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "72"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.05282,-94.21450
+  Icon: 0,0,325,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN122", "Station: MN122 | Temp: 72F | Dewpt: MF | Wind: 325@6KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "72"
 End:
@@ -110200,11 +110600,20 @@ Object: 46.34349,-94.64286
   Text: -20, 10, 1, "74"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.34349,-94.64286
   Icon: 0,0,287,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN124", "Station: MN124 | Temp: 75F | Dewpt: MF | Wind: 287@3KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "75"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.34349,-94.64286
+  Icon: 0,0,316,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN124", "Station: MN124 | Temp: 75F | Dewpt: MF | Wind: 316@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "75"
 End:
@@ -110839,11 +111248,20 @@ Object: 45.45101,-94.48595
   Text: -20, 10, 1, "76"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.45101,-94.48595
   Icon: 0,0,354,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN125", "Station: MN125 | Temp: 76F | Dewpt: MF | Wind: 354@6KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "76"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.45101,-94.48595
+  Icon: 0,0,332,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN125", "Station: MN125 | Temp: 76F | Dewpt: MF | Wind: 332@7KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "76"
 End:
@@ -111478,11 +111896,20 @@ Object: 46.11800,-93.43246
   Text: -20, 10, 1, "73"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.11800,-93.43246
   Icon: 0,0,347,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN127", "Station: MN127 | Temp: 73F | Dewpt: MF | Wind: 347@7KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "73"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.11800,-93.43246
+  Icon: 0,0,335,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN127", "Station: MN127 | Temp: 73F | Dewpt: MF | Wind: 335@7KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "73"
 End:
@@ -112117,13 +112544,22 @@ Object: 46.78296,-93.61336
   Text: -20, 10, 1, "73"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.78296,-93.61336
   Icon: 0,0,2,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN128", "Station: MN128 | Temp: 72F | Dewpt: MF | Wind: 002@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "72"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.78296,-93.61336
+  Icon: 0,0,177,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN128", "Station: MN128 | Temp: 71F | Dewpt: MF | Wind: 177@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "71"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -112756,13 +113192,22 @@ Object: 46.43485,-93.74377
   Text: -20, 10, 1, "73"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.43485,-93.74377
   Icon: 0,0,328,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN129", "Station: MN129 | Temp: 74F | Dewpt: MF | Wind: 328@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "74"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.43485,-93.74377
+  Icon: 0,0,325,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN129", "Station: MN129 | Temp: 73F | Dewpt: MF | Wind: 325@3KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "73"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -114878,13 +115323,22 @@ Object: 46.45278,-92.73010
   Text: -20, 10, 1, "77"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.45278,-92.73010
   Icon: 0,0,267,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN163", "Station: MN163 | Temp: 76F | Dewpt: MF | Wind: 267@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "76"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.45278,-92.73010
+  Icon: 0,0,297,1,2
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN163", "Station: MN163 | Temp: 75F | Dewpt: MF | Wind: 297@8KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "75"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -115517,13 +115971,22 @@ Object: 45.55337,-93.58489
   Text: -20, 10, 1, "76"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 45.55337,-93.58489
   Icon: 0,0,328,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN164", "Station: MN164 | Temp: 77F | Dewpt: MF | Wind: 328@7KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "77"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 45.55337,-93.58489
+  Icon: 0,0,355,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN164", "Station: MN164 | Temp: 76F | Dewpt: MF | Wind: 355@7KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "76"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -116135,11 +116598,20 @@ Object: 47.54443,-90.89590
   Text: -20, 10, 1, "76"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.54443,-90.89590
   Icon: 0,0,243,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN165", "Station: MN165 | Temp: 74F | Dewpt: MF | Wind: 243@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "74"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.54443,-90.89590
+  Icon: 0,0,245,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN165", "Station: MN165 | Temp: 74F | Dewpt: MF | Wind: 245@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "74"
 End:
@@ -116760,12 +117232,20 @@ Object: 47.75836,-90.31386
   Text: -20, 10, 1, "63"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.75836,-90.31386
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN166", "Station: MN166 | Temp: 64F | Dewpt: MF | Wind: 089@1KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "64"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.75836,-90.31386
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN166", "Station: MN166 | Temp: 63F | Dewpt: MF | Wind: 195@2KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "63"
 End:
 
 TimeRange: 2026-08-27T14:50:00Z 2026-08-27T15:00:00Z
@@ -117398,11 +117878,20 @@ Object: 46.52462,-94.29614
   Text: -20, 10, 1, "73"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.52462,-94.29614
   Icon: 0,0,15,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN170", "Station: MN170 | Temp: 74F | Dewpt: MF | Wind: 015@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "74"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.52462,-94.29614
+  Icon: 0,0,32,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN170", "Station: MN170 | Temp: 74F | Dewpt: MF | Wind: 032@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "74"
 End:
@@ -118028,13 +118517,22 @@ Object: 46.77138,-92.13752
   Text: -20, 10, 1, "77"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 46.77138,-92.13752
   Icon: 0,0,12,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN171", "Station: MN171 | Temp: 76F | Dewpt: MF | Wind: 012@4KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "76"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 46.77138,-92.13752
+  Icon: 0,0,11,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN171", "Station: MN171 | Temp: 77F | Dewpt: MF | Wind: 011@4KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "77"
 End:
 
 TimeRange: 2026-08-27T14:51:00Z 2026-08-27T15:09:00Z
@@ -118886,11 +119384,20 @@ Object: 47.67724,-91.61768
   Text: -20, 10, 1, "69"
 End:
 
-TimeRange: 2026-08-27T20:45:00Z 2026-08-27T21:45:00Z
+TimeRange: 2026-08-27T20:45:00Z 2026-08-27T20:50:00Z
 Object: 47.67724,-91.61768
   Icon: 0,0,339,1,1
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN172", "Station: MN172 | Temp: 69F | Dewpt: MF | Wind: 339@5KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "69"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
+Object: 47.67724,-91.61768
+  Icon: 0,0,335,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN172", "Station: MN172 | Temp: 69F | Dewpt: MF | Wind: 335@5KT | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "69"
 End:
@@ -120629,16 +121136,7 @@ Object: 47.81733,-90.11033
   Text: -20, 10, 1, "63"
 End:
 
-TimeRange: 2026-08-27T14:49:00Z 2026-08-27T14:59:00Z
-Object: 45.03750,-90.33667
-  Icon: 0,0,301,1,1
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "G4269", "Station: G4269 | Temp: 69F | Dewpt: MF | Wind: 301@5KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "69"
-End:
-
-TimeRange: 2026-08-27T14:59:00Z 2026-08-27T15:04:00Z
+TimeRange: 2026-08-27T14:54:00Z 2026-08-27T15:04:00Z
 Object: 45.03750,-90.33667
   Icon: 0,0,55,1,1
   Icon: 0,0,0,2,5
@@ -121837,29 +122335,7 @@ Object: 45.18817,-93.36800
   Text: -20, 10, 1, "80"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.04616,-93.78015
-  Icon: 0,0,323,1,1
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN44", "Station: HPN44 | Temp: 68F | Dewpt: 60F | Wind: 323@6KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "68"
-  Color: 100 255 100
-  Text: -20, -10, 1, "60"
-End:
-
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.04616,-93.78015
-  Icon: 0,0,306,1,1
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "HPN44", "Station: HPN44 | Temp: 67F | Dewpt: 60F | Wind: 306@4KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "67"
-  Color: 100 255 100
-  Text: -20, -10, 1, "60"
-End:
-
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.04616,-93.78015
   Icon: 0,0,316,1,1
   Icon: 0,0,0,2,5
@@ -125702,7 +126178,7 @@ Object: 45.04616,-93.78015
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T20:51:00Z 2026-08-27T21:51:00Z
+TimeRange: 2026-08-27T20:51:00Z 2026-08-27T20:52:00Z
 Object: 45.04616,-93.78015
   Icon: 0,0,305,1,1
   Icon: 0,0,0,2,5
@@ -125711,6 +126187,39 @@ Object: 45.04616,-93.78015
   Text: -20, 10, 1, "79"
   Color: 100 255 100
   Text: -20, -10, 1, "51"
+End:
+
+TimeRange: 2026-08-27T20:52:00Z 2026-08-27T20:53:00Z
+Object: 45.04616,-93.78015
+  Icon: 0,0,304,1,2
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "HPN44", "Station: HPN44 | Temp: 78F | Dewpt: 50F | Wind: 304@8KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "78"
+  Color: 100 255 100
+  Text: -20, -10, 1, "50"
+End:
+
+TimeRange: 2026-08-27T20:53:00Z 2026-08-27T20:54:00Z
+Object: 45.04616,-93.78015
+  Icon: 0,0,298,1,1
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "HPN44", "Station: HPN44 | Temp: 78F | Dewpt: 52F | Wind: 298@5KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "78"
+  Color: 100 255 100
+  Text: -20, -10, 1, "52"
+End:
+
+TimeRange: 2026-08-27T20:54:00Z 2026-08-27T21:54:00Z
+Object: 45.04616,-93.78015
+  Icon: 0,0,306,1,2
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "HPN44", "Station: HPN44 | Temp: 78F | Dewpt: 52F | Wind: 306@8KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "78"
+  Color: 100 255 100
+  Text: -20, -10, 1, "52"
 End:
 
 TimeRange: 2026-08-27T14:52:00Z 2026-08-27T15:02:00Z
@@ -126921,23 +127430,7 @@ Object: 47.39900,-93.08300
   Text: -20, 10, 1, "72"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T14:54:00Z
-Object: 45.01000,-93.00000
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "G3906", "Station: G3906 | Temp: 70F | Dewpt: MF | Wind: 292@1KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "70"
-End:
-
-TimeRange: 2026-08-27T14:54:00Z 2026-08-27T14:55:00Z
-Object: 45.01000,-93.00000
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "G3906", "Station: G3906 | Temp: 70F | Dewpt: MF | Wind: 290@2KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "70"
-End:
-
-TimeRange: 2026-08-27T14:55:00Z 2026-08-27T14:56:00Z
+TimeRange: 2026-08-27T14:50:00Z 2026-08-27T14:56:00Z
 Object: 45.01000,-93.00000
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "G3906", "Station: G3906 | Temp: 70F | Dewpt: MF | Wind: 290@2KT | SLP: Mmb"
@@ -136728,15 +137221,7 @@ Object: 47.21617,-93.52317
   Text: -20, 10, 1, "75"
 End:
 
-TimeRange: 2026-08-27T14:49:00Z 2026-08-27T14:59:00Z
-Object: 45.61030,-92.19130
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "AW904", "Station: AW904 | Temp: 66F | Dewpt: MF | Wind: 171@0KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "66"
-End:
-
-TimeRange: 2026-08-27T14:59:00Z 2026-08-27T15:04:00Z
+TimeRange: 2026-08-27T14:54:00Z 2026-08-27T15:04:00Z
 Object: 45.61030,-92.19130
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "AW904", "Station: AW904 | Temp: 67F | Dewpt: MF | Wind: 171@0KT | SLP: Mmb"
@@ -137862,7 +138347,15 @@ Object: 47.43452,-92.91949
   Text: -20, 10, 1, "17"
 End:
 
-TimeRange: 2026-08-27T20:40:00Z 2026-08-27T21:40:00Z
+TimeRange: 2026-08-27T20:40:00Z 2026-08-27T20:50:00Z
+Object: 47.43452,-92.91949
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN179", "Station: MN179 | Temp: 17F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "17"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
 Object: 47.43452,-92.91949
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN179", "Station: MN179 | Temp: 17F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
@@ -138134,7 +138627,15 @@ Object: 47.37383,-93.16837
   Text: -20, 10, 1, "12"
 End:
 
-TimeRange: 2026-08-27T20:40:00Z 2026-08-27T21:40:00Z
+TimeRange: 2026-08-27T20:40:00Z 2026-08-27T20:50:00Z
+Object: 47.37383,-93.16837
+  Icon: 0,0,0,2,5
+  Text: 0, -18, 1, "MN180", "Station: MN180 | Temp: 12F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "12"
+End:
+
+TimeRange: 2026-08-27T20:50:00Z 2026-08-27T21:50:00Z
 Object: 47.37383,-93.16837
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "MN180", "Station: MN180 | Temp: 12F | Dewpt: MF | Wind: 000@0KT | SLP: Mmb"
@@ -144516,15 +145017,7 @@ Object: 45.50800,-91.46000
   Text: -20, 10, 1, "75"
 End:
 
-TimeRange: 2026-08-27T14:48:00Z 2026-08-27T15:03:00Z
-Object: 45.05367,-93.38333
-  Icon: 0,0,0,2,5
-  Text: 0, -18, 1, "G6618", "Station: G6618 | Temp: 70F | Dewpt: MF | Wind: 050@2KT | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "70"
-End:
-
-TimeRange: 2026-08-27T15:03:00Z 2026-08-27T15:13:00Z
+TimeRange: 2026-08-27T14:58:00Z 2026-08-27T15:13:00Z
 Object: 45.05367,-93.38333
   Icon: 0,0,0,2,5
   Text: 0, -18, 1, "G6618", "Station: G6618 | Temp: 70F | Dewpt: MF | Wind: 045@2KT | SLP: Mmb"
