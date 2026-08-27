@@ -211,30 +211,42 @@ def main():
             df_display = f"{dew_f}" if dew_f is not None else "M"
             wind_dir_display = int(wind_dir) if wind_dir is not None else 0
             
-            # --- WIND DISPLAY STRING (WITH GUST HANDLING) ---
-            if gust_kt is not None and gust_kt > speed_kt and gust_kt >= 10:
-                wind_display = f"{wind_dir_display:03d}@{speed_kt}G{gust_kt}KT"
+            # 1. Convert m/s to MPH (previously 1.94384 for knots)
+            speed_mph = int(round(speed_ms * 2.23694)) if speed_ms is not None else 0
+            gust_mph = int(round(gust_ms * 2.23694)) if gust_ms is not None else None
+            
+            # 2. Wind Barb Mapping
+            # Note: Wind barb icons represent standard meteorological intervals.
+            # Convert MPH back to knots for barb calculation so icon counts remain accurate:
+            speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
+
+            # 3. Color Thresholds (Evaluated in MPH)
+            color_temp = "255 100 100"   # Light Red
+            color_dew  = "100 255 100"   # Light Green
+            color_slp  = "255 255 255"   # White
+
+            max_wind_mph = gust_mph if (gust_mph is not None) else speed_mph
+
+            # Adjusted MPH thresholds (e.g., 35 MPH and 45 MPH)
+            if max_wind_mph >= 45:
+                color_barb = "255 0 255"    # Pink/Magenta (45+ MPH)
+                color_temp = "255 50 255"
+            elif max_wind_mph >= 35:
+                color_barb = "255 255 0"    # Yellow (35-44 MPH)
+                color_temp = "255 200 0"
             else:
-                wind_display = f"{wind_dir_display:03d}@{speed_kt}KT"
+                color_barb = "255 255 255"  # White (<35 MPH)
+
+            # 4. Construct Wind Hover Display String in MPH
+            if gust_mph is not None and gust_mph > speed_mph and gust_mph >= 12:
+                wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH"
+            else:
+                wind_display = f"{wind_dir_display:03d}@{speed_mph}MPH"
 
             # Default colors
             color_temp = "255 100 100"   # Light Red (Normal Temp)
             color_dew  = "100 255 100"   # Light Green (Normal Dewpoint)
             color_slp  = "255 255 255"   # White (Normal SLP)
-
-            # Determine wind severity highlight (uses highest of gust or sustained speed)
-            max_wind = gust_kt if (gust_kt is not None) else speed_kt
-
-            # Highlight thresholds
-            if max_wind >= 40:
-                color_barb = "255 0 255"    # Pink/Magenta (40+ kt)
-                color_temp = "255 50 255"
-            elif max_wind >= 30:
-                color_barb = "255 255 0"    # Yellow (30-39 kt)
-                color_temp = "255 200 0"
-            else:
-                color_barb = "255 255 255"  # White (<30 kt)
-            # ==========================================
             
             # Construct hover string with new wind_display field
             hover_text = f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | SLP: {slp_mb or 'M'}mb"
