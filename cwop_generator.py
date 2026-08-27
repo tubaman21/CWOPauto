@@ -116,12 +116,27 @@ def main():
     for station in data["STATION"]:
         stid = station.get("STID", "UNKNOWN")
         
-        # Extract network metadata returned by "extra": "metadata"
-        mnet = station.get("MNET_SHORTNAME") or station.get("MNET_NAME")
+        # Extract Synoptic Network Metadata IDs and Names
+        mnet_id = str(station.get("MNET_ID", ""))
+        mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
+        mnet_name = str(station.get("MNET_NAME", "")).upper()
         
-        # Fallback helper if network shortname is still unpopulated
-        if not mnet or mnet == "UNKNOWN":
-            if stid.startswith("CW") or stid.startswith("EW") or (len(stid) == 5 and stid[0].isalpha() and stid[1:].isdigit()):
+        # 1. Primary Identification via MNET_ID or explicit Name Matches
+        if mnet_id == "153" or "CWOP" in mnet_short or "CWOP" in mnet_name:
+            mnet = "CWOP"
+        elif mnet_id == "2" or "RAWS" in mnet_short:
+            mnet = "RAWS"
+        elif mnet_id == "66" or "MNDOT" in mnet_short or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
+            mnet = "MnDOT"
+        elif mnet_id == "67" or "WISDOT" in mnet_short or "WISCONSIN DOT" in mnet_name or stid.startswith("WI"):
+            mnet = "WisDOT"
+        elif "DOT" in mnet_short or "DOT" in mnet_name:
+            mnet = "DOT"
+        elif mnet_short and mnet_short != "UNKNOWN":
+            mnet = mnet_short
+        else:
+            # 2. Fallback Identification via CWOP Station ID Naming Patterns
+            if (len(stid) >= 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D'] and stid[1:].isalnum()) or stid.startswith("CW"):
                 mnet = "CWOP"
             else:
                 mnet = "Mesonet"
