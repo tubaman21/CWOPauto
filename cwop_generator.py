@@ -81,7 +81,8 @@ def main():
         "start": start_time.strftime("%Y%m%d%H%M"),
         "end": end_time.strftime("%Y%m%d%H%M"),
         "obtimezone": "UTC",
-        "providers": "cwop"
+        #"providers": "cwop"
+        "output": "json"
     }
     
     try:
