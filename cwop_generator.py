@@ -64,6 +64,9 @@ def main():
     if not api_token:
         print("Error: SYNOPTIC_API_TOKEN environment variable is missing!")
         sys.exit(1)
+
+    # 1. DEFINE RUN_TIME HERE BEFORE USING IT
+    run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
     end_time = datetime.now(timezone.utc)
     start_time = end_time - timedelta(hours=6)
