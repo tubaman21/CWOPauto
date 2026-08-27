@@ -113,6 +113,9 @@ def main():
 
     for station in data["STATION"]:
         stid = station.get("STID", "UNKNOWN")
+
+        # Extract Station Type / Network provider (defaults to CWOP if empty)
+        mnet = station.get("MNET_SHORTNAME") or station.get("MNET_NAME") or "CWOP"
         
        # --- NEW FILTER ---
         # 1. Skip specific rogue stations by exact match
@@ -194,7 +197,7 @@ def main():
             # 2. Draw the Open Circle second (Top Layer - pins cleanly over the barb stem)
             placefile_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
 
-            hover_text = f"Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
+            hover_text = f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
             
             #placefile_lines.append(f'  Text: 0, -18, 0, "{stid}", "{hover_text}"')
             
