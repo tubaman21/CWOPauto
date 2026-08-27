@@ -188,7 +188,7 @@ def main():
             placefile_lines.append(f"TimeRange: {start_range} {end_range}")
             placefile_lines.append(f"Object: {lat:.5f},{lon:.5f}")
             
-            # 1. Draw Wind Barb (Bottom Layer)
+           # 1. Draw Wind Barb (Bottom Layer)
             if speed_kt >= 3 and wind_dir is not None:
                 barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                 if barb_val > 0:
@@ -197,15 +197,18 @@ def main():
             # 2. Draw Open Circle Anchor (Top Layer) with hover text attached
             placefile_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
             
-            # 3. Draw Temperature, SLP, and Dewpoint values
+            # 3. Draw Temperature, SLP, and Dewpoint values using explicit Font 1
             if tf_display != "M":
-                placefile_lines.append(f'  Color: 255 100 100\n  Text: -20, 10, 1, "{tf_display}"')
+                placefile_lines.append("  Color: 255 100 100")
+                placefile_lines.append(f'  Text: -20, 10, 1, "{tf_display}"')
             
             if slp_str != "M":
-                placefile_lines.append(f'  Color: 255 255 255\n  Text: 20, -10, 1, "{slp_str}"')
+                placefile_lines.append("  Color: 255 255 255")
+                placefile_lines.append(f'  Text: 20, -10, 1, "{slp_str}"')
                 
             if df_display != "M":
-                placefile_lines.append(f'  Color: 100 255 100\n  Text: -20, -10, 1, "{df_display}"')
+                placefile_lines.append("  Color: 100 255 100")
+                placefile_lines.append(f'  Text: -20, -10, 1, "{df_display}"')
             
             placefile_lines.append("End:")
             placefile_lines.append("")
