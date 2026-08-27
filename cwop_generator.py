@@ -83,6 +83,7 @@ def main():
         "obtimezone": "UTC",
         #"providers": "cwop"
         "output": "json"
+        "extra": "metadata"  # Force Synoptic to return MNET_SHORTNAME and MNET_NAME
     }
     
     try:
@@ -115,8 +116,15 @@ def main():
     for station in data["STATION"]:
         stid = station.get("STID", "UNKNOWN")
         
-        # Check MNET_SHORTNAME first, then MNET_NAME, defaulting to 'Mesonet' if unidentified
-        mnet = station.get("MNET_SHORTNAME") or station.get("MNET_NAME") or "Mesonet"
+        # Extract network metadata returned by "extra": "metadata"
+        mnet = station.get("MNET_SHORTNAME") or station.get("MNET_NAME")
+        
+        # Fallback helper if network shortname is still unpopulated
+        if not mnet or mnet == "UNKNOWN":
+            if stid.startswith("CW") or stid.startswith("EW") or (len(stid) == 5 and stid[0].isalpha() and stid[1:].isdigit()):
+                mnet = "CWOP"
+            else:
+                mnet = "Mesonet"
         
         # --- FILTERS ---
         # 1. Skip specific rogue stations by exact match
