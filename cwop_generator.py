@@ -216,6 +216,25 @@ def main():
                 wind_display = f"{wind_dir_display:03d}@{speed_kt}G{gust_kt}KT"
             else:
                 wind_display = f"{wind_dir_display:03d}@{speed_kt}KT"
+
+            # Default colors
+            color_temp = "255 100 100"   # Light Red (Normal Temp)
+            color_dew  = "100 255 100"   # Light Green (Normal Dewpoint)
+            color_slp  = "255 255 255"   # White (Normal SLP)
+
+            # Determine wind severity highlight (uses highest of gust or sustained speed)
+            max_wind = gust_kt if (gust_kt is not None) else speed_kt
+
+            # Highlight thresholds
+            if max_wind >= 40:
+                color_barb = "255 0 255"    # Pink/Magenta (40+ kt)
+                color_temp = "255 50 255"
+            elif max_wind >= 30:
+                color_barb = "255 255 0"    # Yellow (30-39 kt)
+                color_temp = "255 200 0"
+            else:
+                color_barb = "255 255 255"  # White (<30 kt)
+            # ==========================================
             
             # Construct hover string with new wind_display field
             hover_text = f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | SLP: {slp_mb or 'M'}mb"
@@ -223,26 +242,30 @@ def main():
             placefile_lines.append(f"TimeRange: {start_range} {end_range}")
             placefile_lines.append(f"Object: {lat:.5f},{lon:.5f}")
             
-           # 1. Draw Wind Barb (Bottom Layer)
+            # 1. Set Color & Draw Wind Barb (Bottom Layer)
             if speed_kt >= 3 and wind_dir is not None:
                 barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                 if barb_val > 0:
+                    placefile_lines.append(f"  Color: {color_barb}")
                     placefile_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
-            # 2. Draw Open Circle Anchor (Top Layer) with hover text attached
+            # 2. Reset Color to White & Draw Open Circle Anchor (Top Layer)
+            placefile_lines.append("  Color: 255 255 255")
             placefile_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
             
-            # 3. Draw Temperature, SLP, and Dewpoint values using explicit Font 1
+            # 3. Draw Temperature (uses dynamic color if high gusts present)
             if tf_display != "M":
-                placefile_lines.append("  Color: 255 100 100")
+                placefile_lines.append(f"  Color: {color_temp}")
                 placefile_lines.append(f'  Text: -20, 10, 1, "{tf_display}"')
             
+            # 4. Draw Sea Level Pressure
             if slp_str != "M":
-                placefile_lines.append("  Color: 255 255 255")
+                placefile_lines.append(f"  Color: {color_slp}")
                 placefile_lines.append(f'  Text: 20, -10, 1, "{slp_str}"')
                 
+            # 5. Draw Dewpoint
             if df_display != "M":
-                placefile_lines.append("  Color: 100 255 100")
+                placefile_lines.append(f"  Color: {color_dew}")
                 placefile_lines.append(f'  Text: -20, -10, 1, "{df_display}"')
             
             placefile_lines.append("End:")
