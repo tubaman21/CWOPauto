@@ -24,6 +24,9 @@ SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
 SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/cloudcover_new.png"
 
+# Set lookback window in hours (e.g., 6 hours)
+LOOKBACK_HOURS = 6
+
 # ==========================================
 # UTILITY HELPER FUNCTIONS
 # ==========================================
@@ -64,12 +67,12 @@ def main():
     if not api_token:
         print("Error: SYNOPTIC_API_TOKEN environment variable is missing!")
         sys.exit(1)
-
-    # 1. DEFINE RUN_TIME HERE BEFORE USING IT
+    
+    # Generate global execution timestamp string
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
     end_time = datetime.now(timezone.utc)
-    start_time = end_time - timedelta(hours=6)
+    start_time = end_time - timedelta(hours=LOOKBACK_HOURS)
     
     api_params = {
         "token": api_token,
@@ -95,19 +98,13 @@ def main():
 
     placefile_lines = []
     
+    # --- HEADER DECLARATIONS ---
     placefile_lines.append(f'Title: CWOP Surface Observations ({run_time})')
     placefile_lines.append("; GR2Analyst Time-Sourced Historical Loop Dataset")
-    placefile_lines.append("; Created by Bryan Howell and Gemini")
-    placefile_lines.append("; Code last updated: 08-27-2026")
-    
-    # --- ADD THIS TIMESTAMP LINE ---
-    run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     placefile_lines.append(f"; Generated dynamically: {run_time}")
-    # -------------------------------
-    
     placefile_lines.append("Refresh: 5")
     placefile_lines.append("Threshold: 999")
-   # Wind barbs: 43x68 grid, with the base of the stem pinned at 29, 67
+    # Wind barbs: 43x68 grid, with the base of the stem pinned at 29, 67
     placefile_lines.append(f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"')
     # Sky cover: 15x15 grid, perfectly centered at 8, 8
     placefile_lines.append(f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"')
@@ -116,11 +113,9 @@ def main():
 
     for station in data["STATION"]:
         stid = station.get("STID", "UNKNOWN")
-
-        # Extract Station Type / Network provider (defaults to CWOP if empty)
         mnet = station.get("MNET_SHORTNAME") or station.get("MNET_NAME") or "CWOP"
         
-       # --- NEW FILTER ---
+        # --- FILTERS ---
         # 1. Skip specific rogue stations by exact match
         if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4"]:
             continue
@@ -132,7 +127,7 @@ def main():
         # 3. Skip NDBC buoys (Blocks BOTH "NDBCXXXXX" prefixed IDs and raw "XXXXX" 5-digit IDs)
         if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
             continue
-        # ------------------
+        # ---------------
         
         try:
             lat = float(station.get("LATITUDE"))
@@ -155,11 +150,10 @@ def main():
                 if i == 0:
                     window_start = dt_ob - timedelta(minutes=5)
                 
-                # Default residence time is up to 15 minutes...
+                # Allow residence time to persist up to 1 hour for sparse reporters
                 window_end = dt_ob + timedelta(hours=1)
                 
-                # ...BUT if a newer observation exists in the timeline, cap the end 
-                # time exactly when the next one begins to prevent stacking!
+                # Cap the end time right when a newer observation arrives
                 if i + 1 < len(timestamps):
                     next_dt_ob = datetime.strptime(timestamps[i + 1], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                     if window_end > next_dt_ob:
@@ -188,23 +182,22 @@ def main():
             df_display = f"{dew_f}" if dew_f is not None else "M"
             wind_dir_display = int(wind_dir) if wind_dir is not None else 0
             
+            # Construct hover string with station metadata & type
+            hover_text = f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
+            
             placefile_lines.append(f"TimeRange: {start_range} {end_range}")
             placefile_lines.append(f"Object: {lat:.5f},{lon:.5f}")
             
-           # 1. Draw the Wind Barb first (Bottom Layer)
+            # 1. Draw Wind Barb (Bottom Layer)
             if speed_kt >= 3 and wind_dir is not None:
                 barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                 if barb_val > 0:
                     placefile_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
-            # 2. Draw the Open Circle second (Top Layer - pins cleanly over the barb stem)
+            # 2. Draw Open Circle Anchor (Top Layer) with hover text attached
             placefile_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
-
-            hover_text = f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_dir_display:03d}@{speed_kt}KT | SLP: {slp_mb or 'M'}mb"
             
-            #placefile_lines.append(f'  Text: 0, -18, 0, "{stid}", "{hover_text}"')
-            
-            # Only draw the text on the map if the value is not "M"
+            # 3. Draw Temperature, SLP, and Dewpoint values
             if tf_display != "M":
                 placefile_lines.append(f'  Color: 255 100 100\n  Text: -20, 10, 1, "{tf_display}"')
             
@@ -221,7 +214,7 @@ def main():
     with open(os.path.join(OUTPUT_DIR, OUTPUT_FILE), "w") as f:
         f.write("\n".join(placefile_lines))
         
-    print(f"Success! Time-looped script processing completed. Destination file compiled: {os.path.join(OUTPUT_DIR, OUTPUT_FILE)}")
+    print(f"Success! Script processing completed. Destination file compiled: {os.path.join(OUTPUT_DIR, OUTPUT_FILE)}")
 
 if __name__ == "__main__":
     main()
