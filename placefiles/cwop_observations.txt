@@ -1,6 +1,6 @@
-Title: CWOP Surface Observations (2026-08-28 04:27:52 UTC)
+Title: CWOP Surface Observations (2026-08-28 04:30:16 UTC)
 ; GR2Analyst Time-Sourced Historical Loop Dataset
-; Generated dynamically: 2026-08-28 04:27:52 UTC
+; Generated dynamically: 2026-08-28 04:30:16 UTC
 Refresh: 5
 Threshold: 999
 IconFile: 1, 43, 68, 29, 67, "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
@@ -95,6 +95,14 @@ TimeRange: 2026-08-28T03:24:00Z 2026-08-28T04:24:00Z
 Object: 47.91129,-89.14258
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: RAWS | Station: WINM4 | Temp: 58F | Dewpt: MF | Wind: 158@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "58"
+End:
+
+TimeRange: 2026-08-28T04:24:00Z 2026-08-28T05:24:00Z
+Object: 47.91129,-89.14258
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: RAWS | Station: WINM4 | Temp: 58F | Dewpt: MF | Wind: 136@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "58"
 End:
@@ -1403,17 +1411,7 @@ Object: 48.43919,-93.04999
   Text: -20, 10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:23:00Z 2026-08-27T22:33:00Z
-Object: 45.34533,-93.59200
-  Color: 255 255 255
-  Icon: 0,0,314,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: AP152 | Temp: 77F | Dewpt: MF | Wind: 314@10G14MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "77"
-End:
-
-TimeRange: 2026-08-27T22:33:00Z 2026-08-27T22:53:00Z
+TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:53:00Z
 Object: 45.34533,-93.59200
   Color: 255 255 255
   Icon: 0,0,308,1,1
@@ -4033,15 +4031,7 @@ Object: 47.95029,-89.78014
   Text: -20, 10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:32:00Z
-Object: 45.55417,-92.79800
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: C4279 | Temp: 80F | Dewpt: MF | Wind: 125@0MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "80"
-End:
-
-TimeRange: 2026-08-27T22:32:00Z 2026-08-27T22:37:00Z
+TimeRange: 2026-08-27T22:27:00Z 2026-08-27T22:37:00Z
 Object: 45.55417,-92.79800
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: C4279 | Temp: 81F | Dewpt: MF | Wind: 124@1MPH | SLP: Mmb"
@@ -4839,15 +4829,7 @@ Object: 46.85867,-92.21833
   Text: -20, 10, 1, "54"
 End:
 
-TimeRange: 2026-08-27T22:23:00Z 2026-08-27T22:33:00Z
-Object: 46.81117,-90.84883
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: AS104 | Temp: 76F | Dewpt: MF | Wind: 186@1MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "76"
-End:
-
-TimeRange: 2026-08-27T22:33:00Z 2026-08-27T22:39:00Z
+TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:39:00Z
 Object: 46.81117,-90.84883
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: AS104 | Temp: 75F | Dewpt: MF | Wind: 186@1MPH | SLP: Mmb"
@@ -5383,15 +5365,7 @@ Object: 46.81117,-90.84883
   Text: -20, 10, 1, "64"
 End:
 
-TimeRange: 2026-08-27T22:23:00Z 2026-08-27T22:33:00Z
-Object: 45.15800,-93.13400
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: AS215 | Temp: 78F | Dewpt: MF | Wind: 018@2MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "78"
-End:
-
-TimeRange: 2026-08-27T22:33:00Z 2026-08-27T22:39:00Z
+TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:39:00Z
 Object: 45.15800,-93.13400
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: AS215 | Temp: 78F | Dewpt: MF | Wind: 013@1MPH | SLP: Mmb"
@@ -5989,15 +5963,7 @@ Object: 45.15800,-93.13400
   Text: -20, 10, 1, "71"
 End:
 
-TimeRange: 2026-08-27T22:23:00Z 2026-08-27T22:38:00Z
-Object: 45.80650,-93.60883
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: C6351 | Temp: 78F | Dewpt: MF | Wind: 000@2MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "78"
-End:
-
-TimeRange: 2026-08-27T22:38:00Z 2026-08-27T22:48:00Z
+TimeRange: 2026-08-27T22:33:00Z 2026-08-27T22:48:00Z
 Object: 45.80650,-93.60883
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: C6351 | Temp: 77F | Dewpt: MF | Wind: 338@2MPH | SLP: Mmb"
@@ -6865,10 +6831,18 @@ Object: 46.71653,-92.24900
   Text: -20, 10, 1, "61"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.71653,-92.24900
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN080 | Temp: 61F | Dewpt: MF | Wind: 344@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "61"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.71653,-92.24900
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN080 | Temp: 61F | Dewpt: MF | Wind: 356@2MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "61"
 End:
@@ -7433,7 +7407,15 @@ Object: 46.21256,-92.83853
   Text: -20, 10, 1, "53"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
+Object: 46.21256,-92.83853
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN005 | Temp: 53F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "53"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
 Object: 46.21256,-92.83853
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN005 | Temp: 53F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
@@ -8053,12 +8035,20 @@ Object: 45.71313,-94.93148
   Text: -20, 10, 1, "57"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.71313,-94.93148
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN016 | Temp: 56F | Dewpt: MF | Wind: 005@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "56"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.71313,-94.93148
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN016 | Temp: 55F | Dewpt: MF | Wind: 005@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "55"
 End:
 
 TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:35:00Z
@@ -8687,10 +8677,18 @@ Object: 47.87432,-94.43240
   Text: -20, 10, 1, "48"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.87432,-94.43240
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN018 | Temp: 48F | Dewpt: MF | Wind: 055@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "48"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.87432,-94.43240
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN018 | Temp: 48F | Dewpt: MF | Wind: 050@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "48"
 End:
@@ -9297,10 +9295,18 @@ Object: 47.85440,-92.04817
   Text: -20, 10, 1, "51"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.85440,-92.04817
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN019 | Temp: 50F | Dewpt: MF | Wind: 146@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "50"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.85440,-92.04817
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN019 | Temp: 50F | Dewpt: MF | Wind: 182@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "50"
 End:
@@ -9915,10 +9921,18 @@ Object: 46.68825,-93.95447
   Text: -20, 10, 1, "54"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.68825,-93.95447
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN020 | Temp: 54F | Dewpt: MF | Wind: 107@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "54"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.68825,-93.95447
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN020 | Temp: 54F | Dewpt: MF | Wind: 089@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "54"
 End:
@@ -10515,7 +10529,15 @@ Object: 48.62767,-94.06702
   Text: -20, 10, 1, "47"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
+Object: 48.62767,-94.06702
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN026 | Temp: 47F | Dewpt: MF | Wind: 218@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "47"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
 Object: 48.62767,-94.06702
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN026 | Temp: 47F | Dewpt: MF | Wind: 218@0MPH | SLP: Mmb"
@@ -11103,10 +11125,18 @@ Object: 45.60781,-94.03078
   Text: -20, 10, 1, "55"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.60781,-94.03078
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN034 | Temp: 55F | Dewpt: MF | Wind: 035@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "55"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.60781,-94.03078
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN034 | Temp: 55F | Dewpt: MF | Wind: 035@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "55"
 End:
@@ -11737,10 +11767,18 @@ Object: 46.14423,-94.10412
   Text: -20, 10, 1, "55"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.14423,-94.10412
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN035 | Temp: 54F | Dewpt: MF | Wind: 332@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "54"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.14423,-94.10412
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN035 | Temp: 54F | Dewpt: MF | Wind: 347@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "54"
 End:
@@ -12359,12 +12397,20 @@ Object: 47.60357,-94.12677
   Text: -20, 10, 1, "51"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.60357,-94.12677
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN041 | Temp: 51F | Dewpt: MF | Wind: 135@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "51"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.60357,-94.12677
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN041 | Temp: 50F | Dewpt: MF | Wind: 135@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "50"
 End:
 
 TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:35:00Z
@@ -12971,10 +13017,20 @@ Object: 45.43232,-94.93238
   Text: -20, 10, 1, "56"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.43232,-94.93238
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN043 | Temp: 56F | Dewpt: MF | Wind: 345@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "56"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.43232,-94.93238
+  Color: 255 255 255
+  Icon: 0,0,335,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN043 | Temp: 56F | Dewpt: MF | Wind: 335@3MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "56"
 End:
@@ -13609,12 +13665,20 @@ Object: 46.91178,-94.72293
   Text: -20, 10, 1, "58"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.91178,-94.72293
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN049 | Temp: 58F | Dewpt: MF | Wind: 040@2MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "58"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.91178,-94.72293
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN049 | Temp: 57F | Dewpt: MF | Wind: 050@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "57"
 End:
 
 TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:35:00Z
@@ -14195,7 +14259,15 @@ Object: 46.33954,-93.26208
   Text: -20, 10, 1, "52"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
+Object: 46.33954,-93.26208
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN050 | Temp: 52F | Dewpt: MF | Wind: 175@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "52"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
 Object: 46.33954,-93.26208
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN050 | Temp: 52F | Dewpt: MF | Wind: 175@0MPH | SLP: Mmb"
@@ -14783,7 +14855,15 @@ Object: 46.97845,-93.27368
   Text: -20, 10, 1, "52"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
+Object: 46.97845,-93.27368
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN051 | Temp: 52F | Dewpt: MF | Wind: 323@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "52"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
 Object: 46.97845,-93.27368
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN051 | Temp: 52F | Dewpt: MF | Wind: 323@0MPH | SLP: Mmb"
@@ -15383,10 +15463,18 @@ Object: 47.84037,-93.48527
   Text: -20, 10, 1, "49"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.84037,-93.48527
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN052 | Temp: 49F | Dewpt: MF | Wind: 151@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "49"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.84037,-93.48527
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN052 | Temp: 49F | Dewpt: MF | Wind: 143@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "49"
 End:
@@ -15951,12 +16039,20 @@ Object: 48.20720,-94.55400
   Text: -20, 10, 1, "50"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 48.20720,-94.55400
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN053 | Temp: 49F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "49"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 48.20720,-94.55400
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN053 | Temp: 48F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "48"
 End:
 
 TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:35:00Z
@@ -16659,12 +16755,22 @@ Object: 47.37995,-94.58698
   Text: -20, 10, 1, "65"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.37995,-94.58698
   Color: 255 255 255
   Icon: 0,0,35,1,2
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN061 | Temp: 65F | Dewpt: MF | Wind: 035@10G13MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "65"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.37995,-94.58698
+  Color: 255 255 255
+  Icon: 0,0,25,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN061 | Temp: 65F | Dewpt: MF | Wind: 025@10G13MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "65"
 End:
@@ -17277,12 +17383,20 @@ Object: 45.76635,-94.23270
   Text: -20, 10, 1, "59"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.76635,-94.23270
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN064 | Temp: 59F | Dewpt: MF | Wind: 020@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "59"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.76635,-94.23270
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN064 | Temp: 58F | Dewpt: MF | Wind: 045@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "58"
 End:
 
 TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:35:00Z
@@ -17883,10 +17997,18 @@ Object: 48.29422,-92.97047
   Text: -20, 10, 1, "47"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 48.29422,-92.97047
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN067 | Temp: 47F | Dewpt: MF | Wind: 245@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "47"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 48.29422,-92.97047
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN067 | Temp: 47F | Dewpt: MF | Wind: 180@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "47"
 End:
@@ -18497,12 +18619,20 @@ Object: 45.87595,-93.66410
   Text: -20, 10, 1, "52"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.87595,-93.66410
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN076 | Temp: 52F | Dewpt: MF | Wind: 010@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "52"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.87595,-93.66410
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN076 | Temp: 50F | Dewpt: MF | Wind: 010@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "50"
 End:
 
 TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:35:00Z
@@ -19095,10 +19225,18 @@ Object: 45.98501,-92.94823
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.98501,-92.94823
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN077 | Temp: 60F | Dewpt: MF | Wind: 012@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "60"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.98501,-92.94823
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN077 | Temp: 60F | Dewpt: MF | Wind: 018@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "60"
 End:
@@ -19803,12 +19941,22 @@ Object: 47.51576,-92.52679
   Text: -20, 10, 1, "61"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.51576,-92.52679
   Color: 255 0 255
   Icon: 0,0,102,1,2
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN084 | Temp: 60F | Dewpt: MF | Wind: 102@11G214MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "60"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.51576,-92.52679
+  Color: 255 0 255
+  Icon: 0,0,96,1,4
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN084 | Temp: 60F | Dewpt: MF | Wind: 096@24G191MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "60"
 End:
@@ -20451,10 +20599,18 @@ Object: 45.09209,-93.44753
   Text: -20, 10, 1, "62"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.09209,-93.44753
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN087 | Temp: 61F | Dewpt: MF | Wind: 304@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "61"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.09209,-93.44753
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN087 | Temp: 61F | Dewpt: MF | Wind: 285@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "61"
 End:
@@ -20945,10 +21101,16 @@ Object: 47.44523,-92.88768
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN092 | Temp: MF | Dewpt: MF | Wind: 109@2MPH | SLP: Mmb"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.44523,-92.88768
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN092 | Temp: MF | Dewpt: MF | Wind: 114@2MPH | SLP: Mmb"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.44523,-92.88768
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN092 | Temp: MF | Dewpt: MF | Wind: 123@3MPH | SLP: Mmb"
 End:
 
 TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:35:00Z
@@ -21565,10 +21727,18 @@ Object: 46.73457,-92.09760
   Text: -20, 10, 1, "69"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.73457,-92.09760
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN095 | Temp: 69F | Dewpt: MF | Wind: 025@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "69"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.73457,-92.09760
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN095 | Temp: 69F | Dewpt: MF | Wind: 360@2MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "69"
 End:
@@ -22171,10 +22341,20 @@ Object: 48.60179,-93.37356
   Text: -20, 10, 1, "58"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 48.60179,-93.37356
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN027 | Temp: 58F | Dewpt: MF | Wind: 108@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "58"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 48.60179,-93.37356
+  Color: 255 255 255
+  Icon: 0,0,111,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN027 | Temp: 58F | Dewpt: MF | Wind: 111@3MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "58"
 End:
@@ -22851,12 +23031,22 @@ Object: 46.77147,-92.11545
   Text: -20, 10, 1, "71"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.77147,-92.11545
   Color: 255 255 255
   Icon: 0,0,319,1,2
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN082 | Temp: 70F | Dewpt: MF | Wind: 319@10G17MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "70"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.77147,-92.11545
+  Color: 255 255 255
+  Icon: 0,0,321,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN082 | Temp: 70F | Dewpt: MF | Wind: 321@10G17MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "70"
 End:
@@ -23441,10 +23631,18 @@ Object: 46.92380,-92.41302
   Text: -20, 10, 1, "52"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.92380,-92.41302
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN091 | Temp: 52F | Dewpt: MF | Wind: 150@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "52"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.92380,-92.41302
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN091 | Temp: 52F | Dewpt: MF | Wind: 135@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "52"
 End:
@@ -24073,12 +24271,20 @@ Object: 47.97640,-89.68498
   Text: -20, 10, 1, "59"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.97640,-89.68498
   Color: 255 255 255
   Icon: 0,0,325,1,1
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN048 | Temp: 58F | Dewpt: MF | Wind: 325@4MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "58"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.97640,-89.68498
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN048 | Temp: 58F | Dewpt: MF | Wind: 315@3MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "58"
 End:
@@ -24651,10 +24857,18 @@ Object: 47.09483,-91.55403
   Text: -20, 10, 1, "62"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.09483,-91.55403
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN083 | Temp: 62F | Dewpt: MF | Wind: 070@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "62"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.09483,-91.55403
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN083 | Temp: 62F | Dewpt: MF | Wind: 020@2MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "62"
 End:
@@ -25359,12 +25573,22 @@ Object: 46.74691,-92.09952
   Text: -20, 10, 1, "71"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.74691,-92.09952
   Color: 255 255 255
   Icon: 0,0,334,1,2
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN081 | Temp: 71F | Dewpt: MF | Wind: 334@11G14MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "71"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.74691,-92.09952
+  Color: 255 255 255
+  Icon: 0,0,335,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN081 | Temp: 71F | Dewpt: MF | Wind: 335@11G14MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "71"
 End:
@@ -25977,10 +26201,18 @@ Object: 45.39472,-94.02563
   Text: -20, 10, 1, "59"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.39472,-94.02563
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN017 | Temp: 59F | Dewpt: MF | Wind: 271@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "59"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.39472,-94.02563
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN017 | Temp: 59F | Dewpt: MF | Wind: 327@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "59"
 End:
@@ -26427,10 +26659,16 @@ Object: 47.21123,-92.48770
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN066 | Temp: MF | Dewpt: MF | Wind: 221@0MPH | SLP: Mmb"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.21123,-92.48770
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN066 | Temp: MF | Dewpt: MF | Wind: 303@1MPH | SLP: Mmb"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.21123,-92.48770
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN066 | Temp: MF | Dewpt: MF | Wind: 003@1MPH | SLP: Mmb"
 End:
 
 TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:35:00Z
@@ -27043,10 +27281,18 @@ Object: 45.64290,-92.99276
   Text: -20, 10, 1, "54"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.64290,-92.99276
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN004 | Temp: 54F | Dewpt: MF | Wind: 155@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "54"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.64290,-92.99276
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN004 | Temp: 54F | Dewpt: MF | Wind: 151@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "54"
 End:
@@ -28325,12 +28571,20 @@ Object: 47.06997,-91.59155
   Text: -20, 10, 1, "68"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.06997,-91.59155
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN093 | Temp: 65F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "65"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.06997,-91.59155
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN093 | Temp: 63F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "63"
 End:
 
 TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:35:00Z
@@ -28943,10 +29197,18 @@ Object: 48.13470,-93.87840
   Text: -20, 10, 1, "46"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 48.13470,-93.87840
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN072 | Temp: 46F | Dewpt: MF | Wind: 198@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "46"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 48.13470,-93.87840
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN072 | Temp: 46F | Dewpt: MF | Wind: 198@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "46"
 End:
@@ -35497,10 +35759,18 @@ Object: 45.03766,-93.09236
   Text: -20, 10, 1, "68"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.03766,-93.09236
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN088 | Temp: 67F | Dewpt: MF | Wind: 270@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "67"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.03766,-93.09236
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN088 | Temp: 67F | Dewpt: MF | Wind: 285@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "67"
 End:
@@ -38663,17 +38933,7 @@ Object: 45.13283,-93.01083
   Text: -20, 10, 1, "63"
 End:
 
-TimeRange: 2026-08-27T22:24:00Z 2026-08-27T22:34:00Z
-Object: 45.16750,-92.97883
-  Color: 255 255 255
-  Icon: 0,0,274,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: AU680 | Temp: 79F | Dewpt: MF | Wind: 274@5MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "79"
-End:
-
-TimeRange: 2026-08-27T22:34:00Z 2026-08-27T22:39:00Z
+TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:39:00Z
 Object: 45.16750,-92.97883
   Color: 255 255 255
   Icon: 0,0,348,1,1
@@ -40291,15 +40551,7 @@ Object: 48.51278,-93.79944
   Text: -20, 10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T22:24:00Z 2026-08-27T22:39:00Z
-Object: 47.58500,-94.92200
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: E4713 | Temp: 76F | Dewpt: MF | Wind: 069@1MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "76"
-End:
-
-TimeRange: 2026-08-27T22:39:00Z 2026-08-27T22:49:00Z
+TimeRange: 2026-08-27T22:34:00Z 2026-08-27T22:49:00Z
 Object: 47.58500,-94.92200
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: E4713 | Temp: 74F | Dewpt: MF | Wind: 263@1MPH | SLP: Mmb"
@@ -42179,17 +42431,7 @@ Object: 45.08275,-91.33132
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-27T22:23:00Z 2026-08-27T22:33:00Z
-Object: 46.62785,-92.53187
-  Color: 255 255 255
-  Icon: 0,0,340,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN097 | Temp: 75F | Dewpt: MF | Wind: 340@3G13MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "75"
-End:
-
-TimeRange: 2026-08-27T22:33:00Z 2026-08-27T22:38:00Z
+TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:38:00Z
 Object: 46.62785,-92.53187
   Color: 255 255 255
   Icon: 0,0,19,1,1
@@ -42789,10 +43031,18 @@ Object: 46.62785,-92.53187
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-28T04:23:00Z 2026-08-28T05:23:00Z
+TimeRange: 2026-08-28T04:23:00Z 2026-08-28T04:28:00Z
 Object: 46.62785,-92.53187
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN097 | Temp: 60F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "60"
+End:
+
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T05:28:00Z
+Object: 46.62785,-92.53187
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN097 | Temp: 60F | Dewpt: MF | Wind: 013@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "60"
 End:
@@ -43389,10 +43639,18 @@ Object: 46.79476,-92.15696
   Text: -20, 10, 1, "54"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.79476,-92.15696
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN046 | Temp: 54F | Dewpt: MF | Wind: 005@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "54"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.79476,-92.15696
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN046 | Temp: 54F | Dewpt: MF | Wind: 005@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "54"
 End:
@@ -43781,13 +44039,7 @@ Object: 47.97083,-89.69167
   Text: -20, 10, 1, "55"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:35:00Z
-Object: 46.58783,-94.10217
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: E9591 | Temp: MF | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
-End:
-
-TimeRange: 2026-08-27T22:35:00Z 2026-08-27T22:38:00Z
+TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:38:00Z
 Object: 46.58783,-94.10217
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: E9591 | Temp: MF | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
@@ -46691,10 +46943,18 @@ Object: 46.66919,-92.31818
   Text: -20, 10, 1, "59"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.66919,-92.31818
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN094 | Temp: 59F | Dewpt: MF | Wind: 301@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "59"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.66919,-92.31818
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN094 | Temp: 59F | Dewpt: MF | Wind: 319@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "59"
 End:
@@ -46751,27 +47011,7 @@ Object: 45.18641,-92.65029
   Text: -20, 10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T22:23:00Z 2026-08-27T22:29:00Z
-Object: 45.18800,-93.13250
-  Color: 255 255 255
-  Icon: 0,0,42,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: F4770 | Temp: 80F | Dewpt: MF | Wind: 042@8G14MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "80"
-End:
-
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.18800,-93.13250
-  Color: 255 255 255
-  Icon: 0,0,47,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: F4770 | Temp: 80F | Dewpt: MF | Wind: 047@7G14MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "80"
-End:
-
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:32:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:32:00Z
 Object: 45.18800,-93.13250
   Color: 255 255 255
   Icon: 0,0,54,1,1
@@ -49679,23 +49919,7 @@ Object: 45.94683,-92.30514
   Text: -20, 10, 1, "56"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:29:00Z
-Object: 45.24233,-93.32600
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: F4606 | Temp: 83F | Dewpt: MF | Wind: 043@1MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "83"
-End:
-
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:34:00Z
-Object: 45.24233,-93.32600
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: F4606 | Temp: 83F | Dewpt: MF | Wind: 023@1MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "83"
-End:
-
-TimeRange: 2026-08-27T22:34:00Z 2026-08-27T22:40:00Z
+TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:40:00Z
 Object: 45.24233,-93.32600
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: F4606 | Temp: 83F | Dewpt: MF | Wind: 357@0MPH | SLP: Mmb"
@@ -52435,41 +52659,7 @@ Object: 45.24983,-93.29283
   Text: -20, 10, 1, "59"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.11820,-93.42830
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN02 | Temp: 81F | Dewpt: 51F | Wind: 359@2MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "81"
-  Color: 100 255 100
-  Text: -20, -10, 1, "51"
-End:
-
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.11820,-93.42830
-  Color: 255 255 255
-  Icon: 0,0,348,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN02 | Temp: 81F | Dewpt: 51F | Wind: 348@9MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "81"
-  Color: 100 255 100
-  Text: -20, -10, 1, "51"
-End:
-
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.11820,-93.42830
-  Color: 255 255 255
-  Icon: 0,0,276,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN02 | Temp: 80F | Dewpt: 51F | Wind: 276@6MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "80"
-  Color: 100 255 100
-  Text: -20, -10, 1, "51"
-End:
-
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.11820,-93.42830
   Color: 255 255 255
   Icon: 0,0,281,1,1
@@ -56337,7 +56527,7 @@ Object: 45.11820,-93.42830
   Text: -20, -10, 1, "55"
 End:
 
-TimeRange: 2026-08-28T04:27:00Z 2026-08-28T05:27:00Z
+TimeRange: 2026-08-28T04:27:00Z 2026-08-28T04:28:00Z
 Object: 45.11820,-93.42830
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN02 | Temp: 64F | Dewpt: 55F | Wind: 321@1MPH | SLP: Mmb"
@@ -56347,43 +56537,37 @@ Object: 45.11820,-93.42830
   Text: -20, -10, 1, "55"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.16770,-93.63433
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T04:29:00Z
+Object: 45.11820,-93.42830
   Color: 255 255 255
-  Icon: 0,0,253,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN04 | Temp: 80F | Dewpt: 52F | Wind: 253@6MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN02 | Temp: 64F | Dewpt: 55F | Wind: 324@1MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "64"
   Color: 100 255 100
-  Text: -20, -10, 1, "52"
+  Text: -20, -10, 1, "55"
 End:
 
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.16770,-93.63433
+TimeRange: 2026-08-28T04:29:00Z 2026-08-28T04:30:00Z
+Object: 45.11820,-93.42830
   Color: 255 255 255
-  Icon: 0,0,268,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN04 | Temp: 80F | Dewpt: 51F | Wind: 268@7MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN02 | Temp: 64F | Dewpt: 55F | Wind: 327@1MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "64"
   Color: 100 255 100
-  Text: -20, -10, 1, "51"
+  Text: -20, -10, 1, "55"
 End:
 
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.16770,-93.63433
+TimeRange: 2026-08-28T04:30:00Z 2026-08-28T05:30:00Z
+Object: 45.11820,-93.42830
   Color: 255 255 255
-  Icon: 0,0,257,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN04 | Temp: 80F | Dewpt: 51F | Wind: 257@6MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN02 | Temp: 64F | Dewpt: 55F | Wind: 323@1MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "64"
   Color: 100 255 100
-  Text: -20, -10, 1, "51"
+  Text: -20, -10, 1, "55"
 End:
 
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.16770,-93.63433
   Color: 255 255 255
   Icon: 0,0,264,1,1
@@ -60073,7 +60257,7 @@ Object: 45.16770,-93.63433
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-28T04:27:00Z 2026-08-28T05:27:00Z
+TimeRange: 2026-08-28T04:27:00Z 2026-08-28T04:28:00Z
 Object: 45.16770,-93.63433
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN04 | Temp: 54F | Dewpt: 52F | Wind: 020@0MPH | SLP: Mmb"
@@ -60083,37 +60267,37 @@ Object: 45.16770,-93.63433
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.05155,-93.56948
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T04:29:00Z
+Object: 45.16770,-93.63433
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN05 | Temp: 79F | Dewpt: 53F | Wind: 292@2MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN04 | Temp: 53F | Dewpt: 51F | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "79"
+  Text: -20, 10, 1, "53"
   Color: 100 255 100
-  Text: -20, -10, 1, "53"
+  Text: -20, -10, 1, "51"
 End:
 
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.05155,-93.56948
+TimeRange: 2026-08-28T04:29:00Z 2026-08-28T04:30:00Z
+Object: 45.16770,-93.63433
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN05 | Temp: 80F | Dewpt: 53F | Wind: 265@3MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN04 | Temp: 53F | Dewpt: 51F | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "53"
   Color: 100 255 100
-  Text: -20, -10, 1, "53"
+  Text: -20, -10, 1, "51"
 End:
 
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.05155,-93.56948
+TimeRange: 2026-08-28T04:30:00Z 2026-08-28T05:30:00Z
+Object: 45.16770,-93.63433
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN05 | Temp: 80F | Dewpt: 53F | Wind: 319@3MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN04 | Temp: 53F | Dewpt: 51F | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "53"
   Color: 100 255 100
-  Text: -20, -10, 1, "53"
+  Text: -20, -10, 1, "51"
 End:
 
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.05155,-93.56948
   Color: 255 255 255
   Icon: 0,0,287,1,1
@@ -63789,7 +63973,7 @@ Object: 45.05155,-93.56948
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-28T04:27:00Z 2026-08-28T05:27:00Z
+TimeRange: 2026-08-28T04:27:00Z 2026-08-28T04:28:00Z
 Object: 45.05155,-93.56948
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN05 | Temp: 59F | Dewpt: 53F | Wind: 302@1MPH | SLP: Mmb"
@@ -63799,43 +63983,37 @@ Object: 45.05155,-93.56948
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.09689,-93.74369
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T04:29:00Z
+Object: 45.05155,-93.56948
   Color: 255 255 255
-  Icon: 0,0,249,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN10 | Temp: 80F | Dewpt: 52F | Wind: 249@6MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN05 | Temp: 59F | Dewpt: 53F | Wind: 299@1MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "59"
   Color: 100 255 100
-  Text: -20, -10, 1, "52"
+  Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.09689,-93.74369
+TimeRange: 2026-08-28T04:29:00Z 2026-08-28T04:30:00Z
+Object: 45.05155,-93.56948
   Color: 255 255 255
-  Icon: 0,0,250,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN10 | Temp: 80F | Dewpt: 52F | Wind: 250@7MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN05 | Temp: 59F | Dewpt: 53F | Wind: 303@1MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "59"
   Color: 100 255 100
-  Text: -20, -10, 1, "52"
+  Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.09689,-93.74369
+TimeRange: 2026-08-28T04:30:00Z 2026-08-28T05:30:00Z
+Object: 45.05155,-93.56948
   Color: 255 255 255
-  Icon: 0,0,277,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN10 | Temp: 80F | Dewpt: 52F | Wind: 277@6MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN05 | Temp: 59F | Dewpt: 53F | Wind: 306@2MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "59"
   Color: 100 255 100
-  Text: -20, -10, 1, "52"
+  Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.09689,-93.74369
   Color: 255 255 255
   Icon: 0,0,268,1,1
@@ -67441,7 +67619,7 @@ Object: 45.09689,-93.74369
   Text: -20, -10, 1, "54"
 End:
 
-TimeRange: 2026-08-28T04:27:00Z 2026-08-28T05:27:00Z
+TimeRange: 2026-08-28T04:27:00Z 2026-08-28T04:28:00Z
 Object: 45.09689,-93.74369
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN10 | Temp: 59F | Dewpt: 54F | Wind: 000@0MPH | SLP: Mmb"
@@ -67451,43 +67629,37 @@ Object: 45.09689,-93.74369
   Text: -20, -10, 1, "54"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.08797,-93.69137
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T04:29:00Z
+Object: 45.09689,-93.74369
   Color: 255 255 255
-  Icon: 0,0,308,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN19 | Temp: 78F | Dewpt: 52F | Wind: 308@4MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN10 | Temp: 59F | Dewpt: 54F | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "78"
+  Text: -20, 10, 1, "59"
   Color: 100 255 100
-  Text: -20, -10, 1, "52"
+  Text: -20, -10, 1, "54"
 End:
 
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.08797,-93.69137
+TimeRange: 2026-08-28T04:29:00Z 2026-08-28T04:30:00Z
+Object: 45.09689,-93.74369
   Color: 255 255 255
-  Icon: 0,0,324,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN19 | Temp: 78F | Dewpt: 52F | Wind: 324@4MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN10 | Temp: 59F | Dewpt: 54F | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "78"
+  Text: -20, 10, 1, "59"
   Color: 100 255 100
-  Text: -20, -10, 1, "52"
+  Text: -20, -10, 1, "54"
 End:
 
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.08797,-93.69137
+TimeRange: 2026-08-28T04:30:00Z 2026-08-28T05:30:00Z
+Object: 45.09689,-93.74369
   Color: 255 255 255
-  Icon: 0,0,281,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN19 | Temp: 77F | Dewpt: 53F | Wind: 281@4MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN10 | Temp: 59F | Dewpt: 54F | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "77"
+  Text: -20, 10, 1, "59"
   Color: 100 255 100
-  Text: -20, -10, 1, "53"
+  Text: -20, -10, 1, "54"
 End:
 
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.08797,-93.69137
   Color: 255 255 255
   Icon: 0,0,310,1,1
@@ -71161,7 +71333,7 @@ Object: 45.08797,-93.69137
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-28T04:27:00Z 2026-08-28T05:27:00Z
+TimeRange: 2026-08-28T04:27:00Z 2026-08-28T04:28:00Z
 Object: 45.08797,-93.69137
   Color: 255 255 255
   Icon: 0,0,17,1,1
@@ -71173,43 +71345,41 @@ Object: 45.08797,-93.69137
   Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.04889,-93.27611
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T04:29:00Z
+Object: 45.08797,-93.69137
   Color: 255 255 255
-  Icon: 0,0,352,1,1
+  Icon: 0,0,14,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN21 | Temp: 80F | Dewpt: 51F | Wind: 352@4MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN19 | Temp: 64F | Dewpt: 52F | Wind: 014@3MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "64"
   Color: 100 255 100
-  Text: -20, -10, 1, "51"
+  Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.04889,-93.27611
+TimeRange: 2026-08-28T04:29:00Z 2026-08-28T04:30:00Z
+Object: 45.08797,-93.69137
   Color: 255 255 255
-  Icon: 0,0,37,1,2
+  Icon: 0,0,12,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN21 | Temp: 80F | Dewpt: 51F | Wind: 037@9G13MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN19 | Temp: 65F | Dewpt: 52F | Wind: 012@3MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "65"
   Color: 100 255 100
-  Text: -20, -10, 1, "51"
+  Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.04889,-93.27611
+TimeRange: 2026-08-28T04:30:00Z 2026-08-28T05:30:00Z
+Object: 45.08797,-93.69137
   Color: 255 255 255
-  Icon: 0,0,38,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN21 | Temp: 80F | Dewpt: 50F | Wind: 038@11G13MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN19 | Temp: 65F | Dewpt: 52F | Wind: 016@3MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "65"
   Color: 100 255 100
-  Text: -20, -10, 1, "50"
+  Text: -20, -10, 1, "52"
 End:
 
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.04889,-93.27611
   Color: 255 255 255
   Icon: 0,0,23,1,2
@@ -75163,7 +75333,7 @@ Object: 45.04889,-93.27611
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-28T04:27:00Z 2026-08-28T05:27:00Z
+TimeRange: 2026-08-28T04:27:00Z 2026-08-28T04:28:00Z
 Object: 45.04889,-93.27611
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN21 | Temp: 66F | Dewpt: 53F | Wind: 044@1MPH | SLP: Mmb"
@@ -75173,43 +75343,37 @@ Object: 45.04889,-93.27611
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.20420,-93.48487
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T04:29:00Z
+Object: 45.04889,-93.27611
   Color: 255 255 255
-  Icon: 0,0,344,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN27 | Temp: 79F | Dewpt: 51F | Wind: 344@6MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN21 | Temp: 66F | Dewpt: 53F | Wind: 044@1MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "79"
+  Text: -20, 10, 1, "66"
   Color: 100 255 100
-  Text: -20, -10, 1, "51"
+  Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.20420,-93.48487
+TimeRange: 2026-08-28T04:29:00Z 2026-08-28T04:30:00Z
+Object: 45.04889,-93.27611
   Color: 255 255 255
-  Icon: 0,0,7,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN27 | Temp: 79F | Dewpt: 52F | Wind: 007@5MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN21 | Temp: 66F | Dewpt: 53F | Wind: 044@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "79"
+  Text: -20, 10, 1, "66"
   Color: 100 255 100
-  Text: -20, -10, 1, "52"
+  Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.20420,-93.48487
+TimeRange: 2026-08-28T04:30:00Z 2026-08-28T05:30:00Z
+Object: 45.04889,-93.27611
   Color: 255 255 255
-  Icon: 0,0,356,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN27 | Temp: 79F | Dewpt: 52F | Wind: 356@6MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN21 | Temp: 66F | Dewpt: 53F | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "79"
+  Text: -20, 10, 1, "66"
   Color: 100 255 100
-  Text: -20, -10, 1, "52"
+  Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.20420,-93.48487
   Color: 255 255 255
   Icon: 0,0,355,1,1
@@ -79061,7 +79225,7 @@ Object: 45.20420,-93.48487
   Text: -20, -10, 1, "54"
 End:
 
-TimeRange: 2026-08-28T04:26:00Z 2026-08-28T05:26:00Z
+TimeRange: 2026-08-28T04:26:00Z 2026-08-28T04:27:00Z
 Object: 45.20420,-93.48487
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN27 | Temp: 63F | Dewpt: 54F | Wind: 018@2MPH | SLP: Mmb"
@@ -79071,43 +79235,37 @@ Object: 45.20420,-93.48487
   Text: -20, -10, 1, "54"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.13550,-93.56271
+TimeRange: 2026-08-28T04:27:00Z 2026-08-28T04:28:00Z
+Object: 45.20420,-93.48487
   Color: 255 255 255
-  Icon: 0,0,354,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN28 | Temp: 77F | Dewpt: 52F | Wind: 354@5MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN27 | Temp: 63F | Dewpt: 53F | Wind: 030@2MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "77"
-  Color: 100 255 100
-  Text: -20, -10, 1, "52"
-End:
-
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.13550,-93.56271
-  Color: 255 255 255
-  Icon: 0,0,14,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN28 | Temp: 77F | Dewpt: 51F | Wind: 014@4MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "77"
-  Color: 100 255 100
-  Text: -20, -10, 1, "51"
-End:
-
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.13550,-93.56271
-  Color: 255 255 255
-  Icon: 0,0,42,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN28 | Temp: 77F | Dewpt: 53F | Wind: 042@4MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "77"
+  Text: -20, 10, 1, "63"
   Color: 100 255 100
   Text: -20, -10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T04:29:00Z
+Object: 45.20420,-93.48487
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN27 | Temp: 63F | Dewpt: 54F | Wind: 041@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "63"
+  Color: 100 255 100
+  Text: -20, -10, 1, "54"
+End:
+
+TimeRange: 2026-08-28T04:29:00Z 2026-08-28T05:29:00Z
+Object: 45.20420,-93.48487
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN27 | Temp: 62F | Dewpt: 53F | Wind: 038@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "62"
+  Color: 100 255 100
+  Text: -20, -10, 1, "53"
+End:
+
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.13550,-93.56271
   Color: 255 255 255
   Icon: 0,0,39,1,1
@@ -82853,7 +83011,7 @@ Object: 45.13550,-93.56271
   Text: -20, -10, 1, "51"
 End:
 
-TimeRange: 2026-08-28T04:27:00Z 2026-08-28T05:27:00Z
+TimeRange: 2026-08-28T04:27:00Z 2026-08-28T04:28:00Z
 Object: 45.13550,-93.56271
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN28 | Temp: 52F | Dewpt: 51F | Wind: 000@0MPH | SLP: Mmb"
@@ -82863,43 +83021,37 @@ Object: 45.13550,-93.56271
   Text: -20, -10, 1, "51"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.16541,-93.22459
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T04:29:00Z
+Object: 45.13550,-93.56271
   Color: 255 255 255
-  Icon: 0,0,329,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN31 | Temp: 79F | Dewpt: 51F | Wind: 329@8MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN28 | Temp: 52F | Dewpt: 51F | Wind: 238@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "79"
+  Text: -20, 10, 1, "52"
   Color: 100 255 100
   Text: -20, -10, 1, "51"
 End:
 
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.16541,-93.22459
+TimeRange: 2026-08-28T04:29:00Z 2026-08-28T04:30:00Z
+Object: 45.13550,-93.56271
   Color: 255 255 255
-  Icon: 0,0,331,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN31 | Temp: 79F | Dewpt: 51F | Wind: 331@5MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN28 | Temp: 52F | Dewpt: 50F | Wind: 238@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "79"
+  Text: -20, 10, 1, "52"
   Color: 100 255 100
-  Text: -20, -10, 1, "51"
+  Text: -20, -10, 1, "50"
 End:
 
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.16541,-93.22459
+TimeRange: 2026-08-28T04:30:00Z 2026-08-28T05:30:00Z
+Object: 45.13550,-93.56271
   Color: 255 255 255
-  Icon: 0,0,320,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN31 | Temp: 79F | Dewpt: 51F | Wind: 320@7MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN28 | Temp: 52F | Dewpt: 50F | Wind: 238@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "79"
+  Text: -20, 10, 1, "52"
   Color: 100 255 100
-  Text: -20, -10, 1, "51"
+  Text: -20, -10, 1, "50"
 End:
 
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.16541,-93.22459
   Color: 255 255 255
   Icon: 0,0,299,1,1
@@ -86853,10 +87005,40 @@ Object: 45.16541,-93.22459
   Text: -20, -10, 1, "55"
 End:
 
-TimeRange: 2026-08-28T04:27:00Z 2026-08-28T05:27:00Z
+TimeRange: 2026-08-28T04:27:00Z 2026-08-28T04:28:00Z
 Object: 45.16541,-93.22459
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN31 | Temp: 64F | Dewpt: 55F | Wind: 002@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "64"
+  Color: 100 255 100
+  Text: -20, -10, 1, "55"
+End:
+
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T04:29:00Z
+Object: 45.16541,-93.22459
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN31 | Temp: 64F | Dewpt: 55F | Wind: 000@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "64"
+  Color: 100 255 100
+  Text: -20, -10, 1, "55"
+End:
+
+TimeRange: 2026-08-28T04:29:00Z 2026-08-28T04:30:00Z
+Object: 45.16541,-93.22459
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN31 | Temp: 64F | Dewpt: 55F | Wind: 002@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "64"
+  Color: 100 255 100
+  Text: -20, -10, 1, "55"
+End:
+
+TimeRange: 2026-08-28T04:30:00Z 2026-08-28T05:30:00Z
+Object: 45.16541,-93.22459
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN31 | Temp: 64F | Dewpt: 55F | Wind: 004@2MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "64"
   Color: 100 255 100
@@ -88887,15 +89069,7 @@ Object: 45.30050,-93.60267
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-27T22:23:00Z 2026-08-27T22:35:00Z
-Object: 46.00583,-93.18750
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: F8346 | Temp: 76F | Dewpt: MF | Wind: 311@2MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "76"
-End:
-
-TimeRange: 2026-08-27T22:35:00Z 2026-08-27T22:38:00Z
+TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:38:00Z
 Object: 46.00583,-93.18750
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: F8346 | Temp: 75F | Dewpt: MF | Wind: 352@2MPH | SLP: Mmb"
@@ -92183,17 +92357,7 @@ Object: 45.82700,-91.86140
   Text: -20, 10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:23:00Z 2026-08-27T22:33:00Z
-Object: 45.13533,-93.58833
-  Color: 255 255 255
-  Icon: 0,0,36,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G0881 | Temp: 77F | Dewpt: MF | Wind: 036@3MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "77"
-End:
-
-TimeRange: 2026-08-27T22:33:00Z 2026-08-27T22:38:00Z
+TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:38:00Z
 Object: 45.13533,-93.58833
   Color: 255 255 255
   Icon: 0,0,13,1,1
@@ -92957,17 +93121,7 @@ Object: 45.60183,-94.19917
   Text: -20, 10, 1, "61"
 End:
 
-TimeRange: 2026-08-27T22:24:00Z 2026-08-27T22:34:00Z
-Object: 45.58333,-92.97333
-  Color: 255 255 255
-  Icon: 0,0,282,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G1685 | Temp: 79F | Dewpt: MF | Wind: 282@5MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "79"
-End:
-
-TimeRange: 2026-08-27T22:34:00Z 2026-08-27T22:39:00Z
+TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:39:00Z
 Object: 45.58333,-92.97333
   Color: 255 255 255
   Icon: 0,0,25,1,1
@@ -93559,17 +93713,7 @@ Object: 45.58333,-92.97333
   Text: -20, 10, 1, "58"
 End:
 
-TimeRange: 2026-08-27T22:24:00Z 2026-08-27T22:35:00Z
-Object: 45.24483,-93.29783
-  Color: 255 255 255
-  Icon: 0,0,302,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G1821 | Temp: 82F | Dewpt: MF | Wind: 302@3MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "82"
-End:
-
-TimeRange: 2026-08-27T22:35:00Z 2026-08-27T22:40:00Z
+TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:40:00Z
 Object: 45.24483,-93.29783
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: G1821 | Temp: 82F | Dewpt: MF | Wind: 270@2MPH | SLP: Mmb"
@@ -94107,15 +94251,7 @@ Object: 45.24483,-93.29783
   Text: -20, 10, 1, "62"
 End:
 
-TimeRange: 2026-08-27T22:24:00Z 2026-08-27T22:34:00Z
-Object: 45.03917,-93.42733
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G1985 | Temp: 80F | Dewpt: MF | Wind: 348@1MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "80"
-End:
-
-TimeRange: 2026-08-27T22:34:00Z 2026-08-27T22:39:00Z
+TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:39:00Z
 Object: 45.03917,-93.42733
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: G1985 | Temp: 80F | Dewpt: MF | Wind: 238@2MPH | SLP: Mmb"
@@ -95781,7 +95917,15 @@ Object: 48.89451,-94.56026
   Text: -20, 10, 1, "48"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
+Object: 48.89451,-94.56026
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN116 | Temp: 48F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "48"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
 Object: 48.89451,-94.56026
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN116 | Temp: 48F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
@@ -96397,7 +96541,15 @@ Object: 45.34667,-93.23731
   Text: -20, 10, 1, "61"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
+Object: 45.34667,-93.23731
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN140 | Temp: 60F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "60"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
 Object: 45.34667,-93.23731
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN140 | Temp: 60F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
@@ -97067,12 +97219,22 @@ Object: 45.13905,-94.81176
   Text: -20, 10, 1, "66"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.13905,-94.81176
   Color: 255 255 255
   Icon: 0,0,349,1,1
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN159 | Temp: 66F | Dewpt: MF | Wind: 349@4MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "66"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.13905,-94.81176
+  Color: 255 255 255
+  Icon: 0,0,327,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN159 | Temp: 66F | Dewpt: MF | Wind: 327@3MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "66"
 End:
@@ -97641,7 +97803,7 @@ Object: 45.03545,-93.76607
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.03545,-93.76607
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN161 | Temp: 60F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
@@ -97649,43 +97811,15 @@ Object: 45.03545,-93.76607
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.03149,-93.30293
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.03545,-93.76607
   Color: 255 255 255
-  Icon: 0,0,326,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN42 | Temp: 80F | Dewpt: 50F | Wind: 326@8MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN161 | Temp: 60F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
-  Color: 100 255 100
-  Text: -20, -10, 1, "50"
+  Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.03149,-93.30293
-  Color: 255 255 255
-  Icon: 0,0,340,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN42 | Temp: 80F | Dewpt: 51F | Wind: 340@7G12MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "80"
-  Color: 100 255 100
-  Text: -20, -10, 1, "51"
-End:
-
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.03149,-93.30293
-  Color: 255 255 255
-  Icon: 0,0,337,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN42 | Temp: 80F | Dewpt: 51F | Wind: 337@8MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "80"
-  Color: 100 255 100
-  Text: -20, -10, 1, "51"
-End:
-
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.03149,-93.30293
   Color: 255 255 255
   Icon: 0,0,333,1,1
@@ -101599,7 +101733,7 @@ Object: 45.03149,-93.30293
   Text: -20, -10, 1, "55"
 End:
 
-TimeRange: 2026-08-28T04:27:00Z 2026-08-28T05:27:00Z
+TimeRange: 2026-08-28T04:27:00Z 2026-08-28T04:28:00Z
 Object: 45.03149,-93.30293
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN42 | Temp: 63F | Dewpt: 55F | Wind: 206@1MPH | SLP: Mmb"
@@ -101609,17 +101743,37 @@ Object: 45.03149,-93.30293
   Text: -20, -10, 1, "55"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:32:00Z
-Object: 45.12100,-93.46967
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T04:29:00Z
+Object: 45.03149,-93.30293
   Color: 255 255 255
-  Icon: 0,0,279,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: AW002 | Temp: 81F | Dewpt: MF | Wind: 279@5MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN42 | Temp: 63F | Dewpt: 55F | Wind: 206@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "81"
+  Text: -20, 10, 1, "63"
+  Color: 100 255 100
+  Text: -20, -10, 1, "55"
 End:
 
-TimeRange: 2026-08-27T22:32:00Z 2026-08-27T22:38:00Z
+TimeRange: 2026-08-28T04:29:00Z 2026-08-28T04:30:00Z
+Object: 45.03149,-93.30293
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN42 | Temp: 62F | Dewpt: 54F | Wind: 206@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "62"
+  Color: 100 255 100
+  Text: -20, -10, 1, "54"
+End:
+
+TimeRange: 2026-08-28T04:30:00Z 2026-08-28T05:30:00Z
+Object: 45.03149,-93.30293
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN42 | Temp: 62F | Dewpt: 54F | Wind: 206@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "62"
+  Color: 100 255 100
+  Text: -20, -10, 1, "54"
+End:
+
+TimeRange: 2026-08-27T22:27:00Z 2026-08-27T22:38:00Z
 Object: 45.12100,-93.46967
   Color: 255 255 255
   Icon: 0,0,256,1,1
@@ -104619,7 +104773,15 @@ Object: 47.58537,-93.67510
   Text: -20, 10, 1, "58"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
+Object: 47.58537,-93.67510
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN100 | Temp: 58F | Dewpt: MF | Wind: 340@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "58"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
 Object: 47.58537,-93.67510
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN100 | Temp: 58F | Dewpt: MF | Wind: 340@1MPH | SLP: Mmb"
@@ -105219,10 +105381,18 @@ Object: 46.64414,-93.07975
   Text: -20, 10, 1, "55"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.64414,-93.07975
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN101 | Temp: 55F | Dewpt: MF | Wind: 073@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "55"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.64414,-93.07975
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN101 | Temp: 55F | Dewpt: MF | Wind: 066@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "55"
 End:
@@ -105825,7 +105995,15 @@ Object: 46.87305,-92.86100
   Text: -20, 10, 1, "54"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
+Object: 46.87305,-92.86100
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN103 | Temp: 54F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "54"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
 Object: 46.87305,-92.86100
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN103 | Temp: 54F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
@@ -106463,7 +106641,15 @@ Object: 47.29679,-93.70241
   Text: -20, 10, 1, "58"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
+Object: 47.29679,-93.70241
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN105 | Temp: 58F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "58"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
 Object: 47.29679,-93.70241
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN105 | Temp: 58F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
@@ -107077,10 +107263,18 @@ Object: 47.89174,-92.77429
   Text: -20, 10, 1, "57"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.89174,-92.77429
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN106 | Temp: 57F | Dewpt: MF | Wind: 043@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "57"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.89174,-92.77429
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN106 | Temp: 57F | Dewpt: MF | Wind: 045@2MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "57"
 End:
@@ -107683,10 +107877,18 @@ Object: 47.61226,-93.19428
   Text: -20, 10, 1, "57"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.61226,-93.19428
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN108 | Temp: 56F | Dewpt: MF | Wind: 003@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "56"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.61226,-93.19428
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN108 | Temp: 56F | Dewpt: MF | Wind: 012@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "56"
 End:
@@ -108289,10 +108491,18 @@ Object: 46.11394,-94.91677
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.11394,-94.91677
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN121 | Temp: 60F | Dewpt: MF | Wind: 002@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "60"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.11394,-94.91677
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN121 | Temp: 60F | Dewpt: MF | Wind: 029@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "60"
 End:
@@ -108897,7 +109107,15 @@ Object: 47.05282,-94.21450
   Text: -20, 10, 1, "57"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
+Object: 47.05282,-94.21450
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN122 | Temp: 57F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "57"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
 Object: 47.05282,-94.21450
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN122 | Temp: 57F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
@@ -109497,12 +109715,20 @@ Object: 46.34349,-94.64286
   Text: -20, 10, 1, "56"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.34349,-94.64286
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN124 | Temp: 56F | Dewpt: MF | Wind: 322@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "56"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.34349,-94.64286
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN124 | Temp: 55F | Dewpt: MF | Wind: 348@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "55"
 End:
 
 TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:35:00Z
@@ -110099,12 +110325,20 @@ Object: 45.45101,-94.48595
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.45101,-94.48595
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN125 | Temp: 60F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "60"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.45101,-94.48595
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN125 | Temp: 59F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "59"
 End:
 
 TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:35:00Z
@@ -110721,10 +110955,18 @@ Object: 46.11800,-93.43246
   Text: -20, 10, 1, "61"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.11800,-93.43246
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN127 | Temp: 61F | Dewpt: MF | Wind: 074@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "61"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.11800,-93.43246
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN127 | Temp: 61F | Dewpt: MF | Wind: 072@2MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "61"
 End:
@@ -111341,12 +111583,22 @@ Object: 46.78296,-93.61336
   Text: -20, 10, 1, "58"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.78296,-93.61336
   Color: 255 255 255
   Icon: 0,0,42,1,1
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN128 | Temp: 58F | Dewpt: MF | Wind: 042@3MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "58"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.78296,-93.61336
+  Color: 255 255 255
+  Icon: 0,0,38,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN128 | Temp: 58F | Dewpt: MF | Wind: 038@3MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "58"
 End:
@@ -111925,12 +112177,20 @@ Object: 46.43485,-93.74377
   Text: -20, 10, 1, "58"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.43485,-93.74377
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN129 | Temp: 59F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "59"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.43485,-93.74377
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN129 | Temp: 58F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "58"
 End:
 
 TimeRange: 2026-08-27T22:26:00Z 2026-08-27T22:36:00Z
@@ -114031,10 +114291,18 @@ Object: 46.45278,-92.73010
   Text: -20, 10, 1, "58"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.45278,-92.73010
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN163 | Temp: 57F | Dewpt: MF | Wind: 317@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "57"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.45278,-92.73010
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN163 | Temp: 57F | Dewpt: MF | Wind: 313@2MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "57"
 End:
@@ -114685,10 +114953,18 @@ Object: 45.55337,-93.58489
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 45.55337,-93.58489
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN164 | Temp: 60F | Dewpt: MF | Wind: 273@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "60"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 45.55337,-93.58489
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN164 | Temp: 60F | Dewpt: MF | Wind: 264@1MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "60"
 End:
@@ -115333,10 +115609,18 @@ Object: 47.54443,-90.89590
   Text: -20, 10, 1, "58"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.54443,-90.89590
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN165 | Temp: 58F | Dewpt: MF | Wind: 356@2MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "58"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.54443,-90.89590
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN165 | Temp: 58F | Dewpt: MF | Wind: 354@2MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "58"
 End:
@@ -115961,12 +116245,22 @@ Object: 47.75836,-90.31386
   Text: -20, 10, 1, "62"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 47.75836,-90.31386
   Color: 255 255 255
   Icon: 0,0,179,1,1
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN166 | Temp: 62F | Dewpt: MF | Wind: 179@4MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "62"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 47.75836,-90.31386
+  Color: 255 255 255
+  Icon: 0,0,3,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN166 | Temp: 62F | Dewpt: MF | Wind: 003@4MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "62"
 End:
@@ -116585,10 +116879,18 @@ Object: 46.52462,-94.29614
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.52462,-94.29614
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN170 | Temp: 60F | Dewpt: MF | Wind: 060@1MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "60"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.52462,-94.29614
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN170 | Temp: 60F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "60"
 End:
@@ -117279,12 +117581,22 @@ Object: 46.77138,-92.13752
   Text: -20, 10, 1, "66"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
 Object: 46.77138,-92.13752
   Color: 255 255 255
   Icon: 0,0,357,1,1
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN171 | Temp: 66F | Dewpt: MF | Wind: 357@6G13MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "66"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
+Object: 46.77138,-92.13752
+  Color: 255 255 255
+  Icon: 0,0,357,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN171 | Temp: 66F | Dewpt: MF | Wind: 357@6G12MPH | SLP: Mmb"
   Color: 255 100 100
   Text: -20, 10, 1, "66"
 End:
@@ -118109,7 +118421,15 @@ Object: 47.67724,-91.61768
   Text: -20, 10, 1, "56"
 End:
 
-TimeRange: 2026-08-28T04:20:00Z 2026-08-28T05:20:00Z
+TimeRange: 2026-08-28T04:20:00Z 2026-08-28T04:25:00Z
+Object: 47.67724,-91.61768
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN172 | Temp: 55F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "55"
+End:
+
+TimeRange: 2026-08-28T04:25:00Z 2026-08-28T05:25:00Z
 Object: 47.67724,-91.61768
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: MnDOT | Station: MN172 | Temp: 55F | Dewpt: MF | Wind: 000@0MPH | SLP: Mmb"
@@ -119817,17 +120137,7 @@ Object: 47.81733,-90.11033
   Text: -20, 10, 1, "55"
 End:
 
-TimeRange: 2026-08-27T22:24:00Z 2026-08-27T22:34:00Z
-Object: 45.03750,-90.33667
-  Color: 255 255 255
-  Icon: 0,0,249,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G4269 | Temp: 79F | Dewpt: MF | Wind: 249@5MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "79"
-End:
-
-TimeRange: 2026-08-27T22:34:00Z 2026-08-27T22:39:00Z
+TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:39:00Z
 Object: 45.03750,-90.33667
   Color: 255 255 255
   Icon: 0,0,250,1,1
@@ -121005,41 +121315,7 @@ Object: 45.18817,-93.36800
   Text: -20, 10, 1, "64"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.04616,-93.78015
-  Color: 255 255 255
-  Icon: 0,0,324,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN44 | Temp: 78F | Dewpt: 50F | Wind: 324@6MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "78"
-  Color: 100 255 100
-  Text: -20, -10, 1, "50"
-End:
-
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.04616,-93.78015
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN44 | Temp: 78F | Dewpt: 52F | Wind: 337@2MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "78"
-  Color: 100 255 100
-  Text: -20, -10, 1, "52"
-End:
-
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.04616,-93.78015
-  Color: 255 255 255
-  Icon: 0,0,327,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN44 | Temp: 79F | Dewpt: 53F | Wind: 327@3MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "79"
-  Color: 100 255 100
-  Text: -20, -10, 1, "53"
-End:
-
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.04616,-93.78015
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN44 | Temp: 79F | Dewpt: 52F | Wind: 304@3MPH | SLP: Mmb"
@@ -124757,7 +125033,7 @@ Object: 45.04616,-93.78015
   Text: -20, -10, 1, "56"
 End:
 
-TimeRange: 2026-08-28T04:26:00Z 2026-08-28T05:26:00Z
+TimeRange: 2026-08-28T04:26:00Z 2026-08-28T04:27:00Z
 Object: 45.04616,-93.78015
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN44 | Temp: 59F | Dewpt: 56F | Wind: 000@0MPH | SLP: Mmb"
@@ -124767,15 +125043,37 @@ Object: 45.04616,-93.78015
   Text: -20, -10, 1, "56"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:32:00Z
-Object: 45.10900,-93.20733
+TimeRange: 2026-08-28T04:27:00Z 2026-08-28T04:28:00Z
+Object: 45.04616,-93.78015
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G4623 | Temp: 80F | Dewpt: MF | Wind: 300@1MPH | SLP: Mmb"
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN44 | Temp: 58F | Dewpt: 56F | Wind: 000@0MPH | SLP: Mmb"
   Color: 255 100 100
-  Text: -20, 10, 1, "80"
+  Text: -20, 10, 1, "58"
+  Color: 100 255 100
+  Text: -20, -10, 1, "56"
 End:
 
-TimeRange: 2026-08-27T22:32:00Z 2026-08-27T22:37:00Z
+TimeRange: 2026-08-28T04:28:00Z 2026-08-28T04:29:00Z
+Object: 45.04616,-93.78015
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN44 | Temp: 58F | Dewpt: 56F | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "58"
+  Color: 100 255 100
+  Text: -20, -10, 1, "56"
+End:
+
+TimeRange: 2026-08-28T04:29:00Z 2026-08-28T05:29:00Z
+Object: 45.04616,-93.78015
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: HPN44 | Temp: 58F | Dewpt: 55F | Wind: 000@0MPH | SLP: Mmb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "58"
+  Color: 100 255 100
+  Text: -20, -10, 1, "55"
+End:
+
+TimeRange: 2026-08-27T22:27:00Z 2026-08-27T22:37:00Z
 Object: 45.10900,-93.20733
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: G4623 | Temp: 80F | Dewpt: MF | Wind: 005@0MPH | SLP: Mmb"
@@ -125995,37 +126293,7 @@ Object: 47.39900,-93.08300
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:28:00Z
-Object: 45.01000,-93.00000
-  Color: 255 255 255
-  Icon: 0,0,331,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G3906 | Temp: 80F | Dewpt: MF | Wind: 331@4MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "80"
-End:
-
-TimeRange: 2026-08-27T22:28:00Z 2026-08-27T22:29:00Z
-Object: 45.01000,-93.00000
-  Color: 255 255 255
-  Icon: 0,0,333,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G3906 | Temp: 80F | Dewpt: MF | Wind: 333@4MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "80"
-End:
-
-TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:30:00Z
-Object: 45.01000,-93.00000
-  Color: 255 255 255
-  Icon: 0,0,327,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G3906 | Temp: 80F | Dewpt: MF | Wind: 327@5MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "80"
-End:
-
-TimeRange: 2026-08-27T22:30:00Z 2026-08-27T22:31:00Z
+TimeRange: 2026-08-27T22:25:00Z 2026-08-27T22:31:00Z
 Object: 45.01000,-93.00000
   Color: 255 255 255
   Icon: 0,0,321,1,1
@@ -135585,15 +135853,7 @@ Object: 47.21617,-93.52317
   Text: -20, 10, 1, "60"
 End:
 
-TimeRange: 2026-08-27T22:24:00Z 2026-08-27T22:34:00Z
-Object: 45.61030,-92.19130
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: AW904 | Temp: 78F | Dewpt: MF | Wind: 242@0MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "78"
-End:
-
-TimeRange: 2026-08-27T22:34:00Z 2026-08-27T22:39:00Z
+TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:39:00Z
 Object: 45.61030,-92.19130
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: AW904 | Temp: 78F | Dewpt: MF | Wind: 275@0MPH | SLP: Mmb"
@@ -143113,17 +143373,7 @@ Object: 45.50800,-91.46000
   Text: -20, 10, 1, "53"
 End:
 
-TimeRange: 2026-08-27T22:23:00Z 2026-08-27T22:38:00Z
-Object: 45.05367,-93.38333
-  Color: 255 255 255
-  Icon: 0,0,354,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G6618 | Temp: 81F | Dewpt: MF | Wind: 354@5MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "81"
-End:
-
-TimeRange: 2026-08-27T22:38:00Z 2026-08-27T22:43:00Z
+TimeRange: 2026-08-27T22:33:00Z 2026-08-27T22:43:00Z
 Object: 45.05367,-93.38333
   Color: 255 255 255
   Icon: 0,0,299,1,1
@@ -151095,15 +151345,7 @@ Object: 47.15550,-93.58533
   Text: -20, 10, 1, "58"
 End:
 
-TimeRange: 2026-08-27T22:22:00Z 2026-08-27T22:32:00Z
-Object: 45.02833,-92.79217
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G7024 | Temp: 84F | Dewpt: MF | Wind: 221@2MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "84"
-End:
-
-TimeRange: 2026-08-27T22:32:00Z 2026-08-27T22:37:00Z
+TimeRange: 2026-08-27T22:27:00Z 2026-08-27T22:37:00Z
 Object: 45.02833,-92.79217
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: CWOP | Station: G7024 | Temp: 83F | Dewpt: MF | Wind: 061@1MPH | SLP: Mmb"
@@ -157525,17 +157767,7 @@ Object: 45.18248,-93.82686
   Text: -20, -10, 1, "55"
 End:
 
-TimeRange: 2026-08-27T22:24:00Z 2026-08-27T22:34:00Z
-Object: 49.45400,-94.03733
-  Color: 255 255 255
-  Icon: 0,0,5,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Type: CWOP | Station: G7468 | Temp: 71F | Dewpt: MF | Wind: 005@3MPH | SLP: Mmb"
-  Color: 255 100 100
-  Text: -20, 10, 1, "71"
-End:
-
-TimeRange: 2026-08-27T22:34:00Z 2026-08-27T22:39:00Z
+TimeRange: 2026-08-27T22:29:00Z 2026-08-27T22:39:00Z
 Object: 49.45400,-94.03733
   Color: 255 255 255
   Icon: 0,0,21,1,1
