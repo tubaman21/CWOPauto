@@ -31,11 +31,11 @@ LOOKBACK_HOURS = 6
 # Stations in networks not listed here default to 25 NM
 NETWORK_THRESHOLDS = {
     "RAWS": 999,    # Always show high-value remote automated sites
-    "MnDOT": 50,    # Show state DOT sites at mid-zoom
-    "WisDOT": 50,
-    "DOT": 50,
-    "Mesonet": 40,
-    "CWOP": 25      # Hide dense personal weather stations until zoomed in
+    "MnDOT": 100,    # Show state DOT sites at mid-zoom
+    "WisDOT": 100,
+    "DOT": 100,
+    "Mesonet": 50,
+    "CWOP": 50      # Hide dense personal weather stations until zoomed in
 }
 
 # Network Processing Priority Order (Controls block rendering order)
