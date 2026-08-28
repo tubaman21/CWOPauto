@@ -17,8 +17,8 @@ except ImportError:
 OUTPUT_DIR = "placefiles"
 OUTPUT_FILE = "cwop_observations.txt"
 
-LAT_MIN, LAT_MAX = 45.0, 49.5
-LON_MIN, LON_MAX = -95.0, -89.0
+LAT_MIN, LAT_MAX = 43.0, 50.0
+LON_MIN, LON_MAX = -97.0, -87.0
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
