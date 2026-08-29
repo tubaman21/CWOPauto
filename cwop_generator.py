@@ -47,13 +47,10 @@ def normalize_pressure_to_mb(val):
         return None
     try:
         val = float(val)
-        # Case A: Value is in Pascals (e.g. 101325 or 98500)
         if val > 50000:
             return val / 100.0
-        # Case B: Value is in Inches of Mercury (e.g. 29.92 or 30.15)
         elif 20.0 <= val <= 33.0:
             return val * 33.8639
-        # Case C: Value is already in Millibars/hPa (e.g. 1013.25 or 985.4)
         elif 800.0 <= val <= 1100.0:
             return val
         else:
@@ -70,6 +67,18 @@ def sanitize_slp(pressure_mb):
         return code_str
     except Exception:
         return "M"
+
+def format_precip(precip_mm):
+    """Converts mm to inches and formats as .XX or X.XX. Returns None if 0 or missing."""
+    if precip_mm is None or math.isnan(precip_mm) or precip_mm < 0.254:  # Less than 0.01 inches
+        return None
+    try:
+        precip_in = precip_mm * 0.0393701
+        if precip_in < 1.0:
+            return f"{precip_in:.2f}".lstrip('0')  # Returns ".25" instead of "0.25" to save plot space
+        return f"{precip_in:.2f}"
+    except Exception:
+        return None
 
 def calculate_dewpoint_c(temp_c, rh_percent):
     if temp_c is None or rh_percent is None or rh_percent <= 0:
@@ -117,11 +126,10 @@ def main():
     end_time = datetime.now(timezone.utc)
     start_time = end_time - timedelta(hours=LOOKBACK_HOURS)
     
-    # varsoperator=OR ensures stations missing full sensor sets (like D8249) are NOT dropped
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure",
+        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum_one_hour,precip_accum_twenty_four_hour,precip_accum",
         "varsoperator": "OR",
         "start": start_time.strftime("%Y%m%d%H%M"),
         "end": end_time.strftime("%Y%m%d%H%M"),
@@ -222,12 +230,21 @@ def main():
             raw_alt = get_obs_val(observations, "altimeter", i, fallback)
             raw_stn = get_obs_val(observations, "pressure", i, fallback)
             
-            # Run unit normalization (handles Pa, inHg, and hPa/mb seamlessly)
             slp_mb = normalize_pressure_to_mb(raw_slp)
             if slp_mb is None:
                 slp_mb = normalize_pressure_to_mb(raw_alt)
             if slp_mb is None:
                 slp_mb = normalize_pressure_to_mb(raw_stn)
+
+            # --- PRECIPITATION EXTRACTION ---
+            raw_p1h = get_obs_val(observations, "precip_accum_one_hour", i, fallback)
+            if raw_p1h is None:
+                raw_p1h = get_obs_val(observations, "precip_accum", i, fallback)
+            
+            raw_p24h = get_obs_val(observations, "precip_accum_twenty_four_hour", i, fallback)
+
+            p1h_str = format_precip(raw_p1h)
+            p24h_str = format_precip(raw_p24h)
 
             sky_code = get_obs_val(observations, "cloud_layer_1_code", i, fallback)
 
@@ -251,6 +268,7 @@ def main():
             color_temp = "255 100 100"   # Light Red
             color_dew  = "100 255 100"   # Light Green
             color_slp  = "255 255 255"   # White
+            color_rain = "0 255 255"     # Cyan
 
             max_wind_mph = gust_mph if (gust_mph is not None) else speed_mph
 
@@ -268,7 +286,15 @@ def main():
             else:
                 wind_display = f"{wind_dir_display:03d}@{speed_mph}MPH"
 
-            hover_text = f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb"
+            # Hover Text construction with 1-hr and 24-hr rain totals
+            p1h_hover = f"{p1h_str}\"" if p1h_str else "0.00\""
+            p24h_hover = f"{p24h_str}\"" if p24h_str else "0.00\""
+            
+            hover_text = (
+                f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | "
+                f"Wind: {wind_display} | SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
+                f"Rain 1hr: {p1h_hover} | Rain 24hr: {p24h_hover}"
+            )
             
             station_lines.append(f"TimeRange: {start_range} {end_range}")
             station_lines.append(f"Object: {lat:.5f},{lon:.5f}")
@@ -296,6 +322,11 @@ def main():
             if df_display != "M":
                 station_lines.append(f"  Color: {color_dew}")
                 station_lines.append(f'  Text: -20, -10, 1, "{df_display}"')
+
+            # 1-Hour Rainfall: Bottom-Right (20, -10) - Hidden if 0.00
+            if p1h_str:
+                station_lines.append(f"  Color: {color_rain}")
+                station_lines.append(f'  Text: 20, -10, 1, "{p1h_str}"')
             
             station_lines.append("End:")
             station_lines.append("")
