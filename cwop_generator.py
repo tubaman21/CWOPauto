@@ -43,8 +43,8 @@ WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591"}
 
 # Manual coordinate overrides for relocated CWOP stations
 STATION_COORDINATE_OVERRIDES = {
-    "DW8249": (45.8812, -93.2921),  # Kanabec County APRS coordinates
-    "D8249":  (45.8812, -93.2921)
+    "DW8249": (46.212833, -93.379833),  # Aitkin County APRS position (East of Lake Mille Lacs)
+    "D8249":  (46.212833, -93.379833)
 }
 
 # ==========================================
