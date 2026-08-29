@@ -1,6 +1,6 @@
-Title: CWOP Surface Observations (2026-08-29 15:30:24 UTC)
+Title: CWOP Surface Observations (2026-08-29 15:30:57 UTC)
 ; GR2Analyst Time-Sourced Historical Loop Dataset
-; Generated dynamically: 2026-08-29 15:30:24 UTC
+; Generated dynamically: 2026-08-29 15:30:57 UTC
 Refresh: 5
 IconFile: 1, 32, 50, 22, 49, "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
 IconFile: 2, 15, 15, 8, 8, "https://raw.githubusercontent.com/ktrue/metar-placefile/master/cloudcover_new.png"
@@ -343744,12 +343744,24 @@ Object: 47.40000,-92.90000
   Text: -20, -10, 1, "61"
 End:
 
-TimeRange: 2026-08-29T15:01:00Z 2026-08-29T16:01:00Z
+TimeRange: 2026-08-29T15:01:00Z 2026-08-29T15:17:00Z
 Object: 47.40000,-92.90000
   Color: 255 255 255
   Icon: 0,0,163,1,1
   Color: 255 255 255
   Icon: 0,0,0,2,5, "Type: Mesonet | Station: NGB48 | Temp: 64F | Dewpt: 61F | Wind: 163@4MPH | SLP: 101600.0mb"
+  Color: 255 100 100
+  Text: -20, 10, 1, "64"
+  Color: 255 255 255
+  Text: 20, -10, 1, "000"
+  Color: 100 255 100
+  Text: -20, -10, 1, "61"
+End:
+
+TimeRange: 2026-08-29T15:17:00Z 2026-08-29T16:17:00Z
+Object: 47.40000,-92.90000
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Type: Mesonet | Station: NGB48 | Temp: 64F | Dewpt: 61F | Wind: 137@2MPH | SLP: 101600.0mb"
   Color: 255 100 100
   Text: -20, 10, 1, "64"
   Color: 255 255 255
