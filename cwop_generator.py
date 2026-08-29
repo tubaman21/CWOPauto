@@ -17,7 +17,6 @@ except ImportError:
 OUTPUT_DIR = "placefiles"
 OUTPUT_FILE = "cwop_observations.txt"
 
-# Expanded slightly to capture full county borders and edge stations
 LAT_MIN, LAT_MAX = 42.5, 50.5
 LON_MIN, LON_MAX = -97.5, -86.5
 
@@ -37,6 +36,9 @@ NETWORK_THRESHOLDS = {
 }
 
 NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
+
+# NWS Location Identifier (NLI) suffixes for regional hydrologic river/dam gages
+NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 
 # ==========================================
 # UTILITY HELPER FUNCTIONS
@@ -105,15 +107,20 @@ def get_sky_cover_icon(cloud_cov_str):
 
 def extract_first_valid(observations, var_prefixes, index):
     """
-    Scans all dynamic sensor sets (set_1, set_2, set_1d, etc.) for valid non-None data.
-    Skips over None entries until a valid numeric reading is found across any set.
+    Exhaustively checks every sensor key matching var_prefixes.
+    Returns the first valid non-null, non-NaN numeric value found across all sets.
     """
     for key, values in observations.items():
-        if any(key.startswith(prefix) for prefix in var_prefixes):
-            if values and index < len(values):
+        if any(prefix in key for prefix in var_prefixes):
+            if isinstance(values, list) and index < len(values):
                 val = values[index]
-                if val is not None and not (isinstance(val, float) and math.isnan(val)):
-                    return val
+                if val is not None:
+                    try:
+                        fval = float(val)
+                        if not math.isnan(fval):
+                            return fval
+                    except (ValueError, TypeError):
+                        continue
     return None
 
 def get_best_slp(observations, index):
@@ -209,14 +216,15 @@ def main():
                 or "CWOP" in mnet_name
                 or stid.startswith("DW") 
                 or stid.startswith("CW")
+                or stid.startswith("EW")
                 or (len(stid) == 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'] and stid[1:].isdigit())
             ):
                 mnet = "CWOP"
             elif mnet_id == "2" or "RAWS" in mnet_short:
                 mnet = "RAWS"
-            elif mnet_id == "66" or "MNDOT" in mnet_short or "MINNESOTA DOT" in mnet_name:
+            elif mnet_id in ["66", "172"] or "MNDOT" in mnet_short or "MN_DOT" in mnet_short or "MINNESOTA" in mnet_name or stid.startswith("MNDOT"):
                 mnet = "MnDOT"
-            elif mnet_id == "67" or "WISDOT" in mnet_short or "WISCONSIN DOT" in mnet_name or stid.startswith("WIDOT"):
+            elif mnet_id in ["67", "173"] or "WISDOT" in mnet_short or "WI_DOT" in mnet_short or "WISCONSIN" in mnet_name or stid.startswith("WIDOT"):
                 mnet = "WisDOT"
             elif "DOT" in mnet_short or "DOT" in mnet_name:
                 mnet = "DOT"
@@ -226,23 +234,22 @@ def main():
                 mnet = "Mesonet"
 
             # --- FILTERS ---
-            if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5"]:
-                continue
-
-            # Exclude official ASOS / AWOS Airport Stations (MNET 1 = NWS/FAA)
+            # 1. Official ASOS/AWOS Airport Stations
             if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
                 continue
 
-            # Exclude HADS, USGS, USACE, and River/Dam Hydrologic Gages
-            if (
-                mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO"] 
-                or mnet_id in ["128", "130", "208"] 
-                or any(kw in mnet_name for kw in ["HADS", "RIVER", "DAM", "GAGE", "CREEK", "STREAM"])
-                or stid.startswith("HADS")
-            ):
-                continue
+            # 2. Strict HADS, USGS, USACE, and River/Dam Hydrologic Gages
+            if mnet != "CWOP":
+                if (
+                    mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"] 
+                    or mnet_id in ["128", "130", "208", "180"] 
+                    or any(kw in mnet_name for kw in ["HADS", "RIVER", "DAM", "GAGE", "CREEK", "STREAM", "LAKE", "POND"])
+                    or stid.endswith(NLI_HYDRO_SUFFIXES)
+                    or stid.startswith("HADS")
+                ):
+                    continue
 
-            # Exclude NDBC buoys and 5-digit pure numeric WMO stations
+            # 3. Marine Buoys and 5-digit WMO numeric stations
             if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                 continue
             # ---------------------------------
