@@ -268,14 +268,13 @@ def main():
         if station_lines:
             network_blocks.setdefault(mnet, []).extend(station_lines)
 
-  # --- COMPILE FINAL PLACEFILE ---
+    # --- COMPILE FINAL PLACEFILE ---
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
         "; GR2Analyst Time-Sourced Historical Loop Dataset",
         f"; Generated dynamically: {run_time}",
         "Refresh: 5",
-        # Scaled to 32x50 with proportional hotspot at (22, 49)
-        f'IconFile: 1, 32, 50, 22, 49, "{WIND_BARB_ICON_URL}"',
+        f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
         ""
