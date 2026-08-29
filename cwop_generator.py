@@ -39,7 +39,6 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 
-# Whitelist both native callsigns and Synoptic's internal short IDs
 WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591"}
 
 # ==========================================
@@ -109,7 +108,7 @@ def get_sky_cover_icon(cloud_cov_str):
 
 def extract_first_valid(observations, var_prefixes, index):
     """
-    Scans EVERY key matching var_prefixes across all sensor sets.
+    Scans every sensor key matching var_prefixes across all sensor sets.
     Iterates until it finds the FIRST valid non-null, non-NaN numeric reading at `index`.
     """
     for key, values in observations.items():
@@ -207,7 +206,7 @@ def main():
         for station in data["STATION"]:
             raw_stid = station.get("STID", "UNKNOWN").upper()
 
-            # Canonical alias translation for CWOP stations in output
+            # Canonical alias translation for CWOP stations
             if raw_stid == "D8249":
                 stid = "DW8249"
             elif raw_stid == "E9591":
@@ -234,9 +233,9 @@ def main():
                 mnet = "CWOP"
             elif mnet_id == "2" or "RAWS" in mnet_short:
                 mnet = "RAWS"
-            elif mnet_id in ["66", "172"] or "MNDOT" in mnet_short or "MN_DOT" in mnet_short or "MINNESOTA" in mnet_name or stid.startswith("MNDOT"):
+            elif mnet_id in ["66", "172"] or "MNDOT" in mnet_short or "MN_DOT" in mnet_short or "MNDOT" in mnet_name or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
                 mnet = "MnDOT"
-            elif mnet_id in ["67", "173"] or "WISDOT" in mnet_short or "WI_DOT" in mnet_short or "WISCONSIN" in mnet_name or stid.startswith("WIDOT"):
+            elif mnet_id in ["67", "173"] or "WISDOT" in mnet_short or "WI_DOT" in mnet_short or "WISCONSIN DOT" in mnet_name or stid.startswith("WIDOT"):
                 mnet = "WisDOT"
             elif "DOT" in mnet_short or "DOT" in mnet_name:
                 mnet = "DOT"
