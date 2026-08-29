@@ -46,10 +46,13 @@ def normalize_pressure_to_mb(val):
         return None
     try:
         val = float(val)
+        # Case A: Value in Pascals (e.g., 101325 or 98500)
         if val > 50000:
             return val / 100.0
+        # Case B: Value in Inches of Mercury (e.g., 29.92)
         elif 20.0 <= val <= 33.0:
             return val * 33.8639
+        # Case C: Value in Millibars/hPa (e.g., 1013.25)
         elif 800.0 <= val <= 1100.0:
             return val
         else:
@@ -67,18 +70,30 @@ def sanitize_slp(pressure_mb):
     except Exception:
         return "M"
 
-def format_precip(precip_mm):
-    if precip_mm is None or math.isnan(precip_mm):
-        return None
+def normalize_precip_in(val):
+    if val is None or math.isnan(val) or val < 0:
+        return 0.0
     try:
-        precip_in = precip_mm * 0.0393701
-        if precip_in < 0.005:
-            return None
-        if precip_in < 1.0:
-            return f"{precip_in:.2f}".lstrip('0')
-        return f"{precip_in:.2f}"
+        val = float(val)
+        if val >= 50.0:
+            val_in = val / 100.0
+        elif val >= 0.254:
+            val_in = val * 0.0393701
+        else:
+            val_in = val
+            
+        if val_in > 6.0:
+            return 0.0
+        return val_in
     except Exception:
+        return 0.0
+
+def format_precip_str(precip_in):
+    if precip_in < 0.01:
         return None
+    if precip_in < 1.0:
+        return f"{precip_in:.2f}".lstrip('0')
+    return f"{precip_in:.2f}"
 
 def calculate_dewpoint_c(temp_c, rh_percent):
     if temp_c is None or rh_percent is None or rh_percent <= 0:
@@ -103,6 +118,14 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
 def get_obs_val(observations, var_base, index, fallback_list):
+    """Directly checks primary and secondary set keys for specific variable name."""
+    for suffix in ["set_1", "set_2", "set_1d", "set_3"]:
+        key = f"{var_base}_{suffix}"
+        if key in observations and observations[key] and index < len(observations[key]):
+            val = observations[key][index]
+            if val is not None:
+                return val
+    # Generic prefix search if specific keys fail
     for key in observations.keys():
         if key.startswith(var_base) and observations[key] and index < len(observations[key]):
             val = observations[key][index]
@@ -123,7 +146,6 @@ def main():
     
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
-    # Corrected variable name: precip_accum_24_hour
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
@@ -204,6 +226,8 @@ def main():
             observations = station.get("OBSERVATIONS", {})
             timestamps = observations.get("date_time", [])
             
+            precip_running_total = 0.0
+            
             station_lines = []
             for i, ts_str in enumerate(timestamps):
                 try:
@@ -234,6 +258,7 @@ def main():
                 gust_ms = get_obs_val(observations, "wind_gust", i, fallback)
                 wind_dir = get_obs_val(observations, "wind_direction", i, fallback)
                 
+                # --- PRESSURE EXTRACTION FALLBACK CASCADE ---
                 raw_slp = get_obs_val(observations, "sea_level_pressure", i, fallback)
                 raw_alt = get_obs_val(observations, "altimeter", i, fallback)
                 raw_stn = get_obs_val(observations, "pressure", i, fallback)
@@ -244,15 +269,22 @@ def main():
                 if slp_mb is None:
                     slp_mb = normalize_pressure_to_mb(raw_stn)
 
-                # --- PRECIPITATION EXTRACTION ---
+                # --- PRECIPITATION EXTRACTION & NORMALIZATION ---
                 raw_p1h = get_obs_val(observations, "precip_accum_one_hour", i, fallback)
                 if raw_p1h is None:
                     raw_p1h = get_obs_val(observations, "precip_accum", i, fallback)
                 
                 raw_p24h = get_obs_val(observations, "precip_accum_24_hour", i, fallback)
 
-                p1h_str = format_precip(raw_p1h)
-                p24h_str = format_precip(raw_p24h)
+                p1h_in = normalize_precip_in(raw_p1h)
+                p24h_in = normalize_precip_in(raw_p24h)
+
+                precip_running_total += p1h_in
+                if p24h_in == 0.0 and precip_running_total > 0.0:
+                    p24h_in = precip_running_total
+
+                p1h_str = format_precip_str(p1h_in)
+                p24h_str = format_precip_str(p24h_in)
 
                 if p1h_str:
                     rain_counter += 1
