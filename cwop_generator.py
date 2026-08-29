@@ -21,7 +21,7 @@ LAT_MIN, LAT_MAX = 43.0, 50.0
 LON_MIN, LON_MAX = -97.0, -87.0
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
-WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
+WIND_BARB_ICON_URL = "https://raw.githubgithub.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
 SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/cloudcover_new.png"
 
 # Set lookback window in hours (e.g., 6 hours)
@@ -96,11 +96,11 @@ def main():
     end_time = datetime.now(timezone.utc)
     start_time = end_time - timedelta(hours=LOOKBACK_HOURS)
     
-    # Request relative_humidity alongside dew_point_temperature for RAWS calculation fallbacks
+    # Request altimeter and pressure alongside sea_level_pressure for CWOP fallbacks
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,cloud_layer_1_code",
+        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,cloud_layer_1_code",
         "start": start_time.strftime("%Y%m%d%H%M"),
         "end": end_time.strftime("%Y%m%d%H%M"),
         "obtimezone": "UTC",
@@ -195,7 +195,15 @@ def main():
             speed_ms = (observations.get("wind_speed_set_1") or fallback)[i]
             gust_ms = (observations.get("wind_gust_set_1") or fallback)[i]
             wind_dir = (observations.get("wind_direction_set_1") or fallback)[i]
+            
             slp_mb = (observations.get("sea_level_pressure_set_1") or fallback)[i]
+            alt_mb = (observations.get("altimeter_set_1") or fallback)[i]
+            stn_p = (observations.get("pressure_set_1") or fallback)[i]
+            
+            # Fallback cascade: CWOP stations report Altimeter or Station Pressure instead of calculated SLP
+            if slp_mb is None:
+                slp_mb = alt_mb if alt_mb is not None else stn_p
+
             sky_code = (observations.get("cloud_layer_1_code_set_1") or observations.get("cloud_layer_1_code_value_1") or fallback)[i]
 
             # Fallback: Dynamically calculate dewpoint if RH & Temp are available but direct Td is missing
