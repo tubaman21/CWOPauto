@@ -21,7 +21,7 @@ LAT_MIN, LAT_MAX = 43.0, 50.0
 LON_MIN, LON_MAX = -97.0, -87.0
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
-WIND_BARB_ICON_URL = "https://raw.githubgithub.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
+WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
 SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/cloudcover_new.png"
 
 # Set lookback window in hours (e.g., 6 hours)
@@ -143,7 +143,8 @@ def main():
         elif mnet_short and mnet_short != "UNKNOWN":
             mnet = mnet_short
         else:
-            if (len(stid) >= 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D'] and stid[1:].isalnum()) or stid.startswith("CW"):
+            # Captures CWOP IDs starting with standard prefixes (C, E, F, G, W, A, D, DW, CW)
+            if (len(stid) >= 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D']) or stid.startswith("CW") or stid.startswith("DW"):
                 mnet = "CWOP"
             else:
                 mnet = "Mesonet"
@@ -155,6 +156,7 @@ def main():
         if len(stid) in [3, 4] and stid.isalpha():
             continue
             
+        # Only exclude NDBC marine buoys (strictly 5 digits or NDBC prefix)
         if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
             continue
         # ---------------
