@@ -46,13 +46,10 @@ def normalize_pressure_to_mb(val):
         return None
     try:
         val = float(val)
-        # Pascals (e.g. 101325)
         if val > 50000:
             val_mb = val / 100.0
-        # Inches of Mercury (e.g. 29.92)
         elif 20.0 <= val <= 33.0:
             val_mb = val * 33.8639
-        # Millibars / hPa (e.g. 1013.25)
         elif 800.0 <= val <= 1100.0:
             val_mb = val
         else:
@@ -106,10 +103,7 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
 def extract_first_valid(observations, var_prefixes, index):
-    """
-    Scans all dynamic sensor sets (set_1, set_2, set_1d, etc.) for valid non-None data.
-    Directly returns the first valid numeric reading found.
-    """
+    """Scans all dynamic sensor sets (set_1, set_2, set_1d, etc.) for valid non-None data."""
     for key, values in observations.items():
         if any(key.startswith(prefix) for prefix in var_prefixes):
             if values and index < len(values):
@@ -203,14 +197,38 @@ def main():
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
-            
+
+            # --- FILTERS (EVALUATED FIRST) ---
+            if (
+                mnet_short in ["HADS", "USGS", "NWS-HYDRO"] 
+                or mnet_id in ["128", "130", "208"] 
+                or "HADS" in mnet_name 
+                or "RIVER" in mnet_name
+                or stid.startswith("HADS")
+            ):
+                continue
+
+            # Catch NWS 5-character Hydrologic River Gages (e.g., WILM5, PKGM5, SLVM5, DISW3)
+            if len(stid) == 5 and stid[:3].isalpha() and stid[3].isdigit():
+                continue
+
+            # Exclude standard 3 & 4-letter alphabetic ASOS sites
+            if len(stid) in [3, 4] and stid.isalpha() and not stid.startswith("D"):
+                continue
+                
+            # Exclude NDBC buoys and 5-digit pure numeric WMO stations
+            if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
+                continue
+            # ---------------------------------
+
+            # --- NETWORK CLASSIFICATION ---
             if mnet_id == "153" or "CWOP" in mnet_short or "CWOP" in mnet_name:
                 mnet = "CWOP"
             elif mnet_id == "2" or "RAWS" in mnet_short:
                 mnet = "RAWS"
-            elif mnet_id == "66" or "MNDOT" in mnet_short or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
+            elif mnet_id == "66" or "MNDOT" in mnet_short or "MINNESOTA DOT" in mnet_name:
                 mnet = "MnDOT"
-            elif mnet_id == "67" or "WISDOT" in mnet_short or "WISCONSIN DOT" in mnet_name or stid.startswith("WI"):
+            elif mnet_id == "67" or "WISDOT" in mnet_short or "WISCONSIN DOT" in mnet_name or stid.startswith("WIDOT"):
                 mnet = "WisDOT"
             elif "DOT" in mnet_short or "DOT" in mnet_name:
                 mnet = "DOT"
@@ -221,21 +239,7 @@ def main():
                     mnet = "CWOP"
                 else:
                     mnet = "Mesonet"
-            
-            # --- FILTERS ---
-            if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5"]:
-                continue
-
-            # Strict HADS Network Exclusions
-            if mnet_short == "HADS" or mnet_id in ["128", "208"] or "HADS" in mnet_name or stid.startswith("HADS"):
-                continue
-
-            if len(stid) in [3, 4] and stid.isalpha() and not stid.startswith("D"):
-                continue
-                
-            if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
-                continue
-            # ---------------
+            # ------------------------------
             
             try:
                 lat = float(station.get("LATITUDE"))
@@ -409,8 +413,8 @@ def main():
     # --- COMPILE FINAL PLACEFILE ---
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
-        "; Created by Bryan J. Howell & Gemini AI",
-        "; Script Last Updated: August 29, 2026",
+        "; Created by [Your Name] & Gemini AI",
+        "; Script Version Updated: August 29, 2026",
         "; GR2Analyst Time-Sourced Historical Loop Dataset",
         f"; Generated dynamically: {run_time}",
         "Refresh: 5",
