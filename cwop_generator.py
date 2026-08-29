@@ -37,7 +37,6 @@ NETWORK_THRESHOLDS = {
 
 NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 
-# NWS Location Identifier (NLI) suffixes for regional hydrologic river/dam gages
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 
 # ==========================================
@@ -201,7 +200,8 @@ def main():
     network_blocks = {}
     rain_counter = 0
 
-   for station in data["STATION"]:
+    if "STATION" in data and data["STATION"]:
+        for station in data["STATION"]:
             stid = station.get("STID", "UNKNOWN").upper()
             
             # --- DIAGNOSTIC PRINT FOR DW8249 ---
@@ -211,7 +211,7 @@ def main():
                 obs_keys = list(station.get("OBSERVATIONS", {}).keys())
                 print(f"[DEBUG 8249] Available Observation Keys: {obs_keys}")
             # -----------------------------------
-            
+
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
