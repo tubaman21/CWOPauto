@@ -103,7 +103,10 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
 def extract_first_valid(observations, var_prefixes, index):
-    """Scans all dynamic sensor sets (set_1, set_2, set_1d, etc.) for valid non-None data."""
+    """
+    Scans all dynamic sensor sets (set_1, set_2, set_1d, etc.) for valid non-None data.
+    Skips over None entries until a valid numeric reading is found across any set.
+    """
     for key, values in observations.items():
         if any(key.startswith(prefix) for prefix in var_prefixes):
             if values and index < len(values):
@@ -217,7 +220,7 @@ def main():
                 else:
                     mnet = "Mesonet"
 
-            # --- FILTERS (PROTECT CWOP STATIONS) ---
+            # --- FILTERS (CWOP STATIONS PROTECTED) ---
             if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5"]:
                 continue
 
@@ -243,26 +246,6 @@ def main():
             if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                 continue
             # ---------------------------------
-
-            # --- NETWORK CLASSIFICATION ---
-            if mnet_id == "153" or "CWOP" in mnet_short or "CWOP" in mnet_name:
-                mnet = "CWOP"
-            elif mnet_id == "2" or "RAWS" in mnet_short:
-                mnet = "RAWS"
-            elif mnet_id == "66" or "MNDOT" in mnet_short or "MINNESOTA DOT" in mnet_name:
-                mnet = "MnDOT"
-            elif mnet_id == "67" or "WISDOT" in mnet_short or "WISCONSIN DOT" in mnet_name or stid.startswith("WIDOT"):
-                mnet = "WisDOT"
-            elif "DOT" in mnet_short or "DOT" in mnet_name:
-                mnet = "DOT"
-            elif mnet_short and mnet_short != "UNKNOWN":
-                mnet = mnet_short
-            else:
-                if (len(stid) >= 4 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K']) or stid.startswith("CW") or stid.startswith("DW"):
-                    mnet = "CWOP"
-                else:
-                    mnet = "Mesonet"
-            # ------------------------------
             
             try:
                 lat = float(station.get("LATITUDE"))
