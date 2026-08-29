@@ -123,11 +123,11 @@ def main():
     
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
-    # Use 'recent' (in minutes) for robust data retrieval
+    # Corrected variable name: precip_accum_24_hour
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour,precip_accum_twenty_four_hour",
+        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
         "varsoperator": "OR",
         "recent": LOOKBACK_HOURS * 60,
         "obtimezone": "UTC",
@@ -137,7 +137,6 @@ def main():
     
     try:
         response = requests.get(SYNOPTIC_API_URL, params=api_params, timeout=25)
-        # Handle non-200 HTTP errors gracefully
         if response.status_code != 200:
             print(f"HTTP Error {response.status_code}: {response.text}")
             sys.exit(1)
@@ -147,7 +146,6 @@ def main():
         print(f"Network processing exception during API fetch: {e}")
         sys.exit(1)
 
-    # Detailed API Response Verification
     response_code = data.get("SUMMARY", {}).get("RESPONSE_CODE") or data.get("RESPONSE_CODE")
     if response_code != 1:
         error_msg = data.get("SUMMARY", {}).get("RESPONSE_MESSAGE") or data.get("RESPONSE_MESSAGE") or response.text
@@ -251,7 +249,7 @@ def main():
                 if raw_p1h is None:
                     raw_p1h = get_obs_val(observations, "precip_accum", i, fallback)
                 
-                raw_p24h = get_obs_val(observations, "precip_accum_twenty_four_hour", i, fallback)
+                raw_p24h = get_obs_val(observations, "precip_accum_24_hour", i, fallback)
 
                 p1h_str = format_precip(raw_p1h)
                 p24h_str = format_precip(raw_p24h)
