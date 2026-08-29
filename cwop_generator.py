@@ -74,11 +74,10 @@ def format_precip(precip_mm):
         return None
     try:
         precip_in = precip_mm * 0.0393701
-        # Check against 0.005 in to safely handle floating-point precision
         if precip_in < 0.005:
             return None
         if precip_in < 1.0:
-            return f"{precip_in:.2f}".lstrip('0')  # Returns ".25" instead of "0.25"
+            return f"{precip_in:.2f}".lstrip('0')
         return f"{precip_in:.2f}"
     except Exception:
         return None
@@ -154,7 +153,7 @@ def main():
         return
 
     network_blocks = {}
-    rain_counter = 0  # Debug counter
+    rain_counter = 0
 
     for station in data["STATION"]:
         stid = station.get("STID", "UNKNOWN").upper()
@@ -221,6 +220,9 @@ def main():
                 
                 start_range = window_start.strftime("%Y-%m-%dT%H:%M:%SZ")
                 end_range = window_end.strftime("%Y-%m-%dT%H:%M:%SZ")
+                
+                # Format string for display in hover text
+                ob_time_str = dt_ob.strftime("%Y-%m-%d %H:%M UTC")
             except Exception:
                 continue
 
@@ -307,9 +309,11 @@ def main():
             p1h_hover = f"{p1h_str}\"" if p1h_str else "0.00\""
             p24h_hover = f"{p24h_str}\"" if p24h_str else "0.00\""
             
+            # Integrated observation timestamp into hover text
             hover_text = (
-                f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | "
-                f"Wind: {wind_display} | SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
+                f"Obs Time: {ob_time_str} | Station: {stid} | Type: {mnet} | "
+                f"Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | "
+                f"SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
                 f"Rain 1hr: {p1h_hover} | Rain 24hr: {p24h_hover}"
             )
             
