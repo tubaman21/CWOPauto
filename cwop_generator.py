@@ -148,10 +148,11 @@ def main():
     
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
+    # Corrected variable list accepted by Synoptic API
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_1,precip_accum_24_hour",
+        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
         "varsoperator": "OR",
         "units": "english",
         "recent": LOOKBACK_HOURS * 60,
@@ -261,8 +262,8 @@ def main():
                 slp_mb = get_best_slp(observations, i)
 
                 # --- RAINFALL EXTRACTION ---
-                p1h_in = extract_first_valid(observations, ["precip_accum_1", "precip_accum_one_hour"], i)
-                p24h_in = extract_first_valid(observations, ["precip_accum_24_hour", "precip_accum"], i)
+                p1h_in = extract_first_valid(observations, ["precip_accum_one_hour", "precip_accum_1_set"], i)
+                p24h_in = extract_first_valid(observations, ["precip_accum_24_hour", "precip_accum_24", "precip_accum"], i)
 
                 p1h_str = format_precip_str(p1h_in)
                 p24h_str = format_precip_str(p24h_in)
