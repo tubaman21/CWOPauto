@@ -30,7 +30,7 @@ jobs:
         env:
           SYNOPTIC_API_TOKEN: ${{ secrets.SYNOPTIC_API_TOKEN }}
         run: |
-          python cwop_placefile.py
+          python cwop_generator.py
 
       - name: Commit and Push Updated Placefile
         run: |
