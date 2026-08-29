@@ -108,16 +108,16 @@ def get_sky_cover_icon(cloud_cov_str):
 def extract_first_valid(observations, var_prefixes, index):
     """
     Scans all dynamic sensor sets (set_1, set_2, set_1d, etc.) for valid non-None data.
-    Collects all matching set values at 'index' and returns the first non-null reading.
+    Only appends non-null values so valid readings in secondary sets aren't blocked by empty primary sets.
     """
-    valid_vals = []
     for key, values in observations.items():
         if any(key.startswith(prefix) for prefix in var_prefixes):
             if values and index < len(values):
                 val = values[index]
+                # Strictly ignore None and NaN values
                 if val is not None and not (isinstance(val, float) and math.isnan(val)):
-                    valid_vals.append(val)
-    return valid_vals[0] if valid_vals else None
+                    return val
+    return None
 
 def get_best_slp(observations, index):
     """Finds Sea Level Pressure, Altimeter, or Station Pressure across any sensor set."""
