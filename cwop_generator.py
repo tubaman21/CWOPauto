@@ -39,6 +39,9 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 
+# Stations to explicitly protect from ANY filter logic
+WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591"}
+
 # ==========================================
 # UTILITY HELPER FUNCTIONS
 # ==========================================
@@ -106,25 +109,20 @@ def get_sky_cover_icon(cloud_cov_str):
 
 def extract_first_valid(observations, var_prefixes, index):
     """
-    Exhaustively scans all observation keys in the station payload.
-    Checks set_1, set_1d, set_2, etc., returning the first valid float at `index`.
+    Scans every sensor key matching var_prefixes.
+    Skips over None/NaN entries and returns the FIRST valid numeric value found across ANY set.
     """
-    matching_keys = [k for k in observations.keys() if any(prefix in k for prefix in var_prefixes)]
-    
-    # Sort keys so primary set_1 is evaluated before derived set_1d/set_2
-    matching_keys.sort(key=lambda x: (0 if '_set_1' in x and not x.endswith('d') else (1 if 'set_1d' in x else 2)))
-
-    for key in matching_keys:
-        values = observations.get(key)
-        if isinstance(values, list) and index < len(values):
-            val = values[index]
-            if val is not None:
-                try:
-                    fval = float(val)
-                    if not math.isnan(fval):
-                        return fval
-                except (ValueError, TypeError):
-                    continue
+    for key, values in observations.items():
+        if any(prefix in key for prefix in var_prefixes):
+            if isinstance(values, list) and index < len(values):
+                val = values[index]
+                if val is not None:
+                    try:
+                        fval = float(val)
+                        if not math.isnan(fval):
+                            return fval
+                    except (ValueError, TypeError):
+                        continue
     return None
 
 def get_best_slp(observations, index):
@@ -212,6 +210,8 @@ def main():
             # Canonical alias translation for CWOP stations
             if stid == "D8249":
                 stid = "DW8249"
+            elif stid == "E9591":
+                stid = "EW9591"
 
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
@@ -219,7 +219,8 @@ def main():
 
             # --- NETWORK CLASSIFICATION ---
             if (
-                mnet_id == "153" 
+                stid in WHITELIST_STATIONS
+                or mnet_id == "153" 
                 or "CWOP" in mnet_short 
                 or "CWOP" in mnet_name
                 or stid.startswith("DW") 
@@ -241,25 +242,30 @@ def main():
             else:
                 mnet = "Mesonet"
 
-            # --- FILTERS ---
-            # 1. Official ASOS/AWOS Airport Stations
-            if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
-                continue
-
-            # 2. Strict HADS, USGS, USACE, and River/Dam Hydrologic Gages
-            if mnet != "CWOP":
-                if (
-                    mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"] 
-                    or mnet_id in ["128", "130", "208", "180"] 
-                    or any(kw in mnet_name for kw in ["HADS", "RIVER", "DAM", "GAGE", "CREEK", "STREAM", "LAKE", "POND"])
-                    or stid.endswith(NLI_HYDRO_SUFFIXES)
-                    or stid.startswith("HADS")
-                ):
+            # --- FILTERS (BYPASS IF WHITELISTED) ---
+            if stid not in WHITELIST_STATIONS:
+                # 1. Manual Exclusions
+                if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5"]:
                     continue
 
-            # 3. Marine Buoys and 5-digit WMO numeric stations
-            if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
-                continue
+                # 2. Official ASOS/AWOS Airport Stations
+                if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
+                    continue
+
+                # 3. Strict HADS, USGS, USACE, and River/Dam Hydrologic Gages
+                if mnet != "CWOP":
+                    if (
+                        mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"] 
+                        or mnet_id in ["128", "130", "208", "180"] 
+                        or any(kw in mnet_name for kw in ["HADS", "RIVER", "DAM", "GAGE", "CREEK", "STREAM", "LAKE", "POND"])
+                        or stid.endswith(NLI_HYDRO_SUFFIXES)
+                        or stid.startswith("HADS")
+                    ):
+                        continue
+
+                # 4. Marine Buoys and 5-digit WMO numeric stations
+                if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
+                    continue
             # ---------------------------------
             
             try:
