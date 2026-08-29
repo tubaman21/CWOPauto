@@ -28,17 +28,16 @@ SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/ma
 LOOKBACK_HOURS = 6
 
 # Network Threshold Hierarchy (Range in Nautical Miles)
-# Stations in networks not listed here default to 60 NM
 NETWORK_THRESHOLDS = {
-    "RAWS": 999,    # Always show high-value remote automated sites
-    "MnDOT": 100,   # Show state DOT sites far zoomed out
+    "RAWS": 999,
+    "MnDOT": 100,
     "WisDOT": 100,
     "DOT": 100,
     "Mesonet": 80,
-    "CWOP": 60      # Visibility when zoomed out
+    "CWOP": 60
 }
 
-# Network Processing Priority Order (Controls block rendering order)
+# Network Processing Priority Order
 NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 
 # ==========================================
@@ -80,6 +79,15 @@ def get_wind_barb_index(speed_knots, direction_deg):
 def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
+def get_obs_val(observations, var_base, index, fallback_list):
+    """Helper to check set_1, set_2, or set_1d dynamically to catch all sensor streams."""
+    for key in [f"{var_base}_set_1", f"{var_base}_set_2", f"{var_base}_set_1d"]:
+        if key in observations and observations[key] and index < len(observations[key]):
+            val = observations[key][index]
+            if val is not None:
+                return val
+    return fallback_list[index]
+
 # ==========================================
 # MAIN IMPLEMENTATION LOGIC
 # ==========================================
@@ -96,7 +104,6 @@ def main():
     end_time = datetime.now(timezone.utc)
     start_time = end_time - timedelta(hours=LOOKBACK_HOURS)
     
-    # Request altimeter and pressure alongside sea_level_pressure for CWOP fallbacks
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
@@ -120,7 +127,6 @@ def main():
         print("Warning: Network returned successfully but no matching active stations found.")
         return
 
-    # Map to group generated placefile lines by network category
     network_blocks = {}
 
     for station in data["STATION"]:
@@ -143,7 +149,6 @@ def main():
         elif mnet_short and mnet_short != "UNKNOWN":
             mnet = mnet_short
         else:
-            # Captures CWOP IDs starting with standard prefixes (C, E, F, G, W, A, D, DW, CW)
             if (len(stid) >= 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D']) or stid.startswith("CW") or stid.startswith("DW"):
                 mnet = "CWOP"
             else:
@@ -156,7 +161,6 @@ def main():
         if len(stid) in [3, 4] and stid.isalpha():
             continue
             
-        # Only exclude NDBC marine buoys (strictly 5 digits or NDBC prefix)
         if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
             continue
         # ---------------
@@ -191,24 +195,28 @@ def main():
                 continue
 
             fallback = [None] * len(timestamps)
-            temp_c = (observations.get("air_temp_set_1") or fallback)[i]
-            dew_c = (observations.get("dew_point_temperature_set_1") or fallback)[i]
-            rh_pct = (observations.get("relative_humidity_set_1") or fallback)[i]
-            speed_ms = (observations.get("wind_speed_set_1") or fallback)[i]
-            gust_ms = (observations.get("wind_gust_set_1") or fallback)[i]
-            wind_dir = (observations.get("wind_direction_set_1") or fallback)[i]
             
-            slp_mb = (observations.get("sea_level_pressure_set_1") or fallback)[i]
-            alt_mb = (observations.get("altimeter_set_1") or fallback)[i]
-            stn_p = (observations.get("pressure_set_1") or fallback)[i]
+            temp_c = get_obs_val(observations, "air_temp", i, fallback)
+            dew_c = get_obs_val(observations, "dew_point_temperature", i, fallback)
+            rh_pct = get_obs_val(observations, "relative_humidity", i, fallback)
+            speed_ms = get_obs_val(observations, "wind_speed", i, fallback)
+            gust_ms = get_obs_val(observations, "wind_gust", i, fallback)
+            wind_dir = get_obs_val(observations, "wind_direction", i, fallback)
             
-            # Fallback cascade: CWOP stations report Altimeter or Station Pressure instead of calculated SLP
+            slp_mb = get_obs_val(observations, "sea_level_pressure", i, fallback)
+            alt_in = get_obs_val(observations, "altimeter", i, fallback)
+            stn_p = get_obs_val(observations, "pressure", i, fallback)
+            
+            # Unit conversion & pressure fallback logic:
+            # Synoptic returns altimeter in inches of Mercury (inHg). Convert to mb/hPa (1 inHg = 33.8639 mb).
             if slp_mb is None:
-                slp_mb = alt_mb if alt_mb is not None else stn_p
+                if alt_in is not None:
+                    slp_mb = alt_in * 33.8639 if alt_in < 100 else alt_in
+                elif stn_p is not None:
+                    slp_mb = stn_p * 33.8639 if stn_p < 100 else stn_p
 
-            sky_code = (observations.get("cloud_layer_1_code_set_1") or observations.get("cloud_layer_1_code_value_1") or fallback)[i]
+            sky_code = get_obs_val(observations, "cloud_layer_1_code", i, fallback)
 
-            # Fallback: Dynamically calculate dewpoint if RH & Temp are available but direct Td is missing
             if dew_c is None and temp_c is not None and rh_pct is not None:
                 dew_c = calculate_dewpoint_c(temp_c, rh_pct)
 
@@ -246,7 +254,7 @@ def main():
             else:
                 wind_display = f"{wind_dir_display:03d}@{speed_mph}MPH"
 
-            hover_text = f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | SLP: {slp_mb or 'M'}mb"
+            hover_text = f"Type: {mnet} | Station: {stid} | Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb"
             
             station_lines.append(f"TimeRange: {start_range} {end_range}")
             station_lines.append(f"Object: {lat:.5f},{lon:.5f}")
@@ -260,14 +268,17 @@ def main():
             station_lines.append("  Color: 255 255 255")
             station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
             
+            # Temperature (Top Left)
             if tf_display != "M":
                 station_lines.append(f"  Color: {color_temp}")
                 station_lines.append(f'  Text: -20, 10, 1, "{tf_display}"')
             
+            # Pressure / SLP (Top Right)
             if slp_str != "M":
                 station_lines.append(f"  Color: {color_slp}")
-                station_lines.append(f'  Text: 20, -10, 1, "{slp_str}"')
+                station_lines.append(f'  Text: 20, 10, 1, "{slp_str}"')
                 
+            # Dew Point (Bottom Left)
             if df_display != "M":
                 station_lines.append(f"  Color: {color_dew}")
                 station_lines.append(f'  Text: -20, -10, 1, "{df_display}"')
@@ -292,7 +303,6 @@ def main():
 
     body_lines = []
     
-    # Process ordered network groups first
     processed_nets = set()
     for net in NETWORK_ORDER:
         if net in network_blocks:
@@ -302,7 +312,6 @@ def main():
             body_lines.extend(network_blocks[net])
             processed_nets.add(net)
 
-    # Catch any remaining networks not explicitly listed in NETWORK_ORDER
     for net, lines in network_blocks.items():
         if net not in processed_nets:
             threshold = NETWORK_THRESHOLDS.get(net, 60)
