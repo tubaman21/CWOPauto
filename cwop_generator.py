@@ -137,15 +137,21 @@ def main():
     
     try:
         response = requests.get(SYNOPTIC_API_URL, params=api_params, timeout=25)
-        response.raise_for_status()
+        # Handle non-200 HTTP errors gracefully
+        if response.status_code != 200:
+            print(f"HTTP Error {response.status_code}: {response.text}")
+            sys.exit(1)
+            
         data = response.json()
     except Exception as e:
         print(f"Network processing exception during API fetch: {e}")
         sys.exit(1)
 
-    # Verify API Response Status
-    if data.get("RESPONSE_CODE") != 1:
-        print(f"Synoptic API Error: {data.get('RESPONSE_MESSAGE', 'Unknown Error')}")
+    # Detailed API Response Verification
+    response_code = data.get("SUMMARY", {}).get("RESPONSE_CODE") or data.get("RESPONSE_CODE")
+    if response_code != 1:
+        error_msg = data.get("SUMMARY", {}).get("RESPONSE_MESSAGE") or data.get("RESPONSE_MESSAGE") or response.text
+        print(f"Synoptic API Error Code [{response_code}]: {error_msg}")
         sys.exit(1)
 
     network_blocks = {}
