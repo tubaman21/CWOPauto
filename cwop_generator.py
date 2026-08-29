@@ -78,7 +78,7 @@ def format_precip_str(precip_in):
     if precip_in is None or math.isnan(precip_in) or precip_in < 0.01:
         return None
     if precip_in < 1.0:
-        return f"{precip_in:.2f}".lstrip('0')  # Returns ".25" instead of "0.25"
+        return f"{precip_in:.2f}".lstrip('0')
     return f"{precip_in:.2f}"
 
 def calculate_dewpoint_f(temp_f, rh_percent):
@@ -108,13 +108,12 @@ def get_sky_cover_icon(cloud_cov_str):
 def extract_first_valid(observations, var_prefixes, index):
     """
     Scans all dynamic sensor sets (set_1, set_2, set_1d, etc.) for valid non-None data.
-    Only appends non-null values so valid readings in secondary sets aren't blocked by empty primary sets.
+    Directly returns the first valid numeric reading found.
     """
     for key, values in observations.items():
         if any(key.startswith(prefix) for prefix in var_prefixes):
             if values and index < len(values):
                 val = values[index]
-                # Strictly ignore None and NaN values
                 if val is not None and not (isinstance(val, float) and math.isnan(val)):
                     return val
     return None
@@ -144,13 +143,10 @@ def clean_rain_value_to_inches(val):
         return 0.0
     try:
         val = float(val)
-        # Raw tip counts / hundredths
         if val >= 50.0:
             return val / 100.0
-        # Standard mm
         elif val >= 0.254:
             return val * 0.0393701
-        # Direct inch value
         else:
             return val
     except Exception:
@@ -230,7 +226,8 @@ def main():
             if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5"]:
                 continue
 
-            if mnet_short == "HADS" or mnet_id == "128":
+            # Strict HADS Network Exclusions
+            if mnet_short == "HADS" or mnet_id in ["128", "208"] or "HADS" in mnet_name or stid.startswith("HADS"):
                 continue
 
             if len(stid) in [3, 4] and stid.isalpha() and not stid.startswith("D"):
@@ -284,7 +281,6 @@ def main():
                 temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
                 dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
                 
-                # Dewpoint fallback calculation from RH
                 if dew_f is None and temp_f is not None and rh_pct is not None:
                     dew_f = calculate_dewpoint_f(temp_f, rh_pct)
 
@@ -292,7 +288,6 @@ def main():
                 gust_mph = int(round(gust_ms * 2.23694)) if gust_ms is not None else None
                 speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
 
-                # Retrieve Sea Level Pressure in mb
                 slp_mb = get_best_slp(observations, i)
 
                 # --- RAINFALL PARSING & DELTA CALCULATION ---
@@ -307,7 +302,7 @@ def main():
                     curr_bucket = clean_rain_value_to_inches(raw_pbucket)
                     if prev_bucket_in is not None and curr_bucket >= prev_bucket_in:
                         delta = curr_bucket - prev_bucket_in
-                        if delta < 4.0:  # Filter out system resets/jumps
+                        if delta < 4.0:
                             p1h_in = delta
                     prev_bucket_in = curr_bucket
 
@@ -325,7 +320,7 @@ def main():
 
                 sky_code = extract_first_valid(observations, ["cloud_layer_1_code"], i)
 
-                # Quality Control Range Checks
+                # Quality Control
                 if temp_f is not None and (temp_f < -50 or temp_f > 130):
                     temp_f = None
                 if dew_f is not None and (dew_f < -60 or dew_f > 100):
