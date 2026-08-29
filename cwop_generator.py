@@ -201,9 +201,16 @@ def main():
     network_blocks = {}
     rain_counter = 0
 
-    if "STATION" in data and data["STATION"]:
-        for station in data["STATION"]:
+   for station in data["STATION"]:
             stid = station.get("STID", "UNKNOWN").upper()
+            
+            # --- DIAGNOSTIC PRINT FOR DW8249 ---
+            if "8249" in stid:
+                print(f"[DEBUG 8249] Found station ID: {stid}")
+                print(f"[DEBUG 8249] MNET ID: {station.get('MNET_ID')} | MNET SHORT: {station.get('MNET_SHORTNAME')}")
+                obs_keys = list(station.get("OBSERVATIONS", {}).keys())
+                print(f"[DEBUG 8249] Available Observation Keys: {obs_keys}")
+            # -----------------------------------
             
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
