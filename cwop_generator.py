@@ -221,21 +221,23 @@ def main():
                     mnet = "Mesonet"
 
             # --- FILTERS (CWOP STATIONS PROTECTED) ---
-            if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5"]:
+            if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5"]:
                 continue
 
-            # Strict HADS & USGS River/Lake Gage Network Exclusions
+            # Strict HADS, USGS & USACE River/Lake Gage Network Exclusions
             if (
-                mnet_short in ["HADS", "USGS", "NWS-HYDRO"] 
+                mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO"] 
                 or mnet_id in ["128", "130", "208"] 
                 or "HADS" in mnet_name 
                 or "RIVER" in mnet_name
+                or "DAM" in mnet_name
                 or stid.startswith("HADS")
             ):
                 continue
 
-            # Catch NWS 5-character Hydrologic River Gages (ONLY if not CWOP)
-            if mnet != "CWOP" and len(stid) == 5 and stid[:3].isalpha() and stid[3].isdigit():
+            # Catch NWS/USGS/USACE 5-character Hydrologic Gages (e.g., SDYM5, WILM5, PKGM5)
+            # Filter any 5-character station containing digits that isn't CWOP or numeric WMO
+            if mnet != "CWOP" and len(stid) == 5 and not stid.isdigit() and any(char.isdigit() for char in stid):
                 continue
 
             # Exclude standard 3 & 4-letter alphabetic ASOS sites
