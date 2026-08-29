@@ -147,213 +147,209 @@ def main():
     except Exception as e:
         print(f"Network processing exception during API fetch: {e}")
         sys.exit(1)
-        
-    if "STATION" not in data or not data["STATION"]:
-        print("Warning: Network returned successfully but no matching active stations found.")
-        return
 
     network_blocks = {}
     rain_counter = 0
 
-    for station in data["STATION"]:
-        stid = station.get("STID", "UNKNOWN").upper()
-        
-        mnet_id = str(station.get("MNET_ID", ""))
-        mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
-        mnet_name = str(station.get("MNET_NAME", "")).upper()
-        
-        if mnet_id == "153" or "CWOP" in mnet_short or "CWOP" in mnet_name:
-            mnet = "CWOP"
-        elif mnet_id == "2" or "RAWS" in mnet_short:
-            mnet = "RAWS"
-        elif mnet_id == "66" or "MNDOT" in mnet_short or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
-            mnet = "MnDOT"
-        elif mnet_id == "67" or "WISDOT" in mnet_short or "WISCONSIN DOT" in mnet_name or stid.startswith("WI"):
-            mnet = "WisDOT"
-        elif "DOT" in mnet_short or "DOT" in mnet_name:
-            mnet = "DOT"
-        elif mnet_short and mnet_short != "UNKNOWN":
-            mnet = mnet_short
-        else:
-            if (len(stid) >= 4 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K']) or stid.startswith("CW") or stid.startswith("DW"):
+    if "STATION" in data and data["STATION"]:
+        for station in data["STATION"]:
+            stid = station.get("STID", "UNKNOWN").upper()
+            
+            mnet_id = str(station.get("MNET_ID", ""))
+            mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
+            mnet_name = str(station.get("MNET_NAME", "")).upper()
+            
+            if mnet_id == "153" or "CWOP" in mnet_short or "CWOP" in mnet_name:
                 mnet = "CWOP"
+            elif mnet_id == "2" or "RAWS" in mnet_short:
+                mnet = "RAWS"
+            elif mnet_id == "66" or "MNDOT" in mnet_short or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
+                mnet = "MnDOT"
+            elif mnet_id == "67" or "WISDOT" in mnet_short or "WISCONSIN DOT" in mnet_name or stid.startswith("WI"):
+                mnet = "WisDOT"
+            elif "DOT" in mnet_short or "DOT" in mnet_name:
+                mnet = "DOT"
+            elif mnet_short and mnet_short != "UNKNOWN":
+                mnet = mnet_short
             else:
-                mnet = "Mesonet"
-        
-        # --- FILTERS ---
-        if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5"]:
-            continue
-
-        if mnet_short == "HADS" or mnet_id == "128":
-            continue
-
-        if len(stid) in [3, 4] and stid.isalpha() and not stid.startswith("D"):
-            continue
+                if (len(stid) >= 4 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K']) or stid.startswith("CW") or stid.startswith("DW"):
+                    mnet = "CWOP"
+                else:
+                    mnet = "Mesonet"
             
-        if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
-            continue
-        # ---------------
-        
-        try:
-            lat = float(station.get("LATITUDE"))
-            lon = float(station.get("LONGITUDE"))
-        except (TypeError, ValueError):
-            continue
-            
-        observations = station.get("OBSERVATIONS", {})
-        timestamps = observations.get("date_time", [])
-        
-        station_lines = []
-        for i, ts_str in enumerate(timestamps):
-            try:
-                dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
-                
-                window_start = dt_ob
-                if i == 0:
-                    window_start = dt_ob - timedelta(minutes=5)
-                
-                window_end = dt_ob + timedelta(hours=1)
-                if i + 1 < len(timestamps):
-                    next_dt_ob = datetime.strptime(timestamps[i + 1], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
-                    if window_end > next_dt_ob:
-                        window_end = next_dt_ob
-                
-                start_range = window_start.strftime("%Y-%m-%dT%H:%M:%SZ")
-                end_range = window_end.strftime("%Y-%m-%dT%H:%M:%SZ")
-                
-                # Format string for display in hover text
-                ob_time_str = dt_ob.strftime("%Y-%m-%d %H:%M UTC")
-            except Exception:
+            # --- FILTERS ---
+            if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5"]:
                 continue
 
-            fallback = [None] * len(timestamps)
-            
-            temp_c = get_obs_val(observations, "air_temp", i, fallback)
-            dew_c = get_obs_val(observations, "dew_point_temperature", i, fallback)
-            rh_pct = get_obs_val(observations, "relative_humidity", i, fallback)
-            speed_ms = get_obs_val(observations, "wind_speed", i, fallback)
-            gust_ms = get_obs_val(observations, "wind_gust", i, fallback)
-            wind_dir = get_obs_val(observations, "wind_direction", i, fallback)
-            
-            raw_slp = get_obs_val(observations, "sea_level_pressure", i, fallback)
-            raw_alt = get_obs_val(observations, "altimeter", i, fallback)
-            raw_stn = get_obs_val(observations, "pressure", i, fallback)
-            
-            slp_mb = normalize_pressure_to_mb(raw_slp)
-            if slp_mb is None:
-                slp_mb = normalize_pressure_to_mb(raw_alt)
-            if slp_mb is None:
-                slp_mb = normalize_pressure_to_mb(raw_stn)
+            if mnet_short == "HADS" or mnet_id == "128":
+                continue
 
-            # --- PRECIPITATION EXTRACTION ---
-            raw_p1h = get_obs_val(observations, "precip_accum_one_hour", i, fallback)
-            if raw_p1h is None:
-                raw_p1h = get_obs_val(observations, "precip_accum", i, fallback)
-            
-            raw_p24h = get_obs_val(observations, "precip_accum_twenty_four_hour", i, fallback)
-
-            p1h_str = format_precip(raw_p1h)
-            p24h_str = format_precip(raw_p24h)
-
-            if p1h_str:
-                rain_counter += 1
-
-            sky_code = get_obs_val(observations, "cloud_layer_1_code", i, fallback)
-
-            if dew_c is None and temp_c is not None and rh_pct is not None:
-                dew_c = calculate_dewpoint_c(temp_c, rh_pct)
-
-            temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
-            dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
-            
-            # QC Checks
-            if temp_f is not None and (temp_f < -50 or temp_f > 130):
-                temp_f = None
-            if dew_f is not None and (dew_f < -60 or dew_f > 100):
-                dew_f = None
-            if temp_f is not None and dew_f is not None and dew_f > temp_f:
-                dew_f = None
-
-            slp_str = sanitize_slp(slp_mb)
-            sky_icon_idx = get_sky_cover_icon(sky_code)
-            
-            tf_display = f"{temp_f}" if temp_f is not None else "M"
-            df_display = f"{dew_f}" if dew_f is not None else "M"
-            wind_dir_display = int(wind_dir) if wind_dir is not None else 0
-            
-            speed_mph = int(round(speed_ms * 2.23694)) if speed_ms is not None else 0
-            gust_mph = int(round(gust_ms * 2.23694)) if gust_ms is not None else None
-            speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
-
-            color_temp = "255 100 100"   # Light Red
-            color_dew  = "100 255 100"   # Light Green
-            color_slp  = "255 255 255"   # White
-            color_rain = "0 255 255"     # Cyan
-
-            max_wind_mph = gust_mph if (gust_mph is not None) else speed_mph
-
-            if max_wind_mph >= 45:
-                color_barb = "255 0 255"    # Magenta (45+ MPH)
-                color_temp = "255 50 255"
-            elif max_wind_mph >= 35:
-                color_barb = "255 255 0"    # Yellow (35-44 MPH)
-                color_temp = "255 200 0"
-            else:
-                color_barb = "255 255 255"  # White (<35 MPH)
-
-            if gust_mph is not None and gust_mph > speed_mph and gust_mph >= 12:
-                wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH"
-            else:
-                wind_display = f"{wind_dir_display:03d}@{speed_mph}MPH"
-
-            p1h_hover = f"{p1h_str}\"" if p1h_str else "0.00\""
-            p24h_hover = f"{p24h_str}\"" if p24h_str else "0.00\""
-            
-            # Integrated observation timestamp into hover text
-            hover_text = (
-                f"Obs Time: {ob_time_str} | Station: {stid} | Type: {mnet} | "
-                f"Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | "
-                f"SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
-                f"Rain 1hr: {p1h_hover} | Rain 24hr: {p24h_hover}"
-            )
-            
-            station_lines.append(f"TimeRange: {start_range} {end_range}")
-            station_lines.append(f"Object: {lat:.5f},{lon:.5f}")
-            
-            if speed_kt >= 3 and wind_dir is not None:
-                barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
-                if barb_val > 0:
-                    station_lines.append(f"  Color: {color_barb}")
-                    station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
-
-            station_lines.append("  Color: 255 255 255")
-            station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
-            
-            # Temperature: Top-Left (-20, 10)
-            if tf_display != "M":
-                station_lines.append(f"  Color: {color_temp}")
-                station_lines.append(f'  Text: -20, 10, 1, "{tf_display}"')
-            
-            # Pressure / SLP Code: Top-Right (20, 10)
-            if slp_str != "M":
-                station_lines.append(f"  Color: {color_slp}")
-                station_lines.append(f'  Text: 20, 10, 1, "{slp_str}"')
+            if len(stid) in [3, 4] and stid.isalpha() and not stid.startswith("D"):
+                continue
                 
-            # Dew Point: Bottom-Left (-20, -10)
-            if df_display != "M":
-                station_lines.append(f"  Color: {color_dew}")
-                station_lines.append(f'  Text: -20, -10, 1, "{df_display}"')
-
-            # 1-Hour Rainfall: Bottom-Right (20, -10) - Hidden if < 0.01"
-            if p1h_str:
-                station_lines.append(f"  Color: {color_rain}")
-                station_lines.append(f'  Text: 20, -10, 1, "{p1h_str}"')
+            if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
+                continue
+            # ---------------
             
-            station_lines.append("End:")
-            station_lines.append("")
+            try:
+                lat = float(station.get("LATITUDE"))
+                lon = float(station.get("LONGITUDE"))
+            except (TypeError, ValueError):
+                continue
+                
+            observations = station.get("OBSERVATIONS", {})
+            timestamps = observations.get("date_time", [])
+            
+            station_lines = []
+            for i, ts_str in enumerate(timestamps):
+                try:
+                    dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+                    
+                    window_start = dt_ob
+                    if i == 0:
+                        window_start = dt_ob - timedelta(minutes=5)
+                    
+                    window_end = dt_ob + timedelta(hours=1)
+                    if i + 1 < len(timestamps):
+                        next_dt_ob = datetime.strptime(timestamps[i + 1], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+                        if window_end > next_dt_ob:
+                            window_end = next_dt_ob
+                    
+                    start_range = window_start.strftime("%Y-%m-%dT%H:%M:%SZ")
+                    end_range = window_end.strftime("%Y-%m-%dT%H:%M:%SZ")
+                    ob_time_str = dt_ob.strftime("%Y-%m-%d %H:%M UTC")
+                except Exception:
+                    continue
 
-        if station_lines:
-            network_blocks.setdefault(mnet, []).extend(station_lines)
+                fallback = [None] * len(timestamps)
+                
+                temp_c = get_obs_val(observations, "air_temp", i, fallback)
+                dew_c = get_obs_val(observations, "dew_point_temperature", i, fallback)
+                rh_pct = get_obs_val(observations, "relative_humidity", i, fallback)
+                speed_ms = get_obs_val(observations, "wind_speed", i, fallback)
+                gust_ms = get_obs_val(observations, "wind_gust", i, fallback)
+                wind_dir = get_obs_val(observations, "wind_direction", i, fallback)
+                
+                raw_slp = get_obs_val(observations, "sea_level_pressure", i, fallback)
+                raw_alt = get_obs_val(observations, "altimeter", i, fallback)
+                raw_stn = get_obs_val(observations, "pressure", i, fallback)
+                
+                slp_mb = normalize_pressure_to_mb(raw_slp)
+                if slp_mb is None:
+                    slp_mb = normalize_pressure_to_mb(raw_alt)
+                if slp_mb is None:
+                    slp_mb = normalize_pressure_to_mb(raw_stn)
+
+                # --- PRECIPITATION EXTRACTION ---
+                raw_p1h = get_obs_val(observations, "precip_accum_one_hour", i, fallback)
+                if raw_p1h is None:
+                    raw_p1h = get_obs_val(observations, "precip_accum", i, fallback)
+                
+                raw_p24h = get_obs_val(observations, "precip_accum_twenty_four_hour", i, fallback)
+
+                p1h_str = format_precip(raw_p1h)
+                p24h_str = format_precip(raw_p24h)
+
+                if p1h_str:
+                    rain_counter += 1
+
+                sky_code = get_obs_val(observations, "cloud_layer_1_code", i, fallback)
+
+                if dew_c is None and temp_c is not None and rh_pct is not None:
+                    dew_c = calculate_dewpoint_c(temp_c, rh_pct)
+
+                temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
+                dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
+                
+                # QC Checks
+                if temp_f is not None and (temp_f < -50 or temp_f > 130):
+                    temp_f = None
+                if dew_f is not None and (dew_f < -60 or dew_f > 100):
+                    dew_f = None
+                if temp_f is not None and dew_f is not None and dew_f > temp_f:
+                    dew_f = None
+
+                slp_str = sanitize_slp(slp_mb)
+                sky_icon_idx = get_sky_cover_icon(sky_code)
+                
+                tf_display = f"{temp_f}" if temp_f is not None else "M"
+                df_display = f"{dew_f}" if dew_f is not None else "M"
+                wind_dir_display = int(wind_dir) if wind_dir is not None else 0
+                
+                speed_mph = int(round(speed_ms * 2.23694)) if speed_ms is not None else 0
+                gust_mph = int(round(gust_ms * 2.23694)) if gust_ms is not None else None
+                speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
+
+                color_temp = "255 100 100"   # Light Red
+                color_dew  = "100 255 100"   # Light Green
+                color_slp  = "255 255 255"   # White
+                color_rain = "0 255 255"     # Cyan
+
+                max_wind_mph = gust_mph if (gust_mph is not None) else speed_mph
+
+                if max_wind_mph >= 45:
+                    color_barb = "255 0 255"    # Magenta (45+ MPH)
+                    color_temp = "255 50 255"
+                elif max_wind_mph >= 35:
+                    color_barb = "255 255 0"    # Yellow (35-44 MPH)
+                    color_temp = "255 200 0"
+                else:
+                    color_barb = "255 255 255"  # White (<35 MPH)
+
+                if gust_mph is not None and gust_mph > speed_mph and gust_mph >= 12:
+                    wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH"
+                else:
+                    wind_display = f"{wind_dir_display:03d}@{speed_mph}MPH"
+
+                p1h_hover = f"{p1h_str}\"" if p1h_str else "0.00\""
+                p24h_hover = f"{p24h_str}\"" if p24h_str else "0.00\""
+                
+                hover_text = (
+                    f"Obs Time: {ob_time_str} | Station: {stid} | Type: {mnet} | "
+                    f"Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | "
+                    f"SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
+                    f"Rain 1hr: {p1h_hover} | Rain 24hr: {p24h_hover}"
+                )
+                
+                station_lines.append(f"TimeRange: {start_range} {end_range}")
+                station_lines.append(f"Object: {lat:.5f},{lon:.5f}")
+                
+                if speed_kt >= 3 and wind_dir is not None:
+                    barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
+                    if barb_val > 0:
+                        station_lines.append(f"  Color: {color_barb}")
+                        station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
+
+                station_lines.append("  Color: 255 255 255")
+                station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
+                
+                # Temperature: Top-Left (-20, 10)
+                if tf_display != "M":
+                    station_lines.append(f"  Color: {color_temp}")
+                    station_lines.append(f'  Text: -20, 10, 1, "{tf_display}"')
+                
+                # Pressure / SLP Code: Top-Right (20, 10)
+                if slp_str != "M":
+                    station_lines.append(f"  Color: {color_slp}")
+                    station_lines.append(f'  Text: 20, 10, 1, "{slp_str}"')
+                    
+                # Dew Point: Bottom-Left (-20, -10)
+                if df_display != "M":
+                    station_lines.append(f"  Color: {color_dew}")
+                    station_lines.append(f'  Text: -20, -10, 1, "{df_display}"')
+
+                # 1-Hour Rainfall: Bottom-Right (20, -10) - Hidden if < 0.01"
+                if p1h_str:
+                    station_lines.append(f"  Color: {color_rain}")
+                    station_lines.append(f'  Text: 20, -10, 1, "{p1h_str}"')
+                
+                station_lines.append("End:")
+                station_lines.append("")
+
+            if station_lines:
+                network_blocks.setdefault(mnet, []).extend(station_lines)
+    else:
+        print("Warning: Network returned successfully but no matching active stations found.")
 
     # --- COMPILE FINAL PLACEFILE ---
     header_lines = [
@@ -385,11 +381,17 @@ def main():
             body_lines.append(f"Threshold: {threshold}\n")
             body_lines.extend(lines)
 
+    # --- ATOMIC SAFE FILE WRITE ---
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     full_output_path = os.path.join(OUTPUT_DIR, OUTPUT_FILE)
+    temp_output_path = full_output_path + ".tmp"
     
-    with open(full_output_path, "w") as f:
+    with open(temp_output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(header_lines + body_lines))
+        f.flush()
+        os.fsync(f.fileno())
+        
+    os.replace(temp_output_path, full_output_path)
         
     print(f"Success! Processed dataset. Found {rain_counter} total observation points with measurable rainfall (>=0.01\").")
     print(f"Destination file compiled: {full_output_path}")
