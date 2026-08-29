@@ -17,8 +17,9 @@ except ImportError:
 OUTPUT_DIR = "placefiles"
 OUTPUT_FILE = "cwop_observations.txt"
 
-LAT_MIN, LAT_MAX = 43.0, 50.0
-LON_MIN, LON_MAX = -97.0, -87.0
+# Expanded slightly to capture full county borders and edge stations
+LAT_MIN, LAT_MAX = 42.5, 50.5
+LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
@@ -202,7 +203,14 @@ def main():
             mnet_name = str(station.get("MNET_NAME", "")).upper()
 
             # --- NETWORK CLASSIFICATION ---
-            if mnet_id == "153" or "CWOP" in mnet_short or "CWOP" in mnet_name:
+            if (
+                mnet_id == "153" 
+                or "CWOP" in mnet_short 
+                or "CWOP" in mnet_name
+                or stid.startswith("DW") 
+                or stid.startswith("CW")
+                or (len(stid) == 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'] and stid[1:].isdigit())
+            ):
                 mnet = "CWOP"
             elif mnet_id == "2" or "RAWS" in mnet_short:
                 mnet = "RAWS"
@@ -214,9 +222,6 @@ def main():
                 mnet = "DOT"
             elif mnet_short and mnet_short != "UNKNOWN":
                 mnet = mnet_short
-            else:
-                if (len(stid) >= 4 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K']) or stid.startswith("CW") or stid.startswith("DW"):
-                    mnet = "CWOP"
                 else:
                     mnet = "Mesonet"
 
