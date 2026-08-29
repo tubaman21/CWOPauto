@@ -106,14 +106,18 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
 def extract_first_valid(observations, var_prefixes, index):
-    """Scans all dynamic sensor sets (set_1, set_2, set_1d, etc.) for valid data."""
+    """
+    Scans all dynamic sensor sets (set_1, set_2, set_1d, etc.) for valid non-None data.
+    Collects all matching set values at 'index' and returns the first non-null reading.
+    """
+    valid_vals = []
     for key, values in observations.items():
         if any(key.startswith(prefix) for prefix in var_prefixes):
             if values and index < len(values):
                 val = values[index]
                 if val is not None and not (isinstance(val, float) and math.isnan(val)):
-                    return val
-    return None
+                    valid_vals.append(val)
+    return valid_vals[0] if valid_vals else None
 
 def get_best_slp(observations, index):
     """Finds Sea Level Pressure, Altimeter, or Station Pressure across any sensor set."""
@@ -165,7 +169,6 @@ def main():
     
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
-    # Standard metric payload - python handles unit conversions safely
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
@@ -281,6 +284,7 @@ def main():
                 temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
                 dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
                 
+                # Dewpoint fallback calculation from RH
                 if dew_f is None and temp_f is not None and rh_pct is not None:
                     dew_f = calculate_dewpoint_f(temp_f, rh_pct)
 
@@ -303,7 +307,7 @@ def main():
                     curr_bucket = clean_rain_value_to_inches(raw_pbucket)
                     if prev_bucket_in is not None and curr_bucket >= prev_bucket_in:
                         delta = curr_bucket - prev_bucket_in
-                        if delta < 4.0:  # Ignore reset/reboot jumps
+                        if delta < 4.0:  # Filter out system resets/jumps
                             p1h_in = delta
                     prev_bucket_in = curr_bucket
 
@@ -321,7 +325,7 @@ def main():
 
                 sky_code = extract_first_valid(observations, ["cloud_layer_1_code"], i)
 
-                # Quality Control
+                # Quality Control Range Checks
                 if temp_f is not None and (temp_f < -50 or temp_f > 130):
                     temp_f = None
                 if dew_f is not None and (dew_f < -60 or dew_f > 100):
