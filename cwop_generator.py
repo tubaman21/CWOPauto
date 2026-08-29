@@ -24,7 +24,6 @@ SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
 SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/cloudcover_new.png"
 
-# Set lookback window in hours
 LOOKBACK_HOURS = 6
 
 NETWORK_THRESHOLDS = {
@@ -41,19 +40,19 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 # ==========================================
 # UTILITY HELPER FUNCTIONS
 # ==========================================
-def altimeter_to_slp_mb(val):
-    """Converts pressure (inHg, Pa, or mb) safely to millibars (hPa)."""
+def normalize_pressure_to_mb(val):
+    """Converts pressure (Pascals, inHg, or hPa/mb) safely to millibars (hPa)."""
     if val is None or math.isnan(val) or val <= 0:
         return None
     try:
         val = float(val)
-        # Case A: Inches of Mercury (e.g. 29.92)
-        if 20.0 <= val <= 33.0:
-            val_mb = val * 33.8639
-        # Case B: Pascals (e.g. 101325)
-        elif val > 50000:
+        # Pascals (e.g. 101325)
+        if val > 50000:
             val_mb = val / 100.0
-        # Case C: Millibars / hPa (e.g. 1013.25)
+        # Inches of Mercury (e.g. 29.92)
+        elif 20.0 <= val <= 33.0:
+            val_mb = val * 33.8639
+        # Millibars / hPa (e.g. 1013.25)
         elif 800.0 <= val <= 1100.0:
             val_mb = val
         else:
@@ -107,7 +106,7 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
 def extract_first_valid(observations, var_prefixes, index):
-    """Dynamic scanner across all available sensor set keys."""
+    """Scans all dynamic sensor sets (set_1, set_2, set_1d, etc.) for valid data."""
     for key, values in observations.items():
         if any(key.startswith(prefix) for prefix in var_prefixes):
             if values and index < len(values):
@@ -117,23 +116,41 @@ def extract_first_valid(observations, var_prefixes, index):
     return None
 
 def get_best_slp(observations, index):
-    """Finds Sea Level Pressure, Altimeter, or Station Pressure."""
+    """Finds Sea Level Pressure, Altimeter, or Station Pressure across any sensor set."""
     slp_raw = extract_first_valid(observations, ["sea_level_pressure"], index)
     if slp_raw is not None:
-        p_mb = altimeter_to_slp_mb(slp_raw)
+        p_mb = normalize_pressure_to_mb(slp_raw)
         if p_mb: return p_mb
 
     alt_raw = extract_first_valid(observations, ["altimeter"], index)
     if alt_raw is not None:
-        p_mb = altimeter_to_slp_mb(alt_raw)
+        p_mb = normalize_pressure_to_mb(alt_raw)
         if p_mb: return p_mb
 
     stn_raw = extract_first_valid(observations, ["pressure"], index)
     if stn_raw is not None:
-        p_mb = altimeter_to_slp_mb(stn_raw)
+        p_mb = normalize_pressure_to_mb(stn_raw)
         if p_mb: return p_mb
 
     return None
+
+def clean_rain_value_to_inches(val):
+    """Converts metric precipitation (mm) or raw tipping bucket counts to inches."""
+    if val is None or math.isnan(val) or val < 0:
+        return 0.0
+    try:
+        val = float(val)
+        # Raw tip counts / hundredths
+        if val >= 50.0:
+            return val / 100.0
+        # Standard mm
+        elif val >= 0.254:
+            return val * 0.0393701
+        # Direct inch value
+        else:
+            return val
+    except Exception:
+        return 0.0
 
 # ==========================================
 # MAIN IMPLEMENTATION LOGIC
@@ -148,13 +165,12 @@ def main():
     
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
-    # Corrected variable list accepted by Synoptic API
+    # Standard metric payload - python handles unit conversions safely
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
         "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
         "varsoperator": "OR",
-        "units": "english",
         "recent": LOOKBACK_HOURS * 60,
         "obtimezone": "UTC",
         "output": "json",
@@ -231,6 +247,9 @@ def main():
             timestamps = observations.get("date_time", [])
             
             station_lines = []
+            prev_bucket_in = None
+            rolling_24h_sum = 0.0
+
             for i, ts_str in enumerate(timestamps):
                 try:
                     dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
@@ -251,19 +270,48 @@ def main():
                 except Exception:
                     continue
 
-                temp_f = extract_first_valid(observations, ["air_temp"], i)
-                dew_f = extract_first_valid(observations, ["dew_point_temperature"], i)
+                # --- METEOROLOGICAL CONVERSIONS ---
+                temp_c = extract_first_valid(observations, ["air_temp"], i)
+                dew_c = extract_first_valid(observations, ["dew_point_temperature"], i)
                 rh_pct = extract_first_valid(observations, ["relative_humidity"], i)
-                speed_mph = extract_first_valid(observations, ["wind_speed"], i)
-                gust_mph = extract_first_valid(observations, ["wind_gust"], i)
+                speed_ms = extract_first_valid(observations, ["wind_speed"], i)
+                gust_ms = extract_first_valid(observations, ["wind_gust"], i)
                 wind_dir = extract_first_valid(observations, ["wind_direction"], i)
                 
-                # Retrieve Pressure (inHg converted to mb)
+                temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
+                dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
+                
+                if dew_f is None and temp_f is not None and rh_pct is not None:
+                    dew_f = calculate_dewpoint_f(temp_f, rh_pct)
+
+                speed_mph = int(round(speed_ms * 2.23694)) if speed_ms is not None else 0
+                gust_mph = int(round(gust_ms * 2.23694)) if gust_ms is not None else None
+                speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
+
+                # Retrieve Sea Level Pressure in mb
                 slp_mb = get_best_slp(observations, i)
 
-                # --- RAINFALL EXTRACTION ---
-                p1h_in = extract_first_valid(observations, ["precip_accum_one_hour", "precip_accum_1_set"], i)
-                p24h_in = extract_first_valid(observations, ["precip_accum_24_hour", "precip_accum_24", "precip_accum"], i)
+                # --- RAINFALL PARSING & DELTA CALCULATION ---
+                raw_p1h = extract_first_valid(observations, ["precip_accum_one_hour"], i)
+                raw_p24h = extract_first_valid(observations, ["precip_accum_24_hour"], i)
+                raw_pbucket = extract_first_valid(observations, ["precip_accum"], i)
+
+                p1h_in = 0.0
+                if raw_p1h is not None:
+                    p1h_in = clean_rain_value_to_inches(raw_p1h)
+                elif raw_pbucket is not None:
+                    curr_bucket = clean_rain_value_to_inches(raw_pbucket)
+                    if prev_bucket_in is not None and curr_bucket >= prev_bucket_in:
+                        delta = curr_bucket - prev_bucket_in
+                        if delta < 4.0:  # Ignore reset/reboot jumps
+                            p1h_in = delta
+                    prev_bucket_in = curr_bucket
+
+                p24h_in = clean_rain_value_to_inches(raw_p24h) if raw_p24h is not None else 0.0
+                
+                rolling_24h_sum += p1h_in
+                if p24h_in == 0.0 and rolling_24h_sum > 0.0:
+                    p24h_in = rolling_24h_sum
 
                 p1h_str = format_precip_str(p1h_in)
                 p24h_str = format_precip_str(p24h_in)
@@ -272,14 +320,6 @@ def main():
                     rain_counter += 1
 
                 sky_code = extract_first_valid(observations, ["cloud_layer_1_code"], i)
-
-                if temp_f is not None:
-                    temp_f = int(round(temp_f))
-                
-                if dew_f is not None:
-                    dew_f = int(round(dew_f))
-                elif temp_f is not None and rh_pct is not None:
-                    dew_f = calculate_dewpoint_f(temp_f, rh_pct)
 
                 # Quality Control
                 if temp_f is not None and (temp_f < -50 or temp_f > 130):
@@ -295,17 +335,13 @@ def main():
                 tf_display = f"{temp_f}" if temp_f is not None else "M"
                 df_display = f"{dew_f}" if dew_f is not None else "M"
                 wind_dir_display = int(wind_dir) if wind_dir is not None else 0
-                
-                speed_mph_int = int(round(speed_mph)) if speed_mph is not None else 0
-                gust_mph_int = int(round(gust_mph)) if gust_mph is not None else None
-                speed_kt = int(round(speed_mph_int * 0.868976)) if speed_mph_int else 0
 
                 color_temp = "255 100 100"   # Light Red
                 color_dew  = "100 255 100"   # Light Green
                 color_slp  = "255 255 255"   # White
                 color_rain = "0 255 255"     # Cyan
 
-                max_wind_mph = gust_mph_int if (gust_mph_int is not None) else speed_mph_int
+                max_wind_mph = gust_mph if (gust_mph is not None) else speed_mph
 
                 if max_wind_mph >= 45:
                     color_barb = "255 0 255"    # Magenta
@@ -316,10 +352,10 @@ def main():
                 else:
                     color_barb = "255 255 255"  # White
 
-                if gust_mph_int is not None and gust_mph_int > speed_mph_int and gust_mph_int >= 12:
-                    wind_display = f"{wind_dir_display:03d}@{speed_mph_int}G{gust_mph_int}MPH"
+                if gust_mph is not None and gust_mph > speed_mph and gust_mph >= 12:
+                    wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH"
                 else:
-                    wind_display = f"{wind_dir_display:03d}@{speed_mph_int}MPH"
+                    wind_display = f"{wind_dir_display:03d}@{speed_mph}MPH"
 
                 p1h_hover = f"{p1h_str}\"" if p1h_str else "0.00\""
                 p24h_hover = f"{p24h_str}\"" if p24h_str else "0.00\""
