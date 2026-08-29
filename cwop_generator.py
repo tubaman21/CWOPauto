@@ -106,20 +106,25 @@ def get_sky_cover_icon(cloud_cov_str):
 
 def extract_first_valid(observations, var_prefixes, index):
     """
-    Exhaustively checks every sensor key matching var_prefixes.
-    Returns the first valid non-null, non-NaN numeric value found across all sets.
+    Exhaustively scans all observation keys matching var_prefixes.
+    Prioritizes base set_1 sensors before checking derived set_1d or secondary sets.
     """
-    for key, values in observations.items():
-        if any(prefix in key for prefix in var_prefixes):
-            if isinstance(values, list) and index < len(values):
-                val = values[index]
-                if val is not None:
-                    try:
-                        fval = float(val)
-                        if not math.isnan(fval):
-                            return fval
-                    except (ValueError, TypeError):
-                        continue
+    sorted_keys = sorted(
+        [k for k in observations.keys() if any(prefix in k for prefix in var_prefixes)],
+        key=lambda x: (0 if '_set_1' in x and not x.endswith('d') else 1, x)
+    )
+    
+    for key in sorted_keys:
+        values = observations.get(key)
+        if isinstance(values, list) and index < len(values):
+            val = values[index]
+            if val is not None:
+                try:
+                    fval = float(val)
+                    if not math.isnan(fval):
+                        return fval
+                except (ValueError, TypeError):
+                    continue
     return None
 
 def get_best_slp(observations, index):
@@ -203,14 +208,6 @@ def main():
     if "STATION" in data and data["STATION"]:
         for station in data["STATION"]:
             stid = station.get("STID", "UNKNOWN").upper()
-            
-            # --- DIAGNOSTIC PRINT FOR DW8249 ---
-            if "8249" in stid:
-                print(f"[DEBUG 8249] Found station ID: {stid}")
-                print(f"[DEBUG 8249] MNET ID: {station.get('MNET_ID')} | MNET SHORT: {station.get('MNET_SHORTNAME')}")
-                obs_keys = list(station.get("OBSERVATIONS", {}).keys())
-                print(f"[DEBUG 8249] Available Observation Keys: {obs_keys}")
-            # -----------------------------------
 
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
@@ -305,6 +302,7 @@ def main():
                 temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
                 dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
                 
+                # Dew point fallback calculation from RH
                 if dew_f is None and temp_f is not None and rh_pct is not None:
                     dew_f = calculate_dewpoint_f(temp_f, rh_pct)
 
