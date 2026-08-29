@@ -108,20 +108,32 @@ def get_sky_cover_icon(cloud_cov_str):
 
 def extract_first_valid(observations, var_prefixes, index):
     """
-    Scans every sensor key matching var_prefixes across all sensor sets.
-    Iterates until it finds the FIRST valid non-null, non-NaN numeric reading at `index`.
+    Exhaustively scans all keys matching var_prefixes.
+    Checks index `i` first; if None/out-of-bounds, falls back to the most recent valid float.
     """
     for key, values in observations.items():
         if any(prefix in key for prefix in var_prefixes):
-            if isinstance(values, list) and index < len(values):
-                val = values[index]
-                if val is not None:
-                    try:
-                        fval = float(val)
-                        if not math.isnan(fval):
-                            return fval
-                    except (ValueError, TypeError):
-                        pass
+            if isinstance(values, list) and len(values) > 0:
+                # 1. Try exact index
+                if index < len(values):
+                    val = values[index]
+                    if val is not None:
+                        try:
+                            fval = float(val)
+                            if not math.isnan(fval):
+                                return fval
+                        except (ValueError, TypeError):
+                            pass
+                
+                # 2. Fallback to latest available valid observation in array
+                for val in reversed(values):
+                    if val is not None:
+                        try:
+                            fval = float(val)
+                            if not math.isnan(fval):
+                                return fval
+                        except (ValueError, TypeError):
+                            continue
     return None
 
 def get_best_slp(observations, index):
@@ -314,7 +326,7 @@ def main():
                 temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
                 dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
                 
-                # Direct dew point calculation fallback if derived dewpoint is missing
+                # Force fallback dewpoint calculation if explicit array yields None
                 if dew_f is None and temp_f is not None and rh_pct is not None:
                     dew_f = calculate_dewpoint_f(temp_f, rh_pct)
 
