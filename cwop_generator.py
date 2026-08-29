@@ -222,8 +222,8 @@ def main():
                 mnet = "DOT"
             elif mnet_short and mnet_short != "UNKNOWN":
                 mnet = mnet_short
-                else:
-                    mnet = "Mesonet"
+            else:
+                mnet = "Mesonet"
 
             # --- FILTERS ---
             if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5"]:
