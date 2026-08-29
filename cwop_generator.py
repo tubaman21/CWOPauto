@@ -177,8 +177,13 @@ def main():
             else:
                 mnet = "Mesonet"
         
-        # --- FILTERS ---
-        if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4"]:
+       # --- FILTERS ---
+        # Exclude known bad river/HADS sites & uncalibrated sensors
+        if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5"]:
+            continue
+
+        # Optional: Exclude HADS stations entirely if they are cluttering surface plots
+        if mnet_short == "HADS" or mnet_id == "128":
             continue
 
         if len(stid) in [3, 4] and stid.isalpha() and not stid.startswith("D"):
