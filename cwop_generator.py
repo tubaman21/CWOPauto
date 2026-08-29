@@ -260,15 +260,18 @@ def main():
             else:
                 mnet = "Mesonet"
 
-            # --- FILTERS (BYPASS IF WHITELISTED) ---
+            # --- FILTERS (BYPASS IF WHITELISTED OR RAWS) ---
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
+                # 1. Manual Exclusions
                 if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5"]:
                     continue
 
+                # 2. Official ASOS/AWOS Airport Stations
                 if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
                     continue
 
-                if mnet != "CWOP":
+                # 3. Strict HADS, USGS, USACE, and River/Dam Hydrologic Gages (Skip RAWS & CWOP)
+                if mnet not in ["CWOP", "RAWS"] and mnet_id != "2":
                     if (
                         mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"] 
                         or mnet_id in ["128", "130", "208", "180"] 
@@ -278,6 +281,7 @@ def main():
                     ):
                         continue
 
+                # 4. Marine Buoys and 5-digit WMO numeric stations
                 if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                     continue
             # ---------------------------------
