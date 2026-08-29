@@ -409,6 +409,8 @@ def main():
     # --- COMPILE FINAL PLACEFILE ---
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
+        "; Created by Bryan J. Howell & Gemini AI",
+        "; Script Last Updated: August 29, 2026",
         "; GR2Analyst Time-Sourced Historical Loop Dataset",
         f"; Generated dynamically: {run_time}",
         "Refresh: 5",
