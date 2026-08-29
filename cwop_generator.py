@@ -41,6 +41,12 @@ NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 
 WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591"}
 
+# Manual coordinate overrides for relocated CWOP stations
+STATION_COORDINATE_OVERRIDES = {
+    "DW8249": (45.8812, -93.2921),  # Kanabec County APRS coordinates
+    "D8249":  (45.8812, -93.2921)
+}
+
 # ==========================================
 # UTILITY HELPER FUNCTIONS
 # ==========================================
@@ -114,7 +120,6 @@ def extract_first_valid(observations, var_prefixes, index):
     for key, values in observations.items():
         if any(prefix in key for prefix in var_prefixes):
             if isinstance(values, list) and len(values) > 0:
-                # 1. Try exact index
                 if index < len(values):
                     val = values[index]
                     if val is not None:
@@ -125,7 +130,6 @@ def extract_first_valid(observations, var_prefixes, index):
                         except (ValueError, TypeError):
                             pass
                 
-                # 2. Fallback to latest available valid observation in array
                 for val in reversed(values):
                     if val is not None:
                         try:
@@ -258,15 +262,12 @@ def main():
 
             # --- FILTERS (BYPASS IF WHITELISTED) ---
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
-                # 1. Manual Exclusions
                 if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5"]:
                     continue
 
-                # 2. Official ASOS/AWOS Airport Stations
                 if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
                     continue
 
-                # 3. Strict HADS, USGS, USACE, and River/Dam Hydrologic Gages
                 if mnet != "CWOP":
                     if (
                         mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"] 
@@ -277,16 +278,23 @@ def main():
                     ):
                         continue
 
-                # 4. Marine Buoys and 5-digit WMO numeric stations
                 if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                     continue
             # ---------------------------------
             
+            # --- EXTRACT AND OVERRIDE LAT/LON ---
             try:
                 lat = float(station.get("LATITUDE"))
                 lon = float(station.get("LONGITUDE"))
             except (TypeError, ValueError):
                 continue
+
+            # Override coordinates if station has moved in APRS
+            if stid in STATION_COORDINATE_OVERRIDES:
+                lat, lon = STATION_COORDINATE_OVERRIDES[stid]
+            elif raw_stid in STATION_COORDINATE_OVERRIDES:
+                lat, lon = STATION_COORDINATE_OVERRIDES[raw_stid]
+            # -------------------------------------
                 
             observations = station.get("OBSERVATIONS", {})
             timestamps = observations.get("date_time", [])
@@ -326,7 +334,6 @@ def main():
                 temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
                 dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
                 
-                # Force fallback dewpoint calculation if explicit array yields None
                 if dew_f is None and temp_f is not None and rh_pct is not None:
                     dew_f = calculate_dewpoint_f(temp_f, rh_pct)
 
