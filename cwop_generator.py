@@ -42,7 +42,6 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 # UTILITY HELPER FUNCTIONS
 # ==========================================
 def normalize_pressure_to_mb(val):
-    """Detects raw unit type (Pa, inHg, or mb) and converts cleanly to millibars/hPa."""
     if val is None or math.isnan(val) or val <= 0:
         return None
     try:
@@ -69,7 +68,6 @@ def sanitize_slp(pressure_mb):
         return "M"
 
 def format_precip(precip_mm):
-    """Converts mm to inches and formats as .XX or X.XX. Returns None if 0 or missing."""
     if precip_mm is None or math.isnan(precip_mm):
         return None
     try:
@@ -105,7 +103,6 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
 def get_obs_val(observations, var_base, index, fallback_list):
-    """Iterates through set_1, set_2, set_1d, etc. to prevent skipping multi-sensor stations."""
     for key in observations.keys():
         if key.startswith(var_base) and observations[key] and index < len(observations[key]):
             val = observations[key][index]
@@ -125,16 +122,14 @@ def main():
         sys.exit(1)
     
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
-    end_time = datetime.now(timezone.utc)
-    start_time = end_time - timedelta(hours=LOOKBACK_HOURS)
     
+    # Use 'recent' (in minutes) for robust data retrieval
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
         "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour,precip_accum_twenty_four_hour",
         "varsoperator": "OR",
-        "start": start_time.strftime("%Y%m%d%H%M"),
-        "end": end_time.strftime("%Y%m%d%H%M"),
+        "recent": LOOKBACK_HOURS * 60,
         "obtimezone": "UTC",
         "output": "json",
         "extra": "metadata"
@@ -146,6 +141,11 @@ def main():
         data = response.json()
     except Exception as e:
         print(f"Network processing exception during API fetch: {e}")
+        sys.exit(1)
+
+    # Verify API Response Status
+    if data.get("RESPONSE_CODE") != 1:
+        print(f"Synoptic API Error: {data.get('RESPONSE_MESSAGE', 'Unknown Error')}")
         sys.exit(1)
 
     network_blocks = {}
