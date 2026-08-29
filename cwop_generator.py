@@ -41,16 +41,27 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 # ==========================================
 # UTILITY HELPER FUNCTIONS
 # ==========================================
-def altimeter_to_slp_mb(alt_inhg, elev_meters=0):
-    """Converts altimeter setting in inHg to sea level pressure in millibars (hPa)."""
-    if alt_inhg is None or math.isnan(alt_inhg) or alt_inhg <= 0:
+def altimeter_to_slp_mb(val):
+    """Converts pressure (inHg, Pa, or mb) safely to millibars (hPa)."""
+    if val is None or math.isnan(val) or val <= 0:
         return None
     try:
-        # Convert inHg to mb
-        p_mb = alt_inhg * 33.8639
-        if p_mb < 800 or p_mb > 1100:
+        val = float(val)
+        # Case A: Inches of Mercury (e.g. 29.92)
+        if 20.0 <= val <= 33.0:
+            val_mb = val * 33.8639
+        # Case B: Pascals (e.g. 101325)
+        elif val > 50000:
+            val_mb = val / 100.0
+        # Case C: Millibars / hPa (e.g. 1013.25)
+        elif 800.0 <= val <= 1100.0:
+            val_mb = val
+        else:
             return None
-        return p_mb
+
+        if 800.0 <= val_mb <= 1100.0:
+            return val_mb
+        return None
     except Exception:
         return None
 
@@ -65,10 +76,10 @@ def sanitize_slp(pressure_mb):
         return "M"
 
 def format_precip_str(precip_in):
-    if precip_in is None or precip_in < 0.01:
+    if precip_in is None or math.isnan(precip_in) or precip_in < 0.01:
         return None
     if precip_in < 1.0:
-        return f"{precip_in:.2f}".lstrip('0')
+        return f"{precip_in:.2f}".lstrip('0')  # Returns ".25" instead of "0.25"
     return f"{precip_in:.2f}"
 
 def calculate_dewpoint_f(temp_f, rh_percent):
@@ -106,7 +117,7 @@ def extract_first_valid(observations, var_prefixes, index):
     return None
 
 def get_best_slp(observations, index):
-    """Finds Sea Level Pressure, Altimeter, or calculates SLP from Station Pressure."""
+    """Finds Sea Level Pressure, Altimeter, or Station Pressure."""
     slp_raw = extract_first_valid(observations, ["sea_level_pressure"], index)
     if slp_raw is not None:
         p_mb = altimeter_to_slp_mb(slp_raw)
@@ -137,11 +148,10 @@ def main():
     
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
-    # Explicitly enforce English units (inHg for pressure, inches for rain, deg F for temp)
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour",
+        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_1,precip_accum_24_hour",
         "varsoperator": "OR",
         "units": "english",
         "recent": LOOKBACK_HOURS * 60,
@@ -220,9 +230,6 @@ def main():
             timestamps = observations.get("date_time", [])
             
             station_lines = []
-            prev_bucket_val = None
-            total_24h_accum = 0.0
-
             for i, ts_str in enumerate(timestamps):
                 try:
                     dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
@@ -250,27 +257,15 @@ def main():
                 gust_mph = extract_first_valid(observations, ["wind_gust"], i)
                 wind_dir = extract_first_valid(observations, ["wind_direction"], i)
                 
-                # Retrieve Pressure
+                # Retrieve Pressure (inHg converted to mb)
                 slp_mb = get_best_slp(observations, i)
 
-                # --- RAINFALL PARSING (INTERVAL DELTA) ---
-                p1h_raw = extract_first_valid(observations, ["precip_accum_one_hour"], i)
-                p_bucket = extract_first_valid(observations, ["precip_accum"], i)
-
-                p1h_in = 0.0
-                if p1h_raw is not None and p1h_raw >= 0 and p1h_raw < 5.0:
-                    p1h_in = float(p1h_raw)
-                elif p_bucket is not None and p_bucket >= 0:
-                    if prev_bucket_val is not None and p_bucket >= prev_bucket_val:
-                        delta = p_bucket - prev_bucket_val
-                        if delta < 5.0:  # Ignore abnormal spikes
-                            p1h_in = delta
-                    prev_bucket_val = p_bucket
-
-                total_24h_accum += p1h_in
+                # --- RAINFALL EXTRACTION ---
+                p1h_in = extract_first_valid(observations, ["precip_accum_1", "precip_accum_one_hour"], i)
+                p24h_in = extract_first_valid(observations, ["precip_accum_24_hour", "precip_accum"], i)
 
                 p1h_str = format_precip_str(p1h_in)
-                p24h_str = format_precip_str(total_24h_accum)
+                p24h_str = format_precip_str(p24h_in)
 
                 if p1h_str:
                     rain_counter += 1
