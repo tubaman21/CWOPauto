@@ -106,15 +106,15 @@ def get_sky_cover_icon(cloud_cov_str):
 
 def extract_first_valid(observations, var_prefixes, index):
     """
-    Exhaustively scans all observation keys matching var_prefixes.
-    Prioritizes base set_1 sensors before checking derived set_1d or secondary sets.
+    Exhaustively scans all observation keys in the station payload.
+    Checks set_1, set_1d, set_2, etc., returning the first valid float at `index`.
     """
-    sorted_keys = sorted(
-        [k for k in observations.keys() if any(prefix in k for prefix in var_prefixes)],
-        key=lambda x: (0 if '_set_1' in x and not x.endswith('d') else 1, x)
-    )
+    matching_keys = [k for k in observations.keys() if any(prefix in k for prefix in var_prefixes)]
     
-    for key in sorted_keys:
+    # Sort keys so primary set_1 is evaluated before derived set_1d/set_2
+    matching_keys.sort(key=lambda x: (0 if '_set_1' in x and not x.endswith('d') else (1 if 'set_1d' in x else 2)))
+
+    for key in matching_keys:
         values = observations.get(key)
         if isinstance(values, list) and index < len(values):
             val = values[index]
@@ -209,6 +209,10 @@ def main():
         for station in data["STATION"]:
             stid = station.get("STID", "UNKNOWN").upper()
 
+            # Canonical alias translation for CWOP stations
+            if stid == "D8249":
+                stid = "DW8249"
+
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
@@ -302,7 +306,7 @@ def main():
                 temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
                 dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
                 
-                # Dew point fallback calculation from RH
+                # Direct dew point calculation fallback if derived set_1d dewpoint is missing
                 if dew_f is None and temp_f is not None and rh_pct is not None:
                     dew_f = calculate_dewpoint_f(temp_f, rh_pct)
 
