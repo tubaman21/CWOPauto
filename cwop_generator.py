@@ -39,7 +39,7 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 
-# Stations to explicitly protect from ANY filter logic
+# Whitelist both native callsigns and Synoptic's internal short IDs
 WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591"}
 
 # ==========================================
@@ -109,8 +109,8 @@ def get_sky_cover_icon(cloud_cov_str):
 
 def extract_first_valid(observations, var_prefixes, index):
     """
-    Scans every sensor key matching var_prefixes.
-    Skips over None/NaN entries and returns the FIRST valid numeric value found across ANY set.
+    Scans EVERY key matching var_prefixes across all sensor sets.
+    Iterates until it finds the FIRST valid non-null, non-NaN numeric reading at `index`.
     """
     for key, values in observations.items():
         if any(prefix in key for prefix in var_prefixes):
@@ -122,7 +122,7 @@ def extract_first_valid(observations, var_prefixes, index):
                         if not math.isnan(fval):
                             return fval
                     except (ValueError, TypeError):
-                        continue
+                        pass
     return None
 
 def get_best_slp(observations, index):
@@ -205,13 +205,15 @@ def main():
 
     if "STATION" in data and data["STATION"]:
         for station in data["STATION"]:
-            stid = station.get("STID", "UNKNOWN").upper()
+            raw_stid = station.get("STID", "UNKNOWN").upper()
 
-            # Canonical alias translation for CWOP stations
-            if stid == "D8249":
+            # Canonical alias translation for CWOP stations in output
+            if raw_stid == "D8249":
                 stid = "DW8249"
-            elif stid == "E9591":
+            elif raw_stid == "E9591":
                 stid = "EW9591"
+            else:
+                stid = raw_stid
 
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
@@ -219,7 +221,8 @@ def main():
 
             # --- NETWORK CLASSIFICATION ---
             if (
-                stid in WHITELIST_STATIONS
+                raw_stid in WHITELIST_STATIONS
+                or stid in WHITELIST_STATIONS
                 or mnet_id == "153" 
                 or "CWOP" in mnet_short 
                 or "CWOP" in mnet_name
@@ -243,7 +246,7 @@ def main():
                 mnet = "Mesonet"
 
             # --- FILTERS (BYPASS IF WHITELISTED) ---
-            if stid not in WHITELIST_STATIONS:
+            if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
                 # 1. Manual Exclusions
                 if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5"]:
                     continue
@@ -312,7 +315,7 @@ def main():
                 temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
                 dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
                 
-                # Direct dew point calculation fallback if derived set_1d dewpoint is missing
+                # Direct dew point calculation fallback if derived dewpoint is missing
                 if dew_f is None and temp_f is not None and rh_pct is not None:
                     dew_f = calculate_dewpoint_f(temp_f, rh_pct)
 
