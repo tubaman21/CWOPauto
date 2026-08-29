@@ -201,7 +201,7 @@ def main():
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
 
-            # --- NETWORK CLASSIFICATION (EVALUATED FIRST) ---
+            # --- NETWORK CLASSIFICATION ---
             if mnet_id == "153" or "CWOP" in mnet_short or "CWOP" in mnet_name:
                 mnet = "CWOP"
             elif mnet_id == "2" or "RAWS" in mnet_short:
@@ -220,30 +220,23 @@ def main():
                 else:
                     mnet = "Mesonet"
 
-            # --- FILTERS (CWOP STATIONS PROTECTED) ---
+            # --- FILTERS ---
             if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5"]:
                 continue
 
-            # Strict HADS, USGS & USACE River/Lake Gage Network Exclusions
+            # Exclude official ASOS / AWOS Airport Stations (MNET 1 = NWS/FAA)
+            if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
+                continue
+
+            # Exclude HADS, USGS, USACE, and River/Dam Hydrologic Gages
             if (
                 mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO"] 
                 or mnet_id in ["128", "130", "208"] 
-                or "HADS" in mnet_name 
-                or "RIVER" in mnet_name
-                or "DAM" in mnet_name
+                or any(kw in mnet_name for kw in ["HADS", "RIVER", "DAM", "GAGE", "CREEK", "STREAM"])
                 or stid.startswith("HADS")
             ):
                 continue
 
-            # Catch NWS/USGS/USACE 5-character Hydrologic Gages (e.g., SDYM5, WILM5, PKGM5)
-            # Filter any 5-character station containing digits that isn't CWOP or numeric WMO
-            if mnet != "CWOP" and len(stid) == 5 and not stid.isdigit() and any(char.isdigit() for char in stid):
-                continue
-
-            # Exclude standard 3 & 4-letter alphabetic ASOS sites
-            if len(stid) in [3, 4] and stid.isalpha() and not stid.startswith("D"):
-                continue
-                
             # Exclude NDBC buoys and 5-digit pure numeric WMO stations
             if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                 continue
