@@ -24,10 +24,9 @@ SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
 SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/cloudcover_new.png"
 
-# Set lookback window in hours (e.g., 6 hours)
+# Set lookback window in hours
 LOOKBACK_HOURS = 6
 
-# Network Threshold Hierarchy (Range in Nautical Miles)
 NETWORK_THRESHOLDS = {
     "RAWS": 999,
     "MnDOT": 100,
@@ -37,12 +36,31 @@ NETWORK_THRESHOLDS = {
     "CWOP": 60
 }
 
-# Network Processing Priority Order
 NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 
 # ==========================================
 # UTILITY HELPER FUNCTIONS
 # ==========================================
+def normalize_pressure_to_mb(val):
+    """Detects raw unit type (Pa, inHg, or mb) and converts cleanly to millibars/hPa."""
+    if val is None or math.isnan(val) or val <= 0:
+        return None
+    try:
+        val = float(val)
+        # Case A: Value is in Pascals (e.g. 101325 or 98500)
+        if val > 50000:
+            return val / 100.0
+        # Case B: Value is in Inches of Mercury (e.g. 29.92 or 30.15)
+        elif 20.0 <= val <= 33.0:
+            return val * 33.8639
+        # Case C: Value is already in Millibars/hPa (e.g. 1013.25 or 985.4)
+        elif 800.0 <= val <= 1100.0:
+            return val
+        else:
+            return None
+    except Exception:
+        return None
+
 def sanitize_slp(pressure_mb):
     if pressure_mb is None or math.isnan(pressure_mb):
         return "M"
@@ -54,35 +72,31 @@ def sanitize_slp(pressure_mb):
         return "M"
 
 def calculate_dewpoint_c(temp_c, rh_percent):
-    """Calculates Dew Point in Celsius from Temperature (C) and Relative Humidity (%) using Magnus formula."""
     if temp_c is None or rh_percent is None or rh_percent <= 0:
         return None
     try:
         a = 17.625
         b = 243.04
         alpha = ((a * temp_c) / (b + temp_c)) + math.log(rh_percent / 100.0)
-        dew_c = (b * alpha) / (a - alpha)
-        return dew_c
+        return (b * alpha) / (a - alpha)
     except Exception:
         return None
 
 def get_wind_barb_index(speed_knots, direction_deg):
     if speed_knots is None or speed_knots < 3 or direction_deg is None:
         return 0, 0
-        
     idx = int(round(speed_knots / 5.0))
     if idx < 1: idx = 1
     if idx > 26: idx = 26 
-    
     return idx, int(direction_deg)
 
 def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
 def get_obs_val(observations, var_base, index, fallback_list):
-    """Helper to check set_1, set_2, or set_1d dynamically to catch all sensor streams."""
-    for key in [f"{var_base}_set_1", f"{var_base}_set_2", f"{var_base}_set_1d"]:
-        if key in observations and observations[key] and index < len(observations[key]):
+    """Iterates through set_1, set_2, set_1d, etc. to prevent skipping multi-sensor stations."""
+    for key in observations.keys():
+        if key.startswith(var_base) and observations[key] and index < len(observations[key]):
             val = observations[key][index]
             if val is not None:
                 return val
@@ -100,14 +114,15 @@ def main():
         sys.exit(1)
     
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
-    
     end_time = datetime.now(timezone.utc)
     start_time = end_time - timedelta(hours=LOOKBACK_HOURS)
     
+    # varsoperator=OR ensures stations missing full sensor sets (like D8249) are NOT dropped
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,cloud_layer_1_code",
+        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure",
+        "varsoperator": "OR",
         "start": start_time.strftime("%Y%m%d%H%M"),
         "end": end_time.strftime("%Y%m%d%H%M"),
         "obtimezone": "UTC",
@@ -130,7 +145,7 @@ def main():
     network_blocks = {}
 
     for station in data["STATION"]:
-        stid = station.get("STID", "UNKNOWN")
+        stid = station.get("STID", "UNKNOWN").upper()
         
         mnet_id = str(station.get("MNET_ID", ""))
         mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
@@ -149,7 +164,7 @@ def main():
         elif mnet_short and mnet_short != "UNKNOWN":
             mnet = mnet_short
         else:
-            if (len(stid) >= 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D']) or stid.startswith("CW") or stid.startswith("DW"):
+            if (len(stid) >= 4 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K']) or stid.startswith("CW") or stid.startswith("DW"):
                 mnet = "CWOP"
             else:
                 mnet = "Mesonet"
@@ -158,7 +173,7 @@ def main():
         if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4"]:
             continue
 
-        if len(stid) in [3, 4] and stid.isalpha():
+        if len(stid) in [3, 4] and stid.isalpha() and not stid.startswith("D"):
             continue
             
         if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
@@ -203,17 +218,16 @@ def main():
             gust_ms = get_obs_val(observations, "wind_gust", i, fallback)
             wind_dir = get_obs_val(observations, "wind_direction", i, fallback)
             
-            slp_mb = get_obs_val(observations, "sea_level_pressure", i, fallback)
-            alt_in = get_obs_val(observations, "altimeter", i, fallback)
-            stn_p = get_obs_val(observations, "pressure", i, fallback)
+            raw_slp = get_obs_val(observations, "sea_level_pressure", i, fallback)
+            raw_alt = get_obs_val(observations, "altimeter", i, fallback)
+            raw_stn = get_obs_val(observations, "pressure", i, fallback)
             
-            # Unit conversion & pressure fallback logic:
-            # Synoptic returns altimeter in inches of Mercury (inHg). Convert to mb/hPa (1 inHg = 33.8639 mb).
+            # Run unit normalization (handles Pa, inHg, and hPa/mb seamlessly)
+            slp_mb = normalize_pressure_to_mb(raw_slp)
             if slp_mb is None:
-                if alt_in is not None:
-                    slp_mb = alt_in * 33.8639 if alt_in < 100 else alt_in
-                elif stn_p is not None:
-                    slp_mb = stn_p * 33.8639 if stn_p < 100 else stn_p
+                slp_mb = normalize_pressure_to_mb(raw_alt)
+            if slp_mb is None:
+                slp_mb = normalize_pressure_to_mb(raw_stn)
 
             sky_code = get_obs_val(observations, "cloud_layer_1_code", i, fallback)
 
@@ -268,17 +282,17 @@ def main():
             station_lines.append("  Color: 255 255 255")
             station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
             
-            # Temperature (Top Left)
+            # Temperature: Top-Left (-20, 10)
             if tf_display != "M":
                 station_lines.append(f"  Color: {color_temp}")
                 station_lines.append(f'  Text: -20, 10, 1, "{tf_display}"')
             
-            # Pressure / SLP (Top Right)
+            # Pressure / SLP Code: Top-Right (20, 10)
             if slp_str != "M":
                 station_lines.append(f"  Color: {color_slp}")
                 station_lines.append(f'  Text: 20, 10, 1, "{slp_str}"')
                 
-            # Dew Point (Bottom Left)
+            # Dew Point: Bottom-Left (-20, -10)
             if df_display != "M":
                 station_lines.append(f"  Color: {color_dew}")
                 station_lines.append(f'  Text: -20, -10, 1, "{df_display}"')
