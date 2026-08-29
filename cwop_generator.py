@@ -70,12 +70,15 @@ def sanitize_slp(pressure_mb):
 
 def format_precip(precip_mm):
     """Converts mm to inches and formats as .XX or X.XX. Returns None if 0 or missing."""
-    if precip_mm is None or math.isnan(precip_mm) or precip_mm < 0.254:  # Less than 0.01 inches
+    if precip_mm is None or math.isnan(precip_mm):
         return None
     try:
         precip_in = precip_mm * 0.0393701
+        # Check against 0.005 in to safely handle floating-point precision
+        if precip_in < 0.005:
+            return None
         if precip_in < 1.0:
-            return f"{precip_in:.2f}".lstrip('0')  # Returns ".25" instead of "0.25" to save plot space
+            return f"{precip_in:.2f}".lstrip('0')  # Returns ".25" instead of "0.25"
         return f"{precip_in:.2f}"
     except Exception:
         return None
@@ -129,7 +132,7 @@ def main():
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum_one_hour,precip_accum_twenty_four_hour,precip_accum",
+        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour,precip_accum_twenty_four_hour",
         "varsoperator": "OR",
         "start": start_time.strftime("%Y%m%d%H%M"),
         "end": end_time.strftime("%Y%m%d%H%M"),
@@ -151,6 +154,7 @@ def main():
         return
 
     network_blocks = {}
+    rain_counter = 0  # Debug counter
 
     for station in data["STATION"]:
         stid = station.get("STID", "UNKNOWN").upper()
@@ -177,12 +181,10 @@ def main():
             else:
                 mnet = "Mesonet"
         
-       # --- FILTERS ---
-        # Exclude known bad river/HADS sites & uncalibrated sensors
+        # --- FILTERS ---
         if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5"]:
             continue
 
-        # Optional: Exclude HADS stations entirely if they are cluttering surface plots
         if mnet_short == "HADS" or mnet_id == "128":
             continue
 
@@ -251,6 +253,9 @@ def main():
             p1h_str = format_precip(raw_p1h)
             p24h_str = format_precip(raw_p24h)
 
+            if p1h_str:
+                rain_counter += 1
+
             sky_code = get_obs_val(observations, "cloud_layer_1_code", i, fallback)
 
             if dew_c is None and temp_c is not None and rh_pct is not None:
@@ -259,6 +264,14 @@ def main():
             temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
             dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
             
+            # QC Checks
+            if temp_f is not None and (temp_f < -50 or temp_f > 130):
+                temp_f = None
+            if dew_f is not None and (dew_f < -60 or dew_f > 100):
+                dew_f = None
+            if temp_f is not None and dew_f is not None and dew_f > temp_f:
+                dew_f = None
+
             slp_str = sanitize_slp(slp_mb)
             sky_icon_idx = get_sky_cover_icon(sky_code)
             
@@ -291,7 +304,6 @@ def main():
             else:
                 wind_display = f"{wind_dir_display:03d}@{speed_mph}MPH"
 
-            # Hover Text construction with 1-hr and 24-hr rain totals
             p1h_hover = f"{p1h_str}\"" if p1h_str else "0.00\""
             p24h_hover = f"{p24h_str}\"" if p24h_str else "0.00\""
             
@@ -328,7 +340,7 @@ def main():
                 station_lines.append(f"  Color: {color_dew}")
                 station_lines.append(f'  Text: -20, -10, 1, "{df_display}"')
 
-            # 1-Hour Rainfall: Bottom-Right (20, -10) - Hidden if 0.00
+            # 1-Hour Rainfall: Bottom-Right (20, -10) - Hidden if < 0.01"
             if p1h_str:
                 station_lines.append(f"  Color: {color_rain}")
                 station_lines.append(f'  Text: 20, -10, 1, "{p1h_str}"')
@@ -375,7 +387,8 @@ def main():
     with open(full_output_path, "w") as f:
         f.write("\n".join(header_lines + body_lines))
         
-    print(f"Success! Script processing completed. Destination file compiled: {full_output_path}")
+    print(f"Success! Processed dataset. Found {rain_counter} total observation points with measurable rainfall (>=0.01\").")
+    print(f"Destination file compiled: {full_output_path}")
 
 if __name__ == "__main__":
     main()
