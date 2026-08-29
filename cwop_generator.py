@@ -198,7 +198,30 @@ def main():
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
 
-            # --- FILTERS (EVALUATED FIRST) ---
+            # --- NETWORK CLASSIFICATION (EVALUATED FIRST) ---
+            if mnet_id == "153" or "CWOP" in mnet_short or "CWOP" in mnet_name:
+                mnet = "CWOP"
+            elif mnet_id == "2" or "RAWS" in mnet_short:
+                mnet = "RAWS"
+            elif mnet_id == "66" or "MNDOT" in mnet_short or "MINNESOTA DOT" in mnet_name:
+                mnet = "MnDOT"
+            elif mnet_id == "67" or "WISDOT" in mnet_short or "WISCONSIN DOT" in mnet_name or stid.startswith("WIDOT"):
+                mnet = "WisDOT"
+            elif "DOT" in mnet_short or "DOT" in mnet_name:
+                mnet = "DOT"
+            elif mnet_short and mnet_short != "UNKNOWN":
+                mnet = mnet_short
+            else:
+                if (len(stid) >= 4 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K']) or stid.startswith("CW") or stid.startswith("DW"):
+                    mnet = "CWOP"
+                else:
+                    mnet = "Mesonet"
+
+            # --- FILTERS (PROTECT CWOP STATIONS) ---
+            if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5"]:
+                continue
+
+            # Strict HADS & USGS River/Lake Gage Network Exclusions
             if (
                 mnet_short in ["HADS", "USGS", "NWS-HYDRO"] 
                 or mnet_id in ["128", "130", "208"] 
@@ -208,8 +231,8 @@ def main():
             ):
                 continue
 
-            # Catch NWS 5-character Hydrologic River Gages (e.g., WILM5, PKGM5, SLVM5, DISW3)
-            if len(stid) == 5 and stid[:3].isalpha() and stid[3].isdigit():
+            # Catch NWS 5-character Hydrologic River Gages (ONLY if not CWOP)
+            if mnet != "CWOP" and len(stid) == 5 and stid[:3].isalpha() and stid[3].isdigit():
                 continue
 
             # Exclude standard 3 & 4-letter alphabetic ASOS sites
