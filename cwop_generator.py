@@ -144,16 +144,19 @@ def extract_first_valid(observations, var_prefixes, index):
 
 def get_best_slp(observations, index):
     """Finds Sea Level Pressure, Altimeter, or Station Pressure across any sensor set."""
+    # 1. Altimeter / Barometer (most common for CWOP/APRS stations)
+    alt_raw = extract_first_valid(observations, ["altimeter", "barometer"], index)
+    if alt_raw is not None:
+        p_mb = normalize_pressure_to_mb(alt_raw)
+        if p_mb: return p_mb
+
+    # 2. Sea Level Pressure
     slp_raw = extract_first_valid(observations, ["sea_level_pressure"], index)
     if slp_raw is not None:
         p_mb = normalize_pressure_to_mb(slp_raw)
         if p_mb: return p_mb
 
-    alt_raw = extract_first_valid(observations, ["altimeter"], index)
-    if alt_raw is not None:
-        p_mb = normalize_pressure_to_mb(alt_raw)
-        if p_mb: return p_mb
-
+    # 3. Raw Station Pressure
     stn_raw = extract_first_valid(observations, ["pressure"], index)
     if stn_raw is not None:
         p_mb = normalize_pressure_to_mb(stn_raw)
