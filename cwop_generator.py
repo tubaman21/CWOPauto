@@ -116,22 +116,22 @@ def get_sky_cover_icon(cloud_cov_str):
 
 def extract_first_valid(observations, var_prefixes, index):
     """
-    Exhaustively scans all keys matching var_prefixes.
-    Checks index `i` first; if None/out-of-bounds, falls back to the most recent valid float.
+    Scans all key-value sets matching var_prefixes.
+    Checks target index first, then falls back to the most recent non-null value in the array.
     """
     for key, values in observations.items():
         if any(prefix in key for prefix in var_prefixes):
             if isinstance(values, list) and len(values) > 0:
-                if index < len(values):
-                    val = values[index]
-                    if val is not None:
-                        try:
-                            fval = float(val)
-                            if not math.isnan(fval):
-                                return fval
-                        except (ValueError, TypeError):
-                            pass
-                
+                # 1. Try target index first
+                if index < len(values) and values[index] is not None:
+                    try:
+                        fval = float(values[index])
+                        if not math.isnan(fval):
+                            return fval
+                    except (ValueError, TypeError):
+                        pass
+
+                # 2. If target index was None/invalid, scan backwards for the most recent valid observation
                 for val in reversed(values):
                     if val is not None:
                         try:
@@ -143,24 +143,23 @@ def extract_first_valid(observations, var_prefixes, index):
     return None
 
 def get_best_slp(observations, index):
-    """Finds Sea Level Pressure, Altimeter, or Station Pressure across any sensor set."""
-    # 1. Altimeter / Barometer (most common for CWOP/APRS stations)
-    alt_raw = extract_first_valid(observations, ["altimeter", "barometer"], index)
-    if alt_raw is not None:
-        p_mb = normalize_pressure_to_mb(alt_raw)
-        if p_mb: return p_mb
-
-    # 2. Sea Level Pressure
-    slp_raw = extract_first_valid(observations, ["sea_level_pressure"], index)
-    if slp_raw is not None:
-        p_mb = normalize_pressure_to_mb(slp_raw)
-        if p_mb: return p_mb
-
-    # 3. Raw Station Pressure
-    stn_raw = extract_first_valid(observations, ["pressure"], index)
-    if stn_raw is not None:
-        p_mb = normalize_pressure_to_mb(stn_raw)
-        if p_mb: return p_mb
+    """
+    Finds pressure data across Altimeter, Barometer, SLP, or Station Pressure,
+    checking all common Synoptic variable naming variations.
+    """
+    # Expanded key list to catch all CWOP sensor variants (set_1, set_1a, etc.)
+    pressure_prefixes = [
+        "altimeter", 
+        "barometer", 
+        "sea_level_pressure", 
+        "pressure"
+    ]
+    
+    raw_p = extract_first_valid(observations, pressure_prefixes, index)
+    if raw_p is not None:
+        p_mb = normalize_pressure_to_mb(raw_p)
+        if p_mb: 
+            return p_mb
 
     return None
 
