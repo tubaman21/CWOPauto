@@ -39,12 +39,14 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 
-WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591"}
+WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591", "DW6222", "D6222"}
 
 # Manual coordinate overrides for relocated CWOP stations
 STATION_COORDINATE_OVERRIDES = {
     "DW8249": (46.212833, -93.379833),  # Aitkin County APRS position (East of Lake Mille Lacs)
-    "D8249":  (46.212833, -93.379833)
+    "D8249":  (46.212833, -93.379833),
+    "DW6222":  (46.778970, -90.789770),
+    "D6222":  (46.778970, -90.789770)
 }
 
 # ==========================================
