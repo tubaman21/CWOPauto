@@ -39,7 +39,7 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 
-WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591", "FW9531", "F9531"}
+WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591"}
 
 # Manual coordinate overrides for relocated CWOP stations
 STATION_COORDINATE_OVERRIDES = {
@@ -257,7 +257,7 @@ def main():
             # --- FILTERS (BYPASS IF WHITELISTED OR RAWS) ---
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
                 # 1. Manual Exclusions
-                if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5"]:
+                if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5", "F9531", "FW9531"]:
                     continue
 
                 # 2. Official ASOS/AWOS Airport Stations
@@ -296,16 +296,6 @@ def main():
                 
             observations = station.get("OBSERVATIONS", {})
             timestamps = observations.get("date_time", [])
-            
-            # Debug logger for F9531 / FW9531
-            if stid in ["FW9531", "F9531"] or raw_stid in ["FW9531", "F9531"]:
-                print("=" * 50)
-                print(f"DEBUG DATA FOR {raw_stid} / {stid}:")
-                print(f"Raw Keys Found: {list(observations.keys())}")
-                for k, v in observations.items():
-                    if any(p in k for p in ["pressure", "altimeter", "sea_level"]):
-                        print(f"  {k} -> {v}")
-                print("=" * 50)
 
             station_lines = []
             prev_bucket_in = None
