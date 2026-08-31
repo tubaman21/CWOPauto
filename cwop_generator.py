@@ -151,13 +151,11 @@ def extract_first_valid(observations, var_prefixes, index):
 
 def get_best_slp(observations, index):
     """
-    Finds pressure data across Altimeter, Barometer, SLP, or Station Pressure,
-    checking all common Synoptic variable naming variations.
+    Finds pressure data across Altimeter, Sea Level Pressure, or Station Pressure,
+    matching any sensor set returned in the JSON payload (e.g., pressure_set_1).
     """
-    # Expanded key list to catch all CWOP sensor variants (set_1, set_1a, etc.)
     pressure_prefixes = [
         "altimeter", 
-        "barometer", 
         "sea_level_pressure", 
         "pressure"
     ]
@@ -201,7 +199,7 @@ def main():
     api_params = {
     "token": api_token,
     "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-    "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,barometer,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
+    "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
     "varsoperator": "OR",
     "recent": LOOKBACK_HOURS * 60,
     "obtimezone": "UTC",
@@ -312,6 +310,10 @@ def main():
             # -------------------------------------
                 
             observations = station.get("OBSERVATIONS", {})
+
+            if stid in ["F9531", "FW9531"]:
+                print(f"DEBUG F9531 Keys: {list(observations.keys())}")
+    
             timestamps = observations.get("date_time", [])
             
             station_lines = []
