@@ -39,14 +39,12 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 
-WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591", "DW6222", "D6222"}
+WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591", "FW9531", "F9531"}
 
 # Manual coordinate overrides for relocated CWOP stations
 STATION_COORDINATE_OVERRIDES = {
     "DW8249": (46.212833, -93.379833),  # Aitkin County APRS position (East of Lake Mille Lacs)
-    "D8249":  (46.212833, -93.379833),
-    "DW6222":  (46.778970, -90.789770),
-    "D6222":  (46.778970, -90.789770)
+    "D8249":  (46.212833, -93.379833)
 }
 
 # ==========================================
@@ -58,17 +56,12 @@ def normalize_pressure_to_mb(val):
         return None
     try:
         val = float(val)
-        
-        # Standard Pascals (e.g., 101325 Pa -> 1013.25 mb)
         if val > 50000:
             val_mb = val / 100.0
-        # InHg (e.g., 29.92 inHg -> 1013.25 mb)
         elif 20.0 <= val <= 33.0:
             val_mb = val * 33.8639
-        # Standard hPa / mb (e.g., 1013.2 mb)
         elif 800.0 <= val <= 1100.0:
             val_mb = val
-        # APRS raw hundredths of hPa (e.g., 10132 -> 1013.2 mb)
         elif 8000.0 <= val <= 11000.0:
             val_mb = val / 10.0
         else:
@@ -123,13 +116,12 @@ def get_sky_cover_icon(cloud_cov_str):
 
 def extract_first_valid(observations, var_prefixes, index):
     """
-    Scans all key-value sets matching var_prefixes.
-    Checks target index first, then falls back to the most recent non-null value in the array.
+    Scans all keys matching var_prefixes.
+    Checks index `i` first; if None/out-of-bounds, falls back to the most recent valid float.
     """
     for key, values in observations.items():
         if any(prefix in key for prefix in var_prefixes):
             if isinstance(values, list) and len(values) > 0:
-                # 1. Try target index first
                 if index < len(values) and values[index] is not None:
                     try:
                         fval = float(values[index])
@@ -137,8 +129,7 @@ def extract_first_valid(observations, var_prefixes, index):
                             return fval
                     except (ValueError, TypeError):
                         pass
-
-                # 2. If target index was None/invalid, scan backwards for the most recent valid observation
+                
                 for val in reversed(values):
                     if val is not None:
                         try:
@@ -150,22 +141,13 @@ def extract_first_valid(observations, var_prefixes, index):
     return None
 
 def get_best_slp(observations, index):
-    """
-    Finds pressure data across Altimeter, Sea Level Pressure, or Station Pressure,
-    matching any sensor set returned in the JSON payload (e.g., pressure_set_1).
-    """
-    pressure_prefixes = [
-        "altimeter", 
-        "sea_level_pressure", 
-        "pressure"
-    ]
-    
+    """Finds Sea Level Pressure, Altimeter, or Station Pressure across any sensor set."""
+    pressure_prefixes = ["altimeter", "sea_level_pressure", "pressure"]
     raw_p = extract_first_valid(observations, pressure_prefixes, index)
     if raw_p is not None:
         p_mb = normalize_pressure_to_mb(raw_p)
-        if p_mb: 
+        if p_mb:
             return p_mb
-
     return None
 
 def clean_rain_value_to_inches(val):
@@ -197,15 +179,15 @@ def main():
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
     api_params = {
-    "token": api_token,
-    "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-    "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
-    "varsoperator": "OR",
-    "recent": LOOKBACK_HOURS * 60,
-    "obtimezone": "UTC",
-    "output": "json",
-    "extra": "metadata"
-}
+        "token": api_token,
+        "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
+        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
+        "varsoperator": "OR",
+        "recent": LOOKBACK_HOURS * 60,
+        "obtimezone": "UTC",
+        "output": "json",
+        "extra": "metadata"
+    }
     
     try:
         response = requests.get(SYNOPTIC_API_URL, params=api_params, timeout=25)
@@ -232,14 +214,14 @@ def main():
             raw_stid = station.get("STID", "UNKNOWN").upper()
 
             # Canonical alias translation for CWOP stations
-    if raw_stid == "D8249":
-         stid = "DW8249"
-    elif raw_stid == "E9591":
-         stid = "EW9591"
-    elif raw_stid == "F9531":
-         stid = "FW9531"
-    else:
-         stid = raw_stid
+            if raw_stid == "D8249":
+                stid = "DW8249"
+            elif raw_stid == "E9591":
+                stid = "EW9591"
+            elif raw_stid == "F9531":
+                stid = "FW9531"
+            else:
+                stid = raw_stid
 
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
@@ -255,6 +237,7 @@ def main():
                 or stid.startswith("DW") 
                 or stid.startswith("CW")
                 or stid.startswith("EW")
+                or stid.startswith("FW")
                 or (len(stid) == 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'] and stid[1:].isdigit())
             ):
                 mnet = "CWOP"
@@ -312,18 +295,18 @@ def main():
             # -------------------------------------
                 
             observations = station.get("OBSERVATIONS", {})
-
-            if stid in ["FW9531", "F9531"] or raw_stid in ["FW9531", "F9531"]:
-    print("=" * 50)
-    print(f"DEBUG DATA FOR {raw_stid} / {stid}:")
-    print(f"Raw Keys Found: {list(observations.keys())}")
-    for k, v in observations.items():
-        if any(p in k for p in ["pressure", "altimeter", "sea_level"]):
-            print(f"  {k} -> {v}")
-    print("=" * 50)
-    
             timestamps = observations.get("date_time", [])
             
+            # Debug logger for F9531 / FW9531
+            if stid in ["FW9531", "F9531"] or raw_stid in ["FW9531", "F9531"]:
+                print("=" * 50)
+                print(f"DEBUG DATA FOR {raw_stid} / {stid}:")
+                print(f"Raw Keys Found: {list(observations.keys())}")
+                for k, v in observations.items():
+                    if any(p in k for p in ["pressure", "altimeter", "sea_level"]):
+                        print(f"  {k} -> {v}")
+                print("=" * 50)
+
             station_lines = []
             prev_bucket_in = None
             rolling_24h_sum = 0.0
@@ -488,7 +471,7 @@ def main():
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
         "; Created by [Your Name] & Gemini AI",
-        "; Script Version Updated: August 29, 2026",
+        "; Script Version Updated: August 30, 2026",
         "; GR2Analyst Time-Sourced Historical Loop Dataset",
         f"; Generated dynamically: {run_time}",
         "Refresh: 5",
