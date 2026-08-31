@@ -53,17 +53,24 @@ STATION_COORDINATE_OVERRIDES = {
 # UTILITY HELPER FUNCTIONS
 # ==========================================
 def normalize_pressure_to_mb(val):
-    """Converts pressure (Pascals, inHg, or hPa/mb) safely to millibars (hPa)."""
+    """Converts pressure (Pascals, inHg, hPa/mb, or hundredths of hPa) safely to millibars (hPa)."""
     if val is None or math.isnan(val) or val <= 0:
         return None
     try:
         val = float(val)
+        
+        # Standard Pascals (e.g., 101325 Pa -> 1013.25 mb)
         if val > 50000:
             val_mb = val / 100.0
+        # InHg (e.g., 29.92 inHg -> 1013.25 mb)
         elif 20.0 <= val <= 33.0:
             val_mb = val * 33.8639
+        # Standard hPa / mb (e.g., 1013.2 mb)
         elif 800.0 <= val <= 1100.0:
             val_mb = val
+        # APRS raw hundredths of hPa (e.g., 10132 -> 1013.2 mb)
+        elif 8000.0 <= val <= 11000.0:
+            val_mb = val / 10.0
         else:
             return None
 
@@ -192,15 +199,15 @@ def main():
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
     api_params = {
-        "token": api_token,
-        "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
-        "varsoperator": "OR",
-        "recent": LOOKBACK_HOURS * 60,
-        "obtimezone": "UTC",
-        "output": "json",
-        "extra": "metadata"
-    }
+    "token": api_token,
+    "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
+    "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,barometer,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
+    "varsoperator": "OR",
+    "recent": LOOKBACK_HOURS * 60,
+    "obtimezone": "UTC",
+    "output": "json",
+    "extra": "metadata"
+}
     
     try:
         response = requests.get(SYNOPTIC_API_URL, params=api_params, timeout=25)
