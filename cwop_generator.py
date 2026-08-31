@@ -232,12 +232,14 @@ def main():
             raw_stid = station.get("STID", "UNKNOWN").upper()
 
             # Canonical alias translation for CWOP stations
-            if raw_stid == "D8249":
-                stid = "DW8249"
-            elif raw_stid == "E9591":
-                stid = "EW9591"
-            else:
-                stid = raw_stid
+    if raw_stid == "D8249":
+         stid = "DW8249"
+    elif raw_stid == "E9591":
+         stid = "EW9591"
+    elif raw_stid == "F9531":
+         stid = "FW9531"
+    else:
+         stid = raw_stid
 
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
@@ -311,8 +313,14 @@ def main():
                 
             observations = station.get("OBSERVATIONS", {})
 
-            if stid in ["F9531", "FW9531"]:
-                print(f"DEBUG F9531 Keys: {list(observations.keys())}")
+            if stid in ["FW9531", "F9531"] or raw_stid in ["FW9531", "F9531"]:
+    print("=" * 50)
+    print(f"DEBUG DATA FOR {raw_stid} / {stid}:")
+    print(f"Raw Keys Found: {list(observations.keys())}")
+    for k, v in observations.items():
+        if any(p in k for p in ["pressure", "altimeter", "sea_level"]):
+            print(f"  {k} -> {v}")
+    print("=" * 50)
     
             timestamps = observations.get("date_time", [])
             
