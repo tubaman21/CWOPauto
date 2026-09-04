@@ -50,39 +50,47 @@ STATION_COORDINATE_OVERRIDES = {
 # UTILITY HELPER FUNCTIONS
 # ==========================================
 def normalize_pressure_to_mb(val):
-    """Converts raw numeric pressure values safely into millibars (hPa)."""
+    """Converts raw pressure values (Pa, inHg, hundredths inHg, hPa) to millibars."""
     if val is None or math.isnan(val) or val <= 0:
         return None
     try:
         val = float(val)
-        if val > 50000:               # Pascals (Pa)
-            return val / 100.0
-        elif 20.0 <= val <= 33.0:      # Inches of Mercury (inHg)
-            return val * 33.8639
-        elif 8000.0 <= val <= 11000.0: # Hundredths of mb
-            return val / 10.0
-        elif 800.0 <= val <= 1100.0:   # Millibars (hPa)
+        if val > 50000:                  # Pascals (Pa)
+            val = val / 100.0
+        elif 2800.0 <= val <= 3200.0:    # Hundredths of inHg (e.g. 3012 -> 30.12 inHg)
+            val = (val / 100.0) * 33.8639
+        elif 27.0 <= val <= 32.5:        # Standard inHg
+            val = val * 33.8639
+        elif 8000.0 <= val <= 11000.0:   # Hundredths of hPa
+            val = val / 10.0
+        
+        # Final validity check
+        if 920.0 <= val <= 1050.0:
             return val
         return None
     except Exception:
         return None
 
 def station_pressure_to_slp(station_press_mb, elev_meters, temp_c=15.0):
-    """Reduces uncorrected ground station pressure to Sea Level Pressure (SLP)."""
+    """Reduces ground station pressure to Sea Level Pressure (SLP)."""
     if station_press_mb is None or elev_meters is None or elev_meters <= 0:
         return station_press_mb
     try:
         temp_k = (temp_c if temp_c is not None else 15.0) + 273.15
         factor = math.exp((0.034163 * elev_meters) / temp_k)
-        return station_press_mb * factor
+        slp = station_press_mb * factor
+        if 920.0 <= slp <= 1050.0:
+            return slp
+        return None
     except Exception:
-        return station_press_mb
+        return None
 
 def sanitize_slp(pressure_mb):
-    """Formats sea level pressure into standard 3-digit METAR notation (e.g. 1013.2 -> 132)."""
+    """Formats sea level pressure into 3-digit METAR notation with strict bounds checking."""
     if pressure_mb is None or math.isnan(pressure_mb):
         return "M"
-    if not (920.0 <= pressure_mb <= 1060.0):
+    # Strict meteorological bounds to reject unrealistic values like 1059 mb
+    if not (950.0 <= pressure_mb <= 1050.0):
         return "M"
     try:
         val = int(round(pressure_mb * 10))
@@ -122,10 +130,7 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
 def get_obs_val(observations, var_prefixes, index):
-    """
-    Flexibly retrieves observation values for any sensor set key 
-    matching var_prefixes at strict index i without leaking stale historical data.
-    """
+    """Extracts sensor value matching var_prefixes at index i without historical leakage."""
     for key, values in observations.items():
         if any(key.startswith(prefix) for prefix in var_prefixes):
             if isinstance(values, list) and index < len(values):
@@ -140,29 +145,22 @@ def get_obs_val(observations, var_prefixes, index):
     return None
 
 def get_best_slp(observations, index, elev_meters, temp_c):
-    """
-    Extracts SLP or Altimeter. Converts station pressure using elevation 
-    ONLY if raw pressure is strictly uncorrected (< 950 mb).
-    """
-    # Check for direct SLP / Altimeter settings across all sets
+    """Extracts SLP or Altimeter. Reduces station pressure only if uncorrected (< 950 mb)."""
     raw_p = get_obs_val(observations, ["sea_level_pressure", "altimeter"], index)
     if raw_p is not None:
         p_mb = normalize_pressure_to_mb(raw_p)
-        if p_mb and 920.0 <= p_mb <= 1060.0:
+        if p_mb and 950.0 <= p_mb <= 1050.0:
             return p_mb
 
-    # Fall back to raw barometric pressure
     stn_p = get_obs_val(observations, ["pressure", "barometric_pressure"], index)
     if stn_p is not None:
         p_mb = normalize_pressure_to_mb(stn_p)
         if p_mb:
-            # If pressure is already near sea level (>950 mb), do NOT reduce again
             if p_mb >= 950.0:
-                return p_mb if 920.0 <= p_mb <= 1060.0 else None
+                return p_mb if 950.0 <= p_mb <= 1050.0 else None
             
-            # Reduce true station ground pressure using elevation
             slp = station_pressure_to_slp(p_mb, elev_meters, temp_c)
-            if 920.0 <= slp <= 1060.0:
+            if slp and 950.0 <= slp <= 1050.0:
                 return slp
 
     return None
@@ -334,7 +332,6 @@ def main():
                 except Exception:
                     continue
 
-                # Comprehensive Sensor Parsing
                 temp_c = get_obs_val(observations, ["air_temp"], i)
                 dew_c = get_obs_val(observations, ["dew_point"], i)
                 rh_pct = get_obs_val(observations, ["relative_humidity"], i)
@@ -383,7 +380,6 @@ def main():
 
                 sky_code = get_obs_val(observations, ["cloud_layer_1_code"], i)
 
-                # Quality Control Filtering
                 if temp_f is not None and (temp_f < -50 or temp_f > 130):
                     temp_f = None
                 if dew_f is not None and (dew_f < -60 or dew_f > 100):
@@ -443,30 +439,35 @@ def main():
                     barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                     if barb_val > 0:
                         station_lines.append(f"  Color: {color_barb}")
-                        station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val},0.6")
+                        station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
                 station_lines.append("  Color: 255 255 255")
                 station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
                 
+                # Temperature
                 if tf_display != "M":
                     station_lines.append(f"  Color: {color_temp}")
-                    station_lines.append(f'  Text: -16, 8, 1, "{tf_display}"')
+                    station_lines.append(f'  Text: -14, 6, 1, "{tf_display}"')
                 
+                # Pressure / SLP Code
                 if slp_str != "M":
                     station_lines.append(f"  Color: {color_slp}")
-                    station_lines.append(f'  Text: 16, 8, 1, "{slp_str}"')
+                    station_lines.append(f'  Text: 14, 6, 1, "{slp_str}"')
                     
+                # Dew Point
                 if df_display != "M":
                     station_lines.append(f"  Color: {color_dew}")
-                    station_lines.append(f'  Text: -16, -8, 1, "{df_display}"')
+                    station_lines.append(f'  Text: -14, -6, 1, "{df_display}"')
 
+                # 1-Hour Rainfall
                 if p1h_str:
                     station_lines.append(f"  Color: {color_rain}")
-                    station_lines.append(f'  Text: 16, -8, 1, "{p1h_str}"')
+                    station_lines.append(f'  Text: 14, -6, 1, "{p1h_str}"')
 
+                # Wind Gust Label
                 if has_gust:
                     station_lines.append(f"  Color: {color_gust}")
-                    station_lines.append(f'  Text: 0, -18, 1, "G{gust_mph}"')
+                    station_lines.append(f'  Text: 0, -15, 1, "G{gust_mph}"')
                 
                 station_lines.append("End:")
                 station_lines.append("")
@@ -476,10 +477,11 @@ def main():
     else:
         print("Warning: Network returned successfully but no matching active stations found.")
 
+    # Setting icon frame size to 45x45 downscales the barbs directly in GR2
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
-        f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"',
+        f'IconFile: 1, 45, 45, 22, 22, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
         ""
