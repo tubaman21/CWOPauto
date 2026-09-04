@@ -21,7 +21,10 @@ LAT_MIN, LAT_MAX = 42.5, 50.5
 LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
-WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_75_new.png"
+
+# Updated Icon Sheets:
+# High-density wind barbs (50x50 icon cells) for smaller display on high-DPI radars
+WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_50.png"
 SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/cloudcover_new.png"
 
 LOOKBACK_HOURS = 6
@@ -43,7 +46,7 @@ WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591"}
 
 # Manual coordinate overrides for relocated CWOP stations
 STATION_COORDINATE_OVERRIDES = {
-    "DW8249": (46.212833, -93.379833),  # Aitkin County APRS position (East of Lake Mille Lacs)
+    "DW8249": (46.212833, -93.379833),  # Aitkin County APRS position
     "D8249":  (46.212833, -93.379833)
 }
 
@@ -91,13 +94,16 @@ def format_precip_str(precip_in):
     return f"{precip_in:.2f}"
 
 def calculate_dewpoint_f(temp_f, rh_percent):
-    if temp_f is None or rh_percent is None or rh_percent <= 0:
+    """Calculates dewpoint with zero/near-zero RH protection."""
+    if temp_f is None or rh_percent is None or rh_percent < 0:
         return None
     try:
+        # Clamp relative humidity to 0.1% minimum to prevent math domain error with log(0)
+        rh_clamped = max(rh_percent, 0.1)
         temp_c = (temp_f - 32) * 5/9
         a = 17.625
         b = 243.04
-        alpha = ((a * temp_c) / (b + temp_c)) + math.log(rh_percent / 100.0)
+        alpha = ((a * temp_c) / (b + temp_c)) + math.log(rh_clamped / 100.0)
         dew_c = (b * alpha) / (a - alpha)
         return int(round((dew_c * 9/5) + 32))
     except Exception:
@@ -151,16 +157,20 @@ def get_best_slp(observations, index):
     return None
 
 def clean_rain_value_to_inches(val):
-    """Converts metric precipitation (mm) or raw tipping bucket counts to inches."""
+    """Converts metric precipitation (mm) or raw tipping bucket counts to inches safely."""
     if val is None or math.isnan(val) or val < 0:
         return 0.0
     try:
         val = float(val)
-        if val >= 50.0:
-            return val / 100.0
-        elif val >= 0.254:
+        # Check for raw millimeter accumulation vs tipping bucket counts vs inches
+        if 0.254 <= val < 100.0:
+            # Standard metric mm conversion (0.254mm = 0.01 in)
             return val * 0.0393701
+        elif val >= 100.0:
+            # Tipping bucket counter or hundredths of mm
+            return val / 100.0
         else:
+            # Value is already in inches (< 0.254)
             return val
     except Exception:
         return 0.0
@@ -264,7 +274,7 @@ def main():
                 if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
                     continue
 
-                # 3. Strict HADS, USGS, USACE, and River/Dam Hydrologic Gages (Skip RAWS & CWOP)
+                # 3. Strict HADS, USGS, USACE, and River/Dam Hydrologic Gages
                 if mnet not in ["CWOP", "RAWS"] and mnet_id != "2":
                     if (
                         mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"] 
@@ -465,7 +475,8 @@ def main():
         "; GR2Analyst Time-Sourced Historical Loop Dataset",
         f"; Generated dynamically: {run_time}",
         "Refresh: 5",
-        f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"',
+        # Configured for windbarbs_50.png (50x50px cells, hotspot set to center 25, 25)
+        f'IconFile: 1, 50, 50, 25, 25, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
         ""
