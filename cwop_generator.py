@@ -22,8 +22,8 @@ LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
-# Public CDN URLs for wind barbs and cloud cover
-WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
+# Small-format Gibson Ridge native 32x32px wind barb sprite sheet
+WIND_BARB_ICON_URL = "https://www.grlevelx.com/placefiles/barbs.png"
 SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
 LOOKBACK_HOURS = 6
@@ -57,7 +57,7 @@ def normalize_pressure_to_mb(val):
         val = float(val)
         if val > 50000:                  # Pascals (Pa)
             val = val / 100.0
-        elif 2800.0 <= val <= 3200.0:    # Hundredths of inHg (e.g. 3012 -> 30.12 inHg)
+        elif 2800.0 <= val <= 3200.0:    # Hundredths of inHg
             val = (val / 100.0) * 33.8639
         elif 27.0 <= val <= 32.5:        # Standard inHg
             val = val * 33.8639
@@ -104,12 +104,12 @@ def format_precip_str(precip_in):
     return f"{precip_in:.2f}"
 
 def format_visibility_str(vis_val):
-    """Formats visibility value into standard METAR notation (e.g. 1/4, 1/2, 2.5, 10)."""
+    """Formats visibility into standard METAR text notation."""
     if vis_val is None or math.isnan(vis_val) or vis_val < 0:
         return None
     try:
         vis = float(vis_val)
-        # Convert metric meters to statute miles if Synoptic returns raw meters (> 50m)
+        # Convert metric meters to statute miles if Synoptic returns raw meters (>50m)
         if vis > 50.0:
             vis = vis * 0.000621371
             
@@ -153,7 +153,7 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
 def get_obs_val(observations, var_prefixes, index):
-    """Matches any key containing target prefixes across sensor sets."""
+    """Scans for matching sensor prefixes across all telemetry arrays."""
     for key, values in observations.items():
         if any(prefix in key for prefix in var_prefixes):
             if isinstance(values, list) and index < len(values):
@@ -361,7 +361,7 @@ def main():
                 speed_ms = get_obs_val(observations, ["wind_speed"], i)
                 gust_ms = get_obs_val(observations, ["wind_gust"], i)
                 wind_dir = get_obs_val(observations, ["wind_direction"], i)
-                raw_vis = get_obs_val(observations, ["visibility"], i)
+                raw_vis = get_obs_val(observations, ["visibility", "vis"], i)
                 
                 temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
                 dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
@@ -465,8 +465,8 @@ def main():
                     barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                     if barb_val > 0:
                         station_lines.append(f"  Color: {color_barb}")
-                        # Inline scale factor '0.6' with exact center hotspot (37,37)
-                        station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val},0.6")
+                        # Clean 1:1 render using native 32x32px sprite sheet
+                        station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
                 station_lines.append("  Color: 255 255 255")
                 station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
@@ -476,13 +476,13 @@ def main():
                     station_lines.append(f"  Color: {color_temp}")
                     station_lines.append(f'  Text: -14, 6, 1, "{tf_display}"')
                 
-                # Visibility (Left-Middle) - Plots for all valid readings <= 10 mi
+                # Visibility (Middle-Left) - Renders for all valid readings <= 10 mi
                 if raw_vis is not None and vis_str:
                     try:
                         v_num = float(raw_vis)
                         if v_num > 50.0: v_num *= 0.000621371
                         if v_num <= 1.0:
-                            color_vis = "255 0 255"   # Low Vis / Fog (Magenta)
+                            color_vis = "255 0 255"   # Dense Fog (Magenta)
                         elif v_num <= 3.0:
                             color_vis = "255 255 0"   # Marginal Vis (Yellow)
                         else:
@@ -521,11 +521,11 @@ def main():
     else:
         print("Warning: Network returned successfully but no matching active stations found.")
 
-    # Restored exact native frame dimensions (75x75, hotspot 37,37)
+    # IconFile 1 config: 32x32px frame anchored directly at center (16, 16)
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
-        f'IconFile: 1, 75, 75, 37, 37, "{WIND_BARB_ICON_URL}"',
+        f'IconFile: 1, 32, 32, 16, 16, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
         ""
