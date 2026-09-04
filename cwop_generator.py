@@ -22,7 +22,7 @@ LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
-# Icon Sheets: 50x50px compact wind barbs for high-DPI clarity
+# Icon Sheets: 50x50px compact wind barbs
 WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_50.png"
 SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/cloudcover_new.png"
 
@@ -53,30 +53,45 @@ STATION_COORDINATE_OVERRIDES = {
 # UTILITY HELPER FUNCTIONS
 # ==========================================
 def normalize_pressure_to_mb(val):
-    """Converts pressure (Pascals, inHg, hPa/mb, or hundredths of hPa) safely to millibars (hPa)."""
+    """Converts raw numeric pressure values into millibars (hPa)."""
     if val is None or math.isnan(val) or val <= 0:
         return None
     try:
         val = float(val)
-        if val > 50000:
-            val_mb = val / 100.0
-        elif 20.0 <= val <= 33.0:
-            val_mb = val * 33.8639
-        elif 800.0 <= val <= 1100.0:
-            val_mb = val
-        elif 8000.0 <= val <= 11000.0:
-            val_mb = val / 10.0
-        else:
-            return None
-
-        if 800.0 <= val_mb <= 1100.0:
-            return val_mb
+        if val > 50000:             # Pascals
+            return val / 100.0
+        elif 20.0 <= val <= 33.0:    # Inches of Mercury (inHg)
+            return val * 33.8639
+        elif 800.0 <= val <= 1100.0: # Direct mb/hPa
+            return val
+        elif 8000.0 <= val <= 11000.0: # Hundredths of hPa
+            return val / 10.0
         return None
     except Exception:
         return None
 
+def station_pressure_to_slp(station_press_mb, elev_meters, temp_c=15.0):
+    """
+    Reduces uncorrected station pressure to Sea Level Pressure (SLP)
+    using the barometric reduction formula based on station elevation.
+    """
+    if station_press_mb is None or elev_meters is None:
+        return station_press_mb
+    try:
+        # Standard lapse rate atmosphere reduction approximation
+        temp_k = (temp_c if temp_c is not None else 15.0) + 273.15
+        factor = math.exp((0.034163 * elev_meters) / temp_k)
+        slp = station_press_mb * factor
+        return slp
+    except Exception:
+        return station_press_mb
+
 def sanitize_slp(pressure_mb):
+    """Formats sea level pressure into standard 3-digit METAR SLP notation (e.g., 1013.2 -> 132)."""
     if pressure_mb is None or math.isnan(pressure_mb):
+        return "M"
+    # Strict meteorological bounds check for surface stations
+    if not (920.0 <= pressure_mb <= 1080.0):
         return "M"
     try:
         val = int(round(pressure_mb * 10))
@@ -119,10 +134,7 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
 def extract_first_valid(observations, var_prefixes, index):
-    """
-    Scans all keys matching var_prefixes.
-    Checks index `i` first; if None/out-of-bounds, falls back to the most recent valid float.
-    """
+    """Scans observation keys for the most recent valid observation matching a prefix."""
     for key, values in observations.items():
         if any(prefix in key for prefix in var_prefixes):
             if isinstance(values, list) and len(values) > 0:
@@ -144,14 +156,27 @@ def extract_first_valid(observations, var_prefixes, index):
                             continue
     return None
 
-def get_best_slp(observations, index):
-    """Finds Sea Level Pressure, Altimeter, or Station Pressure across any sensor set."""
-    pressure_prefixes = ["altimeter", "sea_level_pressure", "pressure"]
-    raw_p = extract_first_valid(observations, pressure_prefixes, index)
-    if raw_p is not None:
-        p_mb = normalize_pressure_to_mb(raw_p)
-        if p_mb:
+def get_best_slp(observations, index, elev_meters, temp_c):
+    """
+    Finds Sea Level Pressure or Altimeter setting first. 
+    If only raw station pressure exists, converts it to SLP using elevation.
+    """
+    # 1. Try direct Sea Level Pressure or Altimeter
+    slp_val = extract_first_valid(observations, ["sea_level_pressure", "altimeter"], index)
+    if slp_val is not None:
+        p_mb = normalize_pressure_to_mb(slp_val)
+        if p_mb and 920.0 <= p_mb <= 1080.0:
             return p_mb
+
+    # 2. Fall back to raw station pressure and reduce using station elevation
+    stn_p_val = extract_first_valid(observations, ["pressure"], index)
+    if stn_p_val is not None:
+        p_mb = normalize_pressure_to_mb(stn_p_val)
+        if p_mb:
+            corrected_slp = station_pressure_to_slp(p_mb, elev_meters, temp_c)
+            if 920.0 <= corrected_slp <= 1080.0:
+                return corrected_slp
+
     return None
 
 def clean_rain_value_to_inches(val):
@@ -260,15 +285,12 @@ def main():
 
             # --- FILTERS (BYPASS IF WHITELISTED OR RAWS) ---
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
-                # 1. Manual Exclusions
                 if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5", "F9531", "FW9531"]:
                     continue
 
-                # 2. Official ASOS/AWOS Airport Stations
                 if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
                     continue
 
-                # 3. Strict HADS, USGS, USACE, and River/Dam Hydrologic Gages
                 if mnet not in ["CWOP", "RAWS"] and mnet_id != "2":
                     if (
                         mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"] 
@@ -279,24 +301,30 @@ def main():
                     ):
                         continue
 
-                # 4. Marine Buoys and 5-digit WMO numeric stations
                 if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                     continue
-            # ---------------------------------
             
-            # --- EXTRACT AND OVERRIDE LAT/LON ---
+            # --- EXTRACT METADATA ---
             try:
                 lat = float(station.get("LATITUDE"))
                 lon = float(station.get("LONGITUDE"))
             except (TypeError, ValueError):
                 continue
 
-            # Override coordinates if station has moved in APRS
+            # Extract elevation for pressure reduction (convert ft to meters if necessary)
+            elev_meters = None
+            raw_elev = station.get("ELEVATION")
+            if raw_elev is not None:
+                try:
+                    elev_ft = float(raw_elev)
+                    elev_meters = elev_ft * 0.3048
+                except (ValueError, TypeError):
+                    pass
+
             if stid in STATION_COORDINATE_OVERRIDES:
                 lat, lon = STATION_COORDINATE_OVERRIDES[stid]
             elif raw_stid in STATION_COORDINATE_OVERRIDES:
                 lat, lon = STATION_COORDINATE_OVERRIDES[raw_stid]
-            # -------------------------------------
                 
             observations = station.get("OBSERVATIONS", {})
             timestamps = observations.get("date_time", [])
@@ -343,7 +371,8 @@ def main():
                 gust_mph = int(round(gust_ms * 2.23694)) if gust_ms is not None else None
                 speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
 
-                slp_mb = get_best_slp(observations, i)
+                # Pressure extraction with automatic elevation reduction
+                slp_mb = get_best_slp(observations, i, elev_meters, temp_c)
 
                 # --- RAINFALL PARSING & DELTA CALCULATION ---
                 raw_p1h = extract_first_valid(observations, ["precip_accum_one_hour"], i)
@@ -407,7 +436,6 @@ def main():
                 else:
                     color_barb = "255 255 255"  # White
 
-                # Determine if a significant gust should be rendered visually
                 has_gust = (
                     gust_mph is not None 
                     and gust_mph >= 12 
@@ -456,12 +484,12 @@ def main():
                     station_lines.append(f"  Color: {color_dew}")
                     station_lines.append(f'  Text: -20, -10, 1, "{df_display}"')
 
-                # 1-Hour Rainfall: Bottom-Right (20, -10) - Hidden if < 0.01"
+                # 1-Hour Rainfall: Bottom-Right (20, -10)
                 if p1h_str:
                     station_lines.append(f"  Color: {color_rain}")
                     station_lines.append(f'  Text: 20, -10, 1, "{p1h_str}"')
 
-                # Wind Gust Label: Placed centered directly below the station icon (0, -22)
+                # Wind Gust Label: Centered directly below station icon (0, -22)
                 if has_gust:
                     station_lines.append(f"  Color: {color_gust}")
                     station_lines.append(f'  Text: 0, -22, 1, "G{gust_mph}"')
