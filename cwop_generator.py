@@ -22,8 +22,8 @@ LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
-# Small-format Gibson Ridge native 32x32px wind barb sprite sheet
-WIND_BARB_ICON_URL = "https://www.grlevelx.com/placefiles/barbs.png"
+# High-reliability jsDelivr CDN URLs that do NOT block GR2Analyst user-agents
+WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
 SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
 LOOKBACK_HOURS = 6
@@ -109,7 +109,6 @@ def format_visibility_str(vis_val):
         return None
     try:
         vis = float(vis_val)
-        # Convert metric meters to statute miles if Synoptic returns raw meters (>50m)
         if vis > 50.0:
             vis = vis * 0.000621371
             
@@ -465,7 +464,6 @@ def main():
                     barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                     if barb_val > 0:
                         station_lines.append(f"  Color: {color_barb}")
-                        # Clean 1:1 render using native 32x32px sprite sheet
                         station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
                 station_lines.append("  Color: 255 255 255")
@@ -521,11 +519,11 @@ def main():
     else:
         print("Warning: Network returned successfully but no matching active stations found.")
 
-    # IconFile 1 config: 32x32px frame anchored directly at center (16, 16)
+    # Standard, proven METAR placefile header parameters
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
-        f'IconFile: 1, 32, 32, 16, 16, "{WIND_BARB_ICON_URL}"',
+        f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
         ""
