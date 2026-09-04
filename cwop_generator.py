@@ -22,7 +22,7 @@ LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
-# High-reliability jsDelivr CDN URLs that do NOT block GR2Analyst user-agents
+# Standard METAR sprite sheets via jsDelivr CDN
 WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
 SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
@@ -469,12 +469,12 @@ def main():
                 station_lines.append("  Color: 255 255 255")
                 station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
                 
-                # Temperature (Top-Left)
+                # Temperature (Top-Left): Moved higher and slightly left (-16, 12)
                 if tf_display != "M":
                     station_lines.append(f"  Color: {color_temp}")
-                    station_lines.append(f'  Text: -14, 6, 1, "{tf_display}"')
+                    station_lines.append(f'  Text: -16, 12, 1, "{tf_display}"')
                 
-                # Visibility (Middle-Left) - Renders for all valid readings <= 10 mi
+                # Visibility (Middle-Left): Pushed further left (-32, 0)
                 if raw_vis is not None and vis_str:
                     try:
                         v_num = float(raw_vis)
@@ -487,29 +487,29 @@ def main():
                             color_vis = "180 180 180" # Normal Vis (Light Gray)
                             
                         station_lines.append(f"  Color: {color_vis}")
-                        station_lines.append(f'  Text: -22, 0, 1, "{vis_str}"')
+                        station_lines.append(f'  Text: -32, 0, 1, "{vis_str}"')
                     except Exception:
                         pass
 
-                # Pressure / SLP Code (Top-Right)
+                # Pressure / SLP Code (Top-Right): Moved higher (16, 12)
                 if slp_str != "M":
                     station_lines.append(f"  Color: {color_slp}")
-                    station_lines.append(f'  Text: 14, 6, 1, "{slp_str}"')
+                    station_lines.append(f'  Text: 16, 12, 1, "{slp_str}"')
                     
-                # Dew Point (Bottom-Left)
+                # Dew Point (Bottom-Left): Moved lower and slightly left (-16, -12)
                 if df_display != "M":
                     station_lines.append(f"  Color: {color_dew}")
-                    station_lines.append(f'  Text: -14, -6, 1, "{df_display}"')
+                    station_lines.append(f'  Text: -16, -12, 1, "{df_display}"')
 
-                # 1-Hour Rainfall (Bottom-Right)
+                # 1-Hour Rainfall (Bottom-Right): Moved lower (16, -12)
                 if p1h_str:
                     station_lines.append(f"  Color: {color_rain}")
-                    station_lines.append(f'  Text: 14, -6, 1, "{p1h_str}"')
+                    station_lines.append(f'  Text: 16, -12, 1, "{p1h_str}"')
 
                 # Wind Gust Label (Bottom-Center)
                 if has_gust:
                     station_lines.append(f"  Color: {color_gust}")
-                    station_lines.append(f'  Text: 0, -15, 1, "G{gust_mph}"')
+                    station_lines.append(f'  Text: 0, -20, 1, "G{gust_mph}"')
                 
                 station_lines.append("End:")
                 station_lines.append("")
@@ -519,7 +519,6 @@ def main():
     else:
         print("Warning: Network returned successfully but no matching active stations found.")
 
-    # Standard, proven METAR placefile header parameters
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
