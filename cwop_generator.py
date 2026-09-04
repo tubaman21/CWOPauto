@@ -22,7 +22,7 @@ LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
-# Public CDN URLs with standard METAR sprite dimensions
+# Public CDN URLs for wind barbs and cloud cover
 WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
 SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
@@ -64,7 +64,6 @@ def normalize_pressure_to_mb(val):
         elif 8000.0 <= val <= 11000.0:   # Hundredths of hPa
             val = val / 10.0
         
-        # Final validity check
         if 920.0 <= val <= 1050.0:
             return val
         return None
@@ -89,7 +88,6 @@ def sanitize_slp(pressure_mb):
     """Formats sea level pressure into 3-digit METAR notation with strict bounds checking."""
     if pressure_mb is None or math.isnan(pressure_mb):
         return "M"
-    # Strict meteorological bounds to reject unrealistic values like 1059 mb
     if not (950.0 <= pressure_mb <= 1050.0):
         return "M"
     try:
@@ -439,6 +437,7 @@ def main():
                     barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                     if barb_val > 0:
                         station_lines.append(f"  Color: {color_barb}")
+                        # Offset (0, 0) pins base of staff strictly on station coordinates
                         station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
                 station_lines.append("  Color: 255 255 255")
@@ -477,7 +476,7 @@ def main():
     else:
         print("Warning: Network returned successfully but no matching active stations found.")
 
-    # Setting icon frame size to 45x45 downscales the barbs directly in GR2
+    # Frame 45x45 with Hotspot 22,22 shrinks barb to 60% and maintains precise center anchor
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
