@@ -78,7 +78,6 @@ def station_pressure_to_slp(station_press_mb, elev_meters, temp_c=15.0):
     if station_press_mb is None or elev_meters is None:
         return station_press_mb
     try:
-        # Standard lapse rate atmosphere reduction approximation
         temp_k = (temp_c if temp_c is not None else 15.0) + 273.15
         factor = math.exp((0.034163 * elev_meters) / temp_k)
         slp = station_press_mb * factor
@@ -90,7 +89,6 @@ def sanitize_slp(pressure_mb):
     """Formats sea level pressure into standard 3-digit METAR SLP notation (e.g., 1013.2 -> 132)."""
     if pressure_mb is None or math.isnan(pressure_mb):
         return "M"
-    # Strict meteorological bounds check for surface stations
     if not (920.0 <= pressure_mb <= 1080.0):
         return "M"
     try:
@@ -161,14 +159,12 @@ def get_best_slp(observations, index, elev_meters, temp_c):
     Finds Sea Level Pressure or Altimeter setting first. 
     If only raw station pressure exists, converts it to SLP using elevation.
     """
-    # 1. Try direct Sea Level Pressure or Altimeter
     slp_val = extract_first_valid(observations, ["sea_level_pressure", "altimeter"], index)
     if slp_val is not None:
         p_mb = normalize_pressure_to_mb(slp_val)
         if p_mb and 920.0 <= p_mb <= 1080.0:
             return p_mb
 
-    # 2. Fall back to raw station pressure and reduce using station elevation
     stn_p_val = extract_first_valid(observations, ["pressure"], index)
     if stn_p_val is not None:
         p_mb = normalize_pressure_to_mb(stn_p_val)
@@ -242,7 +238,6 @@ def main():
         for station in data["STATION"]:
             raw_stid = station.get("STID", "UNKNOWN").upper()
 
-            # Canonical alias translation for CWOP stations
             if raw_stid == "D8249":
                 stid = "DW8249"
             elif raw_stid == "E9591":
@@ -256,7 +251,6 @@ def main():
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
 
-            # --- NETWORK CLASSIFICATION ---
             if (
                 raw_stid in WHITELIST_STATIONS
                 or stid in WHITELIST_STATIONS
@@ -283,7 +277,6 @@ def main():
             else:
                 mnet = "Mesonet"
 
-            # --- FILTERS (BYPASS IF WHITELISTED OR RAWS) ---
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
                 if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5", "F9531", "FW9531"]:
                     continue
@@ -304,14 +297,12 @@ def main():
                 if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                     continue
             
-            # --- EXTRACT METADATA ---
             try:
                 lat = float(station.get("LATITUDE"))
                 lon = float(station.get("LONGITUDE"))
             except (TypeError, ValueError):
                 continue
 
-            # Extract elevation for pressure reduction (convert ft to meters if necessary)
             elev_meters = None
             raw_elev = station.get("ELEVATION")
             if raw_elev is not None:
@@ -353,7 +344,6 @@ def main():
                 except Exception:
                     continue
 
-                # --- METEOROLOGICAL CONVERSIONS ---
                 temp_c = extract_first_valid(observations, ["air_temp"], i)
                 dew_c = extract_first_valid(observations, ["dew_point_temperature"], i)
                 rh_pct = extract_first_valid(observations, ["relative_humidity"], i)
@@ -371,10 +361,8 @@ def main():
                 gust_mph = int(round(gust_ms * 2.23694)) if gust_ms is not None else None
                 speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
 
-                # Pressure extraction with automatic elevation reduction
                 slp_mb = get_best_slp(observations, i, elev_meters, temp_c)
 
-                # --- RAINFALL PARSING & DELTA CALCULATION ---
                 raw_p1h = extract_first_valid(observations, ["precip_accum_one_hour"], i)
                 raw_p24h = extract_first_valid(observations, ["precip_accum_24_hour"], i)
                 raw_pbucket = extract_first_valid(observations, ["precip_accum"], i)
@@ -404,7 +392,6 @@ def main():
 
                 sky_code = extract_first_valid(observations, ["cloud_layer_1_code"], i)
 
-                # Quality Control
                 if temp_f is not None and (temp_f < -50 or temp_f > 130):
                     temp_f = None
                 if dew_f is not None and (dew_f < -60 or dew_f > 100):
@@ -419,22 +406,22 @@ def main():
                 df_display = f"{dew_f}" if dew_f is not None else "M"
                 wind_dir_display = int(wind_dir) if wind_dir is not None else 0
 
-                color_temp = "255 100 100"   # Light Red
-                color_dew  = "100 255 100"   # Light Green
-                color_slp  = "255 255 255"   # White
-                color_rain = "0 255 255"     # Cyan
-                color_gust = "255 255 0"     # Bright Yellow
+                color_temp = "255 100 100"
+                color_dew  = "100 255 100"
+                color_slp  = "255 255 255"
+                color_rain = "0 255 255"
+                color_gust = "255 255 0"
 
                 max_wind_mph = gust_mph if (gust_mph is not None) else speed_mph
 
                 if max_wind_mph >= 45:
-                    color_barb = "255 0 255"    # Magenta
+                    color_barb = "255 0 255"
                     color_temp = "255 50 255"
                 elif max_wind_mph >= 35:
-                    color_barb = "255 255 0"    # Yellow
+                    color_barb = "255 255 0"
                     color_temp = "255 200 0"
                 else:
-                    color_barb = "255 255 255"  # White
+                    color_barb = "255 255 255"
 
                 has_gust = (
                     gust_mph is not None 
@@ -469,27 +456,22 @@ def main():
                 station_lines.append("  Color: 255 255 255")
                 station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
                 
-                # Temperature: Top-Left (-20, 10)
                 if tf_display != "M":
                     station_lines.append(f"  Color: {color_temp}")
                     station_lines.append(f'  Text: -20, 10, 1, "{tf_display}"')
                 
-                # Pressure / SLP Code: Top-Right (20, 10)
                 if slp_str != "M":
                     station_lines.append(f"  Color: {color_slp}")
                     station_lines.append(f'  Text: 20, 10, 1, "{slp_str}"')
                     
-                # Dew Point: Bottom-Left (-20, -10)
                 if df_display != "M":
                     station_lines.append(f"  Color: {color_dew}")
                     station_lines.append(f'  Text: -20, -10, 1, "{df_display}"')
 
-                # 1-Hour Rainfall: Bottom-Right (20, -10)
                 if p1h_str:
                     station_lines.append(f"  Color: {color_rain}")
                     station_lines.append(f'  Text: 20, -10, 1, "{p1h_str}"')
 
-                # Wind Gust Label: Centered directly below station icon (0, -22)
                 if has_gust:
                     station_lines.append(f"  Color: {color_gust}")
                     station_lines.append(f'  Text: 0, -22, 1, "G{gust_mph}"')
@@ -502,17 +484,16 @@ def main():
     else:
         print("Warning: Network returned successfully but no matching active stations found.")
 
-    # --- COMPILE FINAL PLACEFILE ---
+    # --- COMPILE FINAL PLACEFILE HEADER & BODY ---
+    # IconFile directives strictly at the top of the file header
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
-        "; Created by [Your Name] & Gemini AI",
-        "; Script Version Updated: August 30, 2026",
-        "; GR2Analyst Time-Sourced Historical Loop Dataset",
-        f"; Generated dynamically: {run_time}",
         "Refresh: 5",
         f'IconFile: 1, 50, 50, 25, 25, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
+        "; Created by [Your Name] & Gemini AI",
+        "; GR2Analyst Time-Sourced Historical Loop Dataset",
         ""
     ]
 
