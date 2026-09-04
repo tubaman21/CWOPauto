@@ -22,8 +22,7 @@ LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
-# Updated Icon Sheets:
-# High-density wind barbs (50x50 icon cells) for smaller display on high-DPI radars
+# Icon Sheets: 50x50px compact wind barbs for high-DPI clarity
 WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_50.png"
 SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/cloudcover_new.png"
 
@@ -98,7 +97,6 @@ def calculate_dewpoint_f(temp_f, rh_percent):
     if temp_f is None or rh_percent is None or rh_percent < 0:
         return None
     try:
-        # Clamp relative humidity to 0.1% minimum to prevent math domain error with log(0)
         rh_clamped = max(rh_percent, 0.1)
         temp_c = (temp_f - 32) * 5/9
         a = 17.625
@@ -162,15 +160,11 @@ def clean_rain_value_to_inches(val):
         return 0.0
     try:
         val = float(val)
-        # Check for raw millimeter accumulation vs tipping bucket counts vs inches
         if 0.254 <= val < 100.0:
-            # Standard metric mm conversion (0.254mm = 0.01 in)
             return val * 0.0393701
         elif val >= 100.0:
-            # Tipping bucket counter or hundredths of mm
             return val / 100.0
         else:
-            # Value is already in inches (< 0.254)
             return val
     except Exception:
         return 0.0
@@ -400,6 +394,7 @@ def main():
                 color_dew  = "100 255 100"   # Light Green
                 color_slp  = "255 255 255"   # White
                 color_rain = "0 255 255"     # Cyan
+                color_gust = "255 255 0"     # Bright Yellow
 
                 max_wind_mph = gust_mph if (gust_mph is not None) else speed_mph
 
@@ -412,7 +407,14 @@ def main():
                 else:
                     color_barb = "255 255 255"  # White
 
-                if gust_mph is not None and gust_mph > speed_mph and gust_mph >= 12:
+                # Determine if a significant gust should be rendered visually
+                has_gust = (
+                    gust_mph is not None 
+                    and gust_mph >= 12 
+                    and gust_mph > (speed_mph + 3)
+                )
+
+                if has_gust:
                     wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH"
                 else:
                     wind_display = f"{wind_dir_display:03d}@{speed_mph}MPH"
@@ -458,6 +460,11 @@ def main():
                 if p1h_str:
                     station_lines.append(f"  Color: {color_rain}")
                     station_lines.append(f'  Text: 20, -10, 1, "{p1h_str}"')
+
+                # Wind Gust Label: Placed centered directly below the station icon (0, -22)
+                if has_gust:
+                    station_lines.append(f"  Color: {color_gust}")
+                    station_lines.append(f'  Text: 0, -22, 1, "G{gust_mph}"')
                 
                 station_lines.append("End:")
                 station_lines.append("")
@@ -475,7 +482,6 @@ def main():
         "; GR2Analyst Time-Sourced Historical Loop Dataset",
         f"; Generated dynamically: {run_time}",
         "Refresh: 5",
-        # Configured for windbarbs_50.png (50x50px cells, hotspot set to center 25, 25)
         f'IconFile: 1, 50, 50, 25, 25, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
