@@ -22,7 +22,7 @@ LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
-# Public CDN URLs with standard METAR sprite dimensions
+# Standard METAR sprite sheets via jsDelivr CDN
 WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
 SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
@@ -451,30 +451,36 @@ def main():
                     barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                     if barb_val > 0:
                         station_lines.append(f"  Color: {color_barb}")
-                        station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
+                        # Inline scale parameter '0.6' reduces icon size to 60%
+                        station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val},0.6")
 
                 station_lines.append("  Color: 255 255 255")
                 station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
                 
+                # Temperature
                 if tf_display != "M":
                     station_lines.append(f"  Color: {color_temp}")
-                    station_lines.append(f'  Text: -20, 10, 1, "{tf_display}"')
+                    station_lines.append(f'  Text: -16, 8, 1, "{tf_display}"')
                 
+                # Pressure / SLP Code
                 if slp_str != "M":
                     station_lines.append(f"  Color: {color_slp}")
-                    station_lines.append(f'  Text: 20, 10, 1, "{slp_str}"')
+                    station_lines.append(f'  Text: 16, 8, 1, "{slp_str}"')
                     
+                # Dew Point
                 if df_display != "M":
                     station_lines.append(f"  Color: {color_dew}")
-                    station_lines.append(f'  Text: -20, -10, 1, "{df_display}"')
+                    station_lines.append(f'  Text: -16, -8, 1, "{df_display}"')
 
+                # 1-Hour Rainfall
                 if p1h_str:
                     station_lines.append(f"  Color: {color_rain}")
-                    station_lines.append(f'  Text: 20, -10, 1, "{p1h_str}"')
+                    station_lines.append(f'  Text: 16, -8, 1, "{p1h_str}"')
 
+                # Wind Gust Label
                 if has_gust:
                     station_lines.append(f"  Color: {color_gust}")
-                    station_lines.append(f'  Text: 0, -22, 1, "G{gust_mph}"')
+                    station_lines.append(f'  Text: 0, -18, 1, "G{gust_mph}"')
                 
                 station_lines.append("End:")
                 station_lines.append("")
