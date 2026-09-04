@@ -22,9 +22,9 @@ LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
-# Icon Sheets: 50x50px compact wind barbs
-WIND_BARB_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/windbarbs_50.png"
-SKY_COVER_ICON_URL = "https://raw.githubusercontent.com/ktrue/metar-placefile/master/cloudcover_new.png"
+# Public CDN URLs that accept non-browser User-Agents from GR2Analyst
+WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_50.png"
+SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
 LOOKBACK_HOURS = 6
 
@@ -485,15 +485,13 @@ def main():
         print("Warning: Network returned successfully but no matching active stations found.")
 
     # --- COMPILE FINAL PLACEFILE HEADER & BODY ---
-    # IconFile directives strictly at the top of the file header
+    # IconFile MUST be defined BEFORE Title, Refresh, or Font for GR2Analyst
     header_lines = [
-        f'Title: CWOP Surface Observations ({run_time})',
-        "Refresh: 5",
         f'IconFile: 1, 50, 50, 25, 25, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
+        f'Title: CWOP Surface Observations ({run_time})',
+        "Refresh: 5",
         "Font: 1, 11, 400, 0",
-        "; Created by [Your Name] & Gemini AI",
-        "; GR2Analyst Time-Sourced Historical Loop Dataset",
         ""
     ]
 
