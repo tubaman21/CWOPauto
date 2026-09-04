@@ -103,6 +103,31 @@ def format_precip_str(precip_in):
         return f"{precip_in:.2f}".lstrip('0')
     return f"{precip_in:.2f}"
 
+def format_visibility_str(vis_val):
+    """Formats visibility value into standard METAR notation (e.g. 1/4, 1/2, 2.5, 10)."""
+    if vis_val is None or math.isnan(vis_val) or vis_val < 0:
+        return None
+    try:
+        vis = float(vis_val)
+        # Convert metric meters to statute miles if Synoptic returns raw meters (> 50m)
+        if vis > 50.0:
+            vis = vis * 0.000621371
+            
+        if vis <= 0.125:
+            return "1/8"
+        elif vis <= 0.25:
+            return "1/4"
+        elif vis <= 0.5:
+            return "1/2"
+        elif vis <= 0.75:
+            return "3/4"
+        elif vis < 10.0:
+            return f"{vis:.1f}".rstrip('0').rstrip('.')
+        else:
+            return "10"
+    except Exception:
+        return None
+
 def calculate_dewpoint_f(temp_f, rh_percent):
     if temp_f is None or rh_percent is None or rh_percent < 0:
         return None
@@ -128,9 +153,9 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5            
 
 def get_obs_val(observations, var_prefixes, index):
-    """Extracts sensor value matching var_prefixes at index i without historical leakage."""
+    """Matches any key containing target prefixes across sensor sets."""
     for key, values in observations.items():
-        if any(key.startswith(prefix) for prefix in var_prefixes):
+        if any(prefix in key for prefix in var_prefixes):
             if isinstance(values, list) and index < len(values):
                 val = values[index]
                 if val is not None:
@@ -192,7 +217,7 @@ def main():
     api_params = {
         "token": api_token,
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
+        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,visibility,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
         "varsoperator": "OR",
         "recent": LOOKBACK_HOURS * 60,
         "obtimezone": "UTC",
@@ -336,6 +361,7 @@ def main():
                 speed_ms = get_obs_val(observations, ["wind_speed"], i)
                 gust_ms = get_obs_val(observations, ["wind_gust"], i)
                 wind_dir = get_obs_val(observations, ["wind_direction"], i)
+                raw_vis = get_obs_val(observations, ["visibility"], i)
                 
                 temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
                 dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
@@ -348,6 +374,7 @@ def main():
                 speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
 
                 slp_mb = get_best_slp(observations, i, elev_meters, temp_c)
+                vis_str = format_visibility_str(raw_vis)
 
                 raw_p1h = get_obs_val(observations, ["precip_accum_one_hour"], i)
                 raw_p24h = get_obs_val(observations, ["precip_accum_24_hour"], i)
@@ -422,11 +449,12 @@ def main():
 
                 p1h_hover = f"{p1h_str}\"" if p1h_str else "0.00\""
                 p24h_hover = f"{p24h_str}\"" if p24h_str else "0.00\""
+                vis_hover = f"{vis_str}SM" if vis_str else "N/A"
                 
                 hover_text = (
                     f"Obs Time: {ob_time_str} | Station: {stid} | Type: {mnet} | "
                     f"Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | "
-                    f"SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
+                    f"Vis: {vis_hover} | SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
                     f"Rain 1hr: {p1h_hover} | Rain 24hr: {p24h_hover}"
                 )
                 
@@ -437,33 +465,50 @@ def main():
                     barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                     if barb_val > 0:
                         station_lines.append(f"  Color: {color_barb}")
-                        # Offset (0, 0) pins base of staff strictly on station coordinates
-                        station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
+                        # Inline scale factor '0.6' with exact center hotspot (37,37)
+                        station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val},0.6")
 
                 station_lines.append("  Color: 255 255 255")
                 station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
                 
-                # Temperature
+                # Temperature (Top-Left)
                 if tf_display != "M":
                     station_lines.append(f"  Color: {color_temp}")
                     station_lines.append(f'  Text: -14, 6, 1, "{tf_display}"')
                 
-                # Pressure / SLP Code
+                # Visibility (Left-Middle) - Plots for all valid readings <= 10 mi
+                if raw_vis is not None and vis_str:
+                    try:
+                        v_num = float(raw_vis)
+                        if v_num > 50.0: v_num *= 0.000621371
+                        if v_num <= 1.0:
+                            color_vis = "255 0 255"   # Low Vis / Fog (Magenta)
+                        elif v_num <= 3.0:
+                            color_vis = "255 255 0"   # Marginal Vis (Yellow)
+                        else:
+                            color_vis = "180 180 180" # Normal Vis (Light Gray)
+                            
+                        station_lines.append(f"  Color: {color_vis}")
+                        station_lines.append(f'  Text: -22, 0, 1, "{vis_str}"')
+                    except Exception:
+                        pass
+
+                # Pressure / SLP Code (Top-Right)
                 if slp_str != "M":
                     station_lines.append(f"  Color: {color_slp}")
                     station_lines.append(f'  Text: 14, 6, 1, "{slp_str}"')
                     
-                # Dew Point
+                # Dew Point (Bottom-Left)
                 if df_display != "M":
                     station_lines.append(f"  Color: {color_dew}")
                     station_lines.append(f'  Text: -14, -6, 1, "{df_display}"')
 
-                # 1-Hour Rainfall
+                # 1-Hour Rainfall (Bottom-Right)
                 if p1h_str:
                     station_lines.append(f"  Color: {color_rain}")
                     station_lines.append(f'  Text: 14, -6, 1, "{p1h_str}"')
 
-                # Wind Gust Label
+                # Wind Gust Label (Bottom-Center)
                 if has_gust:
                     station_lines.append(f"  Color: {color_gust}")
                     station_lines.append(f'  Text: 0, -15, 1, "G{gust_mph}"')
@@ -476,11 +521,11 @@ def main():
     else:
         print("Warning: Network returned successfully but no matching active stations found.")
 
-    # Frame 45x45 with Hotspot 22,22 shrinks barb to 60% and maintains precise center anchor
+    # Restored exact native frame dimensions (75x75, hotspot 37,37)
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
-        f'IconFile: 1, 45, 45, 22, 22, "{WIND_BARB_ICON_URL}"',
+        f'IconFile: 1, 75, 75, 37, 37, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
         ""
