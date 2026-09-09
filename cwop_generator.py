@@ -39,11 +39,13 @@ NETWORK_THRESHOLDS = {
 
 NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
-WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591"}
+WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222"}
 
 STATION_COORDINATE_OVERRIDES = {
     "DW8249": (46.212833, -93.379833),
-    "D8249":  (46.212833, -93.379833)
+    "D8249":  (46.212833, -93.379833),
+    "D6222":  (46.778900, -90.789797),
+    "DW6222": (46.778900, -90.789797)
 }
 
 # ==========================================
@@ -232,6 +234,7 @@ def main():
             if raw_stid == "D8249": stid = "DW8249"
             elif raw_stid == "E9591": stid = "EW9591"
             elif raw_stid == "F9531": stid = "FW9531"
+            elif raw_stid == "D6222": stid = "DW6222"
             else: stid = raw_stid
 
             mnet_id = str(station.get("MNET_ID", ""))
