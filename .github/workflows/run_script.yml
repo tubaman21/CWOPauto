@@ -1,6 +1,8 @@
 name: Generate GR2Analyst Placefile
 
 on:
+  # schedule:
+  #   - cron: '*/15 * * * *'
   push:
     branches:
       - main
@@ -24,34 +26,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install requests
-
-      - name: Search WI State Stations
-        env:
-          SYNOPTIC_API_TOKEN: ${{ secrets.SYNOPTIC_API_TOKEN }}
-        run: |
-          python -c '
-          import os, requests
-          token = os.environ.get("SYNOPTIC_API_TOKEN")
-          url = "https://api.synopticdata.com/v2/stations/metadata"
-          
-          print("--- Scanning all Wisconsin stations for DOT / 16-0048 matches ---")
-          res = requests.get(url, params={"token": token, "state": "WI"}).json()
-          stations = res.get("STATION", [])
-          
-          matches = []
-          for s in stations:
-              stid = str(s.get("STID", ""))
-              mnet_id = str(s.get("MNET_ID", ""))
-              name = str(s.get("NAME", ""))
-              mnet_short = str(s.get("MNET_SHORTNAME", ""))
-              
-              if "0048" in stid or "160" in stid or "RWIS" in stid or "DOT" in mnet_short or "DOT" in name or mnet_id in ["67", "173", "196"]:
-                  matches.append(s)
-                  
-          print("Found " + str(len(matches)) + " potential matches:")
-          for m in matches[:40]:
-              print("STID: " + str(m.get("STID")) + " | MNET_ID: " + str(m.get("MNET_ID")) + " | MNET_SHORT: " + str(m.get("MNET_SHORTNAME")) + " | NAME: " + str(m.get("NAME")))
-          '
 
       - name: Execute Placefile Generation Script
         env:
