@@ -1,8 +1,6 @@
 name: Generate GR2Analyst Placefile
 
 on:
-  # schedule:
-  #   - cron: '*/15 * * * *'
   push:
     branches:
       - main
@@ -27,7 +25,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Debug WisDOT Stations
+      - name: Search WI State Stations
         env:
           SYNOPTIC_API_TOKEN: ${{ secrets.SYNOPTIC_API_TOKEN }}
         run: |
@@ -36,20 +34,23 @@ jobs:
           token = os.environ.get("SYNOPTIC_API_TOKEN")
           url = "https://api.synopticdata.com/v2/stations/metadata"
           
-          print("--- Checking RWIS-16-0048 ---")
-          res1 = requests.get(url, params={"token": token, "stid": "RWIS-16-0048"}).json()
-          print(res1)
+          print("--- Scanning all Wisconsin stations for DOT / 16-0048 matches ---")
+          res = requests.get(url, params={"token": token, "state": "WI"}).json()
+          stations = res.get("STATION", [])
           
-          print("\n--- Scanning BBox for WisDOT / RWIS ---")
-          res2 = requests.get(url, params={"token": token, "bbox": "-97.5,42.5,-86.5,50.5"}).json()
-          stations = res2.get("STATION", [])
-          matches = [s for s in stations if "WIS" in str(s.get("MNET_SHORTNAME","")).upper() or "RWIS" in str(s.get("STID","")).upper() or "WISCONSIN" in str(s.get("MNET_NAME","")).upper()]
-          for m in matches[:30]:
-              stid = m.get("STID")
-              mnet_id = m.get("MNET_ID")
-              short = m.get("MNET_SHORTNAME")
-              name = m.get("MNET_NAME")
-              print("STID: " + str(stid) + " | MNET_ID: " + str(mnet_id) + " | SHORT: " + str(short) + " | NAME: " + str(name))
+          matches = []
+          for s in stations:
+              stid = str(s.get("STID", ""))
+              mnet_id = str(s.get("MNET_ID", ""))
+              name = str(s.get("NAME", ""))
+              mnet_short = str(s.get("MNET_SHORTNAME", ""))
+              
+              if "0048" in stid or "160" in stid or "RWIS" in stid or "DOT" in mnet_short or "DOT" in name or mnet_id in ["67", "173", "196"]:
+                  matches.append(s)
+                  
+          print("Found " + str(len(matches)) + " potential matches:")
+          for m in matches[:40]:
+              print("STID: " + str(m.get("STID")) + " | MNET_ID: " + str(m.get("MNET_ID")) + " | MNET_SHORT: " + str(m.get("MNET_SHORTNAME")) + " | NAME: " + str(m.get("NAME")))
           '
 
       - name: Execute Placefile Generation Script
