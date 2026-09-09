@@ -39,7 +39,7 @@ NETWORK_THRESHOLDS = {
 
 NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
-WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222"}
+WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", "RWIS-16-0048"}
 
 STATION_COORDINATE_OVERRIDES = {
     "DW8249": (46.212833, -93.379833),
@@ -255,7 +255,12 @@ def main():
                 mnet = "RAWS"
             elif mnet_id in ["66", "172"] or any(k in mnet_short for k in ["MNDOT", "MN_DOT"]) or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
                 mnet = "MnDOT"
-            elif mnet_id in ["67", "173"] or any(k in mnet_short for k in ["WISDOT", "WI_DOT"]) or "WISCONSIN DOT" in mnet_name or stid.startswith("WIDOT"):
+            elif (
+                mnet_id in ["67", "173"] 
+                or any(kw in mnet_short for kw in ["WISDOT", "WI_DOT", "WIS_DOT", "RWIS"]) 
+                or "WISCONSIN DOT" in mnet_name 
+                or stid.startswith(("WIDOT", "RWIS", "WIRT"))
+            ):
                 mnet = "WisDOT"
             elif "DOT" in mnet_short or "DOT" in mnet_name:
                 mnet = "DOT"
