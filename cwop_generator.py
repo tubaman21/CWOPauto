@@ -56,39 +56,33 @@ def normalize_pressure_to_mb(val):
     try:
         val = float(val)
         if val > 50000:                  # Pascals (Pa)
-            val = val / 100.0
+            val /= 100.0
         elif 2800.0 <= val <= 3200.0:    # Hundredths of inHg
             val = (val / 100.0) * 33.8639
         elif 27.0 <= val <= 32.5:        # Standard inHg
-            val = val * 33.8639
+            val *= 33.8639
         elif 8000.0 <= val <= 11000.0:   # Hundredths of hPa
-            val = val / 10.0
+            val /= 10.0
         
-        if 920.0 <= val <= 1050.0:
-            return val
-        return None
+        return val if 920.0 <= val <= 1050.0 else None
     except Exception:
         return None
 
 def station_pressure_to_slp(station_press_mb, elev_meters, temp_c=15.0):
     """Reduces ground station pressure to Sea Level Pressure (SLP)."""
-    if station_press_mb is None or elev_meters is None or elev_meters <= 0:
-        return station_press_mb
+    if station_press_mb is None or elev_meters is None or elev_meters < 0:
+        return None
     try:
         temp_k = (temp_c if temp_c is not None else 15.0) + 273.15
         factor = math.exp((0.034163 * elev_meters) / temp_k)
         slp = station_press_mb * factor
-        if 920.0 <= slp <= 1050.0:
-            return slp
-        return None
+        return slp if 920.0 <= slp <= 1050.0 else None
     except Exception:
         return None
 
 def sanitize_slp(pressure_mb):
     """Formats sea level pressure into 3-digit METAR notation with strict bounds checking."""
-    if pressure_mb is None or math.isnan(pressure_mb):
-        return "M"
-    if not (950.0 <= pressure_mb <= 1050.0):
+    if pressure_mb is None or math.isnan(pressure_mb) or not (950.0 <= pressure_mb <= 1050.0):
         return "M"
     try:
         val = int(round(pressure_mb * 10))
@@ -99,9 +93,7 @@ def sanitize_slp(pressure_mb):
 def format_precip_str(precip_in):
     if precip_in is None or math.isnan(precip_in) or precip_in < 0.01:
         return None
-    if precip_in < 1.0:
-        return f"{precip_in:.2f}".lstrip('0')
-    return f"{precip_in:.2f}"
+    return f"{precip_in:.2f}".lstrip('0') if precip_in < 1.0 else f"{precip_in:.2f}"
 
 def format_visibility_str(vis_val):
     """Formats visibility into standard METAR text notation."""
@@ -110,25 +102,19 @@ def format_visibility_str(vis_val):
     try:
         vis = float(vis_val)
         if vis > 50.0:
-            vis = vis * 0.000621371
+            vis *= 0.000621371  # Convert meters to miles
             
-        if vis <= 0.125:
-            return "1/8"
-        elif vis <= 0.25:
-            return "1/4"
-        elif vis <= 0.5:
-            return "1/2"
-        elif vis <= 0.75:
-            return "3/4"
-        elif vis < 10.0:
-            return f"{vis:.1f}".rstrip('0').rstrip('.')
-        else:
-            return "10"
+        if vis <= 0.125: return "1/8"
+        elif vis <= 0.25: return "1/4"
+        elif vis <= 0.5: return "1/2"
+        elif vis <= 0.75: return "3/4"
+        elif vis < 10.0: return f"{vis:.1f}".rstrip('0').rstrip('.')
+        else: return "10"
     except Exception:
         return None
 
 def calculate_dewpoint_f(temp_f, rh_percent):
-    if temp_f is None or rh_percent is None or rh_percent < 0:
+    if temp_f is None or rh_percent is None or rh_percent <= 0:
         return None
     try:
         rh_clamped = max(rh_percent, 0.1)
@@ -143,16 +129,14 @@ def calculate_dewpoint_f(temp_f, rh_percent):
 def get_wind_barb_index(speed_knots, direction_deg):
     if speed_knots is None or speed_knots < 3 or direction_deg is None:
         return 0, 0
-    idx = int(round(speed_knots / 5.0))
-    if idx < 1: idx = 1
-    if idx > 26: idx = 26 
+    idx = max(1, min(26, int(round(speed_knots / 5.0))))
     return idx, int(direction_deg)
 
 def get_sky_cover_icon(cloud_cov_str):
-    return 5            
+    return 5
 
 def get_obs_val(observations, var_prefixes, index):
-    """Scans for matching sensor prefixes across all telemetry arrays."""
+    """Scans for matching sensor prefixes across telemetry arrays safely."""
     for key, values in observations.items():
         if any(prefix in key for prefix in var_prefixes):
             if isinstance(values, list) and index < len(values):
@@ -167,7 +151,7 @@ def get_obs_val(observations, var_prefixes, index):
     return None
 
 def get_best_slp(observations, index, elev_meters, temp_c):
-    """Extracts SLP or Altimeter. Reduces station pressure only if uncorrected (< 950 mb)."""
+    """Extracts SLP/Altimeter or reduces station pressure."""
     raw_p = get_obs_val(observations, ["sea_level_pressure", "altimeter"], index)
     if raw_p is not None:
         p_mb = normalize_pressure_to_mb(raw_p)
@@ -179,11 +163,8 @@ def get_best_slp(observations, index, elev_meters, temp_c):
         p_mb = normalize_pressure_to_mb(stn_p)
         if p_mb:
             if p_mb >= 950.0:
-                return p_mb if 950.0 <= p_mb <= 1050.0 else None
-            
-            slp = station_pressure_to_slp(p_mb, elev_meters, temp_c)
-            if slp and 950.0 <= slp <= 1050.0:
-                return slp
+                return p_mb
+            return station_pressure_to_slp(p_mb, elev_meters, temp_c)
 
     return None
 
@@ -248,14 +229,10 @@ def main():
         for station in data["STATION"]:
             raw_stid = station.get("STID", "UNKNOWN").upper()
 
-            if raw_stid == "D8249":
-                stid = "DW8249"
-            elif raw_stid == "E9591":
-                stid = "EW9591"
-            elif raw_stid == "F9531":
-                stid = "FW9531"
-            else:
-                stid = raw_stid
+            if raw_stid == "D8249": stid = "DW8249"
+            elif raw_stid == "E9591": stid = "EW9591"
+            elif raw_stid == "F9531": stid = "FW9531"
+            else: stid = raw_stid
 
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
@@ -267,18 +244,15 @@ def main():
                 or mnet_id == "153" 
                 or "CWOP" in mnet_short 
                 or "CWOP" in mnet_name
-                or stid.startswith("DW") 
-                or stid.startswith("CW")
-                or stid.startswith("EW")
-                or stid.startswith("FW")
+                or stid.startswith(("DW", "CW", "EW", "FW"))
                 or (len(stid) == 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'] and stid[1:].isdigit())
             ):
                 mnet = "CWOP"
             elif mnet_id == "2" or "RAWS" in mnet_short:
                 mnet = "RAWS"
-            elif mnet_id in ["66", "172"] or "MNDOT" in mnet_short or "MN_DOT" in mnet_short or "MNDOT" in mnet_name or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
+            elif mnet_id in ["66", "172"] or any(k in mnet_short for k in ["MNDOT", "MN_DOT"]) or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
                 mnet = "MnDOT"
-            elif mnet_id in ["67", "173"] or "WISDOT" in mnet_short or "WI_DOT" in mnet_short or "WISCONSIN DOT" in mnet_name or stid.startswith("WIDOT"):
+            elif mnet_id in ["67", "173"] or any(k in mnet_short for k in ["WISDOT", "WI_DOT"]) or "WISCONSIN DOT" in mnet_name or stid.startswith("WIDOT"):
                 mnet = "WisDOT"
             elif "DOT" in mnet_short or "DOT" in mnet_name:
                 mnet = "DOT"
@@ -290,10 +264,8 @@ def main():
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
                 if stid in ["SLVM5", "PNGW3", "DISW3", "SXHW3", "ROAM4", "WMNM5", "WILM5", "PKGM5", "SDYM5", "F9531", "FW9531"]:
                     continue
-
                 if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
                     continue
-
                 if mnet not in ["CWOP", "RAWS"] and mnet_id != "2":
                     if (
                         mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"] 
@@ -303,7 +275,6 @@ def main():
                         or stid.startswith("HADS")
                     ):
                         continue
-
                 if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                     continue
             
@@ -317,8 +288,7 @@ def main():
             raw_elev = station.get("ELEVATION")
             if raw_elev is not None:
                 try:
-                    elev_ft = float(raw_elev)
-                    elev_meters = elev_ft * 0.3048
+                    elev_meters = float(raw_elev) * 0.3048
                 except (ValueError, TypeError):
                     pass
 
@@ -332,16 +302,12 @@ def main():
 
             station_lines = []
             prev_bucket_in = None
-            rolling_24h_sum = 0.0
 
             for i, ts_str in enumerate(timestamps):
                 try:
                     dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                     
-                    window_start = dt_ob
-                    if i == 0:
-                        window_start = dt_ob - timedelta(minutes=5)
-                    
+                    window_start = dt_ob - timedelta(minutes=5) if i == 0 else dt_ob
                     window_end = dt_ob + timedelta(hours=1)
                     if i + 1 < len(timestamps):
                         next_dt_ob = datetime.strptime(timestamps[i + 1], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
@@ -384,17 +350,13 @@ def main():
                     p1h_in = clean_rain_value_to_inches(raw_p1h)
                 elif raw_pbucket is not None:
                     curr_bucket = clean_rain_value_to_inches(raw_pbucket)
-                    if prev_bucket_in is not None and curr_bucket >= prev_bucket_in:
+                    if prev_bucket_in is not None:
                         delta = curr_bucket - prev_bucket_in
-                        if delta < 4.0:
+                        if 0.0 <= delta < 4.0:
                             p1h_in = delta
                     prev_bucket_in = curr_bucket
 
                 p24h_in = clean_rain_value_to_inches(raw_p24h) if raw_p24h is not None else 0.0
-                
-                rolling_24h_sum += p1h_in
-                if p24h_in == 0.0 and rolling_24h_sum > 0.0:
-                    p24h_in = rolling_24h_sum
 
                 p1h_str = format_precip_str(p1h_in)
                 p24h_str = format_precip_str(p24h_in)
@@ -404,12 +366,10 @@ def main():
 
                 sky_code = get_obs_val(observations, ["cloud_layer_1_code"], i)
 
-                if temp_f is not None and (temp_f < -50 or temp_f > 130):
-                    temp_f = None
-                if dew_f is not None and (dew_f < -60 or dew_f > 100):
-                    dew_f = None
-                if temp_f is not None and dew_f is not None and dew_f > temp_f:
-                    dew_f = None
+                # Quality Control Bounds
+                if temp_f is not None and (temp_f < -50 or temp_f > 130): temp_f = None
+                if dew_f is not None and (dew_f < -60 or dew_f > 100): dew_f = None
+                if temp_f is not None and dew_f is not None and dew_f > temp_f: dew_f = None
 
                 slp_str = sanitize_slp(slp_mb)
                 sky_icon_idx = get_sky_cover_icon(sky_code)
@@ -424,14 +384,12 @@ def main():
                 color_rain = "0 255 255"
                 color_gust = "255 255 0"
 
-                max_wind_mph = gust_mph if (gust_mph is not None) else speed_mph
+                max_wind_mph = gust_mph if gust_mph is not None else speed_mph
 
                 if max_wind_mph >= 45:
-                    color_barb = "255 0 255"
-                    color_temp = "255 50 255"
+                    color_barb, color_temp = "255 0 255", "255 50 255"
                 elif max_wind_mph >= 35:
-                    color_barb = "255 255 0"
-                    color_temp = "255 200 0"
+                    color_barb, color_temp = "255 255 0", "255 200 0"
                 else:
                     color_barb = "255 255 255"
 
@@ -441,10 +399,7 @@ def main():
                     and gust_mph > (speed_mph + 3)
                 )
 
-                if has_gust:
-                    wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH"
-                else:
-                    wind_display = f"{wind_dir_display:03d}@{speed_mph}MPH"
+                wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH" if has_gust else f"{wind_dir_display:03d}@{speed_mph}MPH"
 
                 p1h_hover = f"{p1h_str}\"" if p1h_str else "0.00\""
                 p24h_hover = f"{p24h_str}\"" if p24h_str else "0.00\""
@@ -469,44 +424,33 @@ def main():
                 station_lines.append("  Color: 255 255 255")
                 station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
                 
-                # Temperature (Top-Left): Moved higher and slightly left (-16, 12)
                 if tf_display != "M":
                     station_lines.append(f"  Color: {color_temp}")
                     station_lines.append(f'  Text: -16, 12, 1, "{tf_display}"')
                 
-                # Visibility (Middle-Left): Pushed further left (-32, 0)
                 if raw_vis is not None and vis_str:
                     try:
                         v_num = float(raw_vis)
                         if v_num > 50.0: v_num *= 0.000621371
-                        if v_num <= 1.0:
-                            color_vis = "255 0 255"   # Dense Fog (Magenta)
-                        elif v_num <= 3.0:
-                            color_vis = "255 255 0"   # Marginal Vis (Yellow)
-                        else:
-                            color_vis = "180 180 180" # Normal Vis (Light Gray)
+                        color_vis = "255 0 255" if v_num <= 1.0 else ("255 255 0" if v_num <= 3.0 else "180 180 180")
                             
                         station_lines.append(f"  Color: {color_vis}")
                         station_lines.append(f'  Text: -32, 0, 1, "{vis_str}"')
                     except Exception:
                         pass
 
-                # Pressure / SLP Code (Top-Right): Moved higher (16, 12)
                 if slp_str != "M":
                     station_lines.append(f"  Color: {color_slp}")
                     station_lines.append(f'  Text: 16, 12, 1, "{slp_str}"')
                     
-                # Dew Point (Bottom-Left): Moved lower and slightly left (-16, -12)
                 if df_display != "M":
                     station_lines.append(f"  Color: {color_dew}")
                     station_lines.append(f'  Text: -16, -12, 1, "{df_display}"')
 
-                # 1-Hour Rainfall (Bottom-Right): Moved lower (16, -12)
                 if p1h_str:
                     station_lines.append(f"  Color: {color_rain}")
                     station_lines.append(f'  Text: 16, -12, 1, "{p1h_str}"')
 
-                # Wind Gust Label (Bottom-Center)
                 if has_gust:
                     station_lines.append(f"  Color: {color_gust}")
                     station_lines.append(f'  Text: 0, -20, 1, "G{gust_mph}"')
