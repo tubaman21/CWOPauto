@@ -44,8 +44,12 @@ jobs:
           res2 = requests.get(url, params={"token": token, "bbox": "-97.5,42.5,-86.5,50.5"}).json()
           stations = res2.get("STATION", [])
           matches = [s for s in stations if "WIS" in str(s.get("MNET_SHORTNAME","")).upper() or "RWIS" in str(s.get("STID","")).upper() or "WISCONSIN" in str(s.get("MNET_NAME","")).upper()]
-          for m in matches[:20]:
-              print(f"STID: {m.get(\"STID\")} | MNET_ID: {m.get(\"MNET_ID\")} | SHORT: {m.get(\"MNET_SHORTNAME\")} | NAME: {m.get(\"MNET_NAME\")}")
+          for m in matches[:30]:
+              stid = m.get("STID")
+              mnet_id = m.get("MNET_ID")
+              short = m.get("MNET_SHORTNAME")
+              name = m.get("MNET_NAME")
+              print("STID: " + str(stid) + " | MNET_ID: " + str(mnet_id) + " | SHORT: " + str(short) + " | NAME: " + str(name))
           '
 
       - name: Execute Placefile Generation Script
