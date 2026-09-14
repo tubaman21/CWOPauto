@@ -21,7 +21,6 @@ LAT_MIN, LAT_MAX = 42.5, 50.5
 LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
-SYNOPTIC_NETWORKS_URL = "https://api.synopticdata.com/v2/networks"
 
 # Standard METAR sprite sheets via jsDelivr CDN
 WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
@@ -43,6 +42,9 @@ NETWORK_THRESHOLDS = {
 
 NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Wisconet", "Xcel Energy", "Mesonet", "WeatherXM", "CWOP"]
 
+# Suffixes typically assigned to Hydro, C-MAN, and River/Marine sites
+NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
+
 # Network IDs explicitly designated for hydrology/water level telemetry by Synoptic
 HYDRO_MNET_IDS = {
     "128",  # USGS River Gages
@@ -55,10 +57,14 @@ HYDRO_MNET_IDS = {
 # Key terms wrapped in spaces to target water-only gauge metadata safely
 HYDRO_NAME_KEYWORDS = (
     " RIVER ", " CREEK ", " STREAM ", " LAKE ", " POND ", 
-    " RESERVOIR ", " DAM ", " GAGE ", " DRAIN ", " FLUME ", " CANAL "
+    " RESERVOIR ", " DAM ", " GAGE ", " DRAIN ", " FLUME ", " CANAL ", " HARBOR ", " PIER "
 )
 
-WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", "RWIS-16-0048", "WXM6382"}
+# Explicitly Whitelisted stations bypass hydro/marine suffix checks (e.g., HWDW3, MRZW3)
+WHITELIST_STATIONS = {
+    "DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", 
+    "RWIS-16-0048", "WXM6382", "HWDW3", "MRZW3"
+}
 
 STATION_MAP = {
     "D8249": "DW8249",
@@ -77,30 +83,6 @@ STATION_COORDINATE_OVERRIDES = {
 # ==========================================
 # UTILITY HELPER FUNCTIONS
 # ==========================================
-def discover_network_metadata(api_token):
-    """Queries Synoptic network catalog to dynamically find exact Wisconet & Xcel IDs/shortnames."""
-    print("Discovering network registrations from Synoptic API...")
-    discovered = {"wisconet_ids": set(), "wisconet_names": set()}
-    try:
-        response = requests.get(SYNOPTIC_NETWORKS_URL, params={"token": api_token}, timeout=15)
-        if response.status_code == 200:
-            networks = response.json().get("MNET", [])
-            for net in networks:
-                net_id = str(net.get("ID", ""))
-                short_name = str(net.get("SHORTNAME", "")).upper()
-                long_name = str(net.get("LONGNAME", "")).upper()
-                
-                # Check for Wisconet / Wisconsin Mesonet matches
-                if any(kw in short_name or kw in long_name for kw in ["WISCONET", "WISCONSIN MESONET", "WISC_MESO", "UWMADISON"]):
-                    print(f"  [FOUND WISCONET] MNET_ID={net_id} | Long='{long_name}' | Short='{short_name}'")
-                    discovered["wisconet_ids"].add(net_id)
-                    discovered["wisconet_names"].add(short_name)
-                    discovered["wisconet_names"].add(long_name)
-    except Exception as e:
-        print(f"Warning: Failed to perform dynamic network discovery: {e}")
-    
-    return discovered
-
 def normalize_pressure_to_mb(val):
     if val is None or math.isnan(val) or val <= 0:
         return None
@@ -238,8 +220,6 @@ def main():
         print("Error: SYNOPTIC_API_TOKEN environment variable is missing!")
         sys.exit(1)
     
-    # Discover Wisconet metadata specs dynamically
-    meta_info = discover_network_metadata(api_token)
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
     api_params = {
@@ -287,11 +267,10 @@ def main():
             if stid.startswith("XL") or "XCEL" in mnet_short or "XCEL" in mnet_name:
                 mnet = "Xcel Energy"
             elif (
-                mnet_id in meta_info["wisconet_ids"]
-                or mnet_short in meta_info["wisconet_names"]
-                or mnet_name in meta_info["wisconet_names"]
+                mnet_id == "280"
                 or "WISCONET" in mnet_short 
                 or "WISCONET" in mnet_name 
+                or "WISCONSIN ENVIRONMENTAL MESONET" in mnet_name
                 or "WISCONSIN MESONET" in mnet_name
                 or stid.startswith(("WCN", "WISC"))
             ):
@@ -331,21 +310,30 @@ def main():
             else:
                 mnet = "Mesonet"
 
-            # Metadata-driven Hydrological Filtering
+            # Hydrological and Marine Filtering
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
+                # Exclude aviation baseline stations
                 if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
                     continue
                 
+                # Exclude dedicated hydro/marine MNETs
                 if mnet_id in HYDRO_MNET_IDS or mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"]:
                     continue
 
+                # Exclude station names with hydro/marine keywords
                 padded_name = f" {mnet_name} "
                 if any(kw in padded_name for kw in HYDRO_NAME_KEYWORDS):
                     continue
 
+                # Exclude NDBC buoys and 5-digit numeric marine IDs
                 if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                     continue
 
+                # Exclude non-whitelisted stations ending with hydro/marine suffixes (e.g., PNGW3)
+                if stid.endswith(NLI_HYDRO_SUFFIXES) or raw_stid.endswith(NLI_HYDRO_SUFFIXES):
+                    continue
+
+                # Exclude non-mesonet/RAWS stations lacking basic weather sensors
                 if mnet not in ["CWOP", "RAWS", "WeatherXM", "Xcel Energy", "Wisconet"] and mnet_id != "2":
                     sensor_keys = set(station.get("SENSOR_VARIABLES", {}).keys())
                     has_weather_sensors = any(
