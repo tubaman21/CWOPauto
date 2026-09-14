@@ -64,7 +64,7 @@ HYDRO_NAME_KEYWORDS = (
 # Explicitly Whitelisted stations bypass hydro/marine suffix checks
 WHITELIST_STATIONS = {
     "DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", 
-    "RWIS-16-0048", "HWDW3", "MRZW3", "WXM6382"
+    "RWIS-16-0048", "HWDW3", "MRZW3", "SILW3", "WXM6382"
 }
 
 STATION_MAP = {
