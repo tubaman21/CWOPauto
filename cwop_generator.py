@@ -36,11 +36,10 @@ NETWORK_THRESHOLDS = {
     "Wisconet": 80,
     "Xcel Energy": 80,
     "Mesonet": 80,
-    "WeatherXM": 60,
     "CWOP": 60
 }
 
-NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Wisconet", "Xcel Energy", "Mesonet", "WeatherXM", "CWOP"]
+NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Wisconet", "Xcel Energy", "Mesonet", "CWOP"]
 
 # Suffixes typically assigned to Hydro, C-MAN, and River/Marine sites
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
@@ -63,7 +62,7 @@ HYDRO_NAME_KEYWORDS = (
 # Explicitly Whitelisted stations bypass hydro/marine suffix checks (e.g., HWDW3, MRZW3)
 WHITELIST_STATIONS = {
     "DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", 
-    "RWIS-16-0048", "WXM6382", "HWDW3", "MRZW3"
+    "RWIS-16-0048", "HWDW3", "MRZW3"
 }
 
 STATION_MAP = {
@@ -227,7 +226,6 @@ def main():
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
         "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,visibility,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
         "varsoperator": "OR",
-        "mnet": "all",
         "recent": LOOKBACK_HOURS * 60,
         "obtimezone": "UTC",
         "output": "json",
@@ -275,13 +273,6 @@ def main():
                 or stid.startswith(("WCN", "WISC"))
             ):
                 mnet = "Wisconet"
-            elif (
-                mnet_id == "303"
-                or "WEATHERXM" in mnet_short
-                or "WEATHERXM" in mnet_name
-                or stid.startswith("WXM")
-            ):
-                mnet = "WeatherXM"
             elif (
                 raw_stid in WHITELIST_STATIONS
                 or stid in WHITELIST_STATIONS
@@ -334,7 +325,7 @@ def main():
                     continue
 
                 # Exclude non-mesonet/RAWS stations lacking basic weather sensors
-                if mnet not in ["CWOP", "RAWS", "WeatherXM", "Xcel Energy", "Wisconet"] and mnet_id != "2":
+                if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet"] and mnet_id != "2":
                     sensor_keys = set(station.get("SENSOR_VARIABLES", {}).keys())
                     has_weather_sensors = any(
                         v in sensor_keys for v in ["air_temp", "wind_speed", "relative_humidity"]
