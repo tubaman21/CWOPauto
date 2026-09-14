@@ -33,6 +33,7 @@ NETWORK_THRESHOLDS = {
     "MnDOT": 100,
     "WisDOT": 100,
     "DOT": 100,
+    "Union Pacific": 80,
     "Wisconet": 80,
     "Xcel Energy": 80,
     "Mesonet": 80,
@@ -40,7 +41,7 @@ NETWORK_THRESHOLDS = {
     "CWOP": 60
 }
 
-NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Wisconet", "Xcel Energy", "Mesonet", "WeatherXM", "CWOP"]
+NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Union Pacific", "Wisconet", "Xcel Energy", "Mesonet", "WeatherXM", "CWOP"]
 
 # Suffixes typically assigned to Hydro, C-MAN, and River/Marine sites
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
@@ -357,7 +358,15 @@ def main():
             mnet_name = str(station.get("MNET_NAME", "")).upper()
 
             # Classify station network type
-            if stid.startswith("XL") or "XCEL" in mnet_short or "XCEL" in mnet_name:
+            if (
+                mnet_id == "64" 
+                or "UNION PACIFIC" in mnet_name 
+                or "UNION PACIFIC" in mnet_short 
+                or "UPRR" in mnet_short
+                or stid.startswith("UP")
+            ):
+                mnet = "Union Pacific"
+            elif stid.startswith("XL") or "XCEL" in mnet_short or "XCEL" in mnet_name:
                 mnet = "Xcel Energy"
             elif (
                 mnet_id == "280"
@@ -414,7 +423,7 @@ def main():
                 if stid.endswith(NLI_HYDRO_SUFFIXES) or raw_stid.endswith(NLI_HYDRO_SUFFIXES):
                     continue
 
-                if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet"] and mnet_id != "2":
+                if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet", "Union Pacific"] and mnet_id != "2":
                     sensor_keys = set(station.get("SENSOR_VARIABLES", {}).keys())
                     has_weather_sensors = any(
                         v in sensor_keys for v in ["air_temp", "wind_speed", "relative_humidity"]
