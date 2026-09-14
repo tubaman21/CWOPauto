@@ -71,7 +71,7 @@ WHITELIST_STATIONS = {
 
 # Explicitly hidden/blacklisted station IDs
 BLACKLIST_STATIONS = {
-    "G1059"
+    "G1059", "FW9531"
 }
 
 STATION_MAP = {
