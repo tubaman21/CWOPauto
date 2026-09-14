@@ -22,7 +22,6 @@ LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
-# Standard METAR sprite sheets via jsDelivr CDN
 WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
 SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
@@ -41,6 +40,13 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", "RWIS-16-0048"}
 
+STATION_MAP = {
+    "D8249": "DW8249",
+    "E9591": "EW9591",
+    "F9531": "FW9531",
+    "D6222": "DW6222"
+}
+
 STATION_COORDINATE_OVERRIDES = {
     "DW8249": (46.212833, -93.379833),
     "D8249":  (46.212833, -93.379833),
@@ -52,18 +58,17 @@ STATION_COORDINATE_OVERRIDES = {
 # UTILITY HELPER FUNCTIONS
 # ==========================================
 def normalize_pressure_to_mb(val):
-    """Converts raw pressure values (Pa, inHg, hundredths inHg, hPa) to millibars."""
     if val is None or math.isnan(val) or val <= 0:
         return None
     try:
         val = float(val)
-        if val > 50000:                  # Pascals (Pa)
+        if val > 50000:                   # Pa
             val /= 100.0
-        elif 2800.0 <= val <= 3200.0:    # Hundredths of inHg
+        elif 2800.0 <= val <= 3200.0:     # Hundredths of inHg
             val = (val / 100.0) * 33.8639
-        elif 27.0 <= val <= 32.5:        # Standard inHg
+        elif 27.0 <= val <= 32.5:         # inHg
             val *= 33.8639
-        elif 8000.0 <= val <= 11000.0:   # Hundredths of hPa
+        elif 8000.0 <= val <= 11000.0:    # Hundredths of hPa
             val /= 10.0
         
         return val if 920.0 <= val <= 1050.0 else None
@@ -71,7 +76,6 @@ def normalize_pressure_to_mb(val):
         return None
 
 def station_pressure_to_slp(station_press_mb, elev_meters, temp_c=15.0):
-    """Reduces ground station pressure to Sea Level Pressure (SLP)."""
     if station_press_mb is None or elev_meters is None or elev_meters < 0:
         return None
     try:
@@ -83,7 +87,6 @@ def station_pressure_to_slp(station_press_mb, elev_meters, temp_c=15.0):
         return None
 
 def sanitize_slp(pressure_mb):
-    """Formats sea level pressure into 3-digit METAR notation with strict bounds checking."""
     if pressure_mb is None or math.isnan(pressure_mb) or not (950.0 <= pressure_mb <= 1050.0):
         return "M"
     try:
@@ -98,7 +101,6 @@ def format_precip_str(precip_in):
     return f"{precip_in:.2f}".lstrip('0') if precip_in < 1.0 else f"{precip_in:.2f}"
 
 def format_visibility_str(vis_val):
-    """Formats visibility into standard METAR text notation."""
     if vis_val is None or math.isnan(vis_val) or vis_val < 0:
         return None
     try:
@@ -135,10 +137,10 @@ def get_wind_barb_index(speed_knots, direction_deg):
     return idx, int(direction_deg)
 
 def get_sky_cover_icon(cloud_cov_str):
+    # Default sky cover icon index for placefile specification
     return 5
 
 def get_obs_val(observations, var_prefixes, index):
-    """Scans for matching sensor prefixes across telemetry arrays safely."""
     for key, values in observations.items():
         if any(prefix in key for prefix in var_prefixes):
             if isinstance(values, list) and index < len(values):
@@ -153,7 +155,6 @@ def get_obs_val(observations, var_prefixes, index):
     return None
 
 def get_best_slp(observations, index, elev_meters, temp_c):
-    """Extracts SLP/Altimeter or reduces station pressure."""
     raw_p = get_obs_val(observations, ["sea_level_pressure", "altimeter"], index)
     if raw_p is not None:
         p_mb = normalize_pressure_to_mb(raw_p)
@@ -175,11 +176,11 @@ def clean_rain_value_to_inches(val):
         return 0.0
     try:
         val = float(val)
-        if 0.254 <= val < 100.0:
-            return val * 0.0393701
-        elif val >= 100.0:
-            return val / 100.0
-        return val
+        # Synoptic API natively outputs precipitation in mm unless specified
+        # Standard unit conversion logic with bounds safety
+        if val > 100.0:
+            return val / 100.0  # Handle potential raw scaled integer formats
+        return val * 0.0393701  # mm to inches
     except Exception:
         return 0.0
 
@@ -230,12 +231,7 @@ def main():
     if "STATION" in data and data["STATION"]:
         for station in data["STATION"]:
             raw_stid = station.get("STID", "UNKNOWN").upper()
-
-            if raw_stid == "D8249": stid = "DW8249"
-            elif raw_stid == "E9591": stid = "EW9591"
-            elif raw_stid == "F9531": stid = "FW9531"
-            elif raw_stid == "D6222": stid = "DW6222"
-            else: stid = raw_stid
+            stid = STATION_MAP.get(raw_stid, raw_stid)
 
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
@@ -316,11 +312,13 @@ def main():
                     dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                     
                     window_start = dt_ob - timedelta(minutes=5) if i == 0 else dt_ob
-                    window_end = dt_ob + timedelta(hours=1)
+                    
+                    # Compute dynamic window bounds to eliminate display collisions in placefiles
                     if i + 1 < len(timestamps):
                         next_dt_ob = datetime.strptime(timestamps[i + 1], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
-                        if window_end > next_dt_ob:
-                            window_end = next_dt_ob
+                        window_end = next_dt_ob
+                    else:
+                        window_end = dt_ob + timedelta(minutes=20)
                     
                     start_range = window_start.strftime("%Y-%m-%dT%H:%M:%SZ")
                     end_range = window_end.strftime("%Y-%m-%dT%H:%M:%SZ")
