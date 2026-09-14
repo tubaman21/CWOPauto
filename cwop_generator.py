@@ -224,36 +224,83 @@ def clean_rain_value_to_inches(val):
 # DIRECT WEATHERXM FETCH HELPER (WITH AUTH)
 # ==========================================
 def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
-    """Fetches WeatherXM stations directly using device names/IDs."""
+    """Fetches WeatherXM stations using correct Pro API endpoints and payload parsing."""
     api_token = os.environ.get("WEATHERXM_API_TOKEN")
-    headers = {"Authorization": f"Bearer {api_token}"} if api_token else {}
+    
+    headers = {
+        "Accept": "application/json"
+    }
+    if api_token:
+        headers["Authorization"] = f"Bearer {api_token}"
+        
     wxm_lines = []
+    target_name = "WXM6382"
     
-    target_devices = ["WXM6382", "wxm6382"]
+    print(f"Directly fetching active WeatherXM station ({target_name})...")
     
-    print("Directly fetching active WeatherXM stations...")
+    # Try searching for the station by name first to resolve its device UUID
+    device_id = None
+    lat, lon = 46.0, -92.0  # Default fallback coordinates within bounding box
     
-    for dev_id in target_devices:
+    search_urls = [
+        f"https://api.weatherxm.com/api/v1/public/devices?q={target_name}",
+        f"https://api.weatherxm.com/api/v1/devices/{target_name}"
+    ]
+    
+    for url in search_urls:
         try:
-            url = f"https://api.weatherxm.com/api/v1/devices/{dev_id}/latest"
             resp = requests.get(url, headers=headers, timeout=10)
+            if resp.status_code == 200:
+                res_json = resp.json()
+                # Handle list response vs single object response
+                if isinstance(res_json, list) and len(res_json) > 0:
+                    dev = res_json[0]
+                    device_id = dev.get("id")
+                    lat = dev.get("location", {}).get("lat", lat)
+                    lon = dev.get("location", {}).get("lon", lon)
+                elif isinstance(res_json, dict):
+                    device_id = res_json.get("id", target_name)
+                    lat = res_json.get("location", {}).get("lat", lat)
+                    lon = res_json.get("location", {}).get("lon", lon)
+                if device_id:
+                    break
+        except Exception:
+            continue
+
+    # Fallback to using the station name directly if search didn't return a UUID
+    if not device_id:
+        device_id = target_name
+
+    # Query latest observation using the public device endpoint
+    obs_endpoints = [
+        f"https://api.weatherxm.com/api/v1/public/devices/{device_id}/latest",
+        f"https://api.weatherxm.com/api/v1/devices/{device_id}/latest"
+    ]
+
+    for obs_url in obs_endpoints:
+        try:
+            resp = requests.get(obs_url, headers=headers, timeout=10)
             if resp.status_code != 200:
                 continue
                 
             obs_data = resp.json()
-            obs = obs_data.get("observation", {}) or obs_data
-            if not obs:
+            
+            # Extract nested observation payload safely across API versions
+            obs = (
+                obs_data.get("current_weather") 
+                or obs_data.get("observation") 
+                or obs_data
+            )
+            
+            if not obs or not isinstance(obs, dict):
                 continue
 
-            lat = obs_data.get("location", {}).get("lat") or 46.0
-            lon = obs_data.get("location", {}).get("lon") or -92.0
-
-            temp_c = obs.get("temperature")
+            temp_c = obs.get("temperature") or obs.get("temp")
             rh_pct = obs.get("humidity")
-            wind_ms = obs.get("wind_speed")
-            wind_dir = obs.get("wind_direction")
+            wind_ms = obs.get("wind_speed") or obs.get("wind_avg")
+            wind_dir = obs.get("wind_direction") or obs.get("wind_dir")
             gust_ms = obs.get("wind_gust")
-            pressure_hpa = obs.get("pressure")
+            pressure_hpa = obs.get("pressure") or obs.get("barometer")
             
             temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
             dew_f = calculate_dewpoint_f(temp_f, rh_pct) if temp_f and rh_pct else None
@@ -275,7 +322,7 @@ def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
             wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH" if has_gust else f"{wind_dir_display:03d}@{speed_mph}MPH"
 
             hover_text = (
-                f"Obs Time: {ob_time_str} | Station: WXM6382 | Type: WeatherXM | "
+                f"Obs Time: {ob_time_str} | Station: {target_name} | Type: WeatherXM | "
                 f"Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | "
                 f"SLP: {slp_str}mb"
             )
@@ -305,10 +352,9 @@ def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
             break
             
         except Exception as e:
-            print(f"Warning: WeatherXM direct query error for {dev_id}: {e}")
+            print(f"Warning: WeatherXM API request failed for endpoint {obs_url}: {e}")
 
     return wxm_lines
-
 # ==========================================
 # MAIN IMPLEMENTATION LOGIC
 # ==========================================
