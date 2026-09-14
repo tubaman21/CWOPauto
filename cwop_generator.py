@@ -64,8 +64,8 @@ HYDRO_NAME_KEYWORDS = (
 # Explicitly Whitelisted stations bypass hydro/marine suffix checks
 WHITELIST_STATIONS = {
     "DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", 
-    "RWIS-16-0048", "HWDW3", "MRZW3", "SILW3", 
-    "WXM6382", "WXM-6382", "WXM_6382", "DW6382"
+    "RWIS-16-0048", "HWDW3", "MRZW3", "SILW3", "WXM6382", "WXM-6382", "WXM_6382", "DW6382",
+    "WSHW3", "GDNW3", "SMRW3", "PLPW3", "DMLW3", "LDYW3", "LNDW3", "AFWW3"
 }
 
 # Explicitly hidden/blacklisted station IDs
@@ -222,21 +222,18 @@ def clean_rain_value_to_inches(val):
 # ==========================================
 # DIRECT WEATHERXM FETCH HELPER (WITH AUTH)
 # ==========================================
-
 def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
     """Fetches WeatherXM stations directly using device names/IDs."""
     api_token = os.environ.get("WEATHERXM_API_TOKEN")
     headers = {"Authorization": f"Bearer {api_token}"} if api_token else {}
     wxm_lines = []
     
-    # Direct device lookup list for WeatherXM
     target_devices = ["WXM6382", "wxm6382"]
     
     print("Directly fetching active WeatherXM stations...")
     
     for dev_id in target_devices:
         try:
-            # Query latest device observation directly
             url = f"https://api.weatherxm.com/api/v1/devices/{dev_id}/latest"
             resp = requests.get(url, headers=headers, timeout=10)
             if resp.status_code != 200:
@@ -247,8 +244,7 @@ def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
             if not obs:
                 continue
 
-            # Extract location from device metadata if present
-            lat = obs_data.get("location", {}).get("lat") or 46.0  # Fallback within bounding box
+            lat = obs_data.get("location", {}).get("lat") or 46.0
             lon = obs_data.get("location", {}).get("lon") or -92.0
 
             temp_c = obs.get("temperature")
@@ -305,7 +301,7 @@ def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
 
             wxm_lines.append("End:")
             wxm_lines.append("")
-            break  # Found active device observation
+            break
             
         except Exception as e:
             print(f"Warning: WeatherXM direct query error for {dev_id}: {e}")
@@ -362,11 +358,9 @@ def main():
             raw_stid = station.get("STID", "UNKNOWN").upper()
             stid = STATION_MAP.get(raw_stid, raw_stid)
 
-            # Skip explicitly blacklisted stations
             if raw_stid in BLACKLIST_STATIONS or stid in BLACKLIST_STATIONS:
                 continue
 
-            # Prevent duplicate station rendering across identical STIDs or aliased IDs
             if stid in seen_stations or raw_stid in seen_stations:
                 continue
             seen_stations.add(stid)
@@ -396,7 +390,14 @@ def main():
                 or stid.startswith(("WCN", "WISC"))
             ):
                 mnet = "Wisconet"
-            elif mnet_id == "2" or "RAWS" in mnet_short or stid in ["SILW3", "HWDW3", "MRZW3"]:
+            elif (
+                mnet_id == "2" 
+                or "RAWS" in mnet_short 
+                or stid in [
+                    "SILW3", "HWDW3", "MRZW3", "WSHW3", "GDNW3", 
+                    "SMRW3", "PLPW3", "DMLW3", "LDYW3", "LNDW3", "AFWW3"
+                ]
+            ):
                 mnet = "RAWS"
             elif (
                 raw_stid in WHITELIST_STATIONS
@@ -472,7 +473,6 @@ def main():
             observations = station.get("OBSERVATIONS", {})
             timestamps = observations.get("date_time", [])
 
-            # Render ONLY the latest valid observation to prevent stacked placefile objects
             if not timestamps:
                 continue
 
