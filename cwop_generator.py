@@ -64,7 +64,8 @@ HYDRO_NAME_KEYWORDS = (
 # Explicitly Whitelisted stations bypass hydro/marine suffix checks
 WHITELIST_STATIONS = {
     "DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", 
-    "RWIS-16-0048", "HWDW3", "MRZW3", "SILW3", "WXM6382"
+    "RWIS-16-0048", "HWDW3", "MRZW3", "SILW3", 
+    "WXM6382", "WXM-6382", "WXM_6382", "DW6382"
 }
 
 # Explicitly hidden/blacklisted station IDs
@@ -76,7 +77,10 @@ STATION_MAP = {
     "D8249": "DW8249",
     "E9591": "EW9591",
     "F9531": "FW9531",
-    "D6222": "DW6222"
+    "D6222": "DW6222",
+    "WXM-6382": "WXM6382",
+    "WXM_6382": "WXM6382",
+    "DW6382": "WXM6382"
 }
 
 STATION_COORDINATE_OVERRIDES = {
@@ -218,57 +222,34 @@ def clean_rain_value_to_inches(val):
 # ==========================================
 # DIRECT WEATHERXM FETCH HELPER (WITH AUTH)
 # ==========================================
+
 def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
-    """Fetches stations directly from WeatherXM network endpoints with API Token support."""
+    """Fetches WeatherXM stations directly using device names/IDs."""
     api_token = os.environ.get("WEATHERXM_API_TOKEN")
-    
-    headers = {}
-    if api_token:
-        headers["Authorization"] = f"Bearer {api_token}"
-        
-    print("Directly fetching active WeatherXM stations...")
+    headers = {"Authorization": f"Bearer {api_token}"} if api_token else {}
     wxm_lines = []
     
-    url = "https://api.weatherxm.com/api/v1/cells"
-    params = {
-        "minLat": lat_min,
-        "maxLat": lat_max,
-        "minLon": lon_min,
-        "maxLon": lon_max
-    }
+    # Direct device lookup list for WeatherXM
+    target_devices = ["WXM6382", "wxm6382"]
     
-    try:
-        resp = requests.get(url, headers=headers, params=params, timeout=15)
-        if resp.status_code == 401:
-            print("Warning: WeatherXM returned 401 Unauthorized. Check your WEATHERXM_API_TOKEN.")
-            return []
-        elif resp.status_code != 200:
-            print(f"Warning: WeatherXM query failed with HTTP {resp.status_code}")
-            return []
-            
-        data = resp.json()
-        stations = data.get("devices", []) or data.get("stations", [])
-        
-        for st in stations:
-            lat = st.get("location", {}).get("lat")
-            lon = st.get("location", {}).get("lon")
-            st_id = st.get("name", "WXM_Station")
-            st_uuid = st.get("id")
-            
-            if not st_uuid or st_id in BLACKLIST_STATIONS:
+    print("Directly fetching active WeatherXM stations...")
+    
+    for dev_id in target_devices:
+        try:
+            # Query latest device observation directly
+            url = f"https://api.weatherxm.com/api/v1/devices/{dev_id}/latest"
+            resp = requests.get(url, headers=headers, timeout=10)
+            if resp.status_code != 200:
                 continue
                 
-            obs_resp = requests.get(
-                f"https://api.weatherxm.com/api/v1/devices/{st_uuid}/latest", 
-                headers=headers, 
-                timeout=10
-            )
-            if obs_resp.status_code != 200:
-                continue
-                
-            obs = obs_resp.json().get("observation", {}) or obs_resp.json()
+            obs_data = resp.json()
+            obs = obs_data.get("observation", {}) or obs_data
             if not obs:
                 continue
+
+            # Extract location from device metadata if present
+            lat = obs_data.get("location", {}).get("lat") or 46.0  # Fallback within bounding box
+            lon = obs_data.get("location", {}).get("lon") or -92.0
 
             temp_c = obs.get("temperature")
             rh_pct = obs.get("humidity")
@@ -297,7 +278,7 @@ def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
             wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH" if has_gust else f"{wind_dir_display:03d}@{speed_mph}MPH"
 
             hover_text = (
-                f"Obs Time: {ob_time_str} | Station: {st_id} | Type: WeatherXM | "
+                f"Obs Time: {ob_time_str} | Station: WXM6382 | Type: WeatherXM | "
                 f"Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | "
                 f"SLP: {slp_str}mb"
             )
@@ -324,9 +305,10 @@ def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
 
             wxm_lines.append("End:")
             wxm_lines.append("")
-
-    except Exception as e:
-        print(f"Warning: Direct WeatherXM query failed: {e}")
+            break  # Found active device observation
+            
+        except Exception as e:
+            print(f"Warning: WeatherXM direct query error for {dev_id}: {e}")
 
     return wxm_lines
 
