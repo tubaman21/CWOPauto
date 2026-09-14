@@ -1,4 +1,4 @@
-Title: CWOP Surface Observations (2026-09-14 21:01:55 UTC)
+Title: CWOP Surface Observations (2026-09-14 21:02:31 UTC)
 Refresh: 5
 IconFile: 1, 43, 68, 29, 67, "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
 IconFile: 2, 15, 15, 8, 8, "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
@@ -4703,12 +4703,12 @@ End:
 ; --- Network: Xcel Energy (Threshold: 80 NM) ---
 Threshold: 80
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.78929,-93.94488
   Color: 255 255 255
-  Icon: 0,0,151,1,2
+  Icon: 0,0,152,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL066 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 151@13G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL066 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 152@12G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
@@ -4717,12 +4717,620 @@ Object: 44.78929,-93.94488
   Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.00029,-93.69761
   Color: 255 255 255
-  Icon: 0,0,159,1,2
+  Icon: 0,0,158,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL065 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 159@13G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .25""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL065 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 158@14G28MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .25""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G28"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.16681,-93.91625
+  Color: 255 255 255
+  Icon: 0,0,150,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL067 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 150@11G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G20"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.88455,-93.94847
+  Color: 255 255 255
+  Icon: 0,0,127,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL068 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 127@4MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.79497,-93.43775
+  Color: 255 255 255
+  Icon: 0,0,159,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL069 | Type: Xcel Energy | Temp: 59F | Dewpt: 54F | Wind: 159@7G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .12""
+  Color: 255 100 100
+  Text: -16, 12, 1, "59"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G14"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.03428,-93.50762
+  Color: 255 255 255
+  Icon: 0,0,130,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL070 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 130@12G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "53"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G22"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.86280,-93.73639
+  Color: 255 255 255
+  Icon: 0,0,142,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL063 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 142@13G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G21"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.67441,-94.01210
+  Color: 255 255 255
+  Icon: 0,0,143,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL050 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 143@10G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .26""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G20"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.65063,-94.68983
+  Color: 255 255 255
+  Icon: 0,0,149,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL036 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 149@7G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G17"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.66248,-93.94121
+  Color: 255 255 255
+  Icon: 0,0,149,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL035 | Type: Xcel Energy | Temp: 55F | Dewpt: 53F | Wind: 149@4MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .08""
+  Color: 255 100 100
+  Text: -16, 12, 1, "55"
+  Color: 100 255 100
+  Text: -16, -12, 1, "53"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.86707,-95.14006
+  Color: 255 255 255
+  Icon: 0,0,106,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL037 | Type: Xcel Energy | Temp: 55F | Dewpt: 54F | Wind: 106@8G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "55"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G15"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.13835,-93.49922
+  Color: 255 255 255
+  Icon: 0,0,137,1,3
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL038 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 137@14G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "53"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G25"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.15171,-93.72772
+  Color: 255 255 255
+  Icon: 0,0,147,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL039 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 147@9G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .13""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "53"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G22"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.71522,-95.18023
+  Color: 255 255 255
+  Icon: 0,0,143,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL040 | Type: Xcel Energy | Temp: 56F | Dewpt: 55F | Wind: 143@11G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .38""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G19"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 46.87770,-96.50402
+  Color: 255 255 255
+  Icon: 0,0,199,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL041 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 199@13G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .83""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G22"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.28920,-92.85247
+  Color: 255 255 255
+  Icon: 0,0,139,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL042 | Type: Xcel Energy | Temp: 55F | Dewpt: 52F | Wind: 139@6G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .13""
+  Color: 255 100 100
+  Text: -16, 12, 1, "55"
+  Color: 100 255 100
+  Text: -16, -12, 1, "52"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G15"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.49909,-95.16563
+  Color: 255 255 255
+  Icon: 0,0,146,1,3
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL043 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 146@18G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .31""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G26"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.27792,-94.92911
+  Color: 255 255 255
+  Icon: 0,0,154,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL044 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 154@6G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .11""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G14"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.27834,-94.16999
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL045 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 114@1MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .38""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.23322,-94.17821
+  Color: 255 255 255
+  Icon: 0,0,148,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL048 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 148@12G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .38""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G22"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.59846,-95.53169
+  Color: 255 255 255
+  Icon: 0,0,149,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL047 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 149@7G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .18""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G14"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.51013,-94.21650
+  Color: 255 255 255
+  Icon: 0,0,138,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL033 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 138@10G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .11""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G17"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.31909,-93.89915
+  Color: 255 255 255
+  Icon: 0,0,146,1,3
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL049 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 146@15G29MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .33""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G29"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.78430,-93.29074
+  Color: 255 255 255
+  Icon: 0,0,146,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL051 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 146@8G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .17""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G18"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.08407,-92.91749
+  Color: 255 255 255
+  Icon: 0,0,128,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL052 | Type: Xcel Energy | Temp: 56F | Dewpt: 52F | Wind: 128@7G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .13""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 100 255 100
+  Text: -16, -12, 1, "52"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G15"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.53681,-93.98976
+  Color: 255 255 255
+  Icon: 0,0,156,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL053 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 156@8G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .26""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G18"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.09438,-93.65591
+  Color: 255 255 255
+  Icon: 0,0,141,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL054 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 141@11G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "53"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G24"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.03665,-93.86865
+  Color: 255 255 255
+  Icon: 0,0,140,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL055 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 140@7G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .30""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G17"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.09419,-94.10023
+  Color: 255 255 255
+  Icon: 0,0,134,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL056 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 134@14G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .30""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G25"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.20684,-93.73858
+  Color: 255 255 255
+  Icon: 0,0,142,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL057 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 142@13G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G22"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.28277,-93.43820
+  Color: 255 255 255
+  Icon: 0,0,144,1,3
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL058 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 144@17G27MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .28""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G27"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.51507,-93.45403
+  Color: 255 255 255
+  Icon: 0,0,137,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL059 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 137@13G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "53"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G25"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.94893,-93.77238
+  Color: 255 255 255
+  Icon: 0,0,138,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL060 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 138@14G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G26"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.62143,-93.81863
+  Color: 255 255 255
+  Icon: 0,0,114,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL061 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 114@5G12MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G12"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.20410,-93.48771
+  Color: 255 255 255
+  Icon: 0,0,133,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL062 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 133@14G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .13""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "53"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G24"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.67402,-93.58549
+  Color: 255 255 255
+  Icon: 0,0,142,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL064 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 142@12G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .13""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G20"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.19556,-92.88340
+  Color: 255 255 255
+  Icon: 0,0,138,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL034 | Type: Xcel Energy | Temp: 56F | Dewpt: 52F | Wind: 138@12G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .10""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 100 255 100
+  Text: -16, -12, 1, "52"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G19"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.83084,-93.24440
+  Color: 255 255 255
+  Icon: 0,0,159,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL026 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 159@6G16MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .16""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G16"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.46991,-92.75256
+  Color: 255 255 255
+  Icon: 0,0,138,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL027 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 138@9G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .06""
+  Color: 255 100 100
+  Text: -16, 12, 1, "55"
+  Color: 100 255 100
+  Text: -16, -12, 1, "51"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G21"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.37568,-92.96018
+  Color: 255 255 255
+  Icon: 0,0,152,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL028 | Type: Xcel Energy | Temp: 56F | Dewpt: 52F | Wind: 152@6G12MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .08""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 100 255 100
+  Text: -16, -12, 1, "52"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G12"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.40054,-93.90001
+  Color: 255 255 255
+  Icon: 0,0,132,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL029 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 132@5G16MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G16"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.23805,-93.70696
+  Color: 255 255 255
+  Icon: 0,0,145,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL030 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 145@7G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .12""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G18"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.68842,-94.21026
+  Color: 255 255 255
+  Icon: 0,0,135,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL032 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 135@7G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .11""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G15"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.33956,-93.00549
+  Color: 255 255 255
+  Icon: 0,0,136,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL509 | Type: Xcel Energy | Temp: 56F | Dewpt: 52F | Wind: 136@10G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 100 255 100
+  Text: -16, -12, 1, "52"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G20"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.39504,-92.99879
+  Color: 255 255 255
+  Icon: 0,0,141,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL515 | Type: Xcel Energy | Temp: 56F | Dewpt: 52F | Wind: 141@8G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .09""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 100 255 100
+  Text: -16, -12, 1, "52"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G17"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.16689,-93.62168
+  Color: 255 255 255
+  Icon: 0,0,132,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL516 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 132@12G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
@@ -4731,662 +5339,52 @@ Object: 45.00029,-93.69761
   Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.16681,-93.91625
-  Color: 255 255 255
-  Icon: 0,0,152,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL067 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 152@12G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.88455,-93.94847
-  Color: 255 255 255
-  Icon: 0,0,128,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL068 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 128@6MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.79497,-93.43775
-  Color: 255 255 255
-  Icon: 0,0,162,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL069 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 162@8G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .12""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G17"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.03428,-93.50762
-  Color: 255 255 255
-  Icon: 0,0,130,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL070 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 130@11G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G23"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.86280,-93.73639
-  Color: 255 255 255
-  Icon: 0,0,142,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL063 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 142@13G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.67441,-94.01210
-  Color: 255 255 255
-  Icon: 0,0,138,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL050 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 138@10G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .26""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G18"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.65063,-94.68983
-  Color: 255 255 255
-  Icon: 0,0,130,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL036 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 130@7G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .18""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G14"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.66248,-93.94121
-  Color: 255 255 255
-  Icon: 0,0,145,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL035 | Type: Xcel Energy | Temp: 55F | Dewpt: 52F | Wind: 145@5G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .08""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "52"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G14"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.86707,-95.14006
-  Color: 255 255 255
-  Icon: 0,0,106,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL037 | Type: Xcel Energy | Temp: 55F | Dewpt: 54F | Wind: 106@6G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G14"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.13835,-93.49922
-  Color: 255 255 255
-  Icon: 0,0,135,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL038 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 135@13G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.15171,-93.72772
-  Color: 255 255 255
-  Icon: 0,0,143,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL039 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 143@10G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .13""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G19"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.71522,-95.18023
-  Color: 255 255 255
-  Icon: 0,0,149,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL040 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 149@10G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .37""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G19"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 46.87770,-96.50402
-  Color: 255 255 255
-  Icon: 0,0,195,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL041 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 195@14G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .83""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G22"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.28920,-92.85247
-  Color: 255 255 255
-  Icon: 0,0,145,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL042 | Type: Xcel Energy | Temp: 55F | Dewpt: 52F | Wind: 145@5G16MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .12""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "52"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G16"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.49909,-95.16563
-  Color: 255 255 255
-  Icon: 0,0,151,1,3
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL043 | Type: Xcel Energy | Temp: 56F | Dewpt: 55F | Wind: 151@15G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .31""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G23"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.27792,-94.92911
-  Color: 255 255 255
-  Icon: 0,0,152,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL044 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 152@9G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .11""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.27834,-94.16999
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL045 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 298@2MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .38""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.23322,-94.17821
-  Color: 255 255 255
-  Icon: 0,0,147,1,3
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL048 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 147@15G28MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .38""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G28"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.59846,-95.53169
-  Color: 255 255 255
-  Icon: 0,0,139,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL047 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 139@9G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .18""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G18"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.51013,-94.21650
-  Color: 255 255 255
-  Icon: 0,0,133,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL033 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 133@10G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .11""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G20"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.31909,-93.89915
-  Color: 255 255 255
-  Icon: 0,0,144,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL049 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 144@14G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .33""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G22"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.78430,-93.29074
-  Color: 255 255 255
-  Icon: 0,0,140,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL051 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 140@9G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .17""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G19"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.08407,-92.91749
-  Color: 255 255 255
-  Icon: 0,0,120,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL052 | Type: Xcel Energy | Temp: 56F | Dewpt: 52F | Wind: 120@7G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .13""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "52"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G18"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.53681,-93.98976
-  Color: 255 255 255
-  Icon: 0,0,154,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL053 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 154@11G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .26""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G20"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.09438,-93.65591
-  Color: 255 255 255
-  Icon: 0,0,145,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL054 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 145@10G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.03665,-93.86865
-  Color: 255 255 255
-  Icon: 0,0,139,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL055 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 139@9G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .30""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G20"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.09419,-94.10023
-  Color: 255 255 255
-  Icon: 0,0,131,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL056 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 131@14G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .30""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G26"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.20684,-93.73858
-  Color: 255 255 255
-  Icon: 0,0,143,1,3
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL057 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 143@15G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G25"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.28277,-93.43820
-  Color: 255 255 255
-  Icon: 0,0,146,1,3
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL058 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 146@17G30MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .28""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G30"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.51507,-93.45403
-  Color: 255 255 255
-  Icon: 0,0,137,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL059 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 137@12G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.94893,-93.77238
-  Color: 255 255 255
-  Icon: 0,0,136,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL060 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 136@13G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.62143,-93.81863
-  Color: 255 255 255
-  Icon: 0,0,92,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL061 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 092@6G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G14"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.20410,-93.48771
-  Color: 255 255 255
-  Icon: 0,0,132,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL062 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 132@14G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .13""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G20"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.67402,-93.58549
-  Color: 255 255 255
-  Icon: 0,0,137,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL064 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 137@14G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .13""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.19556,-92.88340
-  Color: 255 255 255
-  Icon: 0,0,140,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL034 | Type: Xcel Energy | Temp: 56F | Dewpt: 52F | Wind: 140@14G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .10""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "52"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G23"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.83084,-93.24440
-  Color: 255 255 255
-  Icon: 0,0,158,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL026 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 158@4MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .16""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.46991,-92.75256
-  Color: 255 255 255
-  Icon: 0,0,131,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL027 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 131@10G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .06""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "51"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G23"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.37568,-92.96018
-  Color: 255 255 255
-  Icon: 0,0,162,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL028 | Type: Xcel Energy | Temp: 55F | Dewpt: 52F | Wind: 162@7G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .08""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "52"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G17"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.40054,-93.90001
-  Color: 255 255 255
-  Icon: 0,0,129,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL029 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 129@5G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G15"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.23805,-93.70696
-  Color: 255 255 255
-  Icon: 0,0,138,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL030 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 138@8G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .12""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G19"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.68842,-94.21026
-  Color: 255 255 255
-  Icon: 0,0,137,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL032 | Type: Xcel Energy | Temp: 56F | Dewpt: 53F | Wind: 137@9G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .10""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G15"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.33956,-93.00549
-  Color: 255 255 255
-  Icon: 0,0,136,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL509 | Type: Xcel Energy | Temp: 56F | Dewpt: 52F | Wind: 136@10G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "52"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.39504,-92.99879
-  Color: 255 255 255
-  Icon: 0,0,145,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL515 | Type: Xcel Energy | Temp: 55F | Dewpt: 52F | Wind: 145@7G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .09""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "52"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G20"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.16689,-93.62168
-  Color: 255 255 255
-  Icon: 0,0,134,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL516 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 134@13G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G26"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.17402,-93.54209
   Color: 255 255 255
-  Icon: 0,0,293,1,1
+  Icon: 0,0,295,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL518 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 293@4G12MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .11""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL518 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 295@3MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .11""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.25941,-93.85136
   Color: 255 255 255
   Icon: 0,0,140,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL508 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 140@8G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL508 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 140@7G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G14"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.61971,-94.59078
+  Color: 255 255 255
+  Icon: 0,0,147,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL520 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 147@11G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .20""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
   Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.61971,-94.59078
-  Color: 255 255 255
-  Icon: 0,0,140,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL520 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 140@12G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .18""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G18"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.55656,-95.19971
   Color: 255 255 255
-  Icon: 0,0,177,1,2
+  Icon: 0,0,178,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL523 | Type: Xcel Energy | Temp: 56F | Dewpt: 55F | Wind: 177@12G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .31""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL523 | Type: Xcel Energy | Temp: 56F | Dewpt: 55F | Wind: 178@13G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .31""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 100 255 100
@@ -5395,74 +5393,74 @@ Object: 45.55656,-95.19971
   Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.47176,-94.34126
   Color: 255 255 255
-  Icon: 0,0,147,1,1
+  Icon: 0,0,151,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL503 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 147@4G13MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .11""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL503 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 151@4G12MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .12""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G13"
+  Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.63683,-94.49802
   Color: 255 255 255
-  Icon: 0,0,142,1,1
+  Icon: 0,0,153,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL521 | Type: Xcel Energy | Temp: 55F | Dewpt: 53F | Wind: 142@4G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .14""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL521 | Type: Xcel Energy | Temp: 55F | Dewpt: 54F | Wind: 153@5G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .17""
   Color: 255 100 100
   Text: -16, 12, 1, "55"
   Color: 100 255 100
-  Text: -16, -12, 1, "53"
+  Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G14"
+  Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.73315,-94.52260
   Color: 255 255 255
-  Icon: 0,0,126,1,2
+  Icon: 0,0,135,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL583 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 126@9G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .16""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL583 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 135@11G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .18""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G14"
+  Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.20268,-93.68986
+  Color: 255 255 255
+  Icon: 0,0,138,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL501 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 138@6G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .14""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G17"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.34397,-93.82302
   Color: 255 255 255
   Icon: 0,0,141,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL501 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 141@8G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .14""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL502 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 141@8G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .12""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G20"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.34397,-93.82302
-  Color: 255 255 255
-  Icon: 0,0,139,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL502 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 139@8G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .12""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G15"
+  Text: 0, -20, 1, "G19"
 End:
 
 TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
@@ -5479,40 +5477,12 @@ Object: 45.61823,-94.07323
   Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-14T20:35:00Z 2026-09-14T22:10:00Z
+TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
 Object: 45.47189,-94.09710
   Color: 255 255 255
-  Icon: 0,0,175,1,2
+  Icon: 0,0,172,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:40 UTC | Station: XL587 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 175@12G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .08""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G19"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.08688,-93.90539
-  Color: 255 255 255
-  Icon: 0,0,137,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL499 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 137@13G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G23"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.18248,-93.82686
-  Color: 255 255 255
-  Icon: 0,0,137,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL504 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 137@9G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL587 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 172@12G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .08""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
@@ -5521,40 +5491,40 @@ Object: 45.18248,-93.82686
   Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.91536,-93.84919
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.08688,-93.90539
   Color: 255 255 255
-  Icon: 0,0,151,1,2
+  Icon: 0,0,143,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL536 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 151@12G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .25""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G24"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.97786,-93.86652
-  Color: 255 255 255
-  Icon: 0,0,151,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL571 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 151@12G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .20""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL499 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 143@11G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G26"
+  Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.83724,-93.88915
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.18248,-93.82686
   Color: 255 255 255
-  Icon: 0,0,142,1,3
+  Icon: 0,0,136,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL500 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 142@15G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .26""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL504 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 136@10G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .15""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G21"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.91536,-93.84919
+  Color: 255 255 255
+  Icon: 0,0,152,1,3
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL536 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 152@15G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .25""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
@@ -5563,40 +5533,12 @@ Object: 44.83724,-93.88915
   Text: 0, -20, 1, "G25"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.65787,-93.74667
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.97786,-93.86652
   Color: 255 255 255
-  Icon: 0,0,136,1,2
+  Icon: 0,0,149,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL569 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 136@10G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .20""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G20"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.56905,-93.80240
-  Color: 255 255 255
-  Icon: 0,0,136,1,3
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL572 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 136@18G30MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .19""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G30"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.79684,-93.85209
-  Color: 255 255 255
-  Icon: 0,0,97,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL584 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 097@13G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .25""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL571 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 149@10G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .20""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
@@ -5605,82 +5547,138 @@ Object: 44.79684,-93.85209
   Text: 0, -20, 1, "G23"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.61823,-93.70410
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.83724,-93.88915
   Color: 255 255 255
-  Icon: 0,0,130,1,3
+  Icon: 0,0,143,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL527 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 130@17G27MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .16""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL500 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 143@16G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .26""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G24"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.65787,-93.74667
+  Color: 255 255 255
+  Icon: 0,0,146,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL569 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 146@10G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .20""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
+  Text: 0, -20, 1, "G19"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.56905,-93.80240
+  Color: 255 255 255
+  Icon: 0,0,145,1,3
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL572 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 145@17G27MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .20""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
   Text: 0, -20, 1, "G27"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.79684,-93.85209
+  Color: 255 255 255
+  Icon: 0,0,98,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL584 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 098@12G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .25""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G24"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.61823,-93.70410
+  Color: 255 255 255
+  Icon: 0,0,136,1,3
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL527 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 136@14G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .16""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G23"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.64072,-93.62320
   Color: 255 255 255
-  Icon: 0,0,128,1,3
+  Icon: 0,0,133,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL551 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 128@16G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .18""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL551 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 133@16G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .18""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G26"
+  Text: 0, -20, 1, "G25"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.59536,-93.75684
   Color: 255 255 255
-  Icon: 0,0,151,1,3
+  Icon: 0,0,153,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL575 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 151@15G27MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .20""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL575 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 153@15G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .21""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G27"
+  Text: 0, -20, 1, "G23"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.57106,-93.32901
   Color: 255 255 255
-  Icon: 0,0,129,1,2
+  Icon: 0,0,131,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL537 | Type: Xcel Energy | Temp: 56F | Dewpt: 53F | Wind: 129@13G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .27""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL537 | Type: Xcel Energy | Temp: 56F | Dewpt: 53F | Wind: 131@15G27MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .27""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 100 255 100
   Text: -16, -12, 1, "53"
   Color: 255 255 0
-  Text: 0, -20, 1, "G24"
+  Text: 0, -20, 1, "G27"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.31908,-93.58930
   Color: 255 255 255
-  Icon: 0,0,137,1,2
+  Icon: 0,0,138,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL574 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 137@11G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .27""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL574 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 138@10G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .27""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G19"
+  Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.19632,-93.50495
   Color: 255 255 255
-  Icon: 0,0,140,1,2
+  Icon: 0,0,144,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL506 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 140@13G28MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .26""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL506 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 144@15G28MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .27""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 100 255 100
@@ -5689,40 +5687,96 @@ Object: 44.19632,-93.50495
   Text: 0, -20, 1, "G28"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.26873,-93.56255
   Color: 255 255 255
   Icon: 0,0,142,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL507 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 142@18G29MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL507 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 142@17G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G29"
+  Text: 0, -20, 1, "G26"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.17478,-93.58059
   Color: 255 255 255
-  Icon: 0,0,138,1,3
+  Icon: 0,0,140,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL511 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 138@16G27MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL511 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 140@17G31MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G27"
+  Text: 0, -20, 1, "G31"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.24243,-93.61115
   Color: 255 255 255
-  Icon: 0,0,156,1,3
+  Icon: 0,0,160,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL514 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 156@17G28MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .32""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL514 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 160@16G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .32""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G26"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.20126,-93.57073
+  Color: 255 255 255
+  Icon: 0,0,131,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL586 | Type: Xcel Energy | Temp: 56F | Dewpt: 55F | Wind: 131@12G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .26""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G23"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.19474,-93.61209
+  Color: 255 255 255
+  Icon: 0,0,136,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL535 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 136@11G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .27""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G22"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.64532,-93.28404
+  Color: 255 255 255
+  Icon: 0,0,147,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL539 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 147@7G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G17"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.12067,-93.76836
+  Color: 255 255 255
+  Icon: 0,0,157,1,3
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL510 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 157@18G28MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .29""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
@@ -5731,460 +5785,404 @@ Object: 44.24243,-93.61115
   Text: 0, -20, 1, "G28"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.20126,-93.57073
-  Color: 255 255 255
-  Icon: 0,0,131,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL586 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 131@13G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .26""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G23"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.19474,-93.61209
-  Color: 255 255 255
-  Icon: 0,0,133,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL535 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 133@13G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .27""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G23"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.64532,-93.28404
-  Color: 255 255 255
-  Icon: 0,0,144,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL539 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 144@7G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G23"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.12067,-93.76836
-  Color: 255 255 255
-  Icon: 0,0,156,1,3
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL510 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 156@16G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .29""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G26"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.24540,-93.56570
   Color: 255 255 255
   Icon: 0,0,147,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL519 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 147@14G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .34""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL519 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 147@13G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .34""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G26"
+  Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.18611,-93.82299
   Color: 255 255 255
   Icon: 0,0,145,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL522 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 145@13G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL522 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 145@14G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
-  Text: -16, -12, 1, "54"
+  Text: -16, -12, 1, "55"
   Color: 255 255 0
-  Text: 0, -20, 1, "G26"
+  Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.15638,-93.66672
   Color: 255 255 255
   Icon: 0,0,135,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL556 | Type: Xcel Energy | Temp: 56F | Dewpt: 55F | Wind: 135@14G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .27""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL556 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 135@13G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .27""
   Color: 255 100 100
-  Text: -16, 12, 1, "56"
+  Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "55"
   Color: 255 255 0
   Text: 0, -20, 1, "G25"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.20266,-93.78801
   Color: 255 255 255
-  Icon: 0,0,115,1,1
+  Icon: 0,0,119,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL577 | Type: Xcel Energy | Temp: 57F | Dewpt: 56F | Wind: 115@5G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .20""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL577 | Type: Xcel Energy | Temp: 57F | Dewpt: 56F | Wind: 119@5G12MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .20""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "56"
   Color: 255 255 0
-  Text: 0, -20, 1, "G14"
+  Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.24343,-93.95966
   Color: 255 255 255
-  Icon: 0,0,153,1,3
+  Icon: 0,0,149,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL517 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 153@15G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL517 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 149@14G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .23""
   Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G25"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.13785,-93.85217
-  Color: 255 255 255
-  Icon: 0,0,149,1,3
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL538 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 149@17G28MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .25""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G28"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.18837,-93.88001
-  Color: 255 255 255
-  Icon: 0,0,132,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL546 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 132@11G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .21""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
+  Text: -16, 12, 1, "58"
   Color: 100 255 100
   Text: -16, -12, 1, "55"
   Color: 255 255 0
   Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.13785,-93.85217
+  Color: 255 255 255
+  Icon: 0,0,146,1,3
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL538 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 146@16G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .25""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G26"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.18837,-93.88001
+  Color: 255 255 255
+  Icon: 0,0,130,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL546 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 130@11G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .21""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G24"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.26865,-93.95671
   Color: 255 255 255
-  Icon: 0,0,155,1,2
+  Icon: 0,0,150,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL570 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 155@10G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL570 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 150@10G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "55"
   Color: 255 255 0
-  Text: 0, -20, 1, "G20"
+  Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.12531,-94.01895
-  Color: 255 255 255
-  Icon: 0,0,154,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL512 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 154@11G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .25""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G20"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.20510,-93.98069
   Color: 255 255 255
   Icon: 0,0,151,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL529 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 151@11G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL512 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 151@10G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .25""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 100 255 100
   Text: -16, -12, 1, "55"
   Color: 255 255 0
-  Text: 0, -20, 1, "G22"
+  Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.22507,-94.00410
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.20510,-93.98069
   Color: 255 255 255
   Icon: 0,0,147,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL558 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 147@13G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL529 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 147@10G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 100 255 100
   Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G23"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.07078,-94.04606
-  Color: 255 255 255
-  Icon: 0,0,144,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL590 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 144@12G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.49268,-92.83208
-  Color: 255 255 255
-  Icon: 0,0,133,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL532 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 133@10G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .05""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "51"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.35203,-92.81611
-  Color: 255 255 255
-  Icon: 0,0,352,1,3
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL542 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 352@16G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .07""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "51"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G24"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.36160,-92.74508
-  Color: 255 255 255
-  Icon: 0,0,133,1,3
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL557 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 133@16G31MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .07""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "51"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G31"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.42161,-92.80588
-  Color: 255 255 255
-  Icon: 0,0,147,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL559 | Type: Xcel Energy | Temp: 55F | Dewpt: 52F | Wind: 147@12G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .05""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "52"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G24"
-End:
-
-TimeRange: 2026-09-14T20:35:00Z 2026-09-14T22:10:00Z
-Object: 45.39803,-92.64215
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:40 UTC | Station: XL524 | Type: Xcel Energy | Temp: 54F | Dewpt: 52F | Wind: 133@2MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "54"
-  Color: 100 255 100
-  Text: -16, -12, 1, "52"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.54506,-92.78543
-  Color: 255 255 255
-  Icon: 0,0,137,1,3
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL552 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 137@15G28MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .04""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "51"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G28"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.39919,-92.70240
-  Color: 255 255 255
-  Icon: 0,0,136,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL553 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 136@12G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .09""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "51"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G23"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.41921,-92.62805
-  Color: 255 255 255
-  Icon: 0,0,129,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL581 | Type: Xcel Energy | Temp: 55F | Dewpt: 50F | Wind: 129@13G24MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .05""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "50"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G24"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.40077,-92.62865
-  Color: 255 255 255
-  Icon: 0,0,81,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL513 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 081@5G13MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .06""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "51"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G13"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.50055,-92.05221
-  Color: 255 255 255
-  Icon: 0,0,157,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL550 | Type: Xcel Energy | Temp: 54F | Dewpt: 49F | Wind: 157@6G13MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .04""
-  Color: 255 100 100
-  Text: -16, 12, 1, "54"
-  Color: 100 255 100
-  Text: -16, -12, 1, "49"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G13"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.63203,-92.48940
-  Color: 255 255 255
-  Icon: 0,0,129,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL582 | Type: Xcel Energy | Temp: 55F | Dewpt: 50F | Wind: 129@10G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .01""
-  Color: 255 100 100
-  Text: -16, 12, 1, "55"
-  Color: 100 255 100
-  Text: -16, -12, 1, "50"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G23"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.80197,-91.92865
-  Color: 255 255 255
-  Icon: 0,0,127,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL548 | Type: Xcel Energy | Temp: 58F | Dewpt: 48F | Wind: 127@10G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 100 255 100
-  Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G19"
 End:
 
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.22507,-94.00410
+  Color: 255 255 255
+  Icon: 0,0,145,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL558 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 145@13G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G23"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.07078,-94.04606
+  Color: 255 255 255
+  Icon: 0,0,146,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL590 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 146@14G34MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G34"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.49268,-92.83208
+  Color: 255 255 255
+  Icon: 0,0,139,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL532 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 139@11G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .05""
+  Color: 255 100 100
+  Text: -16, 12, 1, "55"
+  Color: 100 255 100
+  Text: -16, -12, 1, "51"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G20"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.35203,-92.81611
+  Color: 255 255 255
+  Icon: 0,0,352,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL542 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 352@14G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .07""
+  Color: 255 100 100
+  Text: -16, 12, 1, "55"
+  Color: 100 255 100
+  Text: -16, -12, 1, "51"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G22"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.36160,-92.74508
+  Color: 255 255 255
+  Icon: 0,0,136,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL557 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 136@13G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .07""
+  Color: 255 100 100
+  Text: -16, 12, 1, "55"
+  Color: 100 255 100
+  Text: -16, -12, 1, "51"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G21"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.42161,-92.80588
+  Color: 255 255 255
+  Icon: 0,0,150,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL559 | Type: Xcel Energy | Temp: 55F | Dewpt: 52F | Wind: 150@11G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .05""
+  Color: 255 100 100
+  Text: -16, 12, 1, "55"
+  Color: 100 255 100
+  Text: -16, -12, 1, "52"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G22"
+End:
+
 TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+Object: 45.39803,-92.64215
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL524 | Type: Xcel Energy | Temp: 54F | Dewpt: 52F | Wind: 133@2MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "54"
+  Color: 100 255 100
+  Text: -16, -12, 1, "52"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.54506,-92.78543
+  Color: 255 255 255
+  Icon: 0,0,140,1,3
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL552 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 140@15G26MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .04""
+  Color: 255 100 100
+  Text: -16, 12, 1, "55"
+  Color: 100 255 100
+  Text: -16, -12, 1, "51"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G26"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.39919,-92.70240
+  Color: 255 255 255
+  Icon: 0,0,141,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL553 | Type: Xcel Energy | Temp: 55F | Dewpt: 51F | Wind: 141@10G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .09""
+  Color: 255 100 100
+  Text: -16, 12, 1, "55"
+  Color: 100 255 100
+  Text: -16, -12, 1, "51"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G18"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.41921,-92.62805
+  Color: 255 255 255
+  Icon: 0,0,137,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL581 | Type: Xcel Energy | Temp: 54F | Dewpt: 50F | Wind: 137@11G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .06""
+  Color: 255 100 100
+  Text: -16, 12, 1, "54"
+  Color: 100 255 100
+  Text: -16, -12, 1, "50"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G19"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.40077,-92.62865
+  Color: 255 255 255
+  Icon: 0,0,85,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL513 | Type: Xcel Energy | Temp: 54F | Dewpt: 51F | Wind: 085@4G13MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .06""
+  Color: 255 100 100
+  Text: -16, 12, 1, "54"
+  Color: 100 255 100
+  Text: -16, -12, 1, "51"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G13"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.50055,-92.05221
+  Color: 255 255 255
+  Icon: 0,0,148,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL550 | Type: Xcel Energy | Temp: 54F | Dewpt: 49F | Wind: 148@4MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .04""
+  Color: 255 100 100
+  Text: -16, 12, 1, "54"
+  Color: 100 255 100
+  Text: -16, -12, 1, "49"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.63203,-92.48940
+  Color: 255 255 255
+  Icon: 0,0,130,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL582 | Type: Xcel Energy | Temp: 55F | Dewpt: 50F | Wind: 130@9G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .01""
+  Color: 255 100 100
+  Text: -16, 12, 1, "55"
+  Color: 100 255 100
+  Text: -16, -12, 1, "50"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G22"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.80197,-91.92865
+  Color: 255 255 255
+  Icon: 0,0,122,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL548 | Type: Xcel Energy | Temp: 58F | Dewpt: 48F | Wind: 122@9G16MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "48"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G16"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.91018,-91.76496
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL547 | Type: Xcel Energy | Temp: 57F | Dewpt: 48F | Wind: 132@2MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL547 | Type: Xcel Energy | Temp: 57F | Dewpt: 48F | Wind: 138@3MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "48"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.88266,-91.89002
   Color: 255 255 255
-  Icon: 0,0,138,1,1
+  Icon: 0,0,142,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL564 | Type: Xcel Energy | Temp: 57F | Dewpt: 49F | Wind: 138@4MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL564 | Type: Xcel Energy | Temp: 57F | Dewpt: 49F | Wind: 142@5G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
+  Color: 100 255 100
+  Text: -16, -12, 1, "49"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G14"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 45.94817,-91.68821
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL576 | Type: Xcel Energy | Temp: 56F | Dewpt: 49F | Wind: 106@2MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
 End:
 
 TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 45.94817,-91.68821
-  Color: 255 255 255
-  Icon: 0,0,132,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL576 | Type: Xcel Energy | Temp: 57F | Dewpt: 48F | Wind: 132@3MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "48"
-End:
-
-TimeRange: 2026-09-14T20:35:00Z 2026-09-14T22:10:00Z
 Object: 46.22458,-90.03264
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:40 UTC | Station: XL588 | Type: Xcel Energy | Temp: 61F | Dewpt: 42F | Wind: 144@2MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL588 | Type: Xcel Energy | Temp: 61F | Dewpt: 42F | Wind: 140@2MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 100 255 100
   Text: -16, -12, 1, "42"
 End:
 
-TimeRange: 2026-09-14T20:35:00Z 2026-09-14T22:10:00Z
+TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
 Object: 46.25361,-89.70544
   Color: 255 255 255
-  Icon: 0,0,162,1,1
+  Icon: 0,0,178,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:40 UTC | Station: XL525 | Type: Xcel Energy | Temp: 62F | Dewpt: 40F | Wind: 162@3G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL525 | Type: Xcel Energy | Temp: 61F | Dewpt: 40F | Wind: 178@4G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "61"
   Color: 100 255 100
   Text: -16, -12, 1, "40"
   Color: 255 255 0
   Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 46.12410,-89.87214
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL585 | Type: Xcel Energy | Temp: 62F | Dewpt: 41F | Wind: 150@3MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,145,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL585 | Type: Xcel Energy | Temp: 61F | Dewpt: 42F | Wind: 145@3MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "61"
   Color: 100 255 100
-  Text: -16, -12, 1, "41"
+  Text: -16, -12, 1, "42"
 End:
 
 TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
@@ -6197,102 +6195,102 @@ Object: 46.07329,-89.79015
   Text: -16, -12, 1, "43"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.89972,-91.86217
   Color: 255 255 255
   Icon: 0,0,135,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL563 | Type: Xcel Energy | Temp: 57F | Dewpt: 48F | Wind: 135@10G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL563 | Type: Xcel Energy | Temp: 57F | Dewpt: 48F | Wind: 135@11G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "48"
   Color: 255 255 0
-  Text: 0, -20, 1, "G17"
+  Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.75328,-91.87243
   Color: 255 255 255
-  Icon: 0,0,131,1,2
+  Icon: 0,0,129,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL544 | Type: Xcel Energy | Temp: 55F | Dewpt: 49F | Wind: 131@11G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL544 | Type: Xcel Energy | Temp: 56F | Dewpt: 49F | Wind: 129@13G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "55"
+  Text: -16, 12, 1, "56"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.58398,-92.44723
   Color: 255 255 255
-  Icon: 0,0,115,1,1
+  Icon: 0,0,121,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL565 | Type: Xcel Energy | Temp: 54F | Dewpt: 50F | Wind: 115@6G16MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .02""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL565 | Type: Xcel Energy | Temp: 54F | Dewpt: 50F | Wind: 121@6G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .03""
   Color: 255 100 100
   Text: -16, 12, 1, "54"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G16"
+  Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.61615,-93.60812
   Color: 255 255 255
-  Icon: 0,0,142,1,2
+  Icon: 0,0,150,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL560 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 142@9G22MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .14""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL560 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 150@11G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .14""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G22"
+  Text: 0, -20, 1, "G25"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.46971,-93.44316
   Color: 255 255 255
-  Icon: 0,0,134,1,3
+  Icon: 0,0,141,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL573 | Type: Xcel Energy | Temp: 56F | Dewpt: 53F | Wind: 134@18G29MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .16""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL573 | Type: Xcel Energy | Temp: 57F | Dewpt: 53F | Wind: 141@19G30MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .16""
   Color: 255 100 100
-  Text: -16, 12, 1, "56"
+  Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "53"
   Color: 255 255 0
-  Text: 0, -20, 1, "G29"
+  Text: 0, -20, 1, "G30"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.01388,-93.78596
   Color: 255 255 255
-  Icon: 0,0,152,1,2
+  Icon: 0,0,157,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL533 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 152@11G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL533 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 157@11G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .22""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G21"
+  Text: 0, -20, 1, "G25"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 46.13674,-90.01829
   Color: 255 255 255
-  Icon: 0,0,157,1,1
+  Icon: 0,0,156,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL566 | Type: Xcel Energy | Temp: 62F | Dewpt: 42F | Wind: 157@8G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL566 | Type: Xcel Energy | Temp: 61F | Dewpt: 43F | Wind: 156@6G13MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "61"
   Color: 100 255 100
-  Text: -16, -12, 1, "42"
+  Text: -16, -12, 1, "43"
   Color: 255 255 0
-  Text: 0, -20, 1, "G17"
+  Text: 0, -20, 1, "G13"
 End:
 
 TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
@@ -6305,226 +6303,228 @@ Object: 46.21907,-89.89537
   Text: -16, -12, 1, "44"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.10083,-93.51206
   Color: 255 255 255
-  Icon: 0,0,139,1,1
+  Icon: 0,0,141,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL528 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 139@6G16MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .18""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL528 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 141@6G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .18""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G16"
+  Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.85753,-94.02993
   Color: 255 255 255
-  Icon: 0,0,147,1,2
+  Icon: 0,0,153,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL561 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 147@11G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .26""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL561 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 153@10G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .26""
   Color: 255 100 100
-  Text: -16, 12, 1, "58"
+  Text: -16, 12, 1, "57"
   Color: 100 255 100
-  Text: -16, -12, 1, "54"
+  Text: -16, -12, 1, "55"
   Color: 255 255 0
-  Text: 0, -20, 1, "G21"
+  Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.23149,-93.53299
   Color: 255 255 255
-  Icon: 0,0,141,1,2
+  Icon: 0,0,142,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL562 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 141@10G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .10""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL562 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 142@10G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .10""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G25"
+  Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.65684,-94.55199
   Color: 255 255 255
-  Icon: 0,0,141,1,2
+  Icon: 0,0,150,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL555 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 141@11G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .16""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL555 | Type: Xcel Energy | Temp: 56F | Dewpt: 54F | Wind: 150@10G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .18""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
+  Text: 0, -20, 1, "G18"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 43.31211,-96.58919
+  Color: 255 255 255
+  Icon: 0,0,157,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL526 | Type: Xcel Energy | Temp: 65F | Dewpt: 62F | Wind: 157@7G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .51""
+  Color: 255 100 100
+  Text: -16, 12, 1, "65"
+  Color: 100 255 100
+  Text: -16, -12, 1, "62"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G14"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 43.49272,-96.72729
+  Color: 255 255 255
+  Icon: 0,0,143,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL530 | Type: Xcel Energy | Temp: 65F | Dewpt: 62F | Wind: 143@6G16MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 1.24""
+  Color: 255 100 100
+  Text: -16, 12, 1, "65"
+  Color: 100 255 100
+  Text: -16, -12, 1, "62"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G16"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 43.33951,-96.74719
+  Color: 255 255 255
+  Icon: 0,0,157,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL549 | Type: Xcel Energy | Temp: 66F | Dewpt: 62F | Wind: 157@13G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 1.59""
+  Color: 255 100 100
+  Text: -16, 12, 1, "66"
+  Color: 100 255 100
+  Text: -16, -12, 1, "62"
+  Color: 255 255 0
   Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 43.31211,-96.58919
-  Color: 255 255 255
-  Icon: 0,0,163,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL526 | Type: Xcel Energy | Temp: 65F | Dewpt: 62F | Wind: 163@5G12MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .51""
-  Color: 255 100 100
-  Text: -16, 12, 1, "65"
-  Color: 100 255 100
-  Text: -16, -12, 1, "62"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G12"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 43.49272,-96.72729
-  Color: 255 255 255
-  Icon: 0,0,141,1,1
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL530 | Type: Xcel Energy | Temp: 65F | Dewpt: 62F | Wind: 141@6G13MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 1.24""
-  Color: 255 100 100
-  Text: -16, 12, 1, "65"
-  Color: 100 255 100
-  Text: -16, -12, 1, "62"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G13"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 43.33951,-96.74719
-  Color: 255 255 255
-  Icon: 0,0,165,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL549 | Type: Xcel Energy | Temp: 66F | Dewpt: 62F | Wind: 165@13G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 1.59""
-  Color: 255 100 100
-  Text: -16, 12, 1, "66"
-  Color: 100 255 100
-  Text: -16, -12, 1, "62"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G19"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 43.27094,-96.60886
   Color: 255 255 255
-  Icon: 0,0,150,1,2
+  Icon: 0,0,155,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL578 | Type: Xcel Energy | Temp: 66F | Dewpt: 62F | Wind: 150@9G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .67""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL578 | Type: Xcel Energy | Temp: 66F | Dewpt: 63F | Wind: 155@7G14MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .67""
   Color: 255 100 100
   Text: -16, 12, 1, "66"
   Color: 100 255 100
-  Text: -16, -12, 1, "62"
+  Text: -16, -12, 1, "63"
   Color: 255 255 0
-  Text: 0, -20, 1, "G15"
+  Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 43.52917,-96.58289
   Color: 255 255 255
-  Icon: 0,0,165,1,2
+  Icon: 0,0,166,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL580 | Type: Xcel Energy | Temp: 65F | Dewpt: 62F | Wind: 165@12G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 1.33""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL580 | Type: Xcel Energy | Temp: 65F | Dewpt: 62F | Wind: 166@13G23MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 1.33""
   Color: 255 100 100
   Text: -16, 12, 1, "65"
   Color: 100 255 100
   Text: -16, -12, 1, "62"
   Color: 255 255 0
-  Text: 0, -20, 1, "G21"
+  Text: 0, -20, 1, "G23"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 43.55822,-96.63445
   Color: 255 255 255
-  Icon: 0,0,156,1,1
+  Icon: 0,0,152,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL591 | Type: Xcel Energy | Temp: 64F | Dewpt: 61F | Wind: 156@8G17MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .92""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL591 | Type: Xcel Energy | Temp: 64F | Dewpt: 61F | Wind: 152@9G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .92""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 100 255 100
   Text: -16, -12, 1, "61"
   Color: 255 255 0
-  Text: 0, -20, 1, "G17"
+  Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.25905,-94.30178
   Color: 255 255 255
-  Icon: 0,0,150,1,2
+  Icon: 0,0,153,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL540 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 150@11G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .37""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL540 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 153@12G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .37""
   Color: 255 100 100
-  Text: -16, 12, 1, "57"
+  Text: -16, 12, 1, "58"
   Color: 100 255 100
   Text: -16, -12, 1, "55"
   Color: 255 255 0
   Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.14610,-94.06508
   Color: 255 255 255
-  Icon: 0,0,42,1,1
+  Icon: 0,0,44,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL541 | Type: Xcel Energy | Temp: 58F | Dewpt: 56F | Wind: 042@5MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL541 | Type: Xcel Energy | Temp: 58F | Dewpt: 55F | Wind: 044@7G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 100 255 100
-  Text: -16, -12, 1, "56"
+  Text: -16, -12, 1, "55"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.68276,-91.99504
   Color: 255 255 255
-  Icon: 0,0,143,1,2
+  Icon: 0,0,150,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL543 | Type: Xcel Energy | Temp: 55F | Dewpt: 48F | Wind: 143@11G27MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL543 | Type: Xcel Energy | Temp: 55F | Dewpt: 48F | Wind: 150@14G29MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .01""
   Color: 255 100 100
   Text: -16, 12, 1, "55"
   Color: 100 255 100
   Text: -16, -12, 1, "48"
   Color: 255 255 0
+  Text: 0, -20, 1, "G29"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 44.03592,-94.04888
+  Color: 255 255 255
+  Icon: 0,0,161,1,2
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL554 | Type: Xcel Energy | Temp: 58F | Dewpt: 54F | Wind: 161@13G27MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .27""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
   Text: 0, -20, 1, "G27"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 44.03592,-94.04888
-  Color: 255 255 255
-  Icon: 0,0,166,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL554 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 166@12G25MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .27""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G25"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 44.20893,-93.80817
   Color: 255 255 255
-  Icon: 0,0,166,1,1
+  Icon: 0,0,155,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL567 | Type: Xcel Energy | Temp: 57F | Dewpt: 54F | Wind: 166@7G20MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL567 | Type: Xcel Energy | Temp: 57F | Dewpt: 55F | Wind: 155@5G21MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: .24""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 100 255 100
-  Text: -16, -12, 1, "54"
+  Text: -16, -12, 1, "55"
   Color: 255 255 0
-  Text: 0, -20, 1, "G20"
+  Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 46.11872,-90.17965
   Color: 255 255 255
-  Icon: 0,0,143,1,2
+  Icon: 0,0,147,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: XL568 | Type: Xcel Energy | Temp: 61F | Dewpt: 44F | Wind: 143@11G19MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: XL568 | Type: Xcel Energy | Temp: 61F | Dewpt: 43F | Wind: 147@8G16MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 100 255 100
-  Text: -16, -12, 1, "44"
+  Text: -16, -12, 1, "43"
   Color: 255 255 0
-  Text: 0, -20, 1, "G19"
+  Text: 0, -20, 1, "G16"
 End:
 
 ; --- Network: Mesonet (Threshold: 80 NM) ---
@@ -7964,12 +7964,12 @@ Object: 43.12617,-89.74900
   Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-14T20:47:00Z 2026-09-14T22:22:00Z
+TimeRange: 2026-09-14T20:51:00Z 2026-09-14T22:26:00Z
 Object: 42.84464,-97.40054
   Color: 255 255 255
-  Icon: 0,0,158,1,1
+  Icon: 0,0,135,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:52 UTC | Station: NE064 | Type: Mesonet | Temp: 78F | Dewpt: 70F | Wind: 158@8MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:56 UTC | Station: NE064 | Type: Mesonet | Temp: 78F | Dewpt: 70F | Wind: 135@8MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "78"
   Color: 100 255 100
@@ -8186,14 +8186,14 @@ Object: 45.72473,-97.42251
   Text: 0, -20, 1, "G26"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 45.11820,-93.42830
   Color: 255 255 255
   Icon: 0,0,127,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN02 | Type: Mesonet | Temp: 59F | Dewpt: 54F | Wind: 127@12G17MPH | Vis: 10SM | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN02 | Type: Mesonet | Temp: 58F | Dewpt: 54F | Wind: 127@12G18MPH | Vis: 10SM | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "59"
+  Text: -16, 12, 1, "58"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -8201,17 +8201,17 @@ Object: 45.11820,-93.42830
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G17"
+  Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
 Object: 44.84944,-93.56417
   Color: 255 255 255
-  Icon: 0,0,133,1,1
+  Icon: 0,0,121,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: HPN03 | Type: Mesonet | Temp: 56F | Dewpt: 56F | Wind: 133@6MPH | Vis: 10SM | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN03 | Type: Mesonet | Temp: 57F | Dewpt: 56F | Wind: 121@4MPH | Vis: 10SM | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "56"
+  Text: -16, 12, 1, "57"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -8220,12 +8220,12 @@ Object: 44.84944,-93.56417
   Text: -16, -12, 1, "56"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 45.16770,-93.63433
   Color: 255 255 255
-  Icon: 0,0,140,1,1
+  Icon: 0,0,142,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN04 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 140@6MPH | Vis: N/A | SLP: 1005.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN04 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 142@5MPH | Vis: N/A | SLP: 1005.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
@@ -8234,58 +8234,58 @@ Object: 45.16770,-93.63433
   Text: -16, -12, 1, "54"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 45.05155,-93.56948
   Color: 255 255 255
-  Icon: 0,0,129,1,2
+  Icon: 0,0,136,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN05 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 129@9G14MPH | Vis: 7.4SM | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN05 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 136@8G15MPH | Vis: 7.5SM | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 180 180 180
-  Text: -32, 0, 1, "7.4"
+  Text: -32, 0, 1, "7.5"
   Color: 255 255 255
   Text: 16, 12, 1, "090"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G14"
+  Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 44.97219,-93.68444
   Color: 255 255 255
-  Icon: 0,0,164,1,1
+  Icon: 0,0,158,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN06 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 164@8G16MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN06 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 158@6MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
   Text: 16, 12, 1, "090"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G16"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 44.89519,-93.23171
   Color: 255 255 255
   Icon: 0,0,139,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN07 | Type: Mesonet | Temp: 57F | Dewpt: 53F | Wind: 139@18MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN07 | Type: Mesonet | Temp: 57F | Dewpt: 53F | Wind: 139@19G23MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
   Text: 16, 12, 1, "100"
   Color: 100 255 100
   Text: -16, -12, 1, "53"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G23"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 44.93630,-93.62005
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN08 | Type: Mesonet | Temp: 57F | Dewpt: 55F | Wind: 179@2MPH | Vis: N/A | SLP: 1007.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN08 | Type: Mesonet | Temp: 57F | Dewpt: 55F | Wind: 113@2MPH | Vis: N/A | SLP: 1007.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
@@ -8294,12 +8294,12 @@ Object: 44.93630,-93.62005
   Text: -16, -12, 1, "55"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 44.98992,-93.47913
   Color: 255 255 255
-  Icon: 0,0,139,1,1
+  Icon: 0,0,149,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN09 | Type: Mesonet | Temp: 57F | Dewpt: 57F | Wind: 139@8G21MPH | Vis: N/A | SLP: 1012.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN09 | Type: Mesonet | Temp: 57F | Dewpt: 57F | Wind: 149@6G13MPH | Vis: N/A | SLP: 1012.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
@@ -8307,15 +8307,15 @@ Object: 44.98992,-93.47913
   Color: 100 255 100
   Text: -16, -12, 1, "57"
   Color: 255 255 0
-  Text: 0, -20, 1, "G21"
+  Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 45.09689,-93.74369
   Color: 255 255 255
-  Icon: 0,0,169,1,1
+  Icon: 0,0,160,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN10 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 169@7MPH | Vis: 10SM | SLP: 1007.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN10 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 160@6MPH | Vis: 10SM | SLP: 1007.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 180 180 180
@@ -8326,12 +8326,12 @@ Object: 45.09689,-93.74369
   Text: -16, -12, 1, "54"
 End:
 
-TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
 Object: 44.89792,-93.73461
   Color: 255 255 255
-  Icon: 0,0,133,1,1
+  Icon: 0,0,137,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: HPN11 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 133@7G13MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN11 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 137@11G19MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
@@ -8339,15 +8339,15 @@ Object: 44.89792,-93.73461
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G13"
+  Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 45.08797,-93.69137
   Color: 255 255 255
-  Icon: 0,0,145,1,2
+  Icon: 0,0,151,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN19 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 145@12G17MPH | Vis: N/A | SLP: 1004.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN19 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 151@9G14MPH | Vis: N/A | SLP: 1004.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
@@ -8355,17 +8355,75 @@ Object: 45.08797,-93.69137
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
+  Text: 0, -20, 1, "G14"
+End:
+
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
+Object: 44.95556,-93.41139
+  Color: 255 255 255
+  Icon: 0,0,161,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN20 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 161@3MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 255 255 255
+  Text: 16, 12, 1, "100"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+End:
+
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
+Object: 45.04889,-93.27611
+  Color: 255 255 255
+  Icon: 0,0,186,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN21 | Type: Mesonet | Temp: 57F | Dewpt: 53F | Wind: 186@9G17MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "57"
+  Color: 255 255 255
+  Text: 16, 12, 1, "100"
+  Color: 100 255 100
+  Text: -16, -12, 1, "53"
+  Color: 255 255 0
   Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
-Object: 44.95556,-93.41139
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
+Object: 44.86346,-93.35667
   Color: 255 255 255
-  Icon: 0,0,171,1,1
+  Icon: 0,0,136,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN20 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 171@6G12MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN24 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 136@7MPH | Vis: N/A | SLP: 1011.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
+  Color: 255 255 255
+  Text: 16, 12, 1, "110"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+End:
+
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
+Object: 44.89778,-93.45667
+  Color: 255 255 255
+  Icon: 0,0,168,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN25 | Type: Mesonet | Temp: 56F | Dewpt: 55F | Wind: 168@5MPH | Vis: N/A | SLP: 1008.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "56"
+  Color: 255 255 255
+  Text: 16, 12, 1, "080"
+  Color: 100 255 100
+  Text: -16, -12, 1, "55"
+End:
+
+TimeRange: 2026-09-14T20:51:00Z 2026-09-14T22:26:00Z
+Object: 44.80384,-93.35893
+  Color: 255 255 255
+  Icon: 0,0,134,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:56 UTC | Station: HPN26 | Type: Mesonet | Temp: 58F | Dewpt: 54F | Wind: 134@8G12MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
   Color: 255 255 255
   Text: 16, 12, 1, "100"
   Color: 100 255 100
@@ -8375,73 +8433,11 @@ Object: 44.95556,-93.41139
 End:
 
 TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
-Object: 45.04889,-93.27611
-  Color: 255 255 255
-  Icon: 0,0,179,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN21 | Type: Mesonet | Temp: 57F | Dewpt: 53F | Wind: 179@13G18MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 255 255 255
-  Text: 16, 12, 1, "100"
-  Color: 100 255 100
-  Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G18"
-End:
-
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
-Object: 44.86346,-93.35667
-  Color: 255 255 255
-  Icon: 0,0,150,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN24 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 150@9G14MPH | Vis: N/A | SLP: 1011.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "57"
-  Color: 255 255 255
-  Text: 16, 12, 1, "110"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G14"
-End:
-
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
-Object: 44.89778,-93.45667
-  Color: 255 255 255
-  Icon: 0,0,144,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN25 | Type: Mesonet | Temp: 56F | Dewpt: 54F | Wind: 144@9G13MPH | Vis: N/A | SLP: 1008.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "56"
-  Color: 255 255 255
-  Text: 16, 12, 1, "080"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G13"
-End:
-
-TimeRange: 2026-09-14T20:50:00Z 2026-09-14T22:25:00Z
-Object: 44.80384,-93.35893
-  Color: 255 255 255
-  Icon: 0,0,132,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:55 UTC | Station: HPN26 | Type: Mesonet | Temp: 58F | Dewpt: 54F | Wind: 132@11MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 255 255 255
-  Text: 16, 12, 1, "100"
-  Color: 100 255 100
-  Text: -16, -12, 1, "54"
-End:
-
-TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 45.20420,-93.48487
   Color: 255 255 255
-  Icon: 0,0,142,1,3
+  Icon: 0,0,147,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: HPN27 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 142@15G20MPH | Vis: 10SM | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN27 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 147@17G22MPH | Vis: 10SM | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 180 180 180
@@ -8451,47 +8447,43 @@ Object: 45.20420,-93.48487
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G20"
+  Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 45.13550,-93.56271
   Color: 255 255 255
-  Icon: 0,0,160,1,2
+  Icon: 0,0,174,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN28 | Type: Mesonet | Temp: 56F | Dewpt: 53F | Wind: 160@9G14MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN28 | Type: Mesonet | Temp: 56F | Dewpt: 53F | Wind: 174@7MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 255 255 255
   Text: 16, 12, 1, "090"
   Color: 100 255 100
   Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 44.69021,-93.07368
   Color: 255 255 255
-  Icon: 0,0,135,1,3
+  Icon: 0,0,132,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN29 | Type: Mesonet | Temp: 56F | Dewpt: 55F | Wind: 135@15G20MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN29 | Type: Mesonet | Temp: 56F | Dewpt: 55F | Wind: 132@12MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 255 255 255
   Text: 16, 12, 1, "100"
   Color: 100 255 100
   Text: -16, -12, 1, "55"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 44.99026,-93.17990
   Color: 255 255 255
-  Icon: 0,0,147,1,2
+  Icon: 0,0,148,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN30 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 147@14G19MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN30 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 148@12G19MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
@@ -8502,20 +8494,18 @@ Object: 44.99026,-93.17990
   Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 45.16541,-93.22459
   Color: 255 255 255
-  Icon: 0,0,141,1,2
+  Icon: 0,0,137,1,3
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN31 | Type: Mesonet | Temp: 58F | Dewpt: 53F | Wind: 141@14G18MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN31 | Type: Mesonet | Temp: 58F | Dewpt: 54F | Wind: 137@16MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 255 255 255
   Text: 16, 12, 1, "100"
   Color: 100 255 100
-  Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G18"
+  Text: -16, -12, 1, "54"
 End:
 
 TimeRange: 2026-09-14T20:50:00Z 2026-09-14T22:25:00Z
@@ -8658,12 +8648,12 @@ Object: 44.81650,-93.32133
   Text: -16, -12, 1, "55"
 End:
 
-TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
 Object: 44.83196,-93.47098
   Color: 255 255 255
-  Icon: 0,0,116,1,3
+  Icon: 0,0,111,1,4
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: HPN38 | Type: Mesonet | Temp: 57F | Dewpt: 55F | Wind: 116@17G24MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN38 | Type: Mesonet | Temp: 57F | Dewpt: 55F | Wind: 111@21G29MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
@@ -8671,15 +8661,15 @@ Object: 44.83196,-93.47098
   Color: 100 255 100
   Text: -16, -12, 1, "55"
   Color: 255 255 0
-  Text: 0, -20, 1, "G24"
+  Text: 0, -20, 1, "G29"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 44.99254,-93.62081
   Color: 255 255 255
-  Icon: 0,0,137,1,2
+  Icon: 0,0,136,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN37 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 137@9G13MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN37 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 136@7G12MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
@@ -8687,29 +8677,31 @@ Object: 44.99254,-93.62081
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G13"
+  Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 44.96287,-93.24816
   Color: 255 255 255
-  Icon: 0,0,170,1,1
+  Icon: 0,0,132,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN39 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 170@9MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN39 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 132@8G17MPH | Vis: N/A | SLP: 1010.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
   Text: 16, 12, 1, "100"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 45.03149,-93.30293
   Color: 255 255 255
-  Icon: 0,0,142,1,2
+  Icon: 0,0,137,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN42 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 142@10G15MPH | Vis: N/A | SLP: 1011.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN42 | Type: Mesonet | Temp: 57F | Dewpt: 54F | Wind: 137@11G16MPH | Vis: N/A | SLP: 1011.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 255 255 255
@@ -8717,7 +8709,7 @@ Object: 45.03149,-93.30293
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G15"
+  Text: 0, -20, 1, "G16"
 End:
 
 TimeRange: 2026-09-14T20:48:00Z 2026-09-14T22:23:00Z
@@ -8882,12 +8874,12 @@ Object: 44.96616,-93.02585
   Text: -16, -12, 1, "52"
 End:
 
-TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
 Object: 45.04616,-93.78015
   Color: 255 255 255
-  Icon: 0,0,117,1,3
+  Icon: 0,0,131,1,2
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: HPN44 | Type: Mesonet | Temp: 58F | Dewpt: 54F | Wind: 117@19G30MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN44 | Type: Mesonet | Temp: 58F | Dewpt: 54F | Wind: 131@11G17MPH | Vis: N/A | SLP: 1009.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 255 255 255
@@ -8895,7 +8887,7 @@ Object: 45.04616,-93.78015
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G30"
+  Text: 0, -20, 1, "G17"
 End:
 
 TimeRange: 2026-09-14T20:47:00Z 2026-09-14T22:22:00Z
@@ -8928,16 +8920,16 @@ Object: 44.07182,-93.21671
   Text: 0, -20, 1, "G23"
 End:
 
-TimeRange: 2026-09-14T20:56:00Z 2026-09-14T22:31:00Z
+TimeRange: 2026-09-14T20:57:00Z 2026-09-14T22:32:00Z
 Object: 44.94161,-93.09879
   Color: 255 255 255
-  Icon: 0,0,85,1,1
+  Icon: 0,0,99,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:01 UTC | Station: HPN45 | Type: Mesonet | Temp: 58F | Dewpt: 55F | Wind: 085@5MPH | Vis: N/A | SLP: 1013.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:02 UTC | Station: HPN45 | Type: Mesonet | Temp: 58F | Dewpt: 55F | Wind: 099@3MPH | Vis: N/A | SLP: 1012.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 255 255 255
-  Text: 16, 12, 1, "130"
+  Text: 16, 12, 1, "120"
   Color: 100 255 100
   Text: -16, -12, 1, "55"
 End:
@@ -9358,32 +9350,32 @@ Object: 44.84683,-93.03033
   Text: -16, -12, 1, "54"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 42.72125,-96.23416
   Color: 255 255 255
-  Icon: 0,0,159,1,1
+  Icon: 0,0,161,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: MAE01 | Type: Mesonet | Temp: 65F | Dewpt: 61F | Wind: 159@7G12MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "65"
-  Color: 100 255 100
-  Text: -16, -12, 1, "61"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G12"
-End:
-
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
-Object: 42.57264,-96.36689
-  Color: 255 255 255
-  Icon: 0,0,161,1,2
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: MAE02 | Type: Mesonet | Temp: 66F | Dewpt: 62F | Wind: 161@9G15MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: MAE01 | Type: Mesonet | Temp: 66F | Dewpt: 62F | Wind: 161@6G13MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "66"
   Color: 100 255 100
   Text: -16, -12, 1, "62"
   Color: 255 255 0
-  Text: 0, -20, 1, "G15"
+  Text: 0, -20, 1, "G13"
+End:
+
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
+Object: 42.57264,-96.36689
+  Color: 255 255 255
+  Icon: 0,0,160,1,1
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: MAE02 | Type: Mesonet | Temp: 67F | Dewpt: 62F | Wind: 160@8G13MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "67"
+  Color: 100 255 100
+  Text: -16, -12, 1, "62"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G13"
 End:
 
 TimeRange: 2026-09-14T20:51:00Z 2026-09-14T22:26:00Z
@@ -9402,18 +9394,18 @@ Object: 49.71167,-94.75667
   Text: 0, -20, 1, "G28"
 End:
 
-TimeRange: 2026-09-14T20:45:00Z 2026-09-14T22:20:00Z
+TimeRange: 2026-09-14T20:55:00Z 2026-09-14T22:30:00Z
 Object: 42.95430,-97.39842
   Color: 255 255 255
-  Icon: 0,0,162,1,2
+  Icon: 0,0,156,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 20:50 UTC | Station: 033NW | Type: Mesonet | Temp: 73F | Dewpt: 65F | Wind: 162@9G18MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-14 21:00 UTC | Station: 033NW | Type: Mesonet | Temp: 73F | Dewpt: 65F | Wind: 156@9G16MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "73"
   Color: 100 255 100
   Text: -16, -12, 1, "65"
   Color: 255 255 0
-  Text: 0, -20, 1, "G18"
+  Text: 0, -20, 1, "G16"
 End:
 
 ; --- Network: CWOP (Threshold: 60 NM) ---
