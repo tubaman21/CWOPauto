@@ -33,12 +33,14 @@ NETWORK_THRESHOLDS = {
     "MnDOT": 100,
     "WisDOT": 100,
     "DOT": 100,
+    "Wisconet": 80,
+    "Xcel Energy": 80,
     "Mesonet": 80,
     "WeatherXM": 60,
     "CWOP": 60
 }
 
-NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "WeatherXM", "CWOP"]
+NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Wisconet", "Xcel Energy", "Mesonet", "WeatherXM", "CWOP"]
 
 # Network IDs explicitly designated for hydrology/water level telemetry by Synoptic
 HYDRO_MNET_IDS = {
@@ -254,8 +256,12 @@ def main():
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
 
-            # Classify station network type (MNET_ID 303 = WeatherXM)
-            if (
+            # Classify station network type
+            if stid.startswith("XL") or "XCEL" in mnet_short or "XCEL" in mnet_name:
+                mnet = "Xcel Energy"
+            elif "WISCONET" in mnet_short or "WISCONET" in mnet_name:
+                mnet = "Wisconet"
+            elif (
                 mnet_id == "303"
                 or "WEATHERXM" in mnet_short
                 or "WEATHERXM" in mnet_name
@@ -305,7 +311,7 @@ def main():
                 if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                     continue
 
-                if mnet not in ["CWOP", "RAWS", "WeatherXM"] and mnet_id != "2":
+                if mnet not in ["CWOP", "RAWS", "WeatherXM", "Xcel Energy", "Wisconet"] and mnet_id != "2":
                     sensor_keys = set(station.get("SENSOR_VARIABLES", {}).keys())
                     has_weather_sensors = any(
                         v in sensor_keys for v in ["air_temp", "wind_speed", "relative_humidity"]
