@@ -36,10 +36,11 @@ NETWORK_THRESHOLDS = {
     "Wisconet": 80,
     "Xcel Energy": 80,
     "Mesonet": 80,
+    "WeatherXM": 60,
     "CWOP": 60
 }
 
-NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Wisconet", "Xcel Energy", "Mesonet", "CWOP"]
+NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Wisconet", "Xcel Energy", "Mesonet", "WeatherXM", "CWOP"]
 
 # Suffixes typically assigned to Hydro, C-MAN, and River/Marine sites
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
@@ -59,10 +60,10 @@ HYDRO_NAME_KEYWORDS = (
     " RESERVOIR ", " DAM ", " GAGE ", " DRAIN ", " FLUME ", " CANAL ", " HARBOR ", " PIER "
 )
 
-# Explicitly Whitelisted stations bypass hydro/marine suffix checks (e.g., HWDW3, MRZW3)
+# Explicitly Whitelisted stations bypass hydro/marine suffix checks
 WHITELIST_STATIONS = {
     "DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", 
-    "RWIS-16-0048", "HWDW3", "MRZW3"
+    "RWIS-16-0048", "HWDW3", "MRZW3", "WXM6382"
 }
 
 STATION_MAP = {
@@ -209,6 +210,101 @@ def clean_rain_value_to_inches(val):
         return 0.0
 
 # ==========================================
+# DIRECT WEATHERXM FETCH HELPER
+# ==========================================
+def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
+    """Fetches stations directly from WeatherXM network endpoints."""
+    print("Directly fetching active WeatherXM stations...")
+    wxm_lines = []
+    url = f"https://pro.weatherxm.com/api/stations/bounds?min_lat={lat_min}&min_lon={lon_min}&max_lat={lat_max}&max_lon={lon_max}"
+    
+    try:
+        resp = requests.get(url, timeout=15)
+        if resp.status_code != 200:
+            return []
+            
+        data = resp.json()
+        stations = data.get("stations", [])
+        
+        for st in stations:
+            lat = st.get("location", {}).get("lat")
+            lon = st.get("location", {}).get("lon")
+            st_id = st.get("name", "WXM_Station")
+            
+            # Request latest observation for station
+            st_uuid = st.get("id")
+            if not st_uuid:
+                continue
+                
+            obs_resp = requests.get(f"https://pro.weatherxm.com/api/stations/{st_uuid}/latest", timeout=10)
+            if obs_resp.status_code != 200:
+                continue
+                
+            obs = obs_resp.json().get("observation", {})
+            if not obs:
+                continue
+
+            temp_c = obs.get("temperature")
+            rh_pct = obs.get("humidity")
+            wind_ms = obs.get("wind_speed")
+            wind_dir = obs.get("wind_direction")
+            gust_ms = obs.get("wind_gust")
+            pressure_hpa = obs.get("pressure")
+            
+            temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
+            dew_f = calculate_dewpoint_f(temp_f, rh_pct) if temp_f and rh_pct else None
+            speed_mph = int(round(wind_ms * 2.23694)) if wind_ms is not None else 0
+            speed_kt = int(round(wind_ms * 1.94384)) if wind_ms is not None else 0
+            gust_mph = int(round(gust_ms * 2.23694)) if gust_ms is not None else None
+            
+            slp_str = sanitize_slp(pressure_hpa) if pressure_hpa else "M"
+            tf_display = f"{temp_f}" if temp_f is not None else "M"
+            df_display = f"{dew_f}" if dew_f is not None else "M"
+            wind_dir_display = int(wind_dir) if wind_dir is not None else 0
+            
+            now_utc = datetime.now(timezone.utc)
+            start_range = (now_utc - timedelta(minutes=5)).strftime("%Y-%m-%dT%H:%M:%SZ")
+            end_range = (now_utc + timedelta(minutes=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
+            ob_time_str = now_utc.strftime("%Y-%m-%d %H:%M UTC")
+
+            has_gust = gust_mph is not None and gust_mph >= 12 and gust_mph > (speed_mph + 3)
+            wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH" if has_gust else f"{wind_dir_display:03d}@{speed_mph}MPH"
+
+            hover_text = (
+                f"Obs Time: {ob_time_str} | Station: {st_id} | Type: WeatherXM | "
+                f"Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | "
+                f"SLP: {slp_str}mb"
+            )
+
+            wxm_lines.append(f"TimeRange: {start_range} {end_range}")
+            wxm_lines.append(f"Object: {lat:.5f},{lon:.5f}")
+
+            if speed_kt >= 3 and wind_dir is not None:
+                barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
+                if barb_val > 0:
+                    wxm_lines.append("  Color: 255 255 255")
+                    wxm_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
+
+            wxm_lines.append("  Color: 255 255 255")
+            wxm_lines.append(f'  Icon: 0,0,0,2,5, "{hover_text}"')
+
+            if tf_display != "M":
+                wxm_lines.append("  Color: 255 100 100")
+                wxm_lines.append(f'  Text: -16, 12, 1, "{tf_display}"')
+
+            if df_display != "M":
+                wxm_lines.append("  Color: 100 255 100")
+                wxm_lines.append(f'  Text: -16, -12, 1, "{df_display}"')
+
+            wxm_lines.append("End:")
+            wxm_lines.append("")
+
+    except Exception as e:
+        print(f"Warning: Direct WeatherXM query failed: {e}")
+
+    return wxm_lines
+
+# ==========================================
 # MAIN IMPLEMENTATION LOGIC
 # ==========================================
 def main():
@@ -303,28 +399,22 @@ def main():
 
             # Hydrological and Marine Filtering
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
-                # Exclude aviation baseline stations
                 if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
                     continue
                 
-                # Exclude dedicated hydro/marine MNETs
                 if mnet_id in HYDRO_MNET_IDS or mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"]:
                     continue
 
-                # Exclude station names with hydro/marine keywords
                 padded_name = f" {mnet_name} "
                 if any(kw in padded_name for kw in HYDRO_NAME_KEYWORDS):
                     continue
 
-                # Exclude NDBC buoys and 5-digit numeric marine IDs
                 if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                     continue
 
-                # Exclude non-whitelisted stations ending with hydro/marine suffixes (e.g., PNGW3)
                 if stid.endswith(NLI_HYDRO_SUFFIXES) or raw_stid.endswith(NLI_HYDRO_SUFFIXES):
                     continue
 
-                # Exclude non-mesonet/RAWS stations lacking basic weather sensors
                 if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet"] and mnet_id != "2":
                     sensor_keys = set(station.get("SENSOR_VARIABLES", {}).keys())
                     has_weather_sensors = any(
@@ -518,8 +608,11 @@ def main():
 
             if station_lines:
                 network_blocks.setdefault(mnet, []).extend(station_lines)
-    else:
-        print("Warning: Network returned successfully but no matching active stations found.")
+
+    # Fetch and append WeatherXM stations directly
+    wxm_direct_lines = fetch_weatherxm_stations(LAT_MIN, LAT_MAX, LON_MIN, LON_MAX)
+    if wxm_direct_lines:
+        network_blocks["WeatherXM"] = wxm_direct_lines
 
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
