@@ -367,12 +367,19 @@ def main():
         sys.exit(1)
 
     network_blocks = {}
+    seen_stations = set()
     rain_counter = 0
 
     if "STATION" in data and data["STATION"]:
         for station in data["STATION"]:
             raw_stid = station.get("STID", "UNKNOWN").upper()
             stid = STATION_MAP.get(raw_stid, raw_stid)
+
+            # Prevent duplicate station rendering across identical STIDs or aliased IDs
+            if stid in seen_stations or raw_stid in seen_stations:
+                continue
+            seen_stations.add(stid)
+            seen_stations.add(raw_stid)
 
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
@@ -474,7 +481,6 @@ def main():
             observations = station.get("OBSERVATIONS", {})
             timestamps = observations.get("date_time", [])
 
-            # Render ONLY the latest valid observation to prevent stacked placefile objects
             if not timestamps:
                 continue
 
