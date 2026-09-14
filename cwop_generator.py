@@ -217,6 +217,7 @@ def main():
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
         "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,visibility,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
         "varsoperator": "OR",
+        "mnet": "all",  # Forces Synoptic to query across all ingested networks
         "recent": LOOKBACK_HOURS * 60,
         "obtimezone": "UTC",
         "output": "json",
