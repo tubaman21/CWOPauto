@@ -21,6 +21,7 @@ LAT_MIN, LAT_MAX = 42.5, 50.5
 LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
+SYNOPTIC_NETWORKS_URL = "https://api.synopticdata.com/v2/networks"
 
 # Standard METAR sprite sheets via jsDelivr CDN
 WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
@@ -76,6 +77,30 @@ STATION_COORDINATE_OVERRIDES = {
 # ==========================================
 # UTILITY HELPER FUNCTIONS
 # ==========================================
+def discover_network_metadata(api_token):
+    """Queries Synoptic network catalog to dynamically find exact Wisconet & Xcel IDs/shortnames."""
+    print("Discovering network registrations from Synoptic API...")
+    discovered = {"wisconet_ids": set(), "wisconet_names": set()}
+    try:
+        response = requests.get(SYNOPTIC_NETWORKS_URL, params={"token": api_token}, timeout=15)
+        if response.status_code == 200:
+            networks = response.json().get("MNET", [])
+            for net in networks:
+                net_id = str(net.get("ID", ""))
+                short_name = str(net.get("SHORTNAME", "")).upper()
+                long_name = str(net.get("LONGNAME", "")).upper()
+                
+                # Check for Wisconet / Wisconsin Mesonet matches
+                if any(kw in short_name or kw in long_name for kw in ["WISCONET", "WISCONSIN MESONET", "WISC_MESO", "UWMADISON"]):
+                    print(f"  [FOUND WISCONET] MNET_ID={net_id} | Long='{long_name}' | Short='{short_name}'")
+                    discovered["wisconet_ids"].add(net_id)
+                    discovered["wisconet_names"].add(short_name)
+                    discovered["wisconet_names"].add(long_name)
+    except Exception as e:
+        print(f"Warning: Failed to perform dynamic network discovery: {e}")
+    
+    return discovered
+
 def normalize_pressure_to_mb(val):
     if val is None or math.isnan(val) or val <= 0:
         return None
@@ -213,6 +238,8 @@ def main():
         print("Error: SYNOPTIC_API_TOKEN environment variable is missing!")
         sys.exit(1)
     
+    # Discover Wisconet metadata specs dynamically
+    meta_info = discover_network_metadata(api_token)
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
     api_params = {
@@ -259,7 +286,15 @@ def main():
             # Classify station network type
             if stid.startswith("XL") or "XCEL" in mnet_short or "XCEL" in mnet_name:
                 mnet = "Xcel Energy"
-            elif "WISCONET" in mnet_short or "WISCONET" in mnet_name:
+            elif (
+                mnet_id in meta_info["wisconet_ids"]
+                or mnet_short in meta_info["wisconet_names"]
+                or mnet_name in meta_info["wisconet_names"]
+                or "WISCONET" in mnet_short 
+                or "WISCONET" in mnet_name 
+                or "WISCONSIN MESONET" in mnet_name
+                or stid.startswith(("WCN", "WISC"))
+            ):
                 mnet = "Wisconet"
             elif (
                 mnet_id == "303"
