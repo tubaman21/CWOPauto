@@ -377,6 +377,8 @@ def main():
                 or stid.startswith(("WCN", "WISC"))
             ):
                 mnet = "Wisconet"
+            elif mnet_id == "2" or "RAWS" in mnet_short or stid in ["SILW3", "HWDW3", "MRZW3"]:
+                mnet = "RAWS"
             elif (
                 raw_stid in WHITELIST_STATIONS
                 or stid in WHITELIST_STATIONS
@@ -387,8 +389,6 @@ def main():
                 or (len(stid) == 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'] and stid[1:].isdigit())
             ):
                 mnet = "CWOP"
-            elif mnet_id == "2" or "RAWS" in mnet_short:
-                mnet = "RAWS"
             elif mnet_id in ["66", "172"] or any(k in mnet_short for k in ["MNDOT", "MN_DOT"]) or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
                 mnet = "MnDOT"
             elif (
