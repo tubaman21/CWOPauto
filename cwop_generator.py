@@ -224,95 +224,89 @@ def clean_rain_value_to_inches(val):
 # DIRECT WEATHERXM FETCH HELPER (WITH AUTH)
 # ==========================================
 def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
-    """Fetches WeatherXM stations using correct Pro API endpoints and payload parsing."""
-    api_token = os.environ.get("WEATHERXM_API_TOKEN")
-    
+    """Fetches all WeatherXM stations within the bounding box using official WeatherXM Pro API endpoints."""
+    api_key = os.environ.get("WEATHERXM_API_TOKEN")
+    if not api_key:
+        print("Notice: WEATHERXM_API_TOKEN is missing. Skipping direct WeatherXM fetching.")
+        return []
+
     headers = {
+        "X-API-KEY": api_key,
         "Accept": "application/json"
     }
-    if api_token:
-        headers["Authorization"] = f"Bearer {api_token}"
-        
+    
     wxm_lines = []
-    target_name = "WXM6382"
-    
-    print(f"Directly fetching active WeatherXM station ({target_name})...")
-    
-    # Try searching for the station by name first to resolve its device UUID
-    device_id = None
-    lat, lon = 46.0, -92.0  # Default fallback coordinates within bounding box
-    
-    search_urls = [
-        f"https://api.weatherxm.com/api/v1/public/devices?q={target_name}",
-        f"https://api.weatherxm.com/api/v1/devices/{target_name}"
-    ]
-    
-    for url in search_urls:
-        try:
-            resp = requests.get(url, headers=headers, timeout=10)
-            if resp.status_code == 200:
-                res_json = resp.json()
-                # Handle list response vs single object response
-                if isinstance(res_json, list) and len(res_json) > 0:
-                    dev = res_json[0]
-                    device_id = dev.get("id")
-                    lat = dev.get("location", {}).get("lat", lat)
-                    lon = dev.get("location", {}).get("lon", lon)
-                elif isinstance(res_json, dict):
-                    device_id = res_json.get("id", target_name)
-                    lat = res_json.get("location", {}).get("lat", lat)
-                    lon = res_json.get("location", {}).get("lon", lon)
-                if device_id:
-                    break
-        except Exception:
-            continue
+    print("Directly fetching WeatherXM stations within bounding box from WeatherXM Pro API...")
 
-    # Fallback to using the station name directly if search didn't return a UUID
-    if not device_id:
-        device_id = target_name
+    # Step 1: Query bounding box for all stations in region
+    bounds_url = "https://pro.weatherxm.com/api/stations/bounds"
+    params = {
+        "min_lat": lat_min,
+        "min_lon": lon_min,
+        "max_lat": lat_max,
+        "max_lon": lon_max
+    }
 
-    # Query latest observation using the public device endpoint
-    obs_endpoints = [
-        f"https://api.weatherxm.com/api/v1/public/devices/{device_id}/latest",
-        f"https://api.weatherxm.com/api/v1/devices/{device_id}/latest"
-    ]
+    try:
+        resp = requests.get(bounds_url, headers=headers, params=params, timeout=15)
+        if resp.status_code == 401:
+            print("Warning: WeatherXM returned 401 Unauthorized. Verify your API key in GitHub Secrets.")
+            return []
+        elif resp.status_code != 200:
+            print(f"Warning: WeatherXM bounds query failed with HTTP {resp.status_code}")
+            return []
 
-    for obs_url in obs_endpoints:
-        try:
-            resp = requests.get(obs_url, headers=headers, timeout=10)
-            if resp.status_code != 200:
-                continue
-                
-            obs_data = resp.json()
+        stations = resp.json().get("stations", [])
+        print(f"Discovered {len(stations)} WeatherXM station(s) in bounding box.")
+
+        # Step 2: Query latest observation for each discovered station
+        for st in stations:
+            st_id = st.get("id")
+            st_name = st.get("name", "WXM_Station")
             
-            # Extract nested observation payload safely across API versions
-            obs = (
-                obs_data.get("current_weather") 
-                or obs_data.get("observation") 
-                or obs_data
-            )
-            
-            if not obs or not isinstance(obs, dict):
+            # Check if blacklisted
+            if st_name in BLACKLIST_STATIONS or st_id in BLACKLIST_STATIONS:
                 continue
 
-            temp_c = obs.get("temperature") or obs.get("temp")
+            loc = st.get("location", {})
+            lat = loc.get("lat")
+            lon = loc.get("lon")
+            
+            if not lat or not lon or not st_id:
+                continue
+
+            obs_url = f"https://pro.weatherxm.com/api/stations/{st_id}/latest"
+            obs_resp = requests.get(obs_url, headers=headers, timeout=10)
+            if obs_resp.status_code != 200:
+                continue
+
+            obs = obs_resp.json().get("observation", {})
+            if not obs:
+                continue
+
+            temp_c = obs.get("temperature")
             rh_pct = obs.get("humidity")
-            wind_ms = obs.get("wind_speed") or obs.get("wind_avg")
-            wind_dir = obs.get("wind_direction") or obs.get("wind_dir")
+            wind_ms = obs.get("wind_speed")
+            wind_dir = obs.get("wind_direction")
             gust_ms = obs.get("wind_gust")
-            pressure_hpa = obs.get("pressure") or obs.get("barometer")
-            
+            pressure_hpa = obs.get("pressure")
+            precip_rate = obs.get("precipitation_rate")  # mm/hr
+
             temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
             dew_f = calculate_dewpoint_f(temp_f, rh_pct) if temp_f and rh_pct else None
             speed_mph = int(round(wind_ms * 2.23694)) if wind_ms is not None else 0
             speed_kt = int(round(wind_ms * 1.94384)) if wind_ms is not None else 0
             gust_mph = int(round(gust_ms * 2.23694)) if gust_ms is not None else None
-            
+
+            # Convert precip rate to estimated 1hr inch accumulation string if present
+            p1h_in = (precip_rate * 0.0393701) if (precip_rate is not None and precip_rate > 0) else 0.0
+            p1h_str = format_precip_str(p1h_in)
+
             slp_str = sanitize_slp(pressure_hpa) if pressure_hpa else "M"
             tf_display = f"{temp_f}" if temp_f is not None else "M"
             df_display = f"{dew_f}" if dew_f is not None else "M"
             wind_dir_display = int(wind_dir) if wind_dir is not None else 0
-            
+
             now_utc = datetime.now(timezone.utc)
             start_range = (now_utc - timedelta(minutes=5)).strftime("%Y-%m-%dT%H:%M:%SZ")
             end_range = (now_utc + timedelta(minutes=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -321,10 +315,12 @@ def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
             has_gust = gust_mph is not None and gust_mph >= 12 and gust_mph > (speed_mph + 3)
             wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH" if has_gust else f"{wind_dir_display:03d}@{speed_mph}MPH"
 
+            p1h_hover = f"{p1h_str}\"" if p1h_str else "0.00\""
+
             hover_text = (
-                f"Obs Time: {ob_time_str} | Station: {target_name} | Type: WeatherXM | "
+                f"Obs Time: {ob_time_str} | Station: {st_name} | Type: WeatherXM | "
                 f"Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | "
-                f"SLP: {slp_str}mb"
+                f"SLP: {slp_str}mb | Rain Rate: {p1h_hover}"
             )
 
             wxm_lines.append(f"TimeRange: {start_range} {end_range}")
@@ -347,12 +343,15 @@ def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
                 wxm_lines.append("  Color: 100 255 100")
                 wxm_lines.append(f'  Text: -16, -12, 1, "{df_display}"')
 
+            if p1h_str:
+                wxm_lines.append("  Color: 0 255 255")
+                wxm_lines.append(f'  Text: 16, -12, 1, "{p1h_str}"')
+
             wxm_lines.append("End:")
             wxm_lines.append("")
-            break
-            
-        except Exception as e:
-            print(f"Warning: WeatherXM API request failed for endpoint {obs_url}: {e}")
+
+    except Exception as e:
+        print(f"Warning: Direct WeatherXM API processing failed: {e}")
 
     return wxm_lines
 # ==========================================
