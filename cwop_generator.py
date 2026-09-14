@@ -226,7 +226,7 @@ def main():
         "recent": LOOKBACK_HOURS * 60,
         "obtimezone": "UTC",
         "output": "json",
-        "extra": "metadata,mnet"
+        "extra": "metadata,mnet,sensor_variables"
     }
     
     try:
@@ -258,13 +258,16 @@ def main():
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
 
+            # Classify station network type
             if (
                 raw_stid in WHITELIST_STATIONS
                 or stid in WHITELIST_STATIONS
                 or mnet_id == "153" 
                 or "CWOP" in mnet_short 
                 or "CWOP" in mnet_name
-                or stid.startswith(("DW", "CW", "EW", "FW"))
+                or "WEATHERXM" in mnet_short
+                or "WEATHERXM" in mnet_name
+                or stid.startswith(("DW", "CW", "EW", "FW", "WXM"))
                 or (len(stid) == 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'] and stid[1:].isdigit())
             ):
                 mnet = "CWOP"
@@ -340,7 +343,7 @@ def main():
                     
                     window_start = dt_ob - timedelta(minutes=5) if i == 0 else dt_ob
                     
-                    # Dynamically pad latest observation window to avoid dropout during hourly transmissions
+                    # Pad latest observation window by 90 mins to avoid dropout during hourly transmissions
                     if i + 1 < len(timestamps):
                         window_end = datetime.strptime(timestamps[i + 1], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                     else:
