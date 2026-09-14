@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import math
+import time
 from datetime import datetime, timedelta, timezone
 
 try:
@@ -332,22 +333,30 @@ def main():
         "extra": "metadata,mnet,sensor_variables"
     }
     
-    try:
-        response = requests.get(SYNOPTIC_API_URL, params=api_params, timeout=25)
-        if response.status_code != 200:
-            print(f"HTTP Error {response.status_code}: {response.text}")
-            sys.exit(1)
-            
-        data = response.json()
-    except Exception as e:
-        print(f"Network processing exception during API fetch: {e}")
-        sys.exit(1)
+    # Retry loop for transient Synoptic outages / rate limits
+    data = None
+    max_retries = 3
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = requests.get(SYNOPTIC_API_URL, params=api_params, timeout=25)
+            if response.status_code == 200:
+                data = response.json()
+                break
+            else:
+                print(f"Attempt {attempt}/{max_retries}: Synoptic HTTP {response.status_code}. Retrying...")
+        except Exception as e:
+            print(f"Attempt {attempt}/{max_retries}: Network exception ({e}). Retrying...")
+        
+        time.sleep(5 * attempt)
+
+    if not data:
+        print("Warning: Unable to retrieve Synoptic data after retries. Proceeding gracefully with empty Synoptic payload.")
+        data = {}
 
     response_code = data.get("SUMMARY", {}).get("RESPONSE_CODE") or data.get("RESPONSE_CODE")
-    if response_code != 1:
-        error_msg = data.get("SUMMARY", {}).get("RESPONSE_MESSAGE") or data.get("RESPONSE_MESSAGE") or response.text
-        print(f"Synoptic API Error Code [{response_code}]: {error_msg}")
-        sys.exit(1)
+    if response_code and response_code != 1:
+        error_msg = data.get("SUMMARY", {}).get("RESPONSE_MESSAGE") or data.get("RESPONSE_MESSAGE")
+        print(f"Warning: Synoptic API Error Code [{response_code}]: {error_msg}")
 
     network_blocks = {}
     seen_stations = set()
