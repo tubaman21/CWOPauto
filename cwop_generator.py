@@ -211,36 +211,57 @@ def clean_rain_value_to_inches(val):
         return 0.0
 
 # ==========================================
-# DIRECT WEATHERXM FETCH HELPER
+# DIRECT WEATHERXM FETCH HELPER (WITH AUTH)
 # ==========================================
 def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
-    """Fetches stations directly from WeatherXM network endpoints."""
+    """Fetches stations directly from WeatherXM network endpoints with API Token support."""
+    api_token = os.environ.get("WEATHERXM_API_TOKEN")
+    
+    headers = {}
+    if api_token:
+        headers["Authorization"] = f"Bearer {api_token}"
+        
     print("Directly fetching active WeatherXM stations...")
     wxm_lines = []
-    url = f"https://pro.weatherxm.com/api/stations/bounds?min_lat={lat_min}&min_lon={lon_min}&max_lat={lat_max}&max_lon={lon_max}"
+    
+    url = "https://api.weatherxm.com/api/v1/cells"
+    params = {
+        "minLat": lat_min,
+        "maxLat": lat_max,
+        "minLon": lon_min,
+        "maxLon": lon_max
+    }
     
     try:
-        resp = requests.get(url, timeout=15)
-        if resp.status_code != 200:
+        resp = requests.get(url, headers=headers, params=params, timeout=15)
+        if resp.status_code == 401:
+            print("Warning: WeatherXM returned 401 Unauthorized. Check your WEATHERXM_API_TOKEN.")
+            return []
+        elif resp.status_code != 200:
+            print(f"Warning: WeatherXM query failed with HTTP {resp.status_code}")
             return []
             
         data = resp.json()
-        stations = data.get("stations", [])
+        stations = data.get("devices", []) or data.get("stations", [])
         
         for st in stations:
             lat = st.get("location", {}).get("lat")
             lon = st.get("location", {}).get("lon")
             st_id = st.get("name", "WXM_Station")
-            
             st_uuid = st.get("id")
+            
             if not st_uuid:
                 continue
                 
-            obs_resp = requests.get(f"https://pro.weatherxm.com/api/stations/{st_uuid}/latest", timeout=10)
+            obs_resp = requests.get(
+                f"https://api.weatherxm.com/api/v1/devices/{st_uuid}/latest", 
+                headers=headers, 
+                timeout=10
+            )
             if obs_resp.status_code != 200:
                 continue
                 
-            obs = obs_resp.json().get("observation", {})
+            obs = obs_resp.json().get("observation", {}) or obs_resp.json()
             if not obs:
                 continue
 
