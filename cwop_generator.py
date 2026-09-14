@@ -21,6 +21,7 @@ LAT_MIN, LAT_MAX = 42.5, 50.5
 LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
+SYNOPTIC_NETWORKS_URL = "https://api.synopticdata.com/v2/networks"
 
 # Standard METAR sprite sheets via jsDelivr CDN
 WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
@@ -34,10 +35,11 @@ NETWORK_THRESHOLDS = {
     "WisDOT": 100,
     "DOT": 100,
     "Mesonet": 80,
+    "WeatherXM": 60,
     "CWOP": 60
 }
 
-NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "CWOP"]
+NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Mesonet", "WeatherXM", "CWOP"]
 
 # Network IDs explicitly designated for hydrology/water level telemetry by Synoptic
 HYDRO_MNET_IDS = {
@@ -54,7 +56,7 @@ HYDRO_NAME_KEYWORDS = (
     " RESERVOIR ", " DAM ", " GAGE ", " DRAIN ", " FLUME ", " CANAL "
 )
 
-WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", "RWIS-16-0048"}
+WHITELIST_STATIONS = {"DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", "RWIS-16-0048", "WXM6382"}
 
 STATION_MAP = {
     "D8249": "DW8249",
@@ -73,6 +75,28 @@ STATION_COORDINATE_OVERRIDES = {
 # ==========================================
 # UTILITY HELPER FUNCTIONS
 # ==========================================
+def find_weatherxm_mnet_id(api_token):
+    """Queries Synoptic metadata catalog to dynamically discover WeatherXM's MNET_ID."""
+    print("Querying Synoptic network catalog for WeatherXM MNET_ID...")
+    try:
+        response = requests.get(SYNOPTIC_NETWORKS_URL, params={"token": api_token}, timeout=15)
+        if response.status_code == 200:
+            data = response.json()
+            networks = data.get("MNET", [])
+            for net in networks:
+                net_id = str(net.get("ID", ""))
+                short_name = str(net.get("SHORTNAME", "")).upper()
+                long_name = str(net.get("LONGNAME", "")).upper()
+                
+                if "WEATHERXM" in short_name or "WEATHERXM" in long_name or "WXM" in short_name:
+                    print(f"Found WeatherXM Network Registration: ID={net_id} | Name={long_name} ({short_name})")
+                    return net_id
+    except Exception as e:
+        print(f"Warning: Failed to fetch network metadata from Synoptic: {e}")
+    
+    print("WeatherXM MNET_ID not found in active catalog response; defaulting to metadata filters.")
+    return None
+
 def normalize_pressure_to_mb(val):
     if val is None or math.isnan(val) or val <= 0:
         return None
@@ -210,6 +234,7 @@ def main():
         print("Error: SYNOPTIC_API_TOKEN environment variable is missing!")
         sys.exit(1)
     
+    wxm_mnet_id = find_weatherxm_mnet_id(api_token)
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
     api_params = {
@@ -217,7 +242,6 @@ def main():
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
         "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,visibility,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
         "varsoperator": "OR",
-        "mnet": "all",  # Forces Synoptic to query across all ingested networks
         "recent": LOOKBACK_HOURS * 60,
         "obtimezone": "UTC",
         "output": "json",
@@ -245,8 +269,6 @@ def main():
     rain_counter = 0
 
     if "STATION" in data and data["STATION"]:
-        wxm_found_count = 0
-        
         for station in data["STATION"]:
             raw_stid = station.get("STID", "UNKNOWN").upper()
             stid = STATION_MAP.get(raw_stid, raw_stid)
@@ -255,21 +277,21 @@ def main():
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
 
-            is_wxm_target = "WXM" in raw_stid or "WEATHERXM" in mnet_short or "WEATHERXM" in mnet_name
-            if is_wxm_target:
-                wxm_found_count += 1
-                print(f"[WXM DEBUG] Evaluated Station: raw_id={raw_stid}, stid={stid}, MNET_ID={mnet_id}, Short={mnet_short}, Name={mnet_name}")
-
             # Classify station network type
             if (
+                (wxm_mnet_id and mnet_id == wxm_mnet_id)
+                or "WEATHERXM" in mnet_short
+                or "WEATHERXM" in mnet_name
+                or stid.startswith("WXM")
+            ):
+                mnet = "WeatherXM"
+            elif (
                 raw_stid in WHITELIST_STATIONS
                 or stid in WHITELIST_STATIONS
                 or mnet_id == "153" 
                 or "CWOP" in mnet_short 
                 or "CWOP" in mnet_name
-                or "WEATHERXM" in mnet_short
-                or "WEATHERXM" in mnet_name
-                or stid.startswith(("DW", "CW", "EW", "FW", "WXM"))
+                or stid.startswith(("DW", "CW", "EW", "FW"))
                 or (len(stid) == 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'] and stid[1:].isdigit())
             ):
                 mnet = "CWOP"
@@ -291,39 +313,33 @@ def main():
             else:
                 mnet = "Mesonet"
 
-            # Metadata-driven Hydrological & Operational Filtering
+            # Metadata-driven Hydrological Filtering
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
                 if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
-                    if is_wxm_target: print(f"  └─> [FILTERED] Reason: MNET_ID=1 or ASOS/AWOS shortname match.")
                     continue
                 
                 if mnet_id in HYDRO_MNET_IDS or mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"]:
-                    if is_wxm_target: print(f"  └─> [FILTERED] Reason: Hydrology MNET ID ({mnet_id}) or shortname match.")
                     continue
 
                 padded_name = f" {mnet_name} "
                 if any(kw in padded_name for kw in HYDRO_NAME_KEYWORDS):
-                    if is_wxm_target: print(f"  └─> [FILTERED] Reason: Hydro keyword match in station name '{mnet_name}'.")
                     continue
 
                 if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
-                    if is_wxm_target: print(f"  └─> [FILTERED] Reason: NDBC or numeric buoy ID format.")
                     continue
 
-                if mnet not in ["CWOP", "RAWS"] and mnet_id != "2":
+                if mnet not in ["CWOP", "RAWS", "WeatherXM"] and mnet_id != "2":
                     sensor_keys = set(station.get("SENSOR_VARIABLES", {}).keys())
                     has_weather_sensors = any(
                         v in sensor_keys for v in ["air_temp", "wind_speed", "relative_humidity"]
                     )
                     if not has_weather_sensors:
-                        if is_wxm_target: print(f"  └─> [FILTERED] Reason: Missing core weather sensors (temp/wind/RH). Found keys: {list(sensor_keys)}")
                         continue
             
             try:
                 lat = float(station.get("LATITUDE"))
                 lon = float(station.get("LONGITUDE"))
             except (TypeError, ValueError):
-                if is_wxm_target: print("  └─> [FILTERED] Reason: Missing or invalid LATITUDE/LONGITUDE.")
                 continue
 
             elev_meters = None
@@ -343,7 +359,6 @@ def main():
             timestamps = observations.get("date_time", [])
 
             if not timestamps:
-                if is_wxm_target: print("  └─> [FILTERED] Reason: OBSERVATIONS array returned no timestamps/data.")
                 continue
 
             station_lines = []
@@ -505,13 +520,7 @@ def main():
                 station_lines.append("")
 
             if station_lines:
-                if is_wxm_target: print(f"  └─> [SUCCESS] Plotted {len(timestamps)} observations under network block '{mnet}'.")
                 network_blocks.setdefault(mnet, []).extend(station_lines)
-            else:
-                if is_wxm_target: print("  └─> [FILTERED] Reason: All observation time steps failed to produce valid station lines.")
-
-        if wxm_found_count == 0:
-            print("[WXM DEBUG] Warning: Zero stations matching 'WXM' or 'WEATHERXM' were returned by Synoptic within the bounding box.")
     else:
         print("Warning: Network returned successfully but no matching active stations found.")
 
