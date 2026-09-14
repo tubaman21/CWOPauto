@@ -8,6 +8,7 @@ on:
 
 env:
   ACTIONS_ALLOW_USE_UNSECURED_NODE20: "true"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: "true"
 
 jobs:
   build-and-commit:
@@ -17,11 +18,15 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        env:
+          ACTIONS_ALLOW_USE_UNSECURED_NODE20: "true"
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+        env:
+          ACTIONS_ALLOW_USE_UNSECURED_NODE20: "true"
 
       - name: Install Dependencies
         run: |
