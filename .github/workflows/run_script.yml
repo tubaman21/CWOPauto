@@ -1,16 +1,13 @@
 name: Generate GR2Analyst Placefile
 
 on:
-  # schedule:
-  #   - cron: '*/15 * * * *'
   push:
     branches:
       - main
   workflow_dispatch:
 
 env:
-  # Forces GitHub Actions runner to suppress Node 20 deprecation warnings on Node 24 runners
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: "true"
+  ACTIONS_ALLOW_USE_UNSECURED_NODE20: "true"
 
 jobs:
   build-and-commit:
