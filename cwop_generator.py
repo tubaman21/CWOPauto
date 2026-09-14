@@ -74,7 +74,6 @@ STATION_COORDINATE_OVERRIDES = {
 # UTILITY HELPER FUNCTIONS
 # ==========================================
 def normalize_pressure_to_mb(val):
-    """Converts raw pressure values (Pa, inHg, hundredths inHg, hPa) to millibars."""
     if val is None or math.isnan(val) or val <= 0:
         return None
     try:
@@ -93,7 +92,6 @@ def normalize_pressure_to_mb(val):
         return None
 
 def station_pressure_to_slp(station_press_mb, elev_meters, temp_c=15.0):
-    """Reduces ground station pressure to Sea Level Pressure (SLP)."""
     if station_press_mb is None or elev_meters is None or elev_meters < 0:
         return None
     try:
@@ -105,7 +103,6 @@ def station_pressure_to_slp(station_press_mb, elev_meters, temp_c=15.0):
         return None
 
 def sanitize_slp(pressure_mb):
-    """Formats sea level pressure into 3-digit METAR notation with strict bounds checking."""
     if pressure_mb is None or math.isnan(pressure_mb) or not (950.0 <= pressure_mb <= 1050.0):
         return "M"
     try:
@@ -120,13 +117,12 @@ def format_precip_str(precip_in):
     return f"{precip_in:.2f}".lstrip('0') if precip_in < 1.0 else f"{precip_in:.2f}"
 
 def format_visibility_str(vis_val):
-    """Formats visibility into standard METAR text notation."""
     if vis_val is None or math.isnan(vis_val) or vis_val < 0:
         return None
     try:
         vis = float(vis_val)
         if vis > 50.0:
-            vis *= 0.000621371  # Convert meters to miles
+            vis *= 0.000621371
             
         if vis <= 0.125: return "1/8"
         elif vis <= 0.25: return "1/4"
@@ -160,7 +156,6 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5
 
 def get_obs_val(observations, var_prefixes, index):
-    """Scans for matching sensor prefixes across telemetry arrays safely."""
     for key, values in observations.items():
         if any(prefix in key for prefix in var_prefixes):
             if isinstance(values, list) and index < len(values):
@@ -175,7 +170,6 @@ def get_obs_val(observations, var_prefixes, index):
     return None
 
 def get_best_slp(observations, index, elev_meters, temp_c):
-    """Extracts SLP/Altimeter or reduces station pressure."""
     raw_p = get_obs_val(observations, ["sea_level_pressure", "altimeter"], index)
     if raw_p is not None:
         p_mb = normalize_pressure_to_mb(raw_p)
@@ -250,6 +244,8 @@ def main():
     rain_counter = 0
 
     if "STATION" in data and data["STATION"]:
+        wxm_found_count = 0
+        
         for station in data["STATION"]:
             raw_stid = station.get("STID", "UNKNOWN").upper()
             stid = STATION_MAP.get(raw_stid, raw_stid)
@@ -257,6 +253,11 @@ def main():
             mnet_id = str(station.get("MNET_ID", ""))
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
+
+            is_wxm_target = "WXM" in raw_stid or "WEATHERXM" in mnet_short or "WEATHERXM" in mnet_name
+            if is_wxm_target:
+                wxm_found_count += 1
+                print(f"[WXM DEBUG] Evaluated Station: raw_id={raw_stid}, stid={stid}, MNET_ID={mnet_id}, Short={mnet_short}, Name={mnet_name}")
 
             # Classify station network type
             if (
@@ -289,19 +290,23 @@ def main():
             else:
                 mnet = "Mesonet"
 
-            # Metadata-driven Hydrological Filtering
+            # Metadata-driven Hydrological & Operational Filtering
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
                 if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
+                    if is_wxm_target: print(f"  └─> [FILTERED] Reason: MNET_ID=1 or ASOS/AWOS shortname match.")
                     continue
                 
                 if mnet_id in HYDRO_MNET_IDS or mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"]:
+                    if is_wxm_target: print(f"  └─> [FILTERED] Reason: Hydrology MNET ID ({mnet_id}) or shortname match.")
                     continue
 
                 padded_name = f" {mnet_name} "
                 if any(kw in padded_name for kw in HYDRO_NAME_KEYWORDS):
+                    if is_wxm_target: print(f"  └─> [FILTERED] Reason: Hydro keyword match in station name '{mnet_name}'.")
                     continue
 
                 if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
+                    if is_wxm_target: print(f"  └─> [FILTERED] Reason: NDBC or numeric buoy ID format.")
                     continue
 
                 if mnet not in ["CWOP", "RAWS"] and mnet_id != "2":
@@ -310,12 +315,14 @@ def main():
                         v in sensor_keys for v in ["air_temp", "wind_speed", "relative_humidity"]
                     )
                     if not has_weather_sensors:
+                        if is_wxm_target: print(f"  └─> [FILTERED] Reason: Missing core weather sensors (temp/wind/RH). Found keys: {list(sensor_keys)}")
                         continue
             
             try:
                 lat = float(station.get("LATITUDE"))
                 lon = float(station.get("LONGITUDE"))
             except (TypeError, ValueError):
+                if is_wxm_target: print("  └─> [FILTERED] Reason: Missing or invalid LATITUDE/LONGITUDE.")
                 continue
 
             elev_meters = None
@@ -334,6 +341,10 @@ def main():
             observations = station.get("OBSERVATIONS", {})
             timestamps = observations.get("date_time", [])
 
+            if not timestamps:
+                if is_wxm_target: print("  └─> [FILTERED] Reason: OBSERVATIONS array returned no timestamps/data.")
+                continue
+
             station_lines = []
             prev_bucket_in = None
 
@@ -343,7 +354,6 @@ def main():
                     
                     window_start = dt_ob - timedelta(minutes=5) if i == 0 else dt_ob
                     
-                    # Pad latest observation window by 90 mins to avoid dropout during hourly transmissions
                     if i + 1 < len(timestamps):
                         window_end = datetime.strptime(timestamps[i + 1], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                     else:
@@ -494,7 +504,13 @@ def main():
                 station_lines.append("")
 
             if station_lines:
+                if is_wxm_target: print(f"  └─> [SUCCESS] Plotted {len(timestamps)} observations under network block '{mnet}'.")
                 network_blocks.setdefault(mnet, []).extend(station_lines)
+            else:
+                if is_wxm_target: print("  └─> [FILTERED] Reason: All observation time steps failed to produce valid station lines.")
+
+        if wxm_found_count == 0:
+            print("[WXM DEBUG] Warning: Zero stations matching 'WXM' or 'WEATHERXM' were returned by Synoptic within the bounding box.")
     else:
         print("Warning: Network returned successfully but no matching active stations found.")
 
