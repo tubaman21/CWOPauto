@@ -67,6 +67,11 @@ WHITELIST_STATIONS = {
     "RWIS-16-0048", "HWDW3", "MRZW3", "SILW3", "WXM6382"
 }
 
+# Explicitly hidden/blacklisted station IDs
+BLACKLIST_STATIONS = {
+    "G1059"
+}
+
 STATION_MAP = {
     "D8249": "DW8249",
     "E9591": "EW9591",
@@ -250,7 +255,7 @@ def fetch_weatherxm_stations(lat_min, lat_max, lon_min, lon_max):
             st_id = st.get("name", "WXM_Station")
             st_uuid = st.get("id")
             
-            if not st_uuid:
+            if not st_uuid or st_id in BLACKLIST_STATIONS:
                 continue
                 
             obs_resp = requests.get(
@@ -375,6 +380,10 @@ def main():
             raw_stid = station.get("STID", "UNKNOWN").upper()
             stid = STATION_MAP.get(raw_stid, raw_stid)
 
+            # Skip explicitly blacklisted stations
+            if raw_stid in BLACKLIST_STATIONS or stid in BLACKLIST_STATIONS:
+                continue
+
             # Prevent duplicate station rendering across identical STIDs or aliased IDs
             if stid in seen_stations or raw_stid in seen_stations:
                 continue
@@ -481,6 +490,7 @@ def main():
             observations = station.get("OBSERVATIONS", {})
             timestamps = observations.get("date_time", [])
 
+            # Render ONLY the latest valid observation to prevent stacked placefile objects
             if not timestamps:
                 continue
 
