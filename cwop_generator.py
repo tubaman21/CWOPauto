@@ -21,7 +21,6 @@ LAT_MIN, LAT_MAX = 42.5, 50.5
 LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
-SYNOPTIC_NETWORKS_URL = "https://api.synopticdata.com/v2/networks"
 
 # Standard METAR sprite sheets via jsDelivr CDN
 WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
@@ -75,28 +74,6 @@ STATION_COORDINATE_OVERRIDES = {
 # ==========================================
 # UTILITY HELPER FUNCTIONS
 # ==========================================
-def find_weatherxm_mnet_id(api_token):
-    """Queries Synoptic metadata catalog to dynamically discover WeatherXM's MNET_ID."""
-    print("Querying Synoptic network catalog for WeatherXM MNET_ID...")
-    try:
-        response = requests.get(SYNOPTIC_NETWORKS_URL, params={"token": api_token}, timeout=15)
-        if response.status_code == 200:
-            data = response.json()
-            networks = data.get("MNET", [])
-            for net in networks:
-                net_id = str(net.get("ID", ""))
-                short_name = str(net.get("SHORTNAME", "")).upper()
-                long_name = str(net.get("LONGNAME", "")).upper()
-                
-                if "WEATHERXM" in short_name or "WEATHERXM" in long_name or "WXM" in short_name:
-                    print(f"Found WeatherXM Network Registration: ID={net_id} | Name={long_name} ({short_name})")
-                    return net_id
-    except Exception as e:
-        print(f"Warning: Failed to fetch network metadata from Synoptic: {e}")
-    
-    print("WeatherXM MNET_ID not found in active catalog response; defaulting to metadata filters.")
-    return None
-
 def normalize_pressure_to_mb(val):
     if val is None or math.isnan(val) or val <= 0:
         return None
@@ -234,7 +211,6 @@ def main():
         print("Error: SYNOPTIC_API_TOKEN environment variable is missing!")
         sys.exit(1)
     
-    wxm_mnet_id = find_weatherxm_mnet_id(api_token)
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
     api_params = {
@@ -242,7 +218,7 @@ def main():
         "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
         "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,visibility,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
         "varsoperator": "OR",
-        "mnet": "all",  # Instructs Synoptic to query ALL networks (including MNET_ID 303)
+        "mnet": "all",
         "recent": LOOKBACK_HOURS * 60,
         "obtimezone": "UTC",
         "output": "json",
@@ -278,9 +254,9 @@ def main():
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
 
-            # Classify station network type
+            # Classify station network type (MNET_ID 303 = WeatherXM)
             if (
-                (wxm_mnet_id and mnet_id == wxm_mnet_id)
+                mnet_id == "303"
                 or "WEATHERXM" in mnet_short
                 or "WEATHERXM" in mnet_name
                 or stid.startswith("WXM")
