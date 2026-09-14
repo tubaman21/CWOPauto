@@ -38,11 +38,10 @@ NETWORK_THRESHOLDS = {
     "Wisconet": 80,
     "Xcel Energy": 80,
     "Mesonet": 80,
-    "WeatherXM": 60,
     "CWOP": 60
 }
 
-NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Union Pacific", "Wisconet", "Xcel Energy", "Mesonet", "WeatherXM", "CWOP"]
+NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Union Pacific", "Wisconet", "Xcel Energy", "Mesonet", "CWOP"]
 
 # Suffixes typically assigned to Hydro, C-MAN, and River/Marine sites
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
@@ -78,10 +77,7 @@ STATION_MAP = {
     "D8249": "DW8249",
     "E9591": "EW9591",
     "F9531": "FW9531",
-    "D6222": "DW6222",
-    "WXM-6382": "WXM6382",
-    "WXM_6382": "WXM6382",
-    "DW6382": "WXM6382"
+    "D6222": "DW6222"
 }
 
 STATION_COORDINATE_OVERRIDES = {
@@ -538,11 +534,6 @@ def main():
 
             if station_lines:
                 network_blocks.setdefault(mnet, []).extend(station_lines)
-
-    # Fetch and append WeatherXM stations directly
-    wxm_direct_lines = fetch_weatherxm_stations(LAT_MIN, LAT_MAX, LON_MIN, LON_MAX)
-    if wxm_direct_lines:
-        network_blocks["WeatherXM"] = wxm_direct_lines
 
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
