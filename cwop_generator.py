@@ -38,10 +38,11 @@ NETWORK_THRESHOLDS = {
     "Wisconet": 80,
     "Xcel Energy": 80,
     "Mesonet": 80,
+    "WeatherXM": 60,
     "CWOP": 60
 }
 
-NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Union Pacific", "Wisconet", "Xcel Energy", "Mesonet", "CWOP"]
+NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Union Pacific", "Wisconet", "Xcel Energy", "Mesonet", "WeatherXM", "CWOP"]
 
 # Suffixes typically assigned to Hydro, C-MAN, and River/Marine sites
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
@@ -365,7 +366,7 @@ def main():
                 if stid.endswith(NLI_HYDRO_SUFFIXES) or raw_stid.endswith(NLI_HYDRO_SUFFIXES):
                     continue
 
-                if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet", "Union Pacific"] and mnet_id != "2":
+                if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet", "Union Pacific", "WeatherXM"] and mnet_id != "2":
                     sensor_keys = set(station.get("SENSOR_VARIABLES", {}).keys())
                     has_weather_sensors = any(
                         v in sensor_keys for v in ["air_temp", "wind_speed", "relative_humidity"]
