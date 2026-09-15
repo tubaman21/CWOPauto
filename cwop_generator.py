@@ -298,6 +298,12 @@ def main():
             elif stid.startswith("XL") or "XCEL" in mnet_short or "XCEL" in mnet_name:
                 mnet = "Xcel Energy"
             elif (
+                stid.startswith(("WXM", "WXM-", "WXM_")) 
+                or "WEATHERXM" in mnet_name 
+                or "WEATHERXM" in mnet_short
+            ):
+                mnet = "WeatherXM"
+            elif (
                 mnet_id == "280"
                 or "WISCONET" in mnet_short 
                 or "WISCONET" in mnet_name 
