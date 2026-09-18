@@ -24,7 +24,8 @@ LON_MIN, LON_MAX = -97.5, -86.5
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
 # Standard METAR sprite sheets via jsDelivr CDN
-WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
+WIND_BARB_ICON_URL = "http://grlevelx.redteamwx.com/10m_wind_barbs.png"
+#WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
 SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
 LOOKBACK_HOURS = 6
