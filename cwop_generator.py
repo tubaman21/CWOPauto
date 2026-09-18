@@ -81,7 +81,6 @@ STATION_COORDINATE_OVERRIDES = {
     "DW6222": (46.778900, -90.789797)
 }
 
-# Common Synoptic variable suffix lookup matrix for high-speed indexing
 SENSOR_SUFFIXES = ("", "_set_1", "_set_1d", "_set_2")
 
 # ==========================================
@@ -170,7 +169,7 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5
 
 def get_obs_val(observations, var_prefixes, index):
-    """High-speed O(1) hash lookup across known Synoptic variable naming conventions."""
+    """O(1) hash lookup across Synoptic variable naming conventions."""
     for prefix in var_prefixes:
         for suffix in SENSOR_SUFFIXES:
             key = f"{prefix}{suffix}"
@@ -217,7 +216,7 @@ def clean_rain_value_to_inches(val):
         return 0.0
 
 def fetch_bbox_segment(bbox_str, api_token):
-    """Helper to execute parallel API requests for bounding box quadrants."""
+    """Helper to execute parallel API requests across bounding box quadrants."""
     api_params = {
         "token": api_token,
         "bbox": bbox_str,
@@ -240,7 +239,7 @@ def fetch_bbox_segment(bbox_str, api_token):
 # MAIN IMPLEMENTATION LOGIC
 # ==========================================
 def main():
-    print("Initializing optimized dynamic telemetry download routine from Synoptic Networks...")
+    print("Initializing dynamic telemetry download routine from Synoptic Networks...")
     
     api_token = os.environ.get("SYNOPTIC_API_TOKEN")
     if not api_token:
@@ -249,7 +248,6 @@ def main():
     
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
-    # Slice the primary bounding box into 4 sub-quadrants to fetch in parallel
     lat_mid = (LAT_MIN + LAT_MAX) / 2.0
     lon_mid = (LON_MIN + LON_MAX) / 2.0
     
@@ -463,8 +461,8 @@ def main():
         wind_dir_display = int(wind_dir) if wind_dir is not None else 0
 
         color_temp = "255 100 100"
-        color_dew  = "100 255 100"
-        color_slp  = "255 255 255"
+        color_dew = "100 255 100"
+        color_slp = "255 255 255"
         color_rain = "0 255 255"
         color_gust = "255 255 0"
 
@@ -496,10 +494,9 @@ def main():
             f"Rain 1hr: {p1h_hover} | Rain 24hr: {p24h_hover}"
         )
 
-        station_lines = [
-            f"TimeRange: {start_range} {end_range}",
-            f"Object: {lat:.5f},{lon:.5f}"
-        ]
+        station_lines = []
+        station_lines.append(f"TimeRange: {start_range} {end_range}")
+        station_lines.append(f"Object: {lat:.5f},{lon:.5f}")
 
         if speed_kt >= 3 and wind_dir is not None:
             barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
@@ -541,8 +538,11 @@ def main():
             station_lines.append(f"  Color: {color_gust}")
             station_lines.append(f'  Text: 0, -20, 1, "G{gust_mph}"')
 
-        station_lines.append("End:\n")
-        network_blocks.setdefault(mnet, []).extend(station_lines)
+        station_lines.append("End:")
+        station_lines.append("")
+
+        if station_lines:
+            network_blocks.setdefault(mnet, []).extend(station_lines)
 
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
