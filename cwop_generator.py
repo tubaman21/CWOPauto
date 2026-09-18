@@ -23,7 +23,7 @@ LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
-# RedTeamWX wind barbs and standard sky cover sprite sheet
+# RedTeamWX pre-colored wind barbs sprite sheet
 WIND_BARB_ICON_URL = "http://grlevelx.redteamwx.com/10m_wind_barbs.png"
 SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
@@ -462,14 +462,13 @@ def main():
             color_slp  = "255 255 255"
             color_rain = "0 255 255"
             color_gust = "255 255 0"
-            color_barb = "255 255 255"
 
             max_wind_mph = gust_mph if gust_mph is not None else speed_mph
 
             if max_wind_mph >= 45:
-                color_barb, color_temp = "255 0 255", "255 50 255"
+                color_temp = "255 50 255"
             elif max_wind_mph >= 35:
-                color_barb, color_temp = "255 255 0", "255 200 0"
+                color_temp = "255 200 0"
 
             has_gust = (
                 gust_mph is not None 
@@ -494,12 +493,13 @@ def main():
             station_lines.append(f"TimeRange: {start_range} {end_range}")
             station_lines.append(f"Object: {lat:.5f},{lon:.5f}")
 
+            # Draw pre-colored wind barb without applying any Color: command
             if speed_kt >= 3 and wind_dir is not None:
                 barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                 if barb_val > 0:
-                    station_lines.append(f"  Color: {color_barb}")
                     station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
+            # Reset color for sky cover icon and text elements
             station_lines.append("  Color: 255 255 255")
             station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
 
@@ -545,7 +545,7 @@ def main():
         "; Last Updated: 9/18/26",
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
-        f'IconFile: 1, 25, 25, 13, 13, "{WIND_BARB_ICON_URL}"',
+        f'IconFile: 1, 25, 25, 12, 12, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
         ""
