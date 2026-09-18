@@ -548,8 +548,8 @@ def main():
         f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
-        "Created by: Bryan J. Howell and Gemini",
-        "Last updated: 9/18/26",
+        "//Created by: Bryan J. Howell and Gemini",
+        "//Last updated: 9/18/26",
         ""
     ]
 
