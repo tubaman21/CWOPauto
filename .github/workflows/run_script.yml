@@ -2,35 +2,34 @@ name: Generate GR2Analyst Placefile
 
 concurrency:
   group: placefile-update
-  cancel-in-progress: true
+  # Set to false to prevent GitHub from killing active git operations mid-push
+  cancel-in-progress: false
 
 on:
   push:
     branches:
       - main
+  # schedule:
+  #   - cron: '*/5 * * * *'
   workflow_dispatch:
-
-env:
-  ACTIONS_ALLOW_USE_UNSECURED_NODE20: "true"
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: "true"
 
 jobs:
   build-and-commit:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        env:
-          ACTIONS_ALLOW_USE_UNSECURED_NODE20: "true"
+        with:
+          # Fetch full history so rebase operations work reliably
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-        env:
-          ACTIONS_ALLOW_USE_UNSECURED_NODE20: "true"
 
       - name: Install Dependencies
         run: |
@@ -48,9 +47,38 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
           git add placefiles/cwop_observations.txt
-          if ! git diff --staged --quiet; then
-            git commit -m "Auto-update GR2Analyst placefile [skip ci]"
+
+          if git diff --staged --quiet; then
+            echo "No changes detected in placefile. Exiting."
+            exit 0
+          fi
+
+          git commit -m "Auto-update GR2Analyst placefile [skip ci]"
+
+          # Retry loop to handle transient GitHub infrastructure errors and rapid pushes
+          MAX_RETRIES=4
+          RETRY_COUNT=0
+          SUCCESS=false
+
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+            echo "Pulling latest changes from main (rebase)..."
             git pull --rebase origin main
-            git push origin main
+
+            echo "Pushing changes to main (Attempt $((RETRY_COUNT+1)))..."
+            if git push origin main; then
+              SUCCESS=true
+              echo "Placefile successfully updated and pushed!"
+              break
+            else
+              echo "Push failed. Waiting before retrying..."
+              RETRY_COUNT=$((RETRY_COUNT+1))
+              sleep $((RETRY_COUNT * 5))
+            fi
+          done
+
+          if [ "$SUCCESS" = false ]; then
+            echo "Error: Failed to push placefile after $MAX_RETRIES attempts."
+            exit 1
           fi
