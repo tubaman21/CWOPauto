@@ -4,7 +4,6 @@ import json
 import math
 import time
 from datetime import datetime, timedelta, timezone
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 try:
     import requests
@@ -49,7 +48,13 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Union Pacific", "Wisconet", 
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 
 # Network IDs explicitly designated for hydrology/water level telemetry by Synoptic
-HYDRO_MNET_IDS = {"128", "130", "180", "208", "236"}
+HYDRO_MNET_IDS = {
+    "128",  # USGS River Gages
+    "130",  # NWS Hydro / HADS
+    "180",  # US Army Corps of Engineers (USACE)
+    "208",  # USBR Hydro
+    "236",  # CoCoRaHS
+}
 
 # Key terms wrapped in spaces to target water-only gauge metadata safely
 HYDRO_NAME_KEYWORDS = (
@@ -65,7 +70,9 @@ WHITELIST_STATIONS = {
 }
 
 # Explicitly hidden/blacklisted station IDs
-BLACKLIST_STATIONS = {"G1059", "FW9531"}
+BLACKLIST_STATIONS = {
+    "G1059", "FW9531"
+}
 
 STATION_MAP = {
     "D8249": "DW8249",
@@ -80,8 +87,6 @@ STATION_COORDINATE_OVERRIDES = {
     "D6222":  (46.778900, -90.789797),
     "DW6222": (46.778900, -90.789797)
 }
-
-SENSOR_SUFFIXES = ("", "_set_1", "_set_1d", "_set_2")
 
 # ==========================================
 # UTILITY HELPER FUNCTIONS
@@ -169,12 +174,9 @@ def get_sky_cover_icon(cloud_cov_str):
     return 5
 
 def get_obs_val(observations, var_prefixes, index):
-    """O(1) hash lookup across Synoptic variable naming conventions."""
-    for prefix in var_prefixes:
-        for suffix in SENSOR_SUFFIXES:
-            key = f"{prefix}{suffix}"
-            values = observations.get(key)
-            if values and isinstance(values, list) and index < len(values):
+    for key, values in observations.items():
+        if any(prefix in key for prefix in var_prefixes):
+            if isinstance(values, list) and index < len(values):
                 val = values[index]
                 if val is not None:
                     try:
@@ -182,7 +184,7 @@ def get_obs_val(observations, var_prefixes, index):
                         if not math.isnan(fval):
                             return fval
                     except (ValueError, TypeError):
-                        pass
+                        continue
     return None
 
 def get_best_slp(observations, index, elev_meters, temp_c):
@@ -215,26 +217,6 @@ def clean_rain_value_to_inches(val):
     except Exception:
         return 0.0
 
-def fetch_bbox_segment(bbox_str, api_token):
-    """Helper to execute parallel API requests across bounding box quadrants."""
-    api_params = {
-        "token": api_token,
-        "bbox": bbox_str,
-        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,visibility,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
-        "varsoperator": "OR",
-        "recent": LOOKBACK_HOURS * 60,
-        "obtimezone": "UTC",
-        "output": "json",
-        "extra": "metadata,mnet,sensor_variables"
-    }
-    try:
-        res = requests.get(SYNOPTIC_API_URL, params=api_params, timeout=20)
-        if res.status_code == 200:
-            return res.json().get("STATION", [])
-    except Exception:
-        pass
-    return []
-
 # ==========================================
 # MAIN IMPLEMENTATION LOGIC
 # ==========================================
@@ -248,301 +230,317 @@ def main():
     
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
-    lat_mid = (LAT_MIN + LAT_MAX) / 2.0
-    lon_mid = (LON_MIN + LON_MAX) / 2.0
+    api_params = {
+        "token": api_token,
+        "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
+        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,visibility,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
+        "varsoperator": "OR",
+        "recent": LOOKBACK_HOURS * 60,
+        "obtimezone": "UTC",
+        "output": "json",
+        "extra": "metadata,mnet,sensor_variables"
+    }
     
-    bboxes = [
-        f"{LON_MIN},{LAT_MIN},{lon_mid},{lat_mid}",
-        f"{lon_mid},{LAT_MIN},{LON_MAX},{lat_mid}",
-        f"{LON_MIN},{lat_mid},{lon_mid},{LAT_MAX}",
-        f"{lon_mid},{lat_mid},{LON_MAX},{LAT_MAX}"
-    ]
-    
-    stations_data = []
-    with ThreadPoolExecutor(max_workers=4) as executor:
-        future_to_bbox = {executor.submit(fetch_bbox_segment, bbox, api_token): bbox for bbox in bboxes}
-        for future in as_completed(future_to_bbox):
-            res_stations = future.result()
-            if res_stations:
-                stations_data.extend(res_stations)
+    # Retry loop for transient Synoptic outages / rate limits
+    data = None
+    max_retries = 3
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = requests.get(SYNOPTIC_API_URL, params=api_params, timeout=25)
+            if response.status_code == 200:
+                data = response.json()
+                break
+            else:
+                print(f"Attempt {attempt}/{max_retries}: Synoptic HTTP {response.status_code}. Retrying...")
+        except Exception as e:
+            print(f"Attempt {attempt}/{max_retries}: Network exception ({e}). Retrying...")
+        
+        time.sleep(5 * attempt)
+
+    if not data:
+        print("Warning: Unable to retrieve Synoptic data after retries. Proceeding gracefully with empty Synoptic payload.")
+        data = {}
+
+    response_code = data.get("SUMMARY", {}).get("RESPONSE_CODE") or data.get("RESPONSE_CODE")
+    if response_code and response_code != 1:
+        error_msg = data.get("SUMMARY", {}).get("RESPONSE_MESSAGE") or data.get("RESPONSE_MESSAGE")
+        print(f"Warning: Synoptic API Error Code [{response_code}]: {error_msg}")
 
     network_blocks = {}
     seen_stations = set()
     rain_counter = 0
 
-    for station in stations_data:
-        raw_stid = station.get("STID", "UNKNOWN").upper()
-        stid = STATION_MAP.get(raw_stid, raw_stid)
+    if "STATION" in data and data["STATION"]:
+        for station in data["STATION"]:
+            raw_stid = station.get("STID", "UNKNOWN").upper()
+            stid = STATION_MAP.get(raw_stid, raw_stid)
 
-        if raw_stid in BLACKLIST_STATIONS or stid in BLACKLIST_STATIONS:
-            continue
-
-        if stid in seen_stations or raw_stid in seen_stations:
-            continue
-        seen_stations.add(stid)
-        seen_stations.add(raw_stid)
-
-        mnet_id = str(station.get("MNET_ID", ""))
-        mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
-        mnet_name = str(station.get("MNET_NAME", "")).upper()
-
-        # Classify station network type
-        if (
-            mnet_id == "64" 
-            or "UNION PACIFIC" in mnet_name 
-            or "UNION PACIFIC" in mnet_short 
-            or "UPRR" in mnet_short
-            or stid.startswith("UP")
-        ):
-            mnet = "Union Pacific"
-        elif stid.startswith("XL") or "XCEL" in mnet_short or "XCEL" in mnet_name:
-            mnet = "Xcel Energy"
-        elif (
-            stid.startswith(("WXM", "WXM-", "WXM_")) 
-            or "WEATHERXM" in mnet_name 
-            or "WEATHERXM" in mnet_short
-        ):
-            mnet = "WeatherXM"
-        elif (
-            mnet_id == "280"
-            or "WISCONET" in mnet_short 
-            or "WISCONET" in mnet_name 
-            or "WISCONSIN ENVIRONMENTAL MESONET" in mnet_name
-            or "WISCONSIN MESONET" in mnet_name
-            or stid.startswith(("WCN", "WISC"))
-        ):
-            mnet = "Wisconet"
-        elif (
-            mnet_id == "2" 
-            or "RAWS" in mnet_short 
-            or stid in {
-                "SILW3", "HWDW3", "MRZW3", "WSHW3", "GDNW3", 
-                "SMRW3", "PLPW3", "DMLW3", "LDYW3", "LNDW3", "AFWW3"
-            }
-        ):
-            mnet = "RAWS"
-        elif (
-            raw_stid in WHITELIST_STATIONS
-            or stid in WHITELIST_STATIONS
-            or mnet_id == "153" 
-            or "CWOP" in mnet_short 
-            or "CWOP" in mnet_name
-            or stid.startswith(("DW", "CW", "EW", "FW"))
-            or (len(stid) == 5 and stid[0] in {'C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'} and stid[1:].isdigit())
-        ):
-            mnet = "CWOP"
-        elif mnet_id in ["66", "172"] or any(k in mnet_short for k in ["MNDOT", "MN_DOT"]) or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
-            mnet = "MnDOT"
-        elif (
-            mnet_id in ["67", "173"] 
-            or any(kw in mnet_short for kw in ["WISDOT", "WI_DOT", "WIS_DOT", "RWIS"]) 
-            or "WISCONSIN DOT" in mnet_name 
-            or stid.startswith(("WIDOT", "RWIS", "WIRT"))
-        ):
-            mnet = "WisDOT"
-        elif "DOT" in mnet_short or "DOT" in mnet_name:
-            mnet = "DOT"
-        elif mnet_short and mnet_short != "UNKNOWN":
-            mnet = mnet_short
-        else:
-            mnet = "Mesonet"
-
-        # Hydrological and Marine Filtering
-        if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
-            if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
-                continue
-            
-            if mnet_id in HYDRO_MNET_IDS or mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"]:
+            if raw_stid in BLACKLIST_STATIONS or stid in BLACKLIST_STATIONS:
                 continue
 
-            padded_name = f" {mnet_name} "
-            if any(kw in padded_name for kw in HYDRO_NAME_KEYWORDS):
+            if stid in seen_stations or raw_stid in seen_stations:
                 continue
+            seen_stations.add(stid)
+            seen_stations.add(raw_stid)
 
-            if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
-                continue
+            mnet_id = str(station.get("MNET_ID", ""))
+            mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
+            mnet_name = str(station.get("MNET_NAME", "")).upper()
 
-            if stid.endswith(NLI_HYDRO_SUFFIXES) or raw_stid.endswith(NLI_HYDRO_SUFFIXES):
-                continue
-
-            if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet", "Union Pacific", "WeatherXM"] and mnet_id != "2":
-                sensor_keys = set(station.get("SENSOR_VARIABLES", {}).keys())
-                has_weather_sensors = any(
-                    v in sensor_keys for v in ["air_temp", "wind_speed", "relative_humidity"]
-                )
-                if not has_weather_sensors:
-                    continue
-        
-        try:
-            lat = float(station.get("LATITUDE"))
-            lon = float(station.get("LONGITUDE"))
-        except (TypeError, ValueError):
-            continue
-
-        elev_meters = None
-        raw_elev = station.get("ELEVATION")
-        if raw_elev is not None:
-            try:
-                elev_meters = float(raw_elev) * 0.3048
-            except (ValueError, TypeError):
-                pass
-
-        if stid in STATION_COORDINATE_OVERRIDES:
-            lat, lon = STATION_COORDINATE_OVERRIDES[stid]
-        elif raw_stid in STATION_COORDINATE_OVERRIDES:
-            lat, lon = STATION_COORDINATE_OVERRIDES[raw_stid]
-            
-        observations = station.get("OBSERVATIONS", {})
-        timestamps = observations.get("date_time", [])
-
-        if not isinstance(timestamps, list) or not timestamps:
-            continue
-
-        latest_idx = len(timestamps) - 1
-        ts_str = timestamps[latest_idx]
-
-        try:
-            if ts_str.endswith('Z'):
-                dt_ob = datetime.fromisoformat(ts_str[:-1]).replace(tzinfo=timezone.utc)
+            # Classify station network type
+            if (
+                mnet_id == "64" 
+                or "UNION PACIFIC" in mnet_name 
+                or "UNION PACIFIC" in mnet_short 
+                or "UPRR" in mnet_short
+                or stid.startswith("UP")
+            ):
+                mnet = "Union Pacific"
+            elif stid.startswith("XL") or "XCEL" in mnet_short or "XCEL" in mnet_name:
+                mnet = "Xcel Energy"
+            elif (
+                stid.startswith(("WXM", "WXM-", "WXM_")) 
+                or "WEATHERXM" in mnet_name 
+                or "WEATHERXM" in mnet_short
+            ):
+                mnet = "WeatherXM"
+            elif (
+                mnet_id == "280"
+                or "WISCONET" in mnet_short 
+                or "WISCONET" in mnet_name 
+                or "WISCONSIN ENVIRONMENTAL MESONET" in mnet_name
+                or "WISCONSIN MESONET" in mnet_name
+                or stid.startswith(("WCN", "WISC"))
+            ):
+                mnet = "Wisconet"
+            elif (
+                mnet_id == "2" 
+                or "RAWS" in mnet_short 
+                or stid in [
+                    "SILW3", "HWDW3", "MRZW3", "WSHW3", "GDNW3", 
+                    "SMRW3", "PLPW3", "DMLW3", "LDYW3", "LNDW3", "AFWW3"
+                ]
+            ):
+                mnet = "RAWS"
+            elif (
+                raw_stid in WHITELIST_STATIONS
+                or stid in WHITELIST_STATIONS
+                or mnet_id == "153" 
+                or "CWOP" in mnet_short 
+                or "CWOP" in mnet_name
+                or stid.startswith(("DW", "CW", "EW", "FW"))
+                or (len(stid) == 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'] and stid[1:].isdigit())
+            ):
+                mnet = "CWOP"
+            elif mnet_id in ["66", "172"] or any(k in mnet_short for k in ["MNDOT", "MN_DOT"]) or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
+                mnet = "MnDOT"
+            elif (
+                mnet_id in ["67", "173"] 
+                or any(kw in mnet_short for kw in ["WISDOT", "WI_DOT", "WIS_DOT", "RWIS"]) 
+                or "WISCONSIN DOT" in mnet_name 
+                or stid.startswith(("WIDOT", "RWIS", "WIRT"))
+            ):
+                mnet = "WisDOT"
+            elif "DOT" in mnet_short or "DOT" in mnet_name:
+                mnet = "DOT"
+            elif mnet_short and mnet_short != "UNKNOWN":
+                mnet = mnet_short
             else:
-                dt_ob = datetime.fromisoformat(ts_str)
+                mnet = "Mesonet"
+
+            # Hydrological and Marine Filtering
+            if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
+                if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
+                    continue
+                
+                if mnet_id in HYDRO_MNET_IDS or mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"]:
+                    continue
+
+                padded_name = f" {mnet_name} "
+                if any(kw in padded_name for kw in HYDRO_NAME_KEYWORDS):
+                    continue
+
+                if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
+                    continue
+
+                if stid.endswith(NLI_HYDRO_SUFFIXES) or raw_stid.endswith(NLI_HYDRO_SUFFIXES):
+                    continue
+
+                if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet", "Union Pacific", "WeatherXM"] and mnet_id != "2":
+                    sensor_keys = set(station.get("SENSOR_VARIABLES", {}).keys())
+                    has_weather_sensors = any(
+                        v in sensor_keys for v in ["air_temp", "wind_speed", "relative_humidity"]
+                    )
+                    if not has_weather_sensors:
+                        continue
             
-            start_range = (dt_ob - timedelta(minutes=5)).strftime("%Y-%m-%dT%H:%M:%SZ")
-            end_range = (dt_ob + timedelta(minutes=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
-            ob_time_str = dt_ob.strftime("%Y-%m-%d %H:%M UTC")
-        except Exception:
-            continue
-
-        temp_c = get_obs_val(observations, ["air_temp"], latest_idx)
-        dew_c = get_obs_val(observations, ["dew_point"], latest_idx)
-        rh_pct = get_obs_val(observations, ["relative_humidity"], latest_idx)
-        speed_ms = get_obs_val(observations, ["wind_speed"], latest_idx)
-        gust_ms = get_obs_val(observations, ["wind_gust"], latest_idx)
-        wind_dir = get_obs_val(observations, ["wind_direction"], latest_idx)
-        raw_vis = get_obs_val(observations, ["visibility", "vis"], latest_idx)
-
-        temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
-        dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
-
-        if dew_f is None and temp_f is not None and rh_pct is not None:
-            dew_f = calculate_dewpoint_f(temp_f, rh_pct)
-
-        speed_mph = int(round(speed_ms * 2.23694)) if speed_ms is not None else 0
-        gust_mph = int(round(gust_ms * 2.23694)) if gust_ms is not None else None
-        speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
-
-        slp_mb = get_best_slp(observations, latest_idx, elev_meters, temp_c)
-        vis_str = format_visibility_str(raw_vis)
-
-        raw_p1h = get_obs_val(observations, ["precip_accum_one_hour"], latest_idx)
-        raw_p24h = get_obs_val(observations, ["precip_accum_24_hour"], latest_idx)
-
-        p1h_in = clean_rain_value_to_inches(raw_p1h) if raw_p1h is not None else 0.0
-        p24h_in = clean_rain_value_to_inches(raw_p24h) if raw_p24h is not None else 0.0
-
-        p1h_str = format_precip_str(p1h_in)
-        p24h_str = format_precip_str(p24h_in)
-
-        if p1h_str:
-            rain_counter += 1
-
-        sky_code = get_obs_val(observations, ["cloud_layer_1_code"], latest_idx)
-
-        # Quality Control Bounds
-        if temp_f is not None and (temp_f < -50 or temp_f > 130): temp_f = None
-        if dew_f is not None and (dew_f < -60 or dew_f > 100): dew_f = None
-        if temp_f is not None and dew_f is not None and dew_f > temp_f: dew_f = None
-
-        slp_str = sanitize_slp(slp_mb)
-        sky_icon_idx = get_sky_cover_icon(sky_code)
-
-        tf_display = f"{temp_f}" if temp_f is not None else "M"
-        df_display = f"{dew_f}" if dew_f is not None else "M"
-        wind_dir_display = int(wind_dir) if wind_dir is not None else 0
-
-        color_temp = "255 100 100"
-        color_dew = "100 255 100"
-        color_slp = "255 255 255"
-        color_rain = "0 255 255"
-        color_gust = "255 255 0"
-
-        max_wind_mph = gust_mph if gust_mph is not None else speed_mph
-
-        if max_wind_mph >= 45:
-            color_barb, color_temp = "255 0 255", "255 50 255"
-        elif max_wind_mph >= 35:
-            color_barb, color_temp = "255 255 0", "255 200 0"
-        else:
-            color_barb = "255 255 255"
-
-        has_gust = (
-            gust_mph is not None 
-            and gust_mph >= 12 
-            and gust_mph > (speed_mph + 3)
-        )
-
-        wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH" if has_gust else f"{wind_dir_display:03d}@{speed_mph}MPH"
-
-        p1h_hover = f"{p1h_str}\"" if p1h_str else "0.00\""
-        p24h_hover = f"{p24h_str}\"" if p24h_str else "0.00\""
-        vis_hover = f"{vis_str}SM" if vis_str else "N/A"
-
-        hover_text = (
-            f"Obs Time: {ob_time_str} | Station: {stid} | Type: {mnet} | "
-            f"Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | "
-            f"Vis: {vis_hover} | SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
-            f"Rain 1hr: {p1h_hover} | Rain 24hr: {p24h_hover}"
-        )
-
-        station_lines = []
-        station_lines.append(f"TimeRange: {start_range} {end_range}")
-        station_lines.append(f"Object: {lat:.5f},{lon:.5f}")
-
-        if speed_kt >= 3 and wind_dir is not None:
-            barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
-            if barb_val > 0:
-                station_lines.append(f"  Color: {color_barb}")
-                station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
-
-        station_lines.append("  Color: 255 255 255")
-        station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
-
-        if tf_display != "M":
-            station_lines.append(f"  Color: {color_temp}")
-            station_lines.append(f'  Text: -16, 12, 1, "{tf_display}"')
-
-        if raw_vis is not None and vis_str:
             try:
-                v_num = float(raw_vis)
-                if v_num > 50.0: v_num *= 0.000621371
-                color_vis = "255 0 255" if v_num <= 1.0 else ("255 255 0" if v_num <= 3.0 else "180 180 180")
+                lat = float(station.get("LATITUDE"))
+                lon = float(station.get("LONGITUDE"))
+            except (TypeError, ValueError):
+                continue
 
-                station_lines.append(f"  Color: {color_vis}")
-                station_lines.append(f'  Text: -32, 0, 1, "{vis_str}"')
+            elev_meters = None
+            raw_elev = station.get("ELEVATION")
+            if raw_elev is not None:
+                try:
+                    elev_meters = float(raw_elev) * 0.3048
+                except (ValueError, TypeError):
+                    pass
+
+            if stid in STATION_COORDINATE_OVERRIDES:
+                lat, lon = STATION_COORDINATE_OVERRIDES[stid]
+            elif raw_stid in STATION_COORDINATE_OVERRIDES:
+                lat, lon = STATION_COORDINATE_OVERRIDES[raw_stid]
+                
+            observations = station.get("OBSERVATIONS", {})
+            timestamps = observations.get("date_time", [])
+
+            if not timestamps:
+                continue
+
+            latest_idx = len(timestamps) - 1
+            ts_str = timestamps[latest_idx]
+
+            try:
+                dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+                start_range = (dt_ob - timedelta(minutes=5)).strftime("%Y-%m-%dT%H:%M:%SZ")
+                end_range = (dt_ob + timedelta(minutes=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
+                ob_time_str = dt_ob.strftime("%Y-%m-%d %H:%M UTC")
             except Exception:
-                pass
+                continue
 
-        if slp_str != "M":
-            station_lines.append(f"  Color: {color_slp}")
-            station_lines.append(f'  Text: 16, 12, 1, "{slp_str}"')
+            temp_c = get_obs_val(observations, ["air_temp"], latest_idx)
+            dew_c = get_obs_val(observations, ["dew_point"], latest_idx)
+            rh_pct = get_obs_val(observations, ["relative_humidity"], latest_idx)
+            speed_ms = get_obs_val(observations, ["wind_speed"], latest_idx)
+            gust_ms = get_obs_val(observations, ["wind_gust"], latest_idx)
+            wind_dir = get_obs_val(observations, ["wind_direction"], latest_idx)
+            raw_vis = get_obs_val(observations, ["visibility", "vis"], latest_idx)
 
-        if df_display != "M":
-            station_lines.append(f"  Color: {color_dew}")
-            station_lines.append(f'  Text: -16, -12, 1, "{df_display}"')
+            temp_f = int(round((temp_c * 9/5) + 32)) if temp_c is not None else None
+            dew_f = int(round((dew_c * 9/5) + 32)) if dew_c is not None else None
 
-        if p1h_str:
-            station_lines.append(f"  Color: {color_rain}")
-            station_lines.append(f'  Text: 16, -12, 1, "{p1h_str}"')
+            if dew_f is None and temp_f is not None and rh_pct is not None:
+                dew_f = calculate_dewpoint_f(temp_f, rh_pct)
 
-        if has_gust:
-            station_lines.append(f"  Color: {color_gust}")
-            station_lines.append(f'  Text: 0, -20, 1, "G{gust_mph}"')
+            speed_mph = int(round(speed_ms * 2.23694)) if speed_ms is not None else 0
+            gust_mph = int(round(gust_ms * 2.23694)) if gust_ms is not None else None
+            speed_kt = int(round(speed_ms * 1.94384)) if speed_ms is not None else 0
 
-        station_lines.append("End:")
-        station_lines.append("")
+            slp_mb = get_best_slp(observations, latest_idx, elev_meters, temp_c)
+            vis_str = format_visibility_str(raw_vis)
 
-        if station_lines:
-            network_blocks.setdefault(mnet, []).extend(station_lines)
+            raw_p1h = get_obs_val(observations, ["precip_accum_one_hour"], latest_idx)
+            raw_p24h = get_obs_val(observations, ["precip_accum_24_hour"], latest_idx)
+            raw_pbucket = get_obs_val(observations, ["precip_accum"], latest_idx)
+
+            p1h_in = clean_rain_value_to_inches(raw_p1h) if raw_p1h is not None else 0.0
+            p24h_in = clean_rain_value_to_inches(raw_p24h) if raw_p24h is not None else 0.0
+
+            p1h_str = format_precip_str(p1h_in)
+            p24h_str = format_precip_str(p24h_in)
+
+            if p1h_str:
+                rain_counter += 1
+
+            sky_code = get_obs_val(observations, ["cloud_layer_1_code"], latest_idx)
+
+            # Quality Control Bounds
+            if temp_f is not None and (temp_f < -50 or temp_f > 130): temp_f = None
+            if dew_f is not None and (dew_f < -60 or dew_f > 100): dew_f = None
+            if temp_f is not None and dew_f is not None and dew_f > temp_f: dew_f = None
+
+            slp_str = sanitize_slp(slp_mb)
+            sky_icon_idx = get_sky_cover_icon(sky_code)
+
+            tf_display = f"{temp_f}" if temp_f is not None else "M"
+            df_display = f"{dew_f}" if dew_f is not None else "M"
+            wind_dir_display = int(wind_dir) if wind_dir is not None else 0
+
+            color_temp = "255 100 100"
+            color_dew  = "100 255 100"
+            color_slp  = "255 255 255"
+            color_rain = "0 255 255"
+            color_gust = "255 255 0"
+
+            max_wind_mph = gust_mph if gust_mph is not None else speed_mph
+
+            if max_wind_mph >= 45:
+                color_barb, color_temp = "255 0 255", "255 50 255"
+            elif max_wind_mph >= 35:
+                color_barb, color_temp = "255 255 0", "255 200 0"
+            else:
+                color_barb = "255 255 255"
+
+            has_gust = (
+                gust_mph is not None 
+                and gust_mph >= 12 
+                and gust_mph > (speed_mph + 3)
+            )
+
+            wind_display = f"{wind_dir_display:03d}@{speed_mph}G{gust_mph}MPH" if has_gust else f"{wind_dir_display:03d}@{speed_mph}MPH"
+
+            p1h_hover = f"{p1h_str}\"" if p1h_str else "0.00\""
+            p24h_hover = f"{p24h_str}\"" if p24h_str else "0.00\""
+            vis_hover = f"{vis_str}SM" if vis_str else "N/A"
+
+            hover_text = (
+                f"Obs Time: {ob_time_str} | Station: {stid} | Type: {mnet} | "
+                f"Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | "
+                f"Vis: {vis_hover} | SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
+                f"Rain 1hr: {p1h_hover} | Rain 24hr: {p24h_hover}"
+            )
+
+            station_lines = []
+            station_lines.append(f"TimeRange: {start_range} {end_range}")
+            station_lines.append(f"Object: {lat:.5f},{lon:.5f}")
+
+            if speed_kt >= 3 and wind_dir is not None:
+                barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
+                if barb_val > 0:
+                    station_lines.append(f"  Color: {color_barb}")
+                    station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
+
+            station_lines.append("  Color: 255 255 255")
+            station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
+
+            if tf_display != "M":
+                station_lines.append(f"  Color: {color_temp}")
+                station_lines.append(f'  Text: -16, 12, 1, "{tf_display}"')
+
+            if raw_vis is not None and vis_str:
+                try:
+                    v_num = float(raw_vis)
+                    if v_num > 50.0: v_num *= 0.000621371
+                    color_vis = "255 0 255" if v_num <= 1.0 else ("255 255 0" if v_num <= 3.0 else "180 180 180")
+
+                    station_lines.append(f"  Color: {color_vis}")
+                    station_lines.append(f'  Text: -32, 0, 1, "{vis_str}"')
+                except Exception:
+                    pass
+
+            if slp_str != "M":
+                station_lines.append(f"  Color: {color_slp}")
+                station_lines.append(f'  Text: 16, 12, 1, "{slp_str}"')
+
+            if df_display != "M":
+                station_lines.append(f"  Color: {color_dew}")
+                station_lines.append(f'  Text: -16, -12, 1, "{df_display}"')
+
+            if p1h_str:
+                station_lines.append(f"  Color: {color_rain}")
+                station_lines.append(f'  Text: 16, -12, 1, "{p1h_str}"')
+
+            if has_gust:
+                station_lines.append(f"  Color: {color_gust}")
+                station_lines.append(f'  Text: 0, -20, 1, "G{gust_mph}"')
+
+            station_lines.append("End:")
+            station_lines.append("")
+
+            if station_lines:
+                network_blocks.setdefault(mnet, []).extend(station_lines)
 
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
@@ -550,8 +548,6 @@ def main():
         f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
-        "Created by: Bryan J. Howell and Gemini",
-        "Last updated: 9/18/26",
         ""
     ]
 
