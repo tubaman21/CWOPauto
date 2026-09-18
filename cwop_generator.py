@@ -23,7 +23,7 @@ LON_MIN, LON_MAX = -97.5, -86.5
 
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
-# Standard METAR sprite sheets via CDN and RedTeamWX
+# RedTeamWX wind barbs and standard sky cover sprite sheet
 WIND_BARB_ICON_URL = "http://grlevelx.redteamwx.com/10m_wind_barbs.png"
 SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
@@ -433,10 +433,9 @@ def main():
 
             raw_p1h = get_obs_val(observations, ["precip_accum_one_hour"], latest_idx)
             raw_p24h = get_obs_val(observations, ["precip_accum_24_hour"], latest_idx)
-            raw_pbucket = get_obs_val(observations, ["precip_accum"], latest_idx)
 
-            p1h_in = clean_rain_value_to_inches(raw_p1h) if raw_p1h is not None else 0.0
-            p24h_in = clean_rain_value_to_inches(raw_p24h) if raw_p24h is not None else 0.0
+            p1h_in = clean_rain_value_to_inches(raw_p1h)
+            p24h_in = clean_rain_value_to_inches(raw_p24h)
 
             p1h_str = format_precip_str(p1h_in)
             p24h_str = format_precip_str(p24h_in)
@@ -463,6 +462,7 @@ def main():
             color_slp  = "255 255 255"
             color_rain = "0 255 255"
             color_gust = "255 255 0"
+            color_barb = "255 255 255"
 
             max_wind_mph = gust_mph if gust_mph is not None else speed_mph
 
@@ -470,8 +470,6 @@ def main():
                 color_barb, color_temp = "255 0 255", "255 50 255"
             elif max_wind_mph >= 35:
                 color_barb, color_temp = "255 255 0", "255 200 0"
-            else:
-                color_barb = "255 255 255"
 
             has_gust = (
                 gust_mph is not None 
@@ -547,7 +545,7 @@ def main():
         "; Last Updated: 9/18/26",
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
-        f'IconFile: 1, 21, 21, 11, 11, "{WIND_BARB_ICON_URL}"',
+        f'IconFile: 1, 25, 25, 12, 12, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
         ""
