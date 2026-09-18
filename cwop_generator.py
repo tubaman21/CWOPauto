@@ -543,8 +543,6 @@ def main():
                 network_blocks.setdefault(mnet, []).extend(station_lines)
 
     header_lines = [
-        ;Created by: Bryan J. Howell and Gemini
-        ;Last updated: 9/18/26
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
         f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"',
