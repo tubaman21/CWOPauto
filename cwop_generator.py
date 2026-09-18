@@ -48,13 +48,7 @@ NETWORK_ORDER = ["RAWS", "MnDOT", "WisDOT", "DOT", "Union Pacific", "Wisconet", 
 NLI_HYDRO_SUFFIXES = ("M5", "W3", "I4", "N6", "S2", "M4")
 
 # Network IDs explicitly designated for hydrology/water level telemetry by Synoptic
-HYDRO_MNET_IDS = {
-    "128",  # USGS River Gages
-    "130",  # NWS Hydro / HADS
-    "180",  # US Army Corps of Engineers (USACE)
-    "208",  # USBR Hydro
-    "236",  # CoCoRaHS
-}
+HYDRO_MNET_IDS = {"128", "130", "180", "208", "236"}
 
 # Key terms wrapped in spaces to target water-only gauge metadata safely
 HYDRO_NAME_KEYWORDS = (
@@ -70,9 +64,7 @@ WHITELIST_STATIONS = {
 }
 
 # Explicitly hidden/blacklisted station IDs
-BLACKLIST_STATIONS = {
-    "G1059", "FW9531"
-}
+BLACKLIST_STATIONS = {"G1059", "FW9531"}
 
 STATION_MAP = {
     "D8249": "DW8249",
@@ -171,6 +163,7 @@ def get_wind_barb_index(speed_knots, direction_deg):
     return idx, int(direction_deg)
 
 def get_sky_cover_icon(cloud_cov_str):
+    # Retained hardcoded icon index per requirement
     return 5
 
 def get_obs_val(observations, var_prefixes, index):
@@ -241,7 +234,6 @@ def main():
         "extra": "metadata,mnet,sensor_variables"
     }
     
-    # Retry loop for transient Synoptic outages / rate limits
     data = None
     max_retries = 3
     for attempt in range(1, max_retries + 1):
@@ -270,7 +262,7 @@ def main():
     seen_stations = set()
     rain_counter = 0
 
-    if "STATION" in data and data["STATION"]:
+    if "STATION" in data and isinstance(data["STATION"], list):
         for station in data["STATION"]:
             raw_stid = station.get("STID", "UNKNOWN").upper()
             stid = STATION_MAP.get(raw_stid, raw_stid)
@@ -316,10 +308,10 @@ def main():
             elif (
                 mnet_id == "2" 
                 or "RAWS" in mnet_short 
-                or stid in [
+                or stid in {
                     "SILW3", "HWDW3", "MRZW3", "WSHW3", "GDNW3", 
                     "SMRW3", "PLPW3", "DMLW3", "LDYW3", "LNDW3", "AFWW3"
-                ]
+                }
             ):
                 mnet = "RAWS"
             elif (
@@ -329,7 +321,7 @@ def main():
                 or "CWOP" in mnet_short 
                 or "CWOP" in mnet_name
                 or stid.startswith(("DW", "CW", "EW", "FW"))
-                or (len(stid) == 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'] and stid[1:].isdigit())
+                or (len(stid) == 5 and stid[0] in {'C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'} and stid[1:].isdigit())
             ):
                 mnet = "CWOP"
             elif mnet_id in ["66", "172"] or any(k in mnet_short for k in ["MNDOT", "MN_DOT"]) or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
@@ -396,14 +388,18 @@ def main():
             observations = station.get("OBSERVATIONS", {})
             timestamps = observations.get("date_time", [])
 
-            if not timestamps:
+            if not isinstance(timestamps, list) or not timestamps:
                 continue
 
             latest_idx = len(timestamps) - 1
             ts_str = timestamps[latest_idx]
 
             try:
-                dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+                if ts_str.endswith('Z'):
+                    dt_ob = datetime.fromisoformat(ts_str[:-1]).replace(tzinfo=timezone.utc)
+                else:
+                    dt_ob = datetime.fromisoformat(ts_str)
+                
                 start_range = (dt_ob - timedelta(minutes=5)).strftime("%Y-%m-%dT%H:%M:%SZ")
                 end_range = (dt_ob + timedelta(minutes=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
                 ob_time_str = dt_ob.strftime("%Y-%m-%d %H:%M UTC")
@@ -433,7 +429,6 @@ def main():
 
             raw_p1h = get_obs_val(observations, ["precip_accum_one_hour"], latest_idx)
             raw_p24h = get_obs_val(observations, ["precip_accum_24_hour"], latest_idx)
-            raw_pbucket = get_obs_val(observations, ["precip_accum"], latest_idx)
 
             p1h_in = clean_rain_value_to_inches(raw_p1h) if raw_p1h is not None else 0.0
             p24h_in = clean_rain_value_to_inches(raw_p24h) if raw_p24h is not None else 0.0
@@ -492,9 +487,10 @@ def main():
                 f"Rain 1hr: {p1h_hover} | Rain 24hr: {p24h_hover}"
             )
 
-            station_lines = []
-            station_lines.append(f"TimeRange: {start_range} {end_range}")
-            station_lines.append(f"Object: {lat:.5f},{lon:.5f}")
+            station_lines = [
+                f"TimeRange: {start_range} {end_range}",
+                f"Object: {lat:.5f},{lon:.5f}"
+            ]
 
             if speed_kt >= 3 and wind_dir is not None:
                 barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
@@ -536,11 +532,8 @@ def main():
                 station_lines.append(f"  Color: {color_gust}")
                 station_lines.append(f'  Text: 0, -20, 1, "G{gust_mph}"')
 
-            station_lines.append("End:")
-            station_lines.append("")
-
-            if station_lines:
-                network_blocks.setdefault(mnet, []).extend(station_lines)
+            station_lines.append("End:\n")
+            network_blocks.setdefault(mnet, []).extend(station_lines)
 
     header_lines = [
         f'Title: CWOP Surface Observations ({run_time})',
