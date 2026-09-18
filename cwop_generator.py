@@ -163,10 +163,28 @@ def get_wind_barb_index(speed_knots, direction_deg):
     return idx, int(direction_deg)
 
 def get_sky_cover_icon(cloud_cov_str):
-    # Retained hardcoded icon index per requirement
+    # Retained hardcoded sky icon behavior
     return 5
 
 def get_obs_val(observations, var_prefixes, index):
+    """Optimized observation lookup with O(1) primary key checks."""
+    # Fast path: check standard Synoptic key patterns directly
+    for prefix in var_prefixes:
+        for suffix in ("", "_set_1", "_set_1d", "_set_2"):
+            key = f"{prefix}{suffix}"
+            if key in observations:
+                values = observations[key]
+                if isinstance(values, list) and index < len(values):
+                    val = values[index]
+                    if val is not None:
+                        try:
+                            fval = float(val)
+                            if not math.isnan(fval):
+                                return fval
+                        except (ValueError, TypeError):
+                            pass
+
+    # Fallback path: perform string match scanning if non-standard sensor keys exist
     for key, values in observations.items():
         if any(prefix in key for prefix in var_prefixes):
             if isinstance(values, list) and index < len(values):
@@ -541,6 +559,8 @@ def main():
         f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
+        "Created by: Bryan J. Howell and Gemini",
+        "Last updated: 9/18/26",
         ""
     ]
 
