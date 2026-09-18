@@ -24,7 +24,7 @@ LON_MIN, LON_MAX = -97.5, -86.5
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
 # RedTeamWX pre-colored wind barbs sprite sheet
-WIND_BARB_ICON_URL = "http://grlevelx.redteamwx.com/10m_wind_barbs.png"
+WIND_BARB_ICON_URL = "http://www.redteamwx.com/10m_wind_barbs.png"
 SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
 LOOKBACK_HOURS = 6
@@ -493,16 +493,17 @@ def main():
             station_lines.append(f"TimeRange: {start_range} {end_range}")
             station_lines.append(f"Object: {lat:.5f},{lon:.5f}")
 
-            # Draw pre-colored wind barb without applying any Color: command
+            # 1. Draw base sky cover circle
+            station_lines.append("  Color: 255 255 255")
+            station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
+
+            # 2. Draw RedTeamWX wind barb over top
             if speed_kt >= 3 and wind_dir is not None:
                 barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                 if barb_val > 0:
                     station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
-            # Reset color for sky cover icon and text elements
-            station_lines.append("  Color: 255 255 255")
-            station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
-
+            # 3. Draw text elements
             if tf_display != "M":
                 station_lines.append(f"  Color: {color_temp}")
                 station_lines.append(f'  Text: -16, 12, 1, "{tf_display}"')
@@ -545,7 +546,7 @@ def main():
         "; Last Updated: 9/18/26",
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
-        f'IconFile: 1, 25, 25, 12, 12, "{WIND_BARB_ICON_URL}"',
+        f'IconFile: 1, 25, 25, 12, 12, "{WIND_BARB_ICON_URL}", 250, 250',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
         ""
