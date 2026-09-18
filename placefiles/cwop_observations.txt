@@ -1,10 +1,10 @@
-Title: CWOP Surface Observations (2026-09-18 19:40:19 UTC)
+Title: CWOP Surface Observations (2026-09-18 19:40:51 UTC)
 Refresh: 5
 IconFile: 1, 43, 68, 29, 67, "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
 IconFile: 2, 15, 15, 8, 8, "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 Font: 1, 11, 400, 0
-//Created by: Bryan J. Howell and Gemini
-//Last updated: 9/18/26
+// Created by: Bryan J. Howell and Gemini
+/ /Last updated: 9/18/26
 
 ; --- Network: RAWS (Threshold: 999 NM) ---
 Threshold: 999
@@ -8778,28 +8778,28 @@ Object: 43.08231,-97.39922
   Text: -16, -12, 1, "68"
 End:
 
-TimeRange: 2026-09-18T19:28:00Z 2026-09-18T21:03:00Z
+TimeRange: 2026-09-18T19:34:00Z 2026-09-18T21:09:00Z
 Object: 43.35095,-90.67679
   Color: 255 255 255
-  Icon: 0,0,50,1,2
+  Icon: 0,0,80,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-18 19:33 UTC | Station: SWX048 | Type: Mesonet | Temp: 61F | Dewpt: 59F | Wind: 050@10MPH | Vis: 10SM | SLP: 1022.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-18 19:39 UTC | Station: SWX048 | Type: Mesonet | Temp: 61F | Dewpt: 59F | Wind: 080@8MPH | Vis: 10SM | SLP: 1021.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "220"
+  Text: 16, 12, 1, "217"
   Color: 100 255 100
   Text: -16, -12, 1, "59"
 End:
 
-TimeRange: 2026-09-18T19:25:00Z 2026-09-18T21:00:00Z
+TimeRange: 2026-09-18T19:31:00Z 2026-09-18T21:06:00Z
 Object: 49.49000,-96.69000
   Color: 255 255 255
   Icon: 0,0,130,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-18 19:30 UTC | Station: SWX062 | Type: Mesonet | Temp: 66F | Dewpt: 59F | Wind: 130@7MPH | Vis: N/A | SLP: 1019.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-18 19:36 UTC | Station: SWX062 | Type: Mesonet | Temp: 66F | Dewpt: 59F | Wind: 130@8MPH | Vis: N/A | SLP: 1019.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "66"
   Color: 255 255 255
@@ -8808,16 +8808,16 @@ Object: 49.49000,-96.69000
   Text: -16, -12, 1, "59"
 End:
 
-TimeRange: 2026-09-18T19:29:00Z 2026-09-18T21:04:00Z
+TimeRange: 2026-09-18T19:34:00Z 2026-09-18T21:09:00Z
 Object: 43.96478,-89.79472
   Color: 255 255 255
-  Icon: 0,0,60,1,1
+  Icon: 0,0,80,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-18 19:34 UTC | Station: SWX078 | Type: Mesonet | Temp: 61F | Dewpt: 59F | Wind: 060@6MPH | Vis: N/A | SLP: 1025.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-18 19:39 UTC | Station: SWX078 | Type: Mesonet | Temp: 61F | Dewpt: 59F | Wind: 080@5MPH | Vis: N/A | SLP: 1024.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 255 255 255
-  Text: 16, 12, 1, "251"
+  Text: 16, 12, 1, "247"
   Color: 100 255 100
   Text: -16, -12, 1, "59"
 End:
@@ -8980,12 +8980,12 @@ Object: 42.57264,-96.36689
   Text: -16, -12, 1, "73"
 End:
 
-TimeRange: 2026-09-18T19:29:00Z 2026-09-18T21:04:00Z
+TimeRange: 2026-09-18T19:34:00Z 2026-09-18T21:09:00Z
 Object: 49.71167,-94.75667
   Color: 255 255 255
-  Icon: 0,0,20,1,1
+  Icon: 0,0,30,1,1
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-18 19:34 UTC | Station: SWX097 | Type: Mesonet | Temp: 63F | Dewpt: 52F | Wind: 020@7MPH | Vis: N/A | SLP: 1022.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-18 19:39 UTC | Station: SWX097 | Type: Mesonet | Temp: 63F | Dewpt: 52F | Wind: 030@7MPH | Vis: N/A | SLP: 1022.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 255 255 255
