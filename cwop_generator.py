@@ -543,9 +543,9 @@ def main():
                 network_blocks.setdefault(mnet, []).extend(station_lines)
 
     header_lines = [
+        f'Title: CWOP Surface Observations ({run_time})',
         "// Created by: Bryan J. Howell and Gemini",
         "// Last updated: 9/18/26",
-        f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
         f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
