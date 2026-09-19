@@ -24,7 +24,7 @@ LON_MIN, LON_MAX = -97.5, -86.5
 SYNOPTIC_API_URL = "https://api.synopticdata.com/v2/stations/timeseries"
 
 # Standard METAR sprite sheets via jsDelivr CDN
-WIND_BARB_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/windbarbs_75_new.png"
+WIND_BARB_ICON_URL = "http://grlevelx.redteamwx.com/10m_wind_barbs.png"
 SKY_COVER_ICON_URL = "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
 
 LOOKBACK_HOURS = 6
@@ -167,7 +167,7 @@ def calculate_dewpoint_f(temp_f, rh_percent):
 def get_wind_barb_index(speed_knots, direction_deg):
     if speed_knots is None or speed_knots < 3 or direction_deg is None:
         return 0, 0
-    idx = max(1, min(26, int(round(speed_knots / 5.0))))
+    idx = max(1, min(26, int(round(speed_knots / 5.0)) + 1))
     return idx, int(direction_deg)
 
 def get_sky_cover_icon(cloud_cov_str):
@@ -467,11 +467,9 @@ def main():
             max_wind_mph = gust_mph if gust_mph is not None else speed_mph
 
             if max_wind_mph >= 45:
-                color_barb, color_temp = "255 0 255", "255 50 255"
+                color_temp = "255 50 255"
             elif max_wind_mph >= 35:
-                color_barb, color_temp = "255 255 0", "255 200 0"
-            else:
-                color_barb = "255 255 255"
+                color_temp = "255 200 0"
 
             has_gust = (
                 gust_mph is not None 
@@ -499,7 +497,7 @@ def main():
             if speed_kt >= 3 and wind_dir is not None:
                 barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                 if barb_val > 0:
-                    station_lines.append(f"  Color: {color_barb}")
+                    station_lines.append("  Color: 255 255 255")
                     station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
 
             station_lines.append("  Color: 255 255 255")
@@ -547,7 +545,7 @@ def main():
         "; Last Updated: 9/18/26",
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
-        f'IconFile: 1, 43, 68, 29, 67, "{WIND_BARB_ICON_URL}"',
+        f'IconFile: 1, 30, 30, 15, 15, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
         ""
