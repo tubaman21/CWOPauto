@@ -545,7 +545,7 @@ def main():
         "; Last Updated: 9/18/26",
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
-        f'IconFile: 1, 30, 30, 15, 15, "{WIND_BARB_ICON_URL}"',
+        f'IconFile: 1, 30, 30, 15, 29, "{WIND_BARB_ICON_URL}"',
         f'IconFile: 2, 15, 15, 8, 8, "{SKY_COVER_ICON_URL}"',
         "Font: 1, 11, 400, 0",
         ""
