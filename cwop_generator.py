@@ -497,8 +497,8 @@ def main():
             if speed_kt >= 3 and wind_dir is not None:
                 barb_val, rot_angle = get_wind_barb_index(speed_kt, wind_dir)
                 if barb_val > 0:
-                    station_lines.append("  Color: 255 255 255")
-                    station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val}")
+                    station_lines.append("  Color: 255 255 255 255")
+                    station_lines.append(f"  Icon: 0,0,{rot_angle},1,{barb_val},1.25")
 
             station_lines.append("  Color: 255 255 255")
             station_lines.append(f'  Icon: 0,0,0,2,{sky_icon_idx}, "{hover_text}"')
