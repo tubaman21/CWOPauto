@@ -1,6 +1,6 @@
 ; Created by: Bryan J. Howell and Gemini
 ; Last Updated: 9/19/26
-Title: CWOP Surface Observations (2026-09-23 17:44:46 UTC)
+Title: CWOP Surface Observations (2026-09-23 17:45:16 UTC)
 Refresh: 5
 IconFile: 1, 30, 30, 15, 29, "http://grlevelx.redteamwx.com/10m_wind_barbs.png"
 IconFile: 2, 15, 15, 8, 8, "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
@@ -8238,12 +8238,12 @@ Object: 45.72473,-97.42251
   Text: 0, -20, 1, "G26"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 45.11820,-93.42830
   Color: 255 255 255
-  Icon: 0,0,115,1,3,1.25
+  Icon: 0,0,136,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN02 | Type: Mesonet | Temp: 64F | Dewpt: 50F | Wind: 115@10MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN02 | Type: Mesonet | Temp: 64F | Dewpt: 50F | Wind: 136@8MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 180 180 180
@@ -8254,10 +8254,12 @@ Object: 45.11820,-93.42830
   Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T17:38:00Z 2026-09-23T19:13:00Z
+TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
 Object: 44.84944,-93.56417
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:43 UTC | Station: HPN03 | Type: Mesonet | Temp: 65F | Dewpt: 51F | Wind: 053@3MPH | Vis: 10SM | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,93,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN03 | Type: Mesonet | Temp: 65F | Dewpt: 50F | Wind: 093@3MPH | Vis: 10SM | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "65"
   Color: 180 180 180
@@ -8265,101 +8267,99 @@ Object: 44.84944,-93.56417
   Color: 255 255 255
   Text: 16, 12, 1, "280"
   Color: 100 255 100
-  Text: -16, -12, 1, "51"
-End:
-
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
-Object: 45.16770,-93.63433
-  Color: 255 255 255
-  Icon: 0,0,144,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN04 | Type: Mesonet | Temp: 64F | Dewpt: 50F | Wind: 144@4MPH | Vis: N/A | SLP: 1018.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "64"
-  Color: 255 255 255
-  Text: 16, 12, 1, "180"
-  Color: 100 255 100
   Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
-Object: 45.05155,-93.56948
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
+Object: 45.16770,-93.63433
   Color: 255 255 255
-  Icon: 0,0,118,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN05 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 118@7MPH | Vis: 7.5SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN04 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 157@3MPH | Vis: N/A | SLP: 1017.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
-  Color: 180 180 180
-  Text: -32, 0, 1, "7.5"
   Color: 255 255 255
-  Text: 16, 12, 1, "290"
+  Text: 16, 12, 1, "170"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
+Object: 45.05155,-93.56948
+  Color: 255 255 255
+  Icon: 0,0,103,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN05 | Type: Mesonet | Temp: 64F | Dewpt: 50F | Wind: 103@9MPH | Vis: 7.3SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "64"
+  Color: 180 180 180
+  Text: -32, 0, 1, "7.3"
+  Color: 255 255 255
+  Text: 16, 12, 1, "290"
+  Color: 100 255 100
+  Text: -16, -12, 1, "50"
+End:
+
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 44.97219,-93.68444
   Color: 255 255 255
-  Icon: 0,0,115,1,2,1.25
+  Icon: 0,0,116,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN06 | Type: Mesonet | Temp: 62F | Dewpt: 50F | Wind: 115@4MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN06 | Type: Mesonet | Temp: 62F | Dewpt: 50F | Wind: 116@7G12MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 255 255 255
   Text: 16, 12, 1, "280"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 44.89519,-93.23171
   Color: 255 255 255
   Icon: 0,0,136,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN07 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 136@9G13MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN07 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 136@10MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T17:38:00Z 2026-09-23T19:13:00Z
+TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
 Object: 44.93630,-93.62005
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:43 UTC | Station: HPN08 | Type: Mesonet | Temp: 65F | Dewpt: 50F | Wind: 133@2MPH | Vis: N/A | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN08 | Type: Mesonet | Temp: 65F | Dewpt: 51F | Wind: 204@2MPH | Vis: N/A | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "65"
   Color: 255 255 255
   Text: 16, 12, 1, "270"
   Color: 100 255 100
-  Text: -16, -12, 1, "50"
+  Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 44.98992,-93.47913
   Color: 255 255 255
-  Icon: 0,0,104,1,2,1.25
+  Icon: 0,0,122,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN09 | Type: Mesonet | Temp: 64F | Dewpt: 51F | Wind: 104@5MPH | Vis: N/A | SLP: 1031.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN09 | Type: Mesonet | Temp: 63F | Dewpt: 51F | Wind: 122@6MPH | Vis: N/A | SLP: 1031.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "63"
   Color: 255 255 255
   Text: 16, 12, 1, "310"
   Color: 100 255 100
   Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 45.09689,-93.74369
   Color: 255 255 255
-  Icon: 0,0,169,1,2,1.25
+  Icon: 0,0,171,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN10 | Type: Mesonet | Temp: 64F | Dewpt: 50F | Wind: 169@4MPH | Vis: 10SM | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN10 | Type: Mesonet | Temp: 64F | Dewpt: 50F | Wind: 171@5MPH | Vis: 10SM | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 180 180 180
@@ -8370,12 +8370,12 @@ Object: 45.09689,-93.74369
   Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T17:38:00Z 2026-09-23T19:13:00Z
+TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
 Object: 44.89792,-93.73461
   Color: 255 255 255
-  Icon: 0,0,124,1,2,1.25
+  Icon: 0,0,161,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:43 UTC | Station: HPN11 | Type: Mesonet | Temp: 66F | Dewpt: 50F | Wind: 124@6MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN11 | Type: Mesonet | Temp: 66F | Dewpt: 50F | Wind: 161@8MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "66"
   Color: 255 255 255
@@ -8384,26 +8384,24 @@ Object: 44.89792,-93.73461
   Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 45.08797,-93.69137
   Color: 255 255 255
-  Icon: 0,0,112,1,2,1.25
+  Icon: 0,0,132,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN19 | Type: Mesonet | Temp: 62F | Dewpt: 50F | Wind: 112@3MPH | Vis: N/A | SLP: 1024.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN19 | Type: Mesonet | Temp: 62F | Dewpt: 51F | Wind: 132@6MPH | Vis: N/A | SLP: 1024.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 255 255 255
   Text: 16, 12, 1, "240"
   Color: 100 255 100
-  Text: -16, -12, 1, "50"
+  Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 44.95556,-93.41139
   Color: 255 255 255
-  Icon: 0,0,170,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN20 | Type: Mesonet | Temp: 63F | Dewpt: 50F | Wind: 170@5MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN20 | Type: Mesonet | Temp: 63F | Dewpt: 50F | Wind: 170@3MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 255 255 255
@@ -8412,42 +8410,42 @@ Object: 44.95556,-93.41139
   Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 45.04889,-93.27611
   Color: 255 255 255
-  Icon: 0,0,202,1,2,1.25
+  Icon: 0,0,158,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN21 | Type: Mesonet | Temp: 64F | Dewpt: 48F | Wind: 202@5MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN21 | Type: Mesonet | Temp: 65F | Dewpt: 48F | Wind: 158@5MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "65"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
   Text: -16, -12, 1, "48"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 44.86346,-93.35667
   Color: 255 255 255
-  Icon: 0,0,189,1,3,1.25
+  Icon: 0,0,180,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN24 | Type: Mesonet | Temp: 65F | Dewpt: 49F | Wind: 189@11G15MPH | Vis: N/A | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN24 | Type: Mesonet | Temp: 64F | Dewpt: 48F | Wind: 180@9G15MPH | Vis: N/A | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "65"
+  Text: -16, 12, 1, "64"
   Color: 255 255 255
   Text: 16, 12, 1, "300"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 44.89778,-93.45667
   Color: 255 255 255
-  Icon: 0,0,107,1,2,1.25
+  Icon: 0,0,127,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN25 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 107@5MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN25 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 127@7MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 255 255 255
@@ -8456,12 +8454,12 @@ Object: 44.89778,-93.45667
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T17:33:00Z 2026-09-23T19:08:00Z
+TimeRange: 2026-09-23T17:34:00Z 2026-09-23T19:09:00Z
 Object: 44.80384,-93.35893
   Color: 255 255 255
-  Icon: 0,0,112,1,2,1.25
+  Icon: 0,0,135,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:38 UTC | Station: HPN26 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 112@7G15MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:39 UTC | Station: HPN26 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 135@11G15MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 255 255 255
@@ -8472,14 +8470,14 @@ Object: 44.80384,-93.35893
   Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-23T17:38:00Z 2026-09-23T19:13:00Z
+TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
 Object: 45.20420,-93.48487
   Color: 255 255 255
-  Icon: 0,0,147,1,2,1.25
+  Icon: 0,0,125,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:43 UTC | Station: HPN27 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 147@7MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN27 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 125@8MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -8488,56 +8486,56 @@ Object: 45.20420,-93.48487
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 45.13550,-93.56271
   Color: 255 255 255
-  Icon: 0,0,163,1,2,1.25
+  Icon: 0,0,153,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN28 | Type: Mesonet | Temp: 66F | Dewpt: 49F | Wind: 163@6MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN28 | Type: Mesonet | Temp: 65F | Dewpt: 50F | Wind: 153@9G13MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "66"
-  Color: 255 255 255
-  Text: 16, 12, 1, "280"
-  Color: 100 255 100
-  Text: -16, -12, 1, "49"
-End:
-
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
-Object: 44.69021,-93.07368
-  Color: 255 255 255
-  Icon: 0,0,119,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN29 | Type: Mesonet | Temp: 64F | Dewpt: 50F | Wind: 119@5MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "65"
   Color: 255 255 255
   Text: 16, 12, 1, "280"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
-Object: 44.99026,-93.17990
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
+Object: 44.69021,-93.07368
   Color: 255 255 255
-  Icon: 0,0,140,1,2,1.25
+  Icon: 0,0,128,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN30 | Type: Mesonet | Temp: 64F | Dewpt: 50F | Wind: 140@8G12MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN29 | Type: Mesonet | Temp: 64F | Dewpt: 50F | Wind: 128@11MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
+Object: 44.99026,-93.17990
+  Color: 255 255 255
+  Icon: 0,0,124,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN30 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 124@7MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "64"
+  Color: 255 255 255
+  Text: 16, 12, 1, "290"
+  Color: 100 255 100
+  Text: -16, -12, 1, "49"
+End:
+
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 45.16541,-93.22459
   Color: 255 255 255
-  Icon: 0,0,98,1,2,1.25
+  Icon: 0,0,111,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN31 | Type: Mesonet | Temp: 63F | Dewpt: 50F | Wind: 098@8MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN31 | Type: Mesonet | Temp: 63F | Dewpt: 50F | Wind: 111@10MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 255 255 255
@@ -8704,12 +8702,12 @@ Object: 44.81650,-93.32133
   Text: -16, -12, 1, "52"
 End:
 
-TimeRange: 2026-09-23T17:38:00Z 2026-09-23T19:13:00Z
+TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
 Object: 44.83196,-93.47098
   Color: 255 255 255
-  Icon: 0,0,120,1,3,1.25
+  Icon: 0,0,130,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:43 UTC | Station: HPN38 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 120@14MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN38 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 130@12MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 255 255 255
@@ -8718,24 +8716,28 @@ Object: 44.83196,-93.47098
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 44.99254,-93.62081
   Color: 255 255 255
-  Icon: 0,0,107,1,2,1.25
+  Icon: 0,0,128,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN37 | Type: Mesonet | Temp: 66F | Dewpt: 52F | Wind: 107@4MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN37 | Type: Mesonet | Temp: 67F | Dewpt: 51F | Wind: 128@8G13MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "66"
+  Text: -16, 12, 1, "67"
   Color: 255 255 255
   Text: 16, 12, 1, "280"
   Color: 100 255 100
-  Text: -16, -12, 1, "52"
+  Text: -16, -12, 1, "51"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 44.96287,-93.24816
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN39 | Type: Mesonet | Temp: 66F | Dewpt: 49F | Wind: 143@3MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,101,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN39 | Type: Mesonet | Temp: 66F | Dewpt: 49F | Wind: 101@4MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "66"
   Color: 255 255 255
@@ -8744,18 +8746,18 @@ Object: 44.96287,-93.24816
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 45.03149,-93.30293
   Color: 255 255 255
-  Icon: 0,0,140,1,2,1.25
+  Icon: 0,0,134,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN42 | Type: Mesonet | Temp: 64F | Dewpt: 47F | Wind: 140@6MPH | Vis: N/A | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN42 | Type: Mesonet | Temp: 64F | Dewpt: 48F | Wind: 134@7MPH | Vis: N/A | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 255 255 255
   Text: 16, 12, 1, "300"
   Color: 100 255 100
-  Text: -16, -12, 1, "47"
+  Text: -16, -12, 1, "48"
 End:
 
 TimeRange: 2026-09-23T17:32:00Z 2026-09-23T19:07:00Z
@@ -8934,18 +8936,18 @@ Object: 42.55500,-96.46300
   Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: AW4961 | Type: Mesonet | Temp: MF | Dewpt: MF | Wind: 147@4MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
 End:
 
-TimeRange: 2026-09-23T17:38:00Z 2026-09-23T19:13:00Z
+TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
 Object: 45.04616,-93.78015
   Color: 255 255 255
-  Icon: 0,0,100,1,3,1.25
+  Icon: 0,0,103,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:43 UTC | Station: HPN44 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 100@9MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN44 | Type: Mesonet | Temp: 63F | Dewpt: 50F | Wind: 103@9MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "50"
 End:
 
 TimeRange: 2026-09-23T17:35:00Z 2026-09-23T19:10:00Z
@@ -8976,12 +8978,12 @@ Object: 44.07182,-93.21671
   Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 44.94161,-93.09879
   Color: 255 255 255
-  Icon: 0,0,113,1,2,1.25
+  Icon: 0,0,80,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN45 | Type: Mesonet | Temp: 67F | Dewpt: 50F | Wind: 113@4MPH | Vis: N/A | SLP: 1031.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN45 | Type: Mesonet | Temp: 67F | Dewpt: 50F | Wind: 080@5MPH | Vis: N/A | SLP: 1031.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "67"
   Color: 255 255 255
@@ -9162,12 +9164,12 @@ Object: 46.71883,-87.61183
   Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T17:21:00Z 2026-09-23T18:56:00Z
+TimeRange: 2026-09-23T17:26:00Z 2026-09-23T19:01:00Z
 Object: 43.98520,-97.07832
   Color: 255 255 255
   Icon: 0,0,118,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:26 UTC | Station: SD636 | Type: Mesonet | Temp: 59F | Dewpt: 54F | Wind: 118@16G26MPH | Vis: N/A | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:31 UTC | Station: SD636 | Type: Mesonet | Temp: 59F | Dewpt: 54F | Wind: 118@18G26MPH | Vis: N/A | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "59"
   Color: 255 255 255
@@ -9178,14 +9180,14 @@ Object: 43.98520,-97.07832
   Text: 0, -20, 1, "G26"
 End:
 
-TimeRange: 2026-09-23T17:24:00Z 2026-09-23T18:59:00Z
+TimeRange: 2026-09-23T17:29:00Z 2026-09-23T19:04:00Z
 Object: 43.08231,-97.39922
   Color: 255 255 255
-  Icon: 0,0,153,1,4,1.25
+  Icon: 0,0,146,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:29 UTC | Station: SD638 | Type: Mesonet | Temp: 61F | Dewpt: 57F | Wind: 153@16G24MPH | Vis: N/A | SLP: 1024.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:34 UTC | Station: SD638 | Type: Mesonet | Temp: 62F | Dewpt: 57F | Wind: 146@16G24MPH | Vis: N/A | SLP: 1024.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "61"
+  Text: -16, 12, 1, "62"
   Color: 255 255 255
   Text: 16, 12, 1, "248"
   Color: 100 255 100
@@ -9448,18 +9450,18 @@ Object: 42.95430,-97.39842
   Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-23T17:39:00Z 2026-09-23T19:14:00Z
+TimeRange: 2026-09-23T17:40:00Z 2026-09-23T19:15:00Z
 Object: 44.99904,-93.39752
   Color: 255 255 255
-  Icon: 0,0,138,1,2,1.25
+  Icon: 0,0,149,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:44 UTC | Station: HPN47 | Type: Mesonet | Temp: 64F | Dewpt: 46F | Wind: 138@7MPH | Vis: N/A | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:45 UTC | Station: HPN47 | Type: Mesonet | Temp: 64F | Dewpt: 47F | Wind: 149@5MPH | Vis: N/A | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 255 255 255
   Text: 16, 12, 1, "270"
   Color: 100 255 100
-  Text: -16, -12, 1, "46"
+  Text: -16, -12, 1, "47"
 End:
 
 ; --- Network: WeatherXM (Threshold: 60 NM) ---
