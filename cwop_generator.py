@@ -66,7 +66,8 @@ HYDRO_NAME_KEYWORDS = (
 WHITELIST_STATIONS = {
     "DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", 
     "RWIS-16-0048", "HWDW3", "MRZW3", "SILW3", "WXM6382", "WXM-6382", "WXM_6382", "DW6382",
-    "WSHW3", "GDNW3", "SMRW3", "PLPW3", "DMLW3", "LDYW3", "LNDW3", "AFWW3"
+    "WSHW3", "GDNW3", "SMRW3", "PLPW3", "DMLW3", "LDYW3", "LNDW3", "AFWW3",
+    "GW2943", "G2943", "DW2470", "D2470", "KB0BDN-13"
 }
 
 # Explicitly hidden/blacklisted station IDs
@@ -78,7 +79,9 @@ STATION_MAP = {
     "D8249": "DW8249",
     "E9591": "EW9591",
     "F9531": "FW9531",
-    "D6222": "DW6222"
+    "D6222": "DW6222",
+    "G2943": "GW2943",
+    "D2470": "DW2470"
 }
 
 STATION_COORDINATE_OVERRIDES = {
@@ -273,7 +276,14 @@ def main():
     if "STATION" in data and data["STATION"]:
         for station in data["STATION"]:
             raw_stid = station.get("STID", "UNKNOWN").upper()
-            stid = STATION_MAP.get(raw_stid, raw_stid)
+            
+            # Automatically restore missing 'W' for CWOP stations (e.g., G2943 -> GW2943, D2470 -> DW2470)
+            if len(raw_stid) == 5 and raw_stid[0] in ['C', 'E', 'F', 'G', 'D', 'A', 'K'] and raw_stid[1:].isdigit():
+                mapped_stid = f"{raw_stid[0]}W{raw_stid[1:]}"
+            else:
+                mapped_stid = raw_stid
+
+            stid = STATION_MAP.get(raw_stid, STATION_MAP.get(mapped_stid, mapped_stid))
 
             if raw_stid in BLACKLIST_STATIONS or stid in BLACKLIST_STATIONS:
                 continue
@@ -328,7 +338,8 @@ def main():
                 or mnet_id == "153" 
                 or "CWOP" in mnet_short 
                 or "CWOP" in mnet_name
-                or stid.startswith(("DW", "CW", "EW", "FW"))
+                or stid.startswith(("DW", "CW", "EW", "FW", "GW"))
+                or "-" in stid
                 or (len(stid) == 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'] and stid[1:].isdigit())
             ):
                 mnet = "CWOP"
