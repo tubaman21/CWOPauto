@@ -67,7 +67,7 @@ WHITELIST_STATIONS = {
     "DW8249", "D8249", "EW9591", "E9591", "D6222", "DW6222", 
     "RWIS-16-0048", "HWDW3", "MRZW3", "SILW3", "WXM6382", "WXM-6382", "WXM_6382", "DW6382",
     "WSHW3", "GDNW3", "SMRW3", "PLPW3", "DMLW3", "LDYW3", "LNDW3", "AFWW3",
-    "GW2943", "G2943", "DW2470", "D2470", "KB0BDN-13"
+    "GW2943", "G2943", "DW2470", "D2470", "KB0BDN-13", "SEAM5"
 }
 
 # Explicitly hidden/blacklisted station IDs
