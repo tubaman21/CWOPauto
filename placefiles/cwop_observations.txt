@@ -1,6 +1,6 @@
 ; Created by: Bryan J. Howell and Gemini
 ; Last Updated: 9/19/26
-Title: CWOP Surface Observations (2026-09-23 16:58:58 UTC)
+Title: CWOP Surface Observations (2026-09-23 17:00:17 UTC)
 Refresh: 5
 IconFile: 1, 30, 30, 15, 29, "http://grlevelx.redteamwx.com/10m_wind_barbs.png"
 IconFile: 2, 15, 15, 8, 8, "https://cdn.jsdelivr.net/gh/ktrue/metar-placefile@master/cloudcover_new.png"
@@ -330,32 +330,32 @@ End:
 ; --- Network: MnDOT (Threshold: 100 NM) ---
 Threshold: 100
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.29595,-96.73165
   Color: 255 255 255
-  Icon: 0,0,160,1,4,1.25
+  Icon: 0,0,170,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN058 | Type: MnDOT | Temp: 63F | Dewpt: 52F | Wind: 160@19G25MPH | Vis: 9.4SM | SLP: 1021.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN058 | Type: MnDOT | Temp: 63F | Dewpt: 52F | Wind: 170@16G27MPH | Vis: 8.8SM | SLP: 1021.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
-  Text: -32, 0, 1, "9.4"
+  Text: -32, 0, 1, "8.8"
   Color: 255 255 255
-  Text: 16, 12, 1, "216"
+  Text: 16, 12, 1, "217"
   Color: 100 255 100
   Text: -16, -12, 1, "52"
   Color: 255 255 0
-  Text: 0, -20, 1, "G25"
+  Text: 0, -20, 1, "G27"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.71653,-92.24900
   Color: 255 255 255
-  Icon: 0,0,36,1,2,1.25
+  Icon: 0,0,46,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN080 | Type: MnDOT | Temp: 56F | Dewpt: 48F | Wind: 036@7G12MPH | Vis: 4.2SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN080 | Type: MnDOT | Temp: 55F | Dewpt: 48F | Wind: 046@6G12MPH | Vis: 4.2SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "56"
+  Text: -16, 12, 1, "55"
   Color: 180 180 180
   Text: -32, 0, 1, "4.2"
   Color: 100 255 100
@@ -364,30 +364,30 @@ Object: 46.71653,-92.24900
   Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.50832,-93.35405
   Color: 255 255 255
-  Icon: 0,0,113,1,3,1.25
+  Icon: 0,0,107,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN001 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 113@11G16MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN001 | Type: MnDOT | Temp: 65F | Dewpt: 51F | Wind: 107@10G16MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "65"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
-  Text: -16, -12, 1, "50"
+  Text: -16, -12, 1, "51"
   Color: 255 255 0
   Text: 0, -20, 1, "G16"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.47849,-93.29239
   Color: 255 255 255
-  Icon: 0,0,160,1,2,1.25
+  Icon: 0,0,125,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN003 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 160@7G15MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN003 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 125@9G14MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
@@ -395,13 +395,13 @@ Object: 44.47849,-93.29239
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G15"
+  Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.21256,-92.83853
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN005 | Type: MnDOT | Temp: 60F | Dewpt: 47F | Wind: 000@0MPH | Vis: 10SM | SLP: 1031.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN005 | Type: MnDOT | Temp: 60F | Dewpt: 47F | Wind: 000@0MPH | Vis: 10SM | SLP: 1031.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 180 180 180
@@ -412,32 +412,32 @@ Object: 46.21256,-92.83853
   Text: -16, -12, 1, "47"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.60830,-96.37798
   Color: 255 255 255
-  Icon: 0,0,167,1,3,1.25
+  Icon: 0,0,168,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN006 | Type: MnDOT | Temp: 62F | Dewpt: 55F | Wind: 167@11G20MPH | Vis: 10SM | SLP: 1026.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN006 | Type: MnDOT | Temp: 63F | Dewpt: 54F | Wind: 168@13G18MPH | Vis: 10SM | SLP: 1026.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "266"
+  Text: 16, 12, 1, "265"
   Color: 100 255 100
-  Text: -16, -12, 1, "55"
+  Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G20"
+  Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.63736,-95.76993
   Color: 255 255 255
-  Icon: 0,0,165,1,3,1.25
+  Icon: 0,0,145,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN007 | Type: MnDOT | Temp: 64F | Dewpt: 54F | Wind: 165@13G19MPH | Vis: 10SM | SLP: 1026.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN007 | Type: MnDOT | Temp: 65F | Dewpt: 54F | Wind: 145@14G19MPH | Vis: 10SM | SLP: 1026.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "65"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -448,14 +448,14 @@ Object: 43.63736,-95.76993
   Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.63865,-95.11883
   Color: 255 255 255
-  Icon: 0,0,120,1,2,1.25
+  Icon: 0,0,140,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN008 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 120@6G13MPH | Vis: 10SM | SLP: 1025.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN008 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 140@7G17MPH | Vis: 10SM | SLP: 1025.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -463,85 +463,85 @@ Object: 43.63865,-95.11883
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G13"
+  Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.66300,-94.12228
   Color: 255 255 255
-  Icon: 0,0,106,1,2,1.25
+  Icon: 0,0,100,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN009 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 106@9G14MPH | Vis: 10SM | SLP: 1028.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN009 | Type: MnDOT | Temp: 64F | Dewpt: 49F | Wind: 100@9G15MPH | Vis: 10SM | SLP: 1028.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "289"
-  Color: 100 255 100
-  Text: -16, -12, 1, "50"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G14"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 43.72717,-92.68131
-  Color: 255 255 255
-  Icon: 0,0,175,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN010 | Type: MnDOT | Temp: 63F | Dewpt: 49F | Wind: 175@8G15MPH | Vis: 10SM | SLP: 1027.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "63"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "277"
+  Text: 16, 12, 1, "288"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 43.72717,-92.68131
+  Color: 255 255 255
+  Icon: 0,0,160,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN010 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 160@9G15MPH | Vis: 10SM | SLP: 1027.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "64"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "278"
+  Color: 100 255 100
+  Text: -16, -12, 1, "50"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G15"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.95563,-92.20513
   Color: 255 255 255
-  Icon: 0,0,115,1,3,1.25
+  Icon: 0,0,105,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN011 | Type: MnDOT | Temp: 61F | Dewpt: 48F | Wind: 115@9G14MPH | Vis: 10SM | SLP: 1024.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN011 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 105@8G14MPH | Vis: 10SM | SLP: 1024.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "247"
+  Text: 16, 12, 1, "248"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
+  Text: -16, -12, 1, "50"
   Color: 255 255 0
   Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.84685,-96.66805
   Color: 255 255 255
-  Icon: 0,0,185,1,4,1.25
+  Icon: 0,0,195,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN013 | Type: MnDOT | Temp: 66F | Dewpt: 52F | Wind: 185@15G26MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN013 | Type: MnDOT | Temp: 67F | Dewpt: 52F | Wind: 195@17G27MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "66"
+  Text: -16, 12, 1, "67"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 100 255 100
   Text: -16, -12, 1, "52"
   Color: 255 255 0
-  Text: 0, -20, 1, "G26"
+  Text: 0, -20, 1, "G27"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.49067,-96.29127
   Color: 255 255 255
-  Icon: 0,0,155,1,4,1.25
+  Icon: 0,0,152,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN014 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 155@17G28MPH | Vis: 10SM | SLP: 1025.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN014 | Type: MnDOT | Temp: 61F | Dewpt: 51F | Wind: 152@19G27MPH | Vis: 10SM | SLP: 1025.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
@@ -549,17 +549,17 @@ Object: 46.49067,-96.29127
   Color: 255 255 255
   Text: 16, 12, 1, "258"
   Color: 100 255 100
-  Text: -16, -12, 1, "50"
+  Text: -16, -12, 1, "51"
   Color: 255 255 0
-  Text: 0, -20, 1, "G28"
+  Text: 0, -20, 1, "G27"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.71313,-94.93148
   Color: 255 255 255
   Icon: 0,0,5,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN016 | Type: MnDOT | Temp: 64F | Dewpt: 48F | Wind: 005@13G21MPH | Vis: 10SM | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN016 | Type: MnDOT | Temp: 64F | Dewpt: 49F | Wind: 005@10G21MPH | Vis: 10SM | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 180 180 180
@@ -567,17 +567,17 @@ Object: 45.71313,-94.93148
   Color: 255 255 255
   Text: 16, 12, 1, "260"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
+  Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.87432,-94.43240
   Color: 255 255 255
-  Icon: 0,0,180,1,3,1.25
+  Icon: 0,0,165,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN018 | Type: MnDOT | Temp: 61F | Dewpt: 47F | Wind: 180@11G17MPH | Vis: 10SM | SLP: 1023.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN018 | Type: MnDOT | Temp: 61F | Dewpt: 46F | Wind: 165@8G19MPH | Vis: 10SM | SLP: 1023.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
@@ -585,35 +585,35 @@ Object: 47.87432,-94.43240
   Color: 255 255 255
   Text: 16, 12, 1, "237"
   Color: 100 255 100
-  Text: -16, -12, 1, "47"
+  Text: -16, -12, 1, "46"
   Color: 255 255 0
-  Text: 0, -20, 1, "G17"
+  Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.85440,-92.04817
   Color: 255 255 255
-  Icon: 0,0,146,1,2,1.25
+  Icon: 0,0,157,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN019 | Type: MnDOT | Temp: 60F | Dewpt: 45F | Wind: 146@5G12MPH | Vis: 2.6SM | SLP: 1031.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN019 | Type: MnDOT | Temp: 60F | Dewpt: 44F | Wind: 157@6G12MPH | Vis: 2.1SM | SLP: 1031.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 255 255 0
-  Text: -32, 0, 1, "2.6"
+  Text: -32, 0, 1, "2.1"
   Color: 255 255 255
-  Text: 16, 12, 1, "317"
+  Text: 16, 12, 1, "318"
   Color: 100 255 100
-  Text: -16, -12, 1, "45"
+  Text: -16, -12, 1, "44"
   Color: 255 255 0
   Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.68825,-93.95447
   Color: 255 255 255
-  Icon: 0,0,155,1,3,1.25
+  Icon: 0,0,169,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN020 | Type: MnDOT | Temp: 60F | Dewpt: 47F | Wind: 155@11G18MPH | Vis: 10SM | SLP: 1029.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN020 | Type: MnDOT | Temp: 60F | Dewpt: 48F | Wind: 169@11G19MPH | Vis: 10SM | SLP: 1029.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 180 180 180
@@ -621,53 +621,51 @@ Object: 46.68825,-93.95447
   Color: 255 255 255
   Text: 16, 12, 1, "299"
   Color: 100 255 100
-  Text: -16, -12, 1, "47"
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
-  Text: 0, -20, 1, "G18"
+  Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.94926,-95.40953
   Color: 255 255 255
-  Icon: 0,0,135,1,3,1.25
+  Icon: 0,0,130,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN021 | Type: MnDOT | Temp: 63F | Dewpt: 52F | Wind: 135@11G21MPH | Vis: 10SM | SLP: 1023.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN021 | Type: MnDOT | Temp: 63F | Dewpt: 51F | Wind: 130@15G21MPH | Vis: 10SM | SLP: 1023.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "231"
+  Text: 16, 12, 1, "230"
   Color: 100 255 100
-  Text: -16, -12, 1, "52"
+  Text: -16, -12, 1, "51"
   Color: 255 255 0
   Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.90602,-93.98642
   Color: 255 255 255
-  Icon: 0,0,115,1,2,1.25
+  Icon: 0,0,115,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN022 | Type: MnDOT | Temp: 64F | Dewpt: 49F | Wind: 115@8G13MPH | Vis: 10SM | SLP: 1025.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN022 | Type: MnDOT | Temp: 63F | Dewpt: 48F | Wind: 115@10MPH | Vis: 10SM | SLP: 1025.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "259"
+  Text: 16, 12, 1, "258"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G13"
+  Text: -16, -12, 1, "48"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.62767,-94.06702
   Color: 255 255 255
-  Icon: 0,0,143,1,4,1.25
+  Icon: 0,0,137,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN026 | Type: MnDOT | Temp: 60F | Dewpt: 46F | Wind: 143@16G23MPH | Vis: 10SM | SLP: 1028.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN026 | Type: MnDOT | Temp: 60F | Dewpt: 46F | Wind: 137@15G23MPH | Vis: 10SM | SLP: 1028.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 180 180 180
@@ -680,62 +678,64 @@ Object: 48.62767,-94.06702
   Text: 0, -20, 1, "G23"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.02440,-92.70820
   Color: 255 255 255
-  Icon: 0,0,130,1,3,1.25
+  Icon: 0,0,124,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN029 | Type: MnDOT | Temp: 60F | Dewpt: 48F | Wind: 130@9G17MPH | Vis: 10SM | SLP: 1029.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN029 | Type: MnDOT | Temp: 59F | Dewpt: 48F | Wind: 124@10G16MPH | Vis: 10SM | SLP: 1029.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "60"
+  Text: -16, 12, 1, "59"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "296"
+  Text: 16, 12, 1, "295"
   Color: 100 255 100
   Text: -16, -12, 1, "48"
   Color: 255 255 0
-  Text: 0, -20, 1, "G17"
+  Text: 0, -20, 1, "G16"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.54469,-94.99544
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN031 | Type: MnDOT | Temp: 66F | Dewpt: 52F | Wind: 130@2MPH | Vis: 10SM | SLP: 1027.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,161,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN031 | Type: MnDOT | Temp: 66F | Dewpt: 51F | Wind: 161@3MPH | Vis: 10SM | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "66"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "279"
+  Text: 16, 12, 1, "280"
   Color: 100 255 100
-  Text: -16, -12, 1, "52"
+  Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.83763,-95.36622
   Color: 255 255 255
-  Icon: 0,0,161,1,3,1.25
+  Icon: 0,0,142,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN015 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 161@10G17MPH | Vis: 1.9SM | SLP: 1026.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN015 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 142@14G20MPH | Vis: 6SM | SLP: 1026.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
-  Color: 255 255 0
-  Text: -32, 0, 1, "1.9"
+  Color: 180 180 180
+  Text: -32, 0, 1, "6"
   Color: 255 255 255
   Text: 16, 12, 1, "269"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G17"
+  Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.54322,-94.41415
   Color: 255 255 255
-  Icon: 0,0,115,1,3,1.25
+  Icon: 0,0,155,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN032 | Type: MnDOT | Temp: 62F | Dewpt: 47F | Wind: 115@10G16MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN032 | Type: MnDOT | Temp: 62F | Dewpt: 47F | Wind: 155@9G19MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
@@ -743,35 +743,35 @@ Object: 44.54322,-94.41415
   Color: 100 255 100
   Text: -16, -12, 1, "47"
   Color: 255 255 0
-  Text: 0, -20, 1, "G16"
+  Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.69161,-95.61402
   Color: 255 255 255
-  Icon: 0,0,133,1,4,1.25
+  Icon: 0,0,139,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN033 | Type: MnDOT | Temp: 68F | Dewpt: 53F | Wind: 133@16G23MPH | Vis: 10SM | SLP: 1026.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN033 | Type: MnDOT | Temp: 66F | Dewpt: 52F | Wind: 139@13G23MPH | Vis: 10SM | SLP: 1026.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "68"
+  Text: -16, 12, 1, "66"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
   Text: 16, 12, 1, "265"
   Color: 100 255 100
-  Text: -16, -12, 1, "53"
+  Text: -16, -12, 1, "52"
   Color: 255 255 0
   Text: 0, -20, 1, "G23"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.60781,-94.03078
   Color: 255 255 255
-  Icon: 0,0,180,1,2,1.25
+  Icon: 0,0,155,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN034 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 180@5G12MPH | Vis: 10SM | SLP: 1029.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN034 | Type: MnDOT | Temp: 63F | Dewpt: 49F | Wind: 155@4G12MPH | Vis: 10SM | SLP: 1029.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -782,12 +782,12 @@ Object: 45.60781,-94.03078
   Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.14423,-94.10412
   Color: 255 255 255
-  Icon: 0,0,146,1,2,1.25
+  Icon: 0,0,137,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN035 | Type: MnDOT | Temp: 61F | Dewpt: 48F | Wind: 146@7G17MPH | Vis: 10SM | SLP: 1029.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN035 | Type: MnDOT | Temp: 61F | Dewpt: 47F | Wind: 137@11G17MPH | Vis: 10SM | SLP: 1029.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
@@ -795,35 +795,35 @@ Object: 46.14423,-94.10412
   Color: 255 255 255
   Text: 16, 12, 1, "294"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
+  Text: -16, -12, 1, "47"
   Color: 255 255 0
   Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.55830,-96.49387
   Color: 255 255 255
-  Icon: 0,0,155,1,4,1.25
+  Icon: 0,0,160,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN036 | Type: MnDOT | Temp: 62F | Dewpt: 54F | Wind: 155@19G25MPH | Vis: 10SM | SLP: 1021.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN036 | Type: MnDOT | Temp: 64F | Dewpt: 53F | Wind: 160@18G26MPH | Vis: 10SM | SLP: 1021.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "64"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "216"
+  Text: 16, 12, 1, "218"
   Color: 100 255 100
-  Text: -16, -12, 1, "54"
+  Text: -16, -12, 1, "53"
   Color: 255 255 0
-  Text: 0, -20, 1, "G25"
+  Text: 0, -20, 1, "G26"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.48847,-95.56220
   Color: 255 255 255
-  Icon: 0,0,135,1,3,1.25
+  Icon: 0,0,145,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN037 | Type: MnDOT | Temp: 63F | Dewpt: 51F | Wind: 135@12G19MPH | Vis: 10SM | SLP: 1021.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN037 | Type: MnDOT | Temp: 63F | Dewpt: 51F | Wind: 145@11G19MPH | Vis: 10SM | SLP: 1021.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
@@ -836,12 +836,12 @@ Object: 45.48847,-95.56220
   Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.05716,-95.59732
   Color: 255 255 255
-  Icon: 0,0,145,1,3,1.25
+  Icon: 0,0,120,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN038 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 145@14G21MPH | Vis: 10SM | SLP: 1021.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN038 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 120@14G21MPH | Vis: 10SM | SLP: 1021.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 180 180 180
@@ -854,30 +854,28 @@ Object: 44.05716,-95.59732
   Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.60357,-94.12677
   Color: 255 255 255
   Icon: 0,0,140,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN041 | Type: MnDOT | Temp: 60F | Dewpt: 48F | Wind: 140@4G13MPH | Vis: 10SM | SLP: 1025.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN041 | Type: MnDOT | Temp: 61F | Dewpt: 49F | Wind: 140@4MPH | Vis: 10SM | SLP: 1025.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "60"
+  Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
   Text: 16, 12, 1, "253"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G13"
+  Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.40894,-92.85933
   Color: 255 255 255
-  Icon: 0,0,92,1,3,1.25
+  Icon: 0,0,90,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN042 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 092@12G19MPH | Vis: 10SM | SLP: 1029.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN042 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 090@12G19MPH | Vis: 10SM | SLP: 1029.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
@@ -890,12 +888,12 @@ Object: 44.40894,-92.85933
   Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.43232,-94.93238
   Color: 255 255 255
-  Icon: 0,0,135,1,4,1.25
+  Icon: 0,0,130,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN043 | Type: MnDOT | Temp: 63F | Dewpt: 49F | Wind: 135@15G22MPH | Vis: 10SM | SLP: 1023.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN043 | Type: MnDOT | Temp: 63F | Dewpt: 48F | Wind: 130@17G22MPH | Vis: 10SM | SLP: 1023.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
@@ -903,17 +901,17 @@ Object: 45.43232,-94.93238
   Color: 255 255 255
   Text: 16, 12, 1, "238"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.27418,-95.93312
   Color: 255 255 255
-  Icon: 0,0,140,1,4,1.25
+  Icon: 0,0,150,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN044 | Type: MnDOT | Temp: 62F | Dewpt: 48F | Wind: 140@18G26MPH | Vis: 10SM | SLP: 1022.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN044 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 150@17G24MPH | Vis: 10SM | SLP: 1022.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
@@ -921,35 +919,35 @@ Object: 47.27418,-95.93312
   Color: 255 255 255
   Text: 16, 12, 1, "228"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
+  Text: -16, -12, 1, "49"
   Color: 255 255 0
-  Text: 0, -20, 1, "G26"
+  Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.60105,-92.69782
   Color: 255 255 255
   Icon: 0,0,75,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN047 | Type: MnDOT | Temp: 61F | Dewpt: 49F | Wind: 075@6MPH | Vis: 10SM | SLP: 1031.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN047 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 075@6MPH | Vis: 10SM | SLP: 1031.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "61"
+  Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
   Text: 16, 12, 1, "314"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.07558,-94.36823
   Color: 255 255 255
-  Icon: 0,0,115,1,3,1.25
+  Icon: 0,0,105,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN045 | Type: MnDOT | Temp: 65F | Dewpt: 49F | Wind: 115@11G17MPH | Vis: 10SM | SLP: 1022.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN045 | Type: MnDOT | Temp: 64F | Dewpt: 49F | Wind: 105@9G17MPH | Vis: 10SM | SLP: 1022.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "65"
+  Text: -16, 12, 1, "64"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -960,66 +958,66 @@ Object: 44.07558,-94.36823
   Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.91178,-94.72293
   Color: 255 255 255
-  Icon: 0,0,170,1,3,1.25
+  Icon: 0,0,195,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN049 | Type: MnDOT | Temp: 60F | Dewpt: 47F | Wind: 170@9G17MPH | Vis: 10SM | SLP: 1025.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "60"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "251"
-  Color: 100 255 100
-  Text: -16, -12, 1, "47"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G17"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 46.33954,-93.26208
-  Color: 255 255 255
-  Icon: 0,0,85,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN050 | Type: MnDOT | Temp: 61F | Dewpt: 48F | Wind: 085@4G12MPH | Vis: 10SM | SLP: 1027.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN049 | Type: MnDOT | Temp: 61F | Dewpt: 47F | Wind: 195@9G15MPH | Vis: 10SM | SLP: 1024.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "273"
-  Color: 100 255 100
-  Text: -16, -12, 1, "48"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G12"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 46.97845,-93.27368
-  Color: 255 255 255
-  Icon: 0,0,139,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN051 | Type: MnDOT | Temp: 59F | Dewpt: 47F | Wind: 139@5G15MPH | Vis: 10SM | SLP: 1030.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "59"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "306"
+  Text: 16, 12, 1, "249"
   Color: 100 255 100
   Text: -16, -12, 1, "47"
   Color: 255 255 0
   Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 46.33954,-93.26208
+  Color: 255 255 255
+  Icon: 0,0,155,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN050 | Type: MnDOT | Temp: 62F | Dewpt: 48F | Wind: 155@4G12MPH | Vis: 10SM | SLP: 1027.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "62"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "274"
+  Color: 100 255 100
+  Text: -16, -12, 1, "48"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G12"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 46.97845,-93.27368
+  Color: 255 255 255
+  Icon: 0,0,108,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN051 | Type: MnDOT | Temp: 60F | Dewpt: 47F | Wind: 108@7G14MPH | Vis: 10SM | SLP: 1030.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "60"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "305"
+  Color: 100 255 100
+  Text: -16, -12, 1, "47"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G14"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.84037,-93.48527
   Color: 255 255 255
-  Icon: 0,0,179,1,2,1.25
+  Icon: 0,0,150,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN052 | Type: MnDOT | Temp: 60F | Dewpt: 46F | Wind: 179@8G17MPH | Vis: 10SM | SLP: 1029.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN052 | Type: MnDOT | Temp: 60F | Dewpt: 45F | Wind: 150@10G17MPH | Vis: 10SM | SLP: 1029.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 180 180 180
@@ -1027,47 +1025,47 @@ Object: 47.84037,-93.48527
   Color: 255 255 255
   Text: 16, 12, 1, "298"
   Color: 100 255 100
-  Text: -16, -12, 1, "46"
+  Text: -16, -12, 1, "45"
   Color: 255 255 0
   Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.20720,-94.55400
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN053 | Type: MnDOT | Temp: 61F | Dewpt: 48F | Wind: 000@0MPH | Vis: 10SM | SLP: 1025.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN053 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 000@0MPH | Vis: 10SM | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "61"
+  Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "258"
+  Text: 16, 12, 1, "260"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
+  Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.40365,-95.60213
   Color: 255 255 255
-  Icon: 0,0,115,1,2,1.25
+  Icon: 0,0,100,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN055 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 115@3MPH | Vis: 10SM | SLP: 1022.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN055 | Type: MnDOT | Temp: 61F | Dewpt: 51F | Wind: 100@4MPH | Vis: 10SM | SLP: 1022.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "229"
+  Text: 16, 12, 1, "228"
   Color: 100 255 100
-  Text: -16, -12, 1, "50"
+  Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.43640,-95.73123
   Color: 255 255 255
-  Icon: 0,0,170,1,4,1.25
+  Icon: 0,0,176,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN056 | Type: MnDOT | Temp: 62F | Dewpt: 48F | Wind: 170@18G23MPH | Vis: 10SM | SLP: 1026.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN056 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 176@17G24MPH | Vis: 10SM | SLP: 1026.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
@@ -1075,17 +1073,17 @@ Object: 48.43640,-95.73123
   Color: 255 255 255
   Text: 16, 12, 1, "268"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
+  Text: -16, -12, 1, "49"
   Color: 255 255 0
-  Text: 0, -20, 1, "G23"
+  Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.88078,-96.91683
   Color: 255 255 255
-  Icon: 0,0,143,1,4,1.25
+  Icon: 0,0,139,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN060 | Type: MnDOT | Temp: 61F | Dewpt: 51F | Wind: 143@18G23MPH | Vis: 10SM | SLP: 1025.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN060 | Type: MnDOT | Temp: 61F | Dewpt: 51F | Wind: 139@20G25MPH | Vis: 10SM | SLP: 1025.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
@@ -1095,17 +1093,17 @@ Object: 47.88078,-96.91683
   Color: 100 255 100
   Text: -16, -12, 1, "51"
   Color: 255 255 0
-  Text: 0, -20, 1, "G23"
+  Text: 0, -20, 1, "G25"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.37995,-94.58698
   Color: 255 255 255
-  Icon: 0,0,155,1,3,1.25
+  Icon: 0,0,145,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN061 | Type: MnDOT | Temp: 62F | Dewpt: 51F | Wind: 155@13G19MPH | Vis: 10SM | SLP: 1028.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN061 | Type: MnDOT | Temp: 63F | Dewpt: 51F | Wind: 145@16G22MPH | Vis: 10SM | SLP: 1028.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -1113,17 +1111,17 @@ Object: 47.37995,-94.58698
   Color: 100 255 100
   Text: -16, -12, 1, "51"
   Color: 255 255 0
-  Text: 0, -20, 1, "G19"
+  Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.87743,-96.11138
   Color: 255 255 255
-  Icon: 0,0,151,1,4,1.25
+  Icon: 0,0,146,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN062 | Type: MnDOT | Temp: 62F | Dewpt: 51F | Wind: 151@15G21MPH | Vis: 10SM | SLP: 1025.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN062 | Type: MnDOT | Temp: 61F | Dewpt: 51F | Wind: 146@16G20MPH | Vis: 10SM | SLP: 1025.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -1131,117 +1129,119 @@ Object: 46.87743,-96.11138
   Color: 100 255 100
   Text: -16, -12, 1, "51"
   Color: 255 255 0
+  Text: 0, -20, 1, "G20"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 46.41333,-95.05437
+  Color: 255 255 255
+  Icon: 0,0,128,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN063 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 128@14G21MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "62"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 100 255 100
+  Text: -16, -12, 1, "50"
+  Color: 255 255 0
   Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 46.41333,-95.05437
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 45.76635,-94.23270
   Color: 255 255 255
-  Icon: 0,0,134,1,3,1.25
+  Icon: 0,0,185,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN063 | Type: MnDOT | Temp: 61F | Dewpt: 49F | Wind: 134@14G20MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN064 | Type: MnDOT | Temp: 61F | Dewpt: 48F | Wind: 185@14G19MPH | Vis: 10SM | SLP: 1006.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "065"
+  Color: 100 255 100
+  Text: -16, -12, 1, "48"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G19"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 48.29422,-92.97047
+  Color: 255 255 255
+  Icon: 0,0,250,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN067 | Type: MnDOT | Temp: 60F | Dewpt: 45F | Wind: 250@9G13MPH | Vis: 10SM | SLP: 1044.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "60"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "445"
+  Color: 100 255 100
+  Text: -16, -12, 1, "45"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G13"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 47.76911,-96.00102
+  Color: 255 255 255
+  Icon: 0,0,185,1,4,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN068 | Type: MnDOT | Temp: 62F | Dewpt: 48F | Wind: 185@17G23MPH | Vis: 10SM | SLP: 1022.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "62"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "224"
+  Color: 100 255 100
+  Text: -16, -12, 1, "48"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G23"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 43.90237,-92.48228
+  Color: 255 255 255
+  Icon: 0,0,100,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN070 | Type: MnDOT | Temp: 65F | Dewpt: 50F | Wind: 100@7G15MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "65"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 100 255 100
+  Text: -16, -12, 1, "50"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G15"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 44.08368,-95.11997
+  Color: 255 255 255
+  Icon: 0,0,155,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN071 | Type: MnDOT | Temp: 64F | Dewpt: 49F | Wind: 155@12G20MPH | Vis: 10SM | SLP: 1025.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "64"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "258"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 45.76635,-94.23270
-  Color: 255 255 255
-  Icon: 0,0,165,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN064 | Type: MnDOT | Temp: 60F | Dewpt: 49F | Wind: 165@13G19MPH | Vis: 10SM | SLP: 1006.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "60"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "066"
-  Color: 100 255 100
-  Text: -16, -12, 1, "49"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G19"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 48.29422,-92.97047
-  Color: 255 255 255
-  Icon: 0,0,245,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN067 | Type: MnDOT | Temp: 59F | Dewpt: 44F | Wind: 245@7G16MPH | Vis: 10SM | SLP: 1044.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "59"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "445"
-  Color: 100 255 100
-  Text: -16, -12, 1, "44"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G16"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 47.76911,-96.00102
-  Color: 255 255 255
-  Icon: 0,0,175,1,4,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN068 | Type: MnDOT | Temp: 62F | Dewpt: 48F | Wind: 175@17G24MPH | Vis: 10SM | SLP: 1022.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "62"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "227"
-  Color: 100 255 100
-  Text: -16, -12, 1, "48"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G24"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 43.90237,-92.48228
-  Color: 255 255 255
-  Icon: 0,0,120,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN070 | Type: MnDOT | Temp: 64F | Dewpt: 51F | Wind: 120@9G15MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "64"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 100 255 100
-  Text: -16, -12, 1, "51"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G15"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 44.08368,-95.11997
-  Color: 255 255 255
-  Icon: 0,0,145,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN071 | Type: MnDOT | Temp: 65F | Dewpt: 49F | Wind: 145@11G21MPH | Vis: 10SM | SLP: 1025.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "65"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "259"
-  Color: 100 255 100
-  Text: -16, -12, 1, "49"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.15430,-94.03398
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN073 | Type: MnDOT | Temp: 65F | Dewpt: 50F | Wind: 101@2G13MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,87,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN073 | Type: MnDOT | Temp: 65F | Dewpt: 50F | Wind: 087@5G13MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "65"
   Color: 180 180 180
@@ -1252,162 +1252,162 @@ Object: 44.15430,-94.03398
   Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.36555,-93.96308
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN074 | Type: MnDOT | Temp: 65F | Dewpt: 49F | Wind: 000@0MPH | Vis: 10SM | SLP: 1029.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN074 | Type: MnDOT | Temp: 65F | Dewpt: 49F | Wind: 000@0MPH | Vis: 10SM | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "65"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "298"
+  Text: 16, 12, 1, "300"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.57224,-93.84267
   Color: 255 255 255
-  Icon: 0,0,99,1,3,1.25
+  Icon: 0,0,113,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN075 | Type: MnDOT | Temp: 62F | Dewpt: 48F | Wind: 099@10G19MPH | Vis: 10SM | SLP: 1029.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN075 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 113@10G19MPH | Vis: 10SM | SLP: 1029.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "295"
+  Text: 16, 12, 1, "294"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
+  Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.87595,-93.66410
   Color: 255 255 255
-  Icon: 0,0,176,1,2,1.25
+  Icon: 0,0,153,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN076 | Type: MnDOT | Temp: 61F | Dewpt: 49F | Wind: 176@7G17MPH | Vis: 10SM | SLP: 1030.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN076 | Type: MnDOT | Temp: 61F | Dewpt: 48F | Wind: 153@9G17MPH | Vis: 10SM | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "301"
+  Text: 16, 12, 1, "300"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.98501,-92.94823
   Color: 255 255 255
-  Icon: 0,0,128,1,2,1.25
+  Icon: 0,0,107,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN077 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 128@4G12MPH | Vis: 10SM | SLP: 1030.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN077 | Type: MnDOT | Temp: 60F | Dewpt: 50F | Wind: 107@4G12MPH | Vis: 10SM | SLP: 1030.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "60"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "303"
+  Text: 16, 12, 1, "304"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
   Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.78933,-95.05100
   Color: 255 255 255
-  Icon: 0,0,205,1,2,1.25
+  Icon: 0,0,165,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN078 | Type: MnDOT | Temp: 63F | Dewpt: 49F | Wind: 205@3G13MPH | Vis: 10SM | SLP: 1022.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN078 | Type: MnDOT | Temp: 63F | Dewpt: 47F | Wind: 165@5G13MPH | Vis: 10SM | SLP: 1022.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "227"
+  Text: 16, 12, 1, "226"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "47"
   Color: 255 255 0
   Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.54368,-93.62483
   Color: 255 255 255
-  Icon: 0,0,130,1,3,1.25
+  Icon: 0,0,110,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN079 | Type: MnDOT | Temp: 64F | Dewpt: 49F | Wind: 130@10MPH | Vis: 5.8SM | SLP: 1024.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN079 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 110@9G14MPH | Vis: 5.7SM | SLP: 1023.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "62"
   Color: 180 180 180
-  Text: -32, 0, 1, "5.8"
+  Text: -32, 0, 1, "5.7"
   Color: 255 255 255
-  Text: 16, 12, 1, "240"
-  Color: 100 255 100
-  Text: -16, -12, 1, "49"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 44.79765,-93.28956
-  Color: 255 255 255
-  Icon: 0,0,127,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN086 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 127@6G14MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "63"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
+  Text: 16, 12, 1, "239"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
   Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 45.09209,-93.44753
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 44.79765,-93.28956
   Color: 255 255 255
-  Icon: 0,0,118,1,2,1.25
+  Icon: 0,0,117,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN087 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 118@4MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN086 | Type: MnDOT | Temp: 64F | Dewpt: 51F | Wind: 117@6MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "64"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 45.09209,-93.44753
+  Color: 255 255 255
+  Icon: 0,0,122,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN087 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 122@5MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "63"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 100 255 100
+  Text: -16, -12, 1, "50"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.96786,-93.08813
   Color: 255 255 255
-  Icon: 0,0,155,1,2,1.25
+  Icon: 0,0,170,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN089 | Type: MnDOT | Temp: 64F | Dewpt: 49F | Wind: 155@8G13MPH | Vis: 10SM | SLP: 1029.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN089 | Type: MnDOT | Temp: 63F | Dewpt: 48F | Wind: 170@9G13MPH | Vis: 10SM | SLP: 1029.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
   Text: 16, 12, 1, "291"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.44523,-92.88768
   Color: 255 255 255
-  Icon: 0,0,323,1,3,1.25
+  Icon: 0,0,302,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN092 | Type: MnDOT | Temp: MF | Dewpt: MF | Wind: 323@10G17MPH | Vis: 10SM | SLP: 1030.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN092 | Type: MnDOT | Temp: MF | Dewpt: MF | Wind: 302@7G17MPH | Vis: 10SM | SLP: 1030.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -1416,14 +1416,14 @@ Object: 47.44523,-92.88768
   Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.92010,-93.27762
   Color: 255 255 255
-  Icon: 0,0,132,1,2,1.25
+  Icon: 0,0,118,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN096 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 132@6G14MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN096 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 118@4G14MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "63"
+  Text: -16, 12, 1, "64"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 100 255 100
@@ -1432,12 +1432,12 @@ Object: 43.92010,-93.27762
   Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.73457,-92.09760
   Color: 255 255 255
-  Icon: 0,0,346,1,2,1.25
+  Icon: 0,0,358,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN095 | Type: MnDOT | Temp: 55F | Dewpt: 49F | Wind: 346@7G12MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN095 | Type: MnDOT | Temp: 55F | Dewpt: 49F | Wind: 358@9G13MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "55"
   Color: 180 180 180
@@ -1445,119 +1445,119 @@ Object: 46.73457,-92.09760
   Color: 100 255 100
   Text: -16, -12, 1, "49"
   Color: 255 255 0
-  Text: 0, -20, 1, "G12"
+  Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.60179,-93.37356
   Color: 255 255 255
-  Icon: 0,0,166,1,2,1.25
+  Icon: 0,0,167,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN027 | Type: MnDOT | Temp: 61F | Dewpt: 44F | Wind: 166@7G17MPH | Vis: 10SM | SLP: 1029.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN027 | Type: MnDOT | Temp: 61F | Dewpt: 43F | Wind: 167@7G17MPH | Vis: 10SM | SLP: 1029.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "295"
+  Text: 16, 12, 1, "294"
   Color: 100 255 100
-  Text: -16, -12, 1, "44"
+  Text: -16, -12, 1, "43"
   Color: 255 255 0
   Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.77147,-92.11545
   Color: 255 255 255
-  Icon: 0,0,359,1,3,1.25
+  Icon: 0,0,7,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN082 | Type: MnDOT | Temp: 56F | Dewpt: 48F | Wind: 359@11MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN082 | Type: MnDOT | Temp: 57F | Dewpt: 48F | Wind: 007@12MPH | Vis: 7.8SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "56"
+  Text: -16, 12, 1, "57"
   Color: 180 180 180
-  Text: -32, 0, 1, "10"
+  Text: -32, 0, 1, "7.8"
   Color: 100 255 100
   Text: -16, -12, 1, "48"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.92380,-92.41302
   Color: 255 255 255
-  Icon: 0,0,135,1,2,1.25
+  Icon: 0,0,130,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN091 | Type: MnDOT | Temp: MF | Dewpt: MF | Wind: 135@5G17MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN091 | Type: MnDOT | Temp: MF | Dewpt: MF | Wind: 130@9G13MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 0
-  Text: 0, -20, 1, "G17"
+  Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.91190,-91.54355
   Color: 255 255 255
-  Icon: 0,0,70,1,2,1.25
+  Icon: 0,0,110,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN012 | Type: MnDOT | Temp: 59F | Dewpt: 49F | Wind: 070@8MPH | Vis: 10SM | SLP: 1025.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN012 | Type: MnDOT | Temp: 57F | Dewpt: 46F | Wind: 110@8MPH | Vis: 10SM | SLP: 1025.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "59"
+  Text: -16, 12, 1, "57"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
   Text: 16, 12, 1, "259"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "46"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.71932,-91.43672
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN040 | Type: MnDOT | Temp: 60F | Dewpt: 53F | Wind: 015@1MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN040 | Type: MnDOT | Temp: 60F | Dewpt: 52F | Wind: 016@2MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 100 255 100
-  Text: -16, -12, 1, "53"
+  Text: -16, -12, 1, "52"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.97640,-89.68498
   Color: 255 255 255
-  Icon: 0,0,82,1,2,1.25
+  Icon: 0,0,88,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN048 | Type: MnDOT | Temp: 56F | Dewpt: 50F | Wind: 082@6MPH | Vis: 10SM | SLP: 1045.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN048 | Type: MnDOT | Temp: 56F | Dewpt: 50F | Wind: 088@5MPH | Vis: 10SM | SLP: 1045.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "457"
+  Text: 16, 12, 1, "456"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.51497,-91.88500
   Color: 255 255 255
-  Icon: 0,0,80,1,3,1.25
+  Icon: 0,0,85,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN065 | Type: MnDOT | Temp: 61F | Dewpt: 51F | Wind: 080@10G16MPH | Vis: 7.2SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN065 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 085@8G16MPH | Vis: 7.3SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
-  Text: -32, 0, 1, "7.2"
+  Text: -32, 0, 1, "7.3"
   Color: 100 255 100
-  Text: -16, -12, 1, "51"
+  Text: -16, -12, 1, "50"
   Color: 255 255 0
   Text: 0, -20, 1, "G16"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.28480,-91.98968
   Color: 255 255 255
-  Icon: 0,0,350,1,2,1.25
+  Icon: 0,0,351,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN069 | Type: MnDOT | Temp: 64F | Dewpt: 49F | Wind: 350@4G12MPH | Vis: 10SM | SLP: 1030.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN069 | Type: MnDOT | Temp: 64F | Dewpt: 49F | Wind: 351@6G12MPH | Vis: 10SM | SLP: 1030.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 180 180 180
@@ -1570,12 +1570,12 @@ Object: 44.28480,-91.98968
   Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.09483,-91.55403
   Color: 255 255 255
-  Icon: 0,0,80,1,2,1.25
+  Icon: 0,0,120,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN083 | Type: MnDOT | Temp: 59F | Dewpt: 51F | Wind: 080@4MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN083 | Type: MnDOT | Temp: 59F | Dewpt: 51F | Wind: 120@4MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "59"
   Color: 180 180 180
@@ -1584,32 +1584,32 @@ Object: 47.09483,-91.55403
   Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.57235,-96.91493
   Color: 255 255 255
   Icon: 0,0,170,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN024 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 170@15G29MPH | Vis: 10SM | SLP: 1018.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN024 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 170@15G22MPH | Vis: 10SM | SLP: 1018.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "184"
+  Text: 16, 12, 1, "183"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G29"
+  Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.45888,-96.43525
   Color: 255 255 255
-  Icon: 0,0,160,1,4,1.25
+  Icon: 0,0,160,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN030 | Type: MnDOT | Temp: 61F | Dewpt: 54F | Wind: 160@17G23MPH | Vis: 10SM | SLP: 1022.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN030 | Type: MnDOT | Temp: 62F | Dewpt: 54F | Wind: 160@14G23MPH | Vis: 10SM | SLP: 1022.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "61"
+  Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -1620,14 +1620,14 @@ Object: 44.45888,-96.43525
   Text: 0, -20, 1, "G23"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.27025,-96.32007
   Color: 255 255 255
-  Icon: 0,0,140,1,4,1.25
+  Icon: 0,0,150,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN028 | Type: MnDOT | Temp: 58F | Dewpt: 52F | Wind: 140@15G21MPH | Vis: 10SM | SLP: 1023.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN028 | Type: MnDOT | Temp: 59F | Dewpt: 52F | Wind: 150@17G22MPH | Vis: 10SM | SLP: 1023.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "58"
+  Text: -16, 12, 1, "59"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -1635,15 +1635,15 @@ Object: 44.27025,-96.32007
   Color: 100 255 100
   Text: -16, -12, 1, "52"
   Color: 255 255 0
-  Text: 0, -20, 1, "G21"
+  Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.74691,-92.09952
   Color: 255 255 255
-  Icon: 0,0,3,1,3,1.25
+  Icon: 0,0,2,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN081 | Type: MnDOT | Temp: 54F | Dewpt: 49F | Wind: 003@14MPH | Vis: 1.2SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN081 | Type: MnDOT | Temp: 54F | Dewpt: 49F | Wind: 002@15MPH | Vis: 1.2SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "54"
   Color: 255 255 0
@@ -1652,78 +1652,78 @@ Object: 46.74691,-92.09952
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.87608,-93.07834
   Color: 255 255 255
-  Icon: 0,0,0,1,2,1.25
+  Icon: 0,0,320,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN090 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 000@3MPH | Vis: 9.9SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN090 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 320@4MPH | Vis: 9.9SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "63"
+  Text: -16, 12, 1, "64"
   Color: 180 180 180
   Text: -32, 0, 1, "9.9"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.39472,-94.02563
   Color: 255 255 255
-  Icon: 0,0,157,1,2,1.25
+  Icon: 0,0,135,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN017 | Type: MnDOT | Temp: 64F | Dewpt: 49F | Wind: 157@8G13MPH | Vis: 10SM | SLP: 1030.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN017 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 135@7G12MPH | Vis: 10SM | SLP: 1030.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "305"
+  Text: 16, 12, 1, "304"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G13"
+  Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.21123,-92.48770
   Color: 255 255 255
-  Icon: 0,0,163,1,3,1.25
+  Icon: 0,0,156,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN066 | Type: MnDOT | Temp: MF | Dewpt: MF | Wind: 163@10G17MPH | Vis: 10SM | SLP: 1031.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN066 | Type: MnDOT | Temp: MF | Dewpt: MF | Wind: 156@9G17MPH | Vis: 10SM | SLP: 1031.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "311"
+  Text: 16, 12, 1, "310"
   Color: 255 255 0
   Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.64290,-92.99276
   Color: 255 255 255
-  Icon: 0,0,358,1,2,1.25
+  Icon: 0,0,345,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN004 | Type: MnDOT | Temp: 61F | Dewpt: 49F | Wind: 358@7G15MPH | Vis: 10SM | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN004 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 345@6G15MPH | Vis: 10SM | SLP: 1029.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "61"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "300"
+  Text: 16, 12, 1, "299"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "50"
   Color: 255 255 0
   Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.97088,-97.20172
   Color: 255 255 255
-  Icon: 0,0,141,1,4,1.25
+  Icon: 0,0,148,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN057 | Type: MnDOT | Temp: 60F | Dewpt: 51F | Wind: 141@19G27MPH | Vis: 10SM | SLP: 1024.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN057 | Type: MnDOT | Temp: 61F | Dewpt: 51F | Wind: 148@17G27MPH | Vis: 10SM | SLP: 1024.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "60"
+  Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -1734,98 +1734,98 @@ Object: 48.97088,-97.20172
   Text: 0, -20, 1, "G27"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.81949,-95.96104
   Color: 255 255 255
-  Icon: 0,0,150,1,2,1.25
+  Icon: 0,0,155,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN025 | Type: MnDOT | Temp: 63F | Dewpt: 48F | Wind: 150@8G16MPH | Vis: 10SM | SLP: 1028.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN025 | Type: MnDOT | Temp: 63F | Dewpt: 48F | Wind: 155@9G18MPH | Vis: 10SM | SLP: 1028.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "283"
+  Text: 16, 12, 1, "284"
   Color: 100 255 100
   Text: -16, -12, 1, "48"
   Color: 255 255 0
-  Text: 0, -20, 1, "G16"
+  Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.93613,-96.44175
   Color: 255 255 255
-  Icon: 0,0,130,1,4,1.25
+  Icon: 0,0,125,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN059 | Type: MnDOT | Temp: 62F | Dewpt: 54F | Wind: 130@16G22MPH | Vis: 10SM | SLP: 1021.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN059 | Type: MnDOT | Temp: 63F | Dewpt: 53F | Wind: 125@19G28MPH | Vis: 10SM | SLP: 1021.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
   Text: 16, 12, 1, "219"
   Color: 100 255 100
-  Text: -16, -12, 1, "54"
+  Text: -16, -12, 1, "53"
   Color: 255 255 0
-  Text: 0, -20, 1, "G22"
+  Text: 0, -20, 1, "G28"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.94374,-93.45707
   Color: 255 255 255
-  Icon: 0,0,117,1,2,1.25
+  Icon: 0,0,152,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN085 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 117@3MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN085 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 152@4MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "63"
+  Text: -16, 12, 1, "64"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.13470,-93.87840
   Color: 255 255 255
-  Icon: 0,0,152,1,3,1.25
+  Icon: 0,0,109,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN072 | Type: MnDOT | Temp: 61F | Dewpt: 47F | Wind: 152@11G20MPH | Vis: 10SM | SLP: 1028.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN072 | Type: MnDOT | Temp: 62F | Dewpt: 47F | Wind: 109@8G19MPH | Vis: 10SM | SLP: 1028.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "61"
+  Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "289"
+  Text: 16, 12, 1, "288"
   Color: 100 255 100
   Text: -16, -12, 1, "47"
   Color: 255 255 0
-  Text: 0, -20, 1, "G20"
+  Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.04313,-96.49415
   Color: 255 255 255
   Icon: 0,0,160,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN054 | Type: MnDOT | Temp: 65F | Dewpt: 52F | Wind: 160@15G26MPH | Vis: 10SM | SLP: 1022.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN054 | Type: MnDOT | Temp: 65F | Dewpt: 52F | Wind: 160@17G24MPH | Vis: 10SM | SLP: 1021.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "65"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "220"
+  Text: 16, 12, 1, "219"
   Color: 100 255 100
   Text: -16, -12, 1, "52"
   Color: 255 255 0
-  Text: 0, -20, 1, "G26"
+  Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.03766,-93.09236
   Color: 255 255 255
-  Icon: 0,0,120,1,2,1.25
+  Icon: 0,0,140,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN088 | Type: MnDOT | Temp: 63F | Dewpt: 49F | Wind: 120@5MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN088 | Type: MnDOT | Temp: 63F | Dewpt: 49F | Wind: 140@6MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
@@ -1834,14 +1834,14 @@ Object: 45.03766,-93.09236
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.84710,-96.77743
   Color: 255 255 255
-  Icon: 0,0,180,1,2,1.25
+  Icon: 0,0,195,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN098 | Type: MnDOT | Temp: 64F | Dewpt: 51F | Wind: 180@5G22MPH | Vis: 10SM | SLP: 1025.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN098 | Type: MnDOT | Temp: 63F | Dewpt: 51F | Wind: 195@4G22MPH | Vis: 10SM | SLP: 1025.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -1852,12 +1852,12 @@ Object: 46.84710,-96.77743
   Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-23T16:48:00Z 2026-09-23T18:23:00Z
+TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
 Object: 46.62785,-92.53187
   Color: 255 255 255
-  Icon: 0,0,178,1,2,1.25
+  Icon: 0,0,155,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:53 UTC | Station: MN097 | Type: MnDOT | Temp: 57F | Dewpt: 48F | Wind: 178@6G15MPH | Vis: 10SM | SLP: 1030.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: MN097 | Type: MnDOT | Temp: 57F | Dewpt: 49F | Wind: 155@6G15MPH | Vis: 10SM | SLP: 1030.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 180 180 180
@@ -1865,95 +1865,95 @@ Object: 46.62785,-92.53187
   Color: 255 255 255
   Text: 16, 12, 1, "301"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
+  Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.90678,-94.11910
   Color: 255 255 255
-  Icon: 0,0,90,1,2,1.25
+  Icon: 0,0,115,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN002 | Type: MnDOT | Temp: 62F | Dewpt: 48F | Wind: 090@8G16MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN002 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 115@11G16MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
+  Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G16"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.90590,-93.86945
   Color: 255 255 255
-  Icon: 0,0,290,1,3,1.25
+  Icon: 0,0,310,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN023 | Type: MnDOT | Temp: 63F | Dewpt: 49F | Wind: 290@9G14MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN023 | Type: MnDOT | Temp: 63F | Dewpt: 48F | Wind: 310@7G14MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.05985,-93.49450
   Color: 255 255 255
-  Icon: 0,0,125,1,2,1.25
+  Icon: 0,0,100,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN039 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 125@8G18MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN039 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 100@10G16MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G18"
+  Text: 0, -20, 1, "G16"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.79476,-92.15696
   Color: 255 255 255
   Icon: 0,0,5,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN046 | Type: MnDOT | Temp: 55F | Dewpt: 48F | Wind: 005@3MPH | Vis: 10SM | SLP: 1047.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN046 | Type: MnDOT | Temp: 56F | Dewpt: 47F | Wind: 005@3MPH | Vis: 10SM | SLP: 1047.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "55"
+  Text: -16, 12, 1, "56"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "477"
+  Text: 16, 12, 1, "475"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
+  Text: -16, -12, 1, "47"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.66919,-92.31818
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN094 | Type: MnDOT | Temp: 59F | Dewpt: 51F | Wind: 184@0MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN094 | Type: MnDOT | Temp: 60F | Dewpt: 51F | Wind: 170@1MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "59"
+  Text: -16, 12, 1, "60"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 100 255 100
   Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.90544,-96.79893
   Color: 255 255 255
-  Icon: 0,0,162,1,3,1.25
+  Icon: 0,0,161,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN111 | Type: MnDOT | Temp: 62F | Dewpt: 52F | Wind: 162@12G25MPH | Vis: 10SM | SLP: 1025.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN111 | Type: MnDOT | Temp: 63F | Dewpt: 52F | Wind: 161@10G25MPH | Vis: 10SM | SLP: 1025.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -1964,30 +1964,30 @@ Object: 48.90544,-96.79893
   Text: 0, -20, 1, "G25"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.17654,-96.20691
   Color: 255 255 255
   Icon: 0,0,152,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN113 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 152@13G24MPH | Vis: 10SM | SLP: 1026.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN113 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 152@13G23MPH | Vis: 10SM | SLP: 1026.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "263"
+  Text: 16, 12, 1, "261"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G24"
+  Text: 0, -20, 1, "G23"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.57138,-96.53217
   Color: 255 255 255
-  Icon: 0,0,145,1,4,1.25
+  Icon: 0,0,148,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN114 | Type: MnDOT | Temp: 64F | Dewpt: 52F | Wind: 145@19G29MPH | Vis: 10SM | SLP: 1025.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN114 | Type: MnDOT | Temp: 64F | Dewpt: 52F | Wind: 148@19G29MPH | Vis: 10SM | SLP: 1025.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 180 180 180
@@ -2000,28 +2000,30 @@ Object: 47.57138,-96.53217
   Text: 0, -20, 1, "G29"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.89451,-95.42525
   Color: 255 255 255
-  Icon: 0,0,193,1,2,1.25
+  Icon: 0,0,165,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN115 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 193@3MPH | Vis: 10SM | SLP: 1015.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN115 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 165@3G14MPH | Vis: 10SM | SLP: 1015.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "153"
+  Text: 16, 12, 1, "152"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.89451,-94.56026
   Color: 255 255 255
-  Icon: 0,0,158,1,3,1.25
+  Icon: 0,0,156,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN116 | Type: MnDOT | Temp: 61F | Dewpt: 49F | Wind: 158@9G19MPH | Vis: 10SM | SLP: 1027.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN116 | Type: MnDOT | Temp: 61F | Dewpt: 48F | Wind: 156@10G23MPH | Vis: 10SM | SLP: 1027.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
@@ -2029,35 +2031,35 @@ Object: 48.89451,-94.56026
   Color: 255 255 255
   Text: 16, 12, 1, "277"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
-  Text: 0, -20, 1, "G19"
+  Text: 0, -20, 1, "G23"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.77656,-95.00585
   Color: 255 255 255
-  Icon: 0,0,173,1,3,1.25
+  Icon: 0,0,161,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN117 | Type: MnDOT | Temp: 59F | Dewpt: 48F | Wind: 173@12G28MPH | Vis: 10SM | SLP: 1026.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN117 | Type: MnDOT | Temp: 59F | Dewpt: 48F | Wind: 161@13G28MPH | Vis: 10SM | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "59"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "261"
+  Text: 16, 12, 1, "270"
   Color: 100 255 100
   Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G28"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.12238,-95.62496
   Color: 255 255 255
-  Icon: 0,0,141,1,3,1.25
+  Icon: 0,0,146,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN118 | Type: MnDOT | Temp: 61F | Dewpt: 49F | Wind: 141@12G18MPH | Vis: 10SM | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN118 | Type: MnDOT | Temp: 61F | Dewpt: 49F | Wind: 146@12G18MPH | Vis: 10SM | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
@@ -2070,28 +2072,30 @@ Object: 48.12238,-95.62496
   Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.53178,-95.66613
   Color: 255 255 255
-  Icon: 0,0,120,1,2,1.25
+  Icon: 0,0,113,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN119 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 120@7G18MPH | Vis: 10SM | SLP: 1026.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN119 | Type: MnDOT | Temp: 62F | Dewpt: 51F | Wind: 113@8G19MPH | Vis: 10SM | SLP: 1026.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "266"
+  Text: 16, 12, 1, "265"
   Color: 100 255 100
-  Text: -16, -12, 1, "50"
+  Text: -16, -12, 1, "51"
   Color: 255 255 0
-  Text: 0, -20, 1, "G18"
+  Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.18768,-95.13179
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN120 | Type: MnDOT | Temp: 60F | Dewpt: 50F | Wind: 069@2G13MPH | Vis: 10SM | SLP: 1027.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,78,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN120 | Type: MnDOT | Temp: 60F | Dewpt: 50F | Wind: 078@3G13MPH | Vis: 10SM | SLP: 1027.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 180 180 180
@@ -2104,48 +2108,48 @@ Object: 47.18768,-95.13179
   Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.20747,-96.01893
   Color: 255 255 255
-  Icon: 0,0,165,1,3,1.25
+  Icon: 0,0,164,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN130 | Type: MnDOT | Temp: 60F | Dewpt: 51F | Wind: 165@14G21MPH | Vis: 10SM | SLP: 1026.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN130 | Type: MnDOT | Temp: 60F | Dewpt: 51F | Wind: 164@14G21MPH | Vis: 10SM | SLP: 1026.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "266"
+  Text: 16, 12, 1, "264"
   Color: 100 255 100
   Text: -16, -12, 1, "51"
   Color: 255 255 0
   Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.80355,-96.23370
   Color: 255 255 255
-  Icon: 0,0,134,1,4,1.25
+  Icon: 0,0,135,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN131 | Type: MnDOT | Temp: 62F | Dewpt: 52F | Wind: 134@16G24MPH | Vis: 10SM | SLP: 1025.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN131 | Type: MnDOT | Temp: 62F | Dewpt: 51F | Wind: 135@17G24MPH | Vis: 10SM | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "259"
+  Text: 16, 12, 1, "260"
   Color: 100 255 100
-  Text: -16, -12, 1, "52"
+  Text: -16, -12, 1, "51"
   Color: 255 255 0
   Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.70597,-95.69174
   Color: 255 255 255
-  Icon: 0,0,180,1,4,1.25
+  Icon: 0,0,183,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN132 | Type: MnDOT | Temp: 59F | Dewpt: 49F | Wind: 180@16G22MPH | Vis: 10SM | SLP: 1027.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN132 | Type: MnDOT | Temp: 59F | Dewpt: 49F | Wind: 183@17G22MPH | Vis: 10SM | SLP: 1027.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "59"
   Color: 180 180 180
@@ -2158,32 +2162,32 @@ Object: 46.70597,-95.69174
   Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.99849,-95.72995
   Color: 255 255 255
-  Icon: 0,0,112,1,4,1.25
+  Icon: 0,0,126,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN133 | Type: MnDOT | Temp: 58F | Dewpt: 50F | Wind: 112@16G23MPH | Vis: 10SM | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN133 | Type: MnDOT | Temp: 58F | Dewpt: 50F | Wind: 126@15G21MPH | Vis: 10SM | SLP: 1026.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "270"
+  Text: 16, 12, 1, "269"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G23"
+  Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.28257,-95.91149
   Color: 255 255 255
-  Icon: 0,0,157,1,3,1.25
+  Icon: 0,0,131,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN134 | Type: MnDOT | Temp: 64F | Dewpt: 53F | Wind: 157@13G28MPH | Vis: 10SM | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN134 | Type: MnDOT | Temp: 65F | Dewpt: 53F | Wind: 131@12G28MPH | Vis: 10SM | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "65"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -2194,48 +2198,48 @@ Object: 45.28257,-95.91149
   Text: 0, -20, 1, "G28"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.47061,-96.71227
   Color: 255 255 255
-  Icon: 0,0,166,1,5,1.25
+  Icon: 0,0,156,1,5,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN135 | Type: MnDOT | Temp: 63F | Dewpt: 52F | Wind: 166@22G30MPH | Vis: 10SM | SLP: 1025.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "63"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "253"
-  Color: 100 255 100
-  Text: -16, -12, 1, "52"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G30"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 45.32592,-95.37902
-  Color: 255 255 255
-  Icon: 0,0,143,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN136 | Type: MnDOT | Temp: 62F | Dewpt: 51F | Wind: 143@12G21MPH | Vis: 10SM | SLP: 1027.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN135 | Type: MnDOT | Temp: 62F | Dewpt: 52F | Wind: 156@23G33MPH | Vis: 10SM | SLP: 1024.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "271"
+  Text: 16, 12, 1, "249"
   Color: 100 255 100
-  Text: -16, -12, 1, "51"
+  Text: -16, -12, 1, "52"
   Color: 255 255 0
-  Text: 0, -20, 1, "G21"
+  Text: 0, -20, 1, "G33"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 45.32592,-95.37902
+  Color: 255 255 255
+  Icon: 0,0,144,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN136 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 144@14G22MPH | Vis: 10SM | SLP: 1027.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "62"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "272"
+  Color: 100 255 100
+  Text: -16, -12, 1, "50"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G22"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.26892,-96.38939
   Color: 255 255 255
-  Icon: 0,0,167,1,3,1.25
+  Icon: 0,0,182,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN137 | Type: MnDOT | Temp: 64F | Dewpt: 55F | Wind: 167@12G21MPH | Vis: N/A | SLP: 1027.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN137 | Type: MnDOT | Temp: 64F | Dewpt: 55F | Wind: 182@12G24MPH | Vis: N/A | SLP: 1027.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 255 255 255
@@ -2243,51 +2247,51 @@ Object: 45.26892,-96.38939
   Color: 100 255 100
   Text: -16, -12, 1, "55"
   Color: 255 255 0
-  Text: 0, -20, 1, "G21"
+  Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.92063,-95.26938
   Color: 255 255 255
-  Icon: 0,0,156,1,3,1.25
+  Icon: 0,0,183,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN138 | Type: MnDOT | Temp: 58F | Dewpt: 47F | Wind: 156@14G25MPH | Vis: 10SM | SLP: 1027.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN138 | Type: MnDOT | Temp: 59F | Dewpt: 48F | Wind: 183@15G25MPH | Vis: 10SM | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "58"
+  Text: -16, 12, 1, "59"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "279"
+  Text: 16, 12, 1, "280"
   Color: 100 255 100
-  Text: -16, -12, 1, "47"
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G25"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.66492,-93.00972
   Color: 255 255 255
-  Icon: 0,0,161,1,3,1.25
+  Icon: 0,0,160,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN139 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 161@11G22MPH | Vis: 10SM | SLP: 1029.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN139 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 160@10G22MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "291"
+  Text: 16, 12, 1, "290"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.34667,-93.23731
   Color: 255 255 255
-  Icon: 0,0,143,1,2,1.25
+  Icon: 0,0,145,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN140 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 143@8G15MPH | Vis: 10SM | SLP: 1030.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN140 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 145@8G14MPH | Vis: 10SM | SLP: 1030.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
@@ -2297,87 +2301,87 @@ Object: 45.34667,-93.23731
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G15"
+  Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.23245,-93.27835
   Color: 255 255 255
-  Icon: 0,0,86,1,2,1.25
+  Icon: 0,0,85,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN141 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 086@6G17MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "61"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "290"
-  Color: 100 255 100
-  Text: -16, -12, 1, "50"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G17"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 44.23941,-92.65005
-  Color: 255 255 255
-  Icon: 0,0,113,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN142 | Type: MnDOT | Temp: 61F | Dewpt: 51F | Wind: 113@9G19MPH | Vis: 10SM | SLP: 1029.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "61"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "296"
-  Color: 100 255 100
-  Text: -16, -12, 1, "51"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G19"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 44.38241,-92.37015
-  Color: 255 255 255
-  Icon: 0,0,91,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN143 | Type: MnDOT | Temp: 59F | Dewpt: 48F | Wind: 091@14G21MPH | Vis: 10SM | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "59"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "300"
-  Color: 100 255 100
-  Text: -16, -12, 1, "48"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G21"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 43.55812,-92.94941
-  Color: 255 255 255
-  Icon: 0,0,93,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN144 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 093@11G21MPH | Vis: 10SM | SLP: 1029.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN141 | Type: MnDOT | Temp: 62F | Dewpt: 51F | Wind: 085@7G17MPH | Vis: 10SM | SLP: 1029.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "294"
+  Text: 16, 12, 1, "291"
+  Color: 100 255 100
+  Text: -16, -12, 1, "51"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G17"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 44.23941,-92.65005
+  Color: 255 255 255
+  Icon: 0,0,120,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN142 | Type: MnDOT | Temp: 60F | Dewpt: 50F | Wind: 120@9G19MPH | Vis: 10SM | SLP: 1029.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "60"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "295"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G19"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 44.38241,-92.37015
+  Color: 255 255 255
+  Icon: 0,0,100,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN143 | Type: MnDOT | Temp: 59F | Dewpt: 49F | Wind: 100@14G21MPH | Vis: 10SM | SLP: 1030.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "59"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "301"
+  Color: 100 255 100
+  Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 43.55812,-92.94941
+  Color: 255 255 255
+  Icon: 0,0,92,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN144 | Type: MnDOT | Temp: 61F | Dewpt: 49F | Wind: 092@12G19MPH | Vis: 10SM | SLP: 1029.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "61"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "294"
+  Color: 100 255 100
+  Text: -16, -12, 1, "49"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G19"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.50839,-92.36970
   Color: 255 255 255
-  Icon: 0,0,112,1,3,1.25
+  Icon: 0,0,104,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN145 | Type: MnDOT | Temp: 60F | Dewpt: 49F | Wind: 112@11G18MPH | Vis: 10SM | SLP: 1029.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN145 | Type: MnDOT | Temp: 60F | Dewpt: 49F | Wind: 104@10G18MPH | Vis: 10SM | SLP: 1029.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 180 180 180
@@ -2390,14 +2394,14 @@ Object: 43.50839,-92.36970
   Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.85790,-91.30423
   Color: 255 255 255
   Icon: 0,0,318,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN146 | Type: MnDOT | Temp: 58F | Dewpt: 52F | Wind: 318@4MPH | Vis: 10SM | SLP: 1028.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN146 | Type: MnDOT | Temp: 59F | Dewpt: 52F | Wind: 318@4MPH | Vis: 10SM | SLP: 1028.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "58"
+  Text: -16, 12, 1, "59"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -2406,12 +2410,12 @@ Object: 43.85790,-91.30423
   Text: -16, -12, 1, "52"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.63809,-96.08825
   Color: 255 255 255
-  Icon: 0,0,171,1,3,1.25
+  Icon: 0,0,162,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN147 | Type: MnDOT | Temp: 63F | Dewpt: 55F | Wind: 171@9G22MPH | Vis: 10SM | SLP: 1027.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN147 | Type: MnDOT | Temp: 63F | Dewpt: 55F | Wind: 162@9G22MPH | Vis: 10SM | SLP: 1027.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
@@ -2424,118 +2428,118 @@ Object: 43.63809,-96.08825
   Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.68110,-94.61519
   Color: 255 255 255
   Icon: 0,0,158,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN148 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 158@9G19MPH | Vis: 10SM | SLP: 1028.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN148 | Type: MnDOT | Temp: 62F | Dewpt: 51F | Wind: 158@9G18MPH | Vis: 10SM | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "282"
+  Text: 16, 12, 1, "280"
   Color: 100 255 100
-  Text: -16, -12, 1, "50"
+  Text: -16, -12, 1, "51"
   Color: 255 255 0
-  Text: 0, -20, 1, "G19"
+  Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.65770,-93.72738
   Color: 255 255 255
-  Icon: 0,0,135,1,3,1.25
+  Icon: 0,0,146,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN149 | Type: MnDOT | Temp: 62F | Dewpt: 48F | Wind: 135@9G16MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN149 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 146@9G16MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 100 255 100
-  Text: -16, -12, 1, "48"
+  Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G16"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.91899,-94.99980
   Color: 255 255 255
   Icon: 0,0,147,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN150 | Type: MnDOT | Temp: 62F | Dewpt: 51F | Wind: 147@10G17MPH | Vis: 10SM | SLP: 1027.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "62"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "276"
-  Color: 100 255 100
-  Text: -16, -12, 1, "51"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G17"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 44.26805,-94.89513
-  Color: 255 255 255
-  Icon: 0,0,131,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN151 | Type: MnDOT | Temp: 64F | Dewpt: 50F | Wind: 131@9G19MPH | Vis: 10SM | SLP: 1028.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "64"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "287"
-  Color: 100 255 100
-  Text: -16, -12, 1, "50"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G19"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 43.89871,-93.91437
-  Color: 255 255 255
-  Icon: 0,0,114,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN152 | Type: MnDOT | Temp: 63F | Dewpt: 49F | Wind: 114@9G15MPH | Vis: 10SM | SLP: 1028.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN150 | Type: MnDOT | Temp: 63F | Dewpt: 51F | Wind: 147@9G18MPH | Vis: 10SM | SLP: 1027.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "289"
+  Text: 16, 12, 1, "275"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "51"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G18"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 44.26805,-94.89513
+  Color: 255 255 255
+  Icon: 0,0,127,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN151 | Type: MnDOT | Temp: 64F | Dewpt: 51F | Wind: 127@10G19MPH | Vis: 10SM | SLP: 1028.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "64"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "285"
+  Color: 100 255 100
+  Text: -16, -12, 1, "51"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G19"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 43.89871,-93.91437
+  Color: 255 255 255
+  Icon: 0,0,115,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN152 | Type: MnDOT | Temp: 64F | Dewpt: 48F | Wind: 115@8G15MPH | Vis: 10SM | SLP: 1028.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "64"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "288"
+  Color: 100 255 100
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.93537,-95.96169
   Color: 255 255 255
-  Icon: 0,0,130,1,4,1.25
+  Icon: 0,0,135,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN153 | Type: MnDOT | Temp: 65F | Dewpt: 53F | Wind: 130@17G28MPH | Vis: 10SM | SLP: 1026.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN153 | Type: MnDOT | Temp: 66F | Dewpt: 53F | Wind: 135@16G28MPH | Vis: 10SM | SLP: 1026.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "65"
+  Text: -16, 12, 1, "66"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "266"
+  Text: 16, 12, 1, "264"
   Color: 100 255 100
   Text: -16, -12, 1, "53"
   Color: 255 255 0
   Text: 0, -20, 1, "G28"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.92211,-96.26498
   Color: 255 255 255
-  Icon: 0,0,182,1,3,1.25
+  Icon: 0,0,181,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN154 | Type: MnDOT | Temp: 60F | Dewpt: 54F | Wind: 182@13G19MPH | Vis: 10SM | SLP: 1027.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN154 | Type: MnDOT | Temp: 60F | Dewpt: 53F | Wind: 181@14G22MPH | Vis: 10SM | SLP: 1027.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 180 180 180
@@ -2543,73 +2547,109 @@ Object: 43.92211,-96.26498
   Color: 255 255 255
   Text: 16, 12, 1, "273"
   Color: 100 255 100
-  Text: -16, -12, 1, "54"
+  Text: -16, -12, 1, "53"
   Color: 255 255 0
-  Text: 0, -20, 1, "G19"
+  Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.39969,-95.47246
   Color: 255 255 255
-  Icon: 0,0,139,1,3,1.25
+  Icon: 0,0,165,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN155 | Type: MnDOT | Temp: 67F | Dewpt: 52F | Wind: 139@10G21MPH | Vis: 10SM | SLP: 1027.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN155 | Type: MnDOT | Temp: 67F | Dewpt: 52F | Wind: 165@10G19MPH | Vis: 10SM | SLP: 1027.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "67"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "277"
+  Text: 16, 12, 1, "276"
   Color: 100 255 100
   Text: -16, -12, 1, "52"
   Color: 255 255 0
-  Text: 0, -20, 1, "G21"
+  Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.58693,-96.05168
   Color: 255 255 255
-  Icon: 0,0,177,1,4,1.25
+  Icon: 0,0,175,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN156 | Type: MnDOT | Temp: 65F | Dewpt: 54F | Wind: 177@15G23MPH | Vis: 10SM | SLP: 1026.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN156 | Type: MnDOT | Temp: 65F | Dewpt: 54F | Wind: 175@16G24MPH | Vis: 10SM | SLP: 1026.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "65"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "264"
+  Text: 16, 12, 1, "265"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G23"
+  Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 44.76047,-94.84316
   Color: 255 255 255
-  Icon: 0,0,117,1,4,1.25
+  Icon: 0,0,131,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN157 | Type: MnDOT | Temp: 62F | Dewpt: 50F | Wind: 117@16G22MPH | Vis: 10SM | SLP: 1028.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN157 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 131@15G23MPH | Vis: 10SM | SLP: 1028.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "285"
+  Text: 16, 12, 1, "282"
+  Color: 100 255 100
+  Text: -16, -12, 1, "49"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G23"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 44.67417,-96.27693
+  Color: 255 255 255
+  Icon: 0,0,153,1,4,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN158 | Type: MnDOT | Temp: 63F | Dewpt: 54F | Wind: 153@17G25MPH | Vis: 10SM | SLP: 1026.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "63"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "262"
+  Color: 100 255 100
+  Text: -16, -12, 1, "54"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G25"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 45.13905,-94.81176
+  Color: 255 255 255
+  Icon: 0,0,121,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN159 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 121@12G20MPH | Vis: 10SM | SLP: 1028.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "61"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "283"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G22"
+  Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 44.67417,-96.27693
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 44.24031,-96.04634
   Color: 255 255 255
-  Icon: 0,0,162,1,4,1.25
+  Icon: 0,0,135,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN158 | Type: MnDOT | Temp: 62F | Dewpt: 53F | Wind: 162@16G25MPH | Vis: 10SM | SLP: 1026.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN160 | Type: MnDOT | Temp: 61F | Dewpt: 53F | Wind: 135@14G25MPH | Vis: 10SM | SLP: 1026.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -2620,130 +2660,96 @@ Object: 44.67417,-96.27693
   Text: 0, -20, 1, "G25"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 45.13905,-94.81176
-  Color: 255 255 255
-  Icon: 0,0,156,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN159 | Type: MnDOT | Temp: 61F | Dewpt: 49F | Wind: 156@13G20MPH | Vis: 10SM | SLP: 1028.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "61"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "283"
-  Color: 100 255 100
-  Text: -16, -12, 1, "49"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G20"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 44.24031,-96.04634
-  Color: 255 255 255
-  Icon: 0,0,163,1,4,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN160 | Type: MnDOT | Temp: 62F | Dewpt: 53F | Wind: 163@15G25MPH | Vis: 10SM | SLP: 1026.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "62"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "264"
-  Color: 100 255 100
-  Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G25"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 45.03545,-93.76607
   Color: 255 255 255
-  Icon: 0,0,73,1,2,1.25
+  Icon: 0,0,96,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN161 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 073@5G13MPH | Vis: N/A | SLP: 1031.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN161 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 096@4G13MPH | Vis: N/A | SLP: 1030.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 255 255 255
-  Text: 16, 12, 1, "310"
+  Text: 16, 12, 1, "309"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 43.97877,-91.42904
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN162 | Type: MnDOT | Temp: 60F | Dewpt: 51F | Wind: 127@3MPH | Vis: N/A | SLP: 1031.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,124,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN162 | Type: MnDOT | Temp: 60F | Dewpt: 51F | Wind: 124@3MPH | Vis: N/A | SLP: 1031.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 255 255 255
-  Text: 16, 12, 1, "312"
+  Text: 16, 12, 1, "311"
   Color: 100 255 100
   Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.58537,-93.67510
   Color: 255 255 255
   Icon: 0,0,117,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN100 | Type: MnDOT | Temp: 57F | Dewpt: 46F | Wind: 117@8G20MPH | Vis: 10SM | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN100 | Type: MnDOT | Temp: 58F | Dewpt: 46F | Wind: 117@8G20MPH | Vis: 10SM | SLP: 1029.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "57"
+  Text: -16, 12, 1, "58"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "300"
+  Text: 16, 12, 1, "299"
   Color: 100 255 100
   Text: -16, -12, 1, "46"
   Color: 255 255 0
   Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.64414,-93.07975
   Color: 255 255 255
-  Icon: 0,0,171,1,3,1.25
+  Icon: 0,0,185,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN101 | Type: MnDOT | Temp: 55F | Dewpt: 49F | Wind: 171@9G16MPH | Vis: 10SM | SLP: 1030.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN101 | Type: MnDOT | Temp: 56F | Dewpt: 48F | Wind: 185@10G18MPH | Vis: 10SM | SLP: 1030.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "55"
+  Text: -16, 12, 1, "56"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
   Text: 16, 12, 1, "305"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
-  Text: 0, -20, 1, "G16"
+  Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.87305,-92.86100
   Color: 255 255 255
-  Icon: 0,0,90,1,3,1.25
+  Icon: 0,0,94,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN103 | Type: MnDOT | Temp: 57F | Dewpt: 46F | Wind: 090@11G19MPH | Vis: 10SM | SLP: 1031.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN103 | Type: MnDOT | Temp: 56F | Dewpt: 46F | Wind: 094@10G19MPH | Vis: 10SM | SLP: 1030.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "57"
+  Text: -16, 12, 1, "56"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "310"
+  Text: 16, 12, 1, "307"
   Color: 100 255 100
   Text: -16, -12, 1, "46"
   Color: 255 255 0
   Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.29679,-93.70241
   Color: 255 255 255
-  Icon: 0,0,103,1,3,1.25
+  Icon: 0,0,102,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN105 | Type: MnDOT | Temp: 57F | Dewpt: 47F | Wind: 103@13G21MPH | Vis: 10SM | SLP: 1029.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN105 | Type: MnDOT | Temp: 57F | Dewpt: 46F | Wind: 102@14G21MPH | Vis: 10SM | SLP: 1029.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 180 180 180
@@ -2751,19 +2757,19 @@ Object: 47.29679,-93.70241
   Color: 255 255 255
   Text: 16, 12, 1, "296"
   Color: 100 255 100
-  Text: -16, -12, 1, "47"
+  Text: -16, -12, 1, "46"
   Color: 255 255 0
   Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.89174,-92.77429
   Color: 255 255 255
-  Icon: 0,0,205,1,3,1.25
+  Icon: 0,0,216,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN106 | Type: MnDOT | Temp: 57F | Dewpt: 45F | Wind: 205@9G16MPH | Vis: 10SM | SLP: 1030.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN106 | Type: MnDOT | Temp: 58F | Dewpt: 45F | Wind: 216@9G16MPH | Vis: 10SM | SLP: 1030.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "57"
+  Text: -16, 12, 1, "58"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -2774,32 +2780,32 @@ Object: 47.89174,-92.77429
   Text: 0, -20, 1, "G16"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.61226,-93.19428
   Color: 255 255 255
-  Icon: 0,0,164,1,2,1.25
+  Icon: 0,0,167,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN108 | Type: MnDOT | Temp: 57F | Dewpt: 47F | Wind: 164@6G15MPH | Vis: 10SM | SLP: 1031.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN108 | Type: MnDOT | Temp: 58F | Dewpt: 48F | Wind: 167@6G15MPH | Vis: 10SM | SLP: 1031.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "57"
+  Text: -16, 12, 1, "58"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "312"
+  Text: 16, 12, 1, "311"
   Color: 100 255 100
-  Text: -16, -12, 1, "47"
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.11394,-94.91677
   Color: 255 255 255
-  Icon: 0,0,235,1,3,1.25
+  Icon: 0,0,216,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN121 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 235@9G22MPH | Vis: 10SM | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN121 | Type: MnDOT | Temp: 60F | Dewpt: 50F | Wind: 216@10G22MPH | Vis: 10SM | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "61"
+  Text: -16, 12, 1, "60"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -2810,12 +2816,12 @@ Object: 46.11394,-94.91677
   Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.05282,-94.21450
   Color: 255 255 255
-  Icon: 0,0,199,1,2,1.25
+  Icon: 0,0,215,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN122 | Type: MnDOT | Temp: 59F | Dewpt: 49F | Wind: 199@6G16MPH | Vis: 10SM | SLP: 1029.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN122 | Type: MnDOT | Temp: 59F | Dewpt: 48F | Wind: 215@6G16MPH | Vis: 10SM | SLP: 1029.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "59"
   Color: 180 180 180
@@ -2823,215 +2829,215 @@ Object: 47.05282,-94.21450
   Color: 255 255 255
   Text: 16, 12, 1, "297"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G16"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.34349,-94.64286
   Color: 255 255 255
-  Icon: 0,0,106,1,2,1.25
+  Icon: 0,0,107,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN124 | Type: MnDOT | Temp: 60F | Dewpt: 48F | Wind: 106@6G18MPH | Vis: 10SM | SLP: 1029.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN124 | Type: MnDOT | Temp: 60F | Dewpt: 48F | Wind: 107@6G18MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "290"
+  Color: 100 255 100
+  Text: -16, -12, 1, "48"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G18"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 45.45101,-94.48595
+  Color: 255 255 255
+  Icon: 0,0,137,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN125 | Type: MnDOT | Temp: 62F | Dewpt: 49F | Wind: 137@9G18MPH | Vis: 10SM | SLP: 1029.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
   Text: 16, 12, 1, "291"
   Color: 100 255 100
+  Text: -16, -12, 1, "49"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G18"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 46.11800,-93.43246
+  Color: 255 255 255
+  Icon: 0,0,181,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN127 | Type: MnDOT | Temp: 58F | Dewpt: 48F | Wind: 181@5G17MPH | Vis: 10SM | SLP: 1029.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "295"
+  Color: 100 255 100
+  Text: -16, -12, 1, "48"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G17"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 46.78296,-93.61336
+  Color: 255 255 255
+  Icon: 0,0,188,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN128 | Type: MnDOT | Temp: 58F | Dewpt: 46F | Wind: 188@11G19MPH | Vis: 10SM | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "300"
+  Color: 100 255 100
+  Text: -16, -12, 1, "46"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G19"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 46.43485,-93.74377
+  Color: 255 255 255
+  Icon: 0,0,150,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN129 | Type: MnDOT | Temp: 58F | Dewpt: 48F | Wind: 150@11G18MPH | Vis: 10SM | SLP: 1030.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "301"
+  Color: 100 255 100
   Text: -16, -12, 1, "48"
   Color: 255 255 0
   Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 45.45101,-94.48595
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 46.45278,-92.73010
   Color: 255 255 255
-  Icon: 0,0,144,1,3,1.25
+  Icon: 0,0,106,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN125 | Type: MnDOT | Temp: 61F | Dewpt: 48F | Wind: 144@9G18MPH | Vis: 10SM | SLP: 1029.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN163 | Type: MnDOT | Temp: 59F | Dewpt: 47F | Wind: 106@8G18MPH | Vis: 10SM | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "59"
+  Color: 180 180 180
+  Text: -32, 0, 1, "10"
+  Color: 255 255 255
+  Text: 16, 12, 1, "300"
+  Color: 100 255 100
+  Text: -16, -12, 1, "47"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G18"
+End:
+
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
+Object: 45.55337,-93.58489
+  Color: 255 255 255
+  Icon: 0,0,167,1,3,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN164 | Type: MnDOT | Temp: 61F | Dewpt: 49F | Wind: 167@9G17MPH | Vis: 10SM | SLP: 1029.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "292"
-  Color: 100 255 100
-  Text: -16, -12, 1, "48"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G18"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 46.11800,-93.43246
-  Color: 255 255 255
-  Icon: 0,0,161,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN127 | Type: MnDOT | Temp: 59F | Dewpt: 49F | Wind: 161@4G13MPH | Vis: 10SM | SLP: 1029.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "59"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "297"
-  Color: 100 255 100
-  Text: -16, -12, 1, "49"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G13"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 46.78296,-93.61336
-  Color: 255 255 255
-  Icon: 0,0,198,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN128 | Type: MnDOT | Temp: 58F | Dewpt: 47F | Wind: 198@10G19MPH | Vis: 10SM | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "300"
-  Color: 100 255 100
-  Text: -16, -12, 1, "47"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G19"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 46.43485,-93.74377
-  Color: 255 255 255
-  Icon: 0,0,153,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN129 | Type: MnDOT | Temp: 58F | Dewpt: 48F | Wind: 153@11G18MPH | Vis: 10SM | SLP: 1030.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "302"
-  Color: 100 255 100
-  Text: -16, -12, 1, "48"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G18"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 46.45278,-92.73010
-  Color: 255 255 255
-  Icon: 0,0,108,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN163 | Type: MnDOT | Temp: 59F | Dewpt: 47F | Wind: 108@7G14MPH | Vis: 10SM | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "59"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "300"
-  Color: 100 255 100
-  Text: -16, -12, 1, "47"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G14"
-End:
-
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
-Object: 45.55337,-93.58489
-  Color: 255 255 255
-  Icon: 0,0,173,1,3,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN164 | Type: MnDOT | Temp: 60F | Dewpt: 49F | Wind: 173@9G17MPH | Vis: 10SM | SLP: 1029.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "60"
-  Color: 180 180 180
-  Text: -32, 0, 1, "10"
-  Color: 255 255 255
-  Text: 16, 12, 1, "296"
+  Text: 16, 12, 1, "295"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.54443,-90.89590
   Color: 255 255 255
   Icon: 0,0,93,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN165 | Type: MnDOT | Temp: 56F | Dewpt: 49F | Wind: 093@6G13MPH | Vis: 10SM | SLP: 1033.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN165 | Type: MnDOT | Temp: 56F | Dewpt: 49F | Wind: 093@6G13MPH | Vis: 10SM | SLP: 1033.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "332"
+  Text: 16, 12, 1, "331"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.75836,-90.31386
   Color: 255 255 255
-  Icon: 0,0,105,1,2,1.25
+  Icon: 0,0,101,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN166 | Type: MnDOT | Temp: 56F | Dewpt: 47F | Wind: 105@6G14MPH | Vis: 10SM | SLP: 1033.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN166 | Type: MnDOT | Temp: 56F | Dewpt: 47F | Wind: 101@5G14MPH | Vis: 10SM | SLP: 1033.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "338"
+  Text: 16, 12, 1, "336"
   Color: 100 255 100
   Text: -16, -12, 1, "47"
   Color: 255 255 0
   Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.52328,-95.16248
   Color: 255 255 255
-  Icon: 0,0,131,1,3,1.25
+  Icon: 0,0,140,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN167 | Type: MnDOT | Temp: 59F | Dewpt: 49F | Wind: 131@11G23MPH | Vis: 10SM | SLP: 1028.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN167 | Type: MnDOT | Temp: 59F | Dewpt: 49F | Wind: 140@11G24MPH | Vis: 10SM | SLP: 1028.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "59"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "284"
+  Text: 16, 12, 1, "283"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
   Color: 255 255 0
-  Text: 0, -20, 1, "G23"
+  Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.19535,-96.89114
   Color: 255 255 255
-  Icon: 0,0,155,1,3,1.25
+  Icon: 0,0,153,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN168 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 155@14G23MPH | Vis: 10SM | SLP: 1024.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN168 | Type: MnDOT | Temp: 61F | Dewpt: 50F | Wind: 153@15G26MPH | Vis: 10SM | SLP: 1024.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "242"
+  Text: 16, 12, 1, "243"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G23"
+  Text: 0, -20, 1, "G26"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 48.64708,-96.38070
   Color: 255 255 255
-  Icon: 0,0,173,1,2,1.25
+  Icon: 0,0,167,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN169 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 173@7G24MPH | Vis: 10SM | SLP: 1025.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN169 | Type: MnDOT | Temp: 63F | Dewpt: 50F | Wind: 167@8G24MPH | Vis: 10SM | SLP: 1025.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
@@ -3044,30 +3050,30 @@ Object: 48.64708,-96.38070
   Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.52462,-94.29614
   Color: 255 255 255
-  Icon: 0,0,171,1,3,1.25
+  Icon: 0,0,173,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN170 | Type: MnDOT | Temp: 60F | Dewpt: 49F | Wind: 171@10G19MPH | Vis: 10SM | SLP: 1029.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN170 | Type: MnDOT | Temp: 60F | Dewpt: 49F | Wind: 173@10G19MPH | Vis: 10SM | SLP: 1029.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
-  Text: 16, 12, 1, "296"
+  Text: 16, 12, 1, "295"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
   Color: 255 255 0
   Text: 0, -20, 1, "G19"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 46.77138,-92.13752
   Color: 255 255 255
-  Icon: 0,0,114,1,2,1.25
+  Icon: 0,0,115,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN171 | Type: MnDOT | Temp: 56F | Dewpt: 50F | Wind: 114@7G15MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN171 | Type: MnDOT | Temp: 56F | Dewpt: 50F | Wind: 115@6G15MPH | Vis: 10SM | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "56"
   Color: 180 180 180
@@ -3078,12 +3084,12 @@ Object: 46.77138,-92.13752
   Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
+TimeRange: 2026-09-23T16:50:00Z 2026-09-23T18:25:00Z
 Object: 47.67724,-91.61768
   Color: 255 255 255
-  Icon: 0,0,163,1,2,1.25
+  Icon: 0,0,164,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: MN172 | Type: MnDOT | Temp: 57F | Dewpt: 46F | Wind: 163@5G15MPH | Vis: 10SM | SLP: 1032.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:55 UTC | Station: MN172 | Type: MnDOT | Temp: 57F | Dewpt: 46F | Wind: 164@5G21MPH | Vis: 10SM | SLP: 1032.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "57"
   Color: 180 180 180
@@ -3093,7 +3099,7 @@ Object: 47.67724,-91.61768
   Color: 100 255 100
   Text: -16, -12, 1, "46"
   Color: 255 255 0
-  Text: 0, -20, 1, "G15"
+  Text: 0, -20, 1, "G21"
 End:
 
 TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
@@ -3189,10 +3195,10 @@ Object: 42.50803,-87.81728
   Text: -16, 12, 1, "64"
 End:
 
-TimeRange: 2026-09-23T16:17:00Z 2026-09-23T17:52:00Z
+TimeRange: 2026-09-23T16:47:00Z 2026-09-23T18:22:00Z
 Object: 43.16074,-88.35186
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:22 UTC | Station: UP032 | Type: Union Pacific | Temp: 60F | Dewpt: MF | Wind: 000@0MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:52 UTC | Station: UP032 | Type: Union Pacific | Temp: 60F | Dewpt: MF | Wind: 000@0MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
 End:
@@ -3221,12 +3227,12 @@ Object: 44.08585,-90.44886
   Text: -16, 12, 1, "62"
 End:
 
-TimeRange: 2026-09-23T16:18:00Z 2026-09-23T17:53:00Z
+TimeRange: 2026-09-23T16:47:00Z 2026-09-23T18:22:00Z
 Object: 44.12428,-94.19352
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:23 UTC | Station: UP119 | Type: Union Pacific | Temp: 65F | Dewpt: MF | Wind: 000@0MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:52 UTC | Station: UP119 | Type: Union Pacific | Temp: 66F | Dewpt: MF | Wind: 000@0MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "65"
+  Text: -16, 12, 1, "66"
 End:
 
 TimeRange: 2026-09-23T16:37:00Z 2026-09-23T18:12:00Z
@@ -3285,10 +3291,10 @@ Object: 43.11411,-95.89565
   Text: -16, 12, 1, "63"
 End:
 
-TimeRange: 2026-09-23T16:26:00Z 2026-09-23T18:01:00Z
+TimeRange: 2026-09-23T16:49:00Z 2026-09-23T18:24:00Z
 Object: 44.17219,-93.24124
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:31 UTC | Station: UP450 | Type: Union Pacific | Temp: 61F | Dewpt: MF | Wind: 000@0MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:54 UTC | Station: UP450 | Type: Union Pacific | Temp: 61F | Dewpt: MF | Wind: 000@0MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
 End:
@@ -3361,12 +3367,12 @@ Object: 43.56068,-93.27256
   Text: -16, 12, 1, "63"
 End:
 
-TimeRange: 2026-09-23T16:18:00Z 2026-09-23T17:53:00Z
+TimeRange: 2026-09-23T16:48:00Z 2026-09-23T18:23:00Z
 Object: 43.81366,-95.26767
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:23 UTC | Station: UP891 | Type: Union Pacific | Temp: 66F | Dewpt: MF | Wind: 000@0MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:53 UTC | Station: UP891 | Type: Union Pacific | Temp: 64F | Dewpt: MF | Wind: 000@0MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "66"
+  Text: -16, 12, 1, "64"
 End:
 
 TimeRange: 2026-09-23T16:46:00Z 2026-09-23T18:21:00Z
@@ -3377,12 +3383,12 @@ Object: 43.94082,-94.90665
   Text: -16, 12, 1, "56"
 End:
 
-TimeRange: 2026-09-23T16:17:00Z 2026-09-23T17:52:00Z
+TimeRange: 2026-09-23T16:47:00Z 2026-09-23T18:22:00Z
 Object: 44.77266,-93.05980
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:22 UTC | Station: UP893 | Type: Union Pacific | Temp: 65F | Dewpt: MF | Wind: 000@0MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:52 UTC | Station: UP893 | Type: Union Pacific | Temp: 69F | Dewpt: MF | Wind: 000@0MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "65"
+  Text: -16, 12, 1, "69"
 End:
 
 TimeRange: 2026-09-23T16:20:00Z 2026-09-23T17:55:00Z
@@ -7282,28 +7288,28 @@ Object: 46.53887,-88.12978
   Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T16:40:00Z 2026-09-23T18:15:00Z
+TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
 Object: 44.65987,-96.81626
   Color: 255 255 255
-  Icon: 0,0,162,1,4,1.25
+  Icon: 0,0,167,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:45 UTC | Station: SD511 | Type: Mesonet | Temp: 58F | Dewpt: 52F | Wind: 162@17G24MPH | Vis: N/A | SLP: 1026.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: SD511 | Type: Mesonet | Temp: 57F | Dewpt: 52F | Wind: 167@17G24MPH | Vis: N/A | SLP: 1026.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "58"
+  Text: -16, 12, 1, "57"
   Color: 255 255 255
-  Text: 16, 12, 1, "263"
+  Text: 16, 12, 1, "262"
   Color: 100 255 100
   Text: -16, -12, 1, "52"
   Color: 255 255 0
   Text: 0, -20, 1, "G24"
 End:
 
-TimeRange: 2026-09-23T16:39:00Z 2026-09-23T18:14:00Z
+TimeRange: 2026-09-23T16:44:00Z 2026-09-23T18:19:00Z
 Object: 43.66701,-97.14792
   Color: 255 255 255
-  Icon: 0,0,146,1,4,1.25
+  Icon: 0,0,142,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:44 UTC | Station: SD547 | Type: Mesonet | Temp: 59F | Dewpt: 55F | Wind: 146@15G26MPH | Vis: N/A | SLP: 1026.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:49 UTC | Station: SD547 | Type: Mesonet | Temp: 59F | Dewpt: 55F | Wind: 142@15G26MPH | Vis: N/A | SLP: 1026.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "59"
   Color: 255 255 255
@@ -7314,44 +7320,44 @@ Object: 43.66701,-97.14792
   Text: 0, -20, 1, "G26"
 End:
 
-TimeRange: 2026-09-23T16:39:00Z 2026-09-23T18:14:00Z
+TimeRange: 2026-09-23T16:44:00Z 2026-09-23T18:19:00Z
 Object: 42.57088,-96.53105
   Color: 255 255 255
-  Icon: 0,0,122,1,3,1.25
+  Icon: 0,0,130,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:44 UTC | Station: SD550 | Type: Mesonet | Temp: 61F | Dewpt: 55F | Wind: 122@11G17MPH | Vis: N/A | SLP: 1028.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:49 UTC | Station: SD550 | Type: Mesonet | Temp: 62F | Dewpt: 56F | Wind: 130@10G16MPH | Vis: N/A | SLP: 1028.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "61"
+  Text: -16, 12, 1, "62"
   Color: 255 255 255
-  Text: 16, 12, 1, "281"
+  Text: 16, 12, 1, "282"
   Color: 100 255 100
-  Text: -16, -12, 1, "55"
+  Text: -16, -12, 1, "56"
   Color: 255 255 0
-  Text: 0, -20, 1, "G17"
+  Text: 0, -20, 1, "G16"
 End:
 
-TimeRange: 2026-09-23T16:39:00Z 2026-09-23T18:14:00Z
+TimeRange: 2026-09-23T16:44:00Z 2026-09-23T18:19:00Z
 Object: 45.30795,-97.05217
   Color: 255 255 255
-  Icon: 0,0,157,1,4,1.25
+  Icon: 0,0,155,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:44 UTC | Station: SD566 | Type: Mesonet | Temp: 58F | Dewpt: 52F | Wind: 157@19G25MPH | Vis: N/A | SLP: 1024.9mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:49 UTC | Station: SD566 | Type: Mesonet | Temp: 58F | Dewpt: 52F | Wind: 155@18G25MPH | Vis: N/A | SLP: 1024.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 255 255 255
-  Text: 16, 12, 1, "249"
+  Text: 16, 12, 1, "248"
   Color: 100 255 100
   Text: -16, -12, 1, "52"
   Color: 255 255 0
   Text: 0, -20, 1, "G25"
 End:
 
-TimeRange: 2026-09-23T16:36:00Z 2026-09-23T18:11:00Z
+TimeRange: 2026-09-23T16:41:00Z 2026-09-23T18:16:00Z
 Object: 45.92147,-96.85257
   Color: 255 255 255
-  Icon: 0,0,150,1,5,1.25
+  Icon: 0,0,147,1,5,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:41 UTC | Station: SD574 | Type: Mesonet | Temp: 60F | Dewpt: 52F | Wind: 150@22G31MPH | Vis: N/A | SLP: 1025.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:46 UTC | Station: SD574 | Type: Mesonet | Temp: 60F | Dewpt: 52F | Wind: 147@21G29MPH | Vis: N/A | SLP: 1025.8mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 255 255 255
@@ -7359,7 +7365,7 @@ Object: 45.92147,-96.85257
   Color: 100 255 100
   Text: -16, -12, 1, "52"
   Color: 255 255 0
-  Text: 0, -20, 1, "G31"
+  Text: 0, -20, 1, "G29"
 End:
 
 TimeRange: 2026-09-23T16:40:00Z 2026-09-23T18:15:00Z
@@ -8004,44 +8010,44 @@ Object: 46.61440,-90.69860
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:39:00Z 2026-09-23T18:14:00Z
+TimeRange: 2026-09-23T16:44:00Z 2026-09-23T18:19:00Z
 Object: 44.29989,-97.12914
   Color: 255 255 255
-  Icon: 0,0,129,1,2,1.25
+  Icon: 0,0,130,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:44 UTC | Station: SD504 | Type: Mesonet | Temp: 59F | Dewpt: 59F | Wind: 129@8G21MPH | Vis: N/A | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:49 UTC | Station: SD504 | Type: Mesonet | Temp: 59F | Dewpt: 59F | Wind: 130@8G21MPH | Vis: N/A | SLP: 1026.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "59"
   Color: 255 255 255
-  Text: 16, 12, 1, "260"
+  Text: 16, 12, 1, "261"
   Color: 100 255 100
   Text: -16, -12, 1, "59"
   Color: 255 255 0
   Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-23T16:36:00Z 2026-09-23T18:11:00Z
+TimeRange: 2026-09-23T16:41:00Z 2026-09-23T18:16:00Z
 Object: 43.03866,-96.79612
   Color: 255 255 255
-  Icon: 0,0,150,1,3,1.25
+  Icon: 0,0,147,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:41 UTC | Station: SD508 | Type: Mesonet | Temp: 58F | Dewpt: 55F | Wind: 150@11G19MPH | Vis: N/A | SLP: 1028.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:46 UTC | Station: SD508 | Type: Mesonet | Temp: 58F | Dewpt: 55F | Wind: 147@11G16MPH | Vis: N/A | SLP: 1028.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 255 255 255
-  Text: 16, 12, 1, "283"
+  Text: 16, 12, 1, "281"
   Color: 100 255 100
   Text: -16, -12, 1, "55"
   Color: 255 255 0
-  Text: 0, -20, 1, "G19"
+  Text: 0, -20, 1, "G16"
 End:
 
-TimeRange: 2026-09-23T16:39:00Z 2026-09-23T18:14:00Z
+TimeRange: 2026-09-23T16:44:00Z 2026-09-23T18:19:00Z
 Object: 43.26323,-96.79592
   Color: 255 255 255
-  Icon: 0,0,142,1,3,1.25
+  Icon: 0,0,155,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:44 UTC | Station: SD519 | Type: Mesonet | Temp: 59F | Dewpt: 54F | Wind: 142@14MPH | Vis: N/A | SLP: 1028.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:49 UTC | Station: SD519 | Type: Mesonet | Temp: 59F | Dewpt: 54F | Wind: 155@14MPH | Vis: N/A | SLP: 1028.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "59"
   Color: 255 255 255
@@ -8050,80 +8056,80 @@ Object: 43.26323,-96.79592
   Text: -16, -12, 1, "54"
 End:
 
-TimeRange: 2026-09-23T16:40:00Z 2026-09-23T18:15:00Z
+TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
 Object: 43.28224,-97.41963
   Color: 255 255 255
-  Icon: 0,0,140,1,3,1.25
+  Icon: 0,0,146,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:45 UTC | Station: SD530 | Type: Mesonet | Temp: 58F | Dewpt: 56F | Wind: 140@11G20MPH | Vis: N/A | SLP: 1027.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: SD530 | Type: Mesonet | Temp: 58F | Dewpt: 56F | Wind: 146@14G22MPH | Vis: N/A | SLP: 1027.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 255 255 255
-  Text: 16, 12, 1, "272"
+  Text: 16, 12, 1, "273"
   Color: 100 255 100
   Text: -16, -12, 1, "56"
   Color: 255 255 0
-  Text: 0, -20, 1, "G20"
+  Text: 0, -20, 1, "G22"
 End:
 
-TimeRange: 2026-09-23T16:39:00Z 2026-09-23T18:14:00Z
+TimeRange: 2026-09-23T16:44:00Z 2026-09-23T18:19:00Z
 Object: 42.88186,-97.21520
   Color: 255 255 255
-  Icon: 0,0,115,1,3,1.25
+  Icon: 0,0,116,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:44 UTC | Station: SD532 | Type: Mesonet | Temp: 61F | Dewpt: 57F | Wind: 115@10G18MPH | Vis: N/A | SLP: 1026.3mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:49 UTC | Station: SD532 | Type: Mesonet | Temp: 61F | Dewpt: 56F | Wind: 116@11G18MPH | Vis: N/A | SLP: 1026.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 255 255 255
-  Text: 16, 12, 1, "263"
+  Text: 16, 12, 1, "264"
   Color: 100 255 100
-  Text: -16, -12, 1, "57"
+  Text: -16, -12, 1, "56"
   Color: 255 255 0
   Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-23T16:36:00Z 2026-09-23T18:11:00Z
+TimeRange: 2026-09-23T16:41:00Z 2026-09-23T18:16:00Z
 Object: 45.45671,-96.99009
   Color: 255 255 255
-  Icon: 0,0,193,1,4,1.25
+  Icon: 0,0,197,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:41 UTC | Station: SD552 | Type: Mesonet | Temp: 60F | Dewpt: 53F | Wind: 193@17G24MPH | Vis: N/A | SLP: 1026.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:46 UTC | Station: SD552 | Type: Mesonet | Temp: 60F | Dewpt: 54F | Wind: 197@15G26MPH | Vis: N/A | SLP: 1026.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 255 255 255
   Text: 16, 12, 1, "262"
-  Color: 100 255 100
-  Text: -16, -12, 1, "53"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G24"
-End:
-
-TimeRange: 2026-09-23T16:39:00Z 2026-09-23T18:14:00Z
-Object: 44.15290,-96.75996
-  Color: 255 255 255
-  Icon: 0,0,137,1,4,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:44 UTC | Station: SD577 | Type: Mesonet | Temp: 58F | Dewpt: 54F | Wind: 137@15G26MPH | Vis: N/A | SLP: 1026.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
-  Color: 255 100 100
-  Text: -16, 12, 1, "58"
-  Color: 255 255 255
-  Text: 16, 12, 1, "264"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
   Text: 0, -20, 1, "G26"
 End:
 
-TimeRange: 2026-09-23T16:40:00Z 2026-09-23T18:15:00Z
+TimeRange: 2026-09-23T16:44:00Z 2026-09-23T18:19:00Z
+Object: 44.15290,-96.75996
+  Color: 255 255 255
+  Icon: 0,0,148,1,4,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:49 UTC | Station: SD577 | Type: Mesonet | Temp: 58F | Dewpt: 53F | Wind: 148@19G25MPH | Vis: N/A | SLP: 1026.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Color: 255 100 100
+  Text: -16, 12, 1, "58"
+  Color: 255 255 255
+  Text: 16, 12, 1, "264"
+  Color: 100 255 100
+  Text: -16, -12, 1, "53"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G25"
+End:
+
+TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
 Object: 45.34074,-97.38783
   Color: 255 255 255
-  Icon: 0,0,160,1,3,1.25
+  Icon: 0,0,158,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:45 UTC | Station: SD579 | Type: Mesonet | Temp: 60F | Dewpt: 56F | Wind: 160@13G25MPH | Vis: N/A | SLP: 1024.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:50 UTC | Station: SD579 | Type: Mesonet | Temp: 60F | Dewpt: 56F | Wind: 158@14G25MPH | Vis: N/A | SLP: 1024.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 255 255 255
-  Text: 16, 12, 1, "244"
+  Text: 16, 12, 1, "242"
   Color: 100 255 100
   Text: -16, -12, 1, "56"
   Color: 255 255 0
@@ -8146,28 +8152,28 @@ Object: 45.72473,-97.42251
   Text: 0, -20, 1, "G26"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 45.11820,-93.42830
   Color: 255 255 255
-  Icon: 0,0,135,1,2,1.25
+  Icon: 0,0,152,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN02 | Type: Mesonet | Temp: 64F | Dewpt: 51F | Wind: 135@6MPH | Vis: 10SM | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN02 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 152@8MPH | Vis: 10SM | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "64"
+  Text: -16, 12, 1, "63"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
   Text: 16, 12, 1, "300"
   Color: 100 255 100
-  Text: -16, -12, 1, "51"
+  Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:52:00Z 2026-09-23T18:27:00Z
+TimeRange: 2026-09-23T16:54:00Z 2026-09-23T18:29:00Z
 Object: 44.84944,-93.56417
   Color: 255 255 255
-  Icon: 0,0,134,1,2,1.25
+  Icon: 0,0,60,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:57 UTC | Station: HPN03 | Type: Mesonet | Temp: 61F | Dewpt: 50F | Wind: 134@5MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:59 UTC | Station: HPN03 | Type: Mesonet | Temp: 61F | Dewpt: 50F | Wind: 060@6MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 180 180 180
@@ -8178,70 +8184,68 @@ Object: 44.84944,-93.56417
   Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 45.16770,-93.63433
   Color: 255 255 255
-  Icon: 0,0,161,1,2,1.25
+  Icon: 0,0,172,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN04 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 161@7MPH | Vis: N/A | SLP: 1023.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN04 | Type: Mesonet | Temp: 64F | Dewpt: 49F | Wind: 172@5MPH | Vis: N/A | SLP: 1024.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "64"
   Color: 255 255 255
-  Text: 16, 12, 1, "230"
+  Text: 16, 12, 1, "240"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 45.05155,-93.56948
   Color: 255 255 255
-  Icon: 0,0,111,1,3,1.25
+  Icon: 0,0,115,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN05 | Type: Mesonet | Temp: 61F | Dewpt: 50F | Wind: 111@9G13MPH | Vis: 7.4SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN05 | Type: Mesonet | Temp: 62F | Dewpt: 50F | Wind: 115@8G12MPH | Vis: 7.6SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "61"
+  Text: -16, 12, 1, "62"
   Color: 180 180 180
-  Text: -32, 0, 1, "7.4"
+  Text: -32, 0, 1, "7.6"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G13"
+  Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.97219,-93.68444
   Color: 255 255 255
-  Icon: 0,0,128,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN06 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 128@6MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN06 | Type: Mesonet | Temp: 62F | Dewpt: 50F | Wind: 166@3MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.89519,-93.23171
   Color: 255 255 255
-  Icon: 0,0,114,1,2,1.25
+  Icon: 0,0,122,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN07 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 114@9MPH | Vis: N/A | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN07 | Type: Mesonet | Temp: 61F | Dewpt: 49F | Wind: 122@8MPH | Vis: N/A | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "61"
   Color: 255 255 255
   Text: 16, 12, 1, "300"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:52:00Z 2026-09-23T18:27:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.93630,-93.62005
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:57 UTC | Station: HPN08 | Type: Mesonet | Temp: 63F | Dewpt: 51F | Wind: 198@1MPH | Vis: N/A | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN08 | Type: Mesonet | Temp: 63F | Dewpt: 51F | Wind: 138@3MPH | Vis: N/A | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 255 255 255
@@ -8250,26 +8254,28 @@ Object: 44.93630,-93.62005
   Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.98992,-93.47913
   Color: 255 255 255
-  Icon: 0,0,154,1,2,1.25
+  Icon: 0,0,136,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN09 | Type: Mesonet | Temp: 62F | Dewpt: 52F | Wind: 154@4MPH | Vis: N/A | SLP: 1031.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN09 | Type: Mesonet | Temp: 63F | Dewpt: 52F | Wind: 136@6MPH | Vis: N/A | SLP: 1031.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "63"
   Color: 255 255 255
   Text: 16, 12, 1, "310"
   Color: 100 255 100
   Text: -16, -12, 1, "52"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 45.09689,-93.74369
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN10 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 138@2MPH | Vis: 10SM | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,114,1,2,1.25
+  Color: 255 255 255
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN10 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 114@4MPH | Vis: 10SM | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "63"
+  Text: -16, 12, 1, "62"
   Color: 180 180 180
   Text: -32, 0, 1, "10"
   Color: 255 255 255
@@ -8278,44 +8284,40 @@ Object: 45.09689,-93.74369
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:52:00Z 2026-09-23T18:27:00Z
+TimeRange: 2026-09-23T16:54:00Z 2026-09-23T18:29:00Z
 Object: 44.89792,-93.73461
   Color: 255 255 255
-  Icon: 0,0,110,1,2,1.25
+  Icon: 0,0,129,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:57 UTC | Station: HPN11 | Type: Mesonet | Temp: 65F | Dewpt: 50F | Wind: 110@7G13MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:59 UTC | Station: HPN11 | Type: Mesonet | Temp: 65F | Dewpt: 50F | Wind: 129@6MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "65"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G13"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 45.08797,-93.69137
   Color: 255 255 255
-  Icon: 0,0,123,1,3,1.25
+  Icon: 0,0,124,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN19 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 123@10G18MPH | Vis: N/A | SLP: 1024.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN19 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 124@6MPH | Vis: N/A | SLP: 1024.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 255 255 255
   Text: 16, 12, 1, "240"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G18"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.95556,-93.41139
   Color: 255 255 255
-  Icon: 0,0,140,1,2,1.25
+  Icon: 0,0,145,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN20 | Type: Mesonet | Temp: 63F | Dewpt: 50F | Wind: 140@7MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN20 | Type: Mesonet | Temp: 63F | Dewpt: 50F | Wind: 145@4MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 255 255 255
@@ -8324,12 +8326,12 @@ Object: 44.95556,-93.41139
   Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 45.04889,-93.27611
   Color: 255 255 255
-  Icon: 0,0,145,1,2,1.25
+  Icon: 0,0,132,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN21 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 145@7MPH | Vis: N/A | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN21 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 132@7MPH | Vis: N/A | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 255 255 255
@@ -8338,54 +8340,56 @@ Object: 45.04889,-93.27611
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.86346,-93.35667
   Color: 255 255 255
-  Icon: 0,0,135,1,2,1.25
+  Icon: 0,0,126,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN24 | Type: Mesonet | Temp: 61F | Dewpt: 49F | Wind: 135@7MPH | Vis: N/A | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN24 | Type: Mesonet | Temp: 61F | Dewpt: 50F | Wind: 126@10G14MPH | Vis: N/A | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 255 255 255
   Text: 16, 12, 1, "300"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "50"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.89778,-93.45667
   Color: 255 255 255
-  Icon: 0,0,152,1,2,1.25
+  Icon: 0,0,122,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN25 | Type: Mesonet | Temp: 62F | Dewpt: 50F | Wind: 152@7MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN25 | Type: Mesonet | Temp: 63F | Dewpt: 50F | Wind: 122@7MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "63"
   Color: 255 255 255
   Text: 16, 12, 1, "280"
   Color: 100 255 100
   Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T16:47:00Z 2026-09-23T18:22:00Z
+TimeRange: 2026-09-23T16:49:00Z 2026-09-23T18:24:00Z
 Object: 44.80384,-93.35893
   Color: 255 255 255
-  Icon: 0,0,146,1,2,1.25
+  Icon: 0,0,128,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:52 UTC | Station: HPN26 | Type: Mesonet | Temp: 62F | Dewpt: 51F | Wind: 146@6MPH | Vis: N/A | SLP: 1030.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:54 UTC | Station: HPN26 | Type: Mesonet | Temp: 63F | Dewpt: 51F | Wind: 128@6MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "63"
   Color: 255 255 255
-  Text: 16, 12, 1, "300"
+  Text: 16, 12, 1, "290"
   Color: 100 255 100
   Text: -16, -12, 1, "51"
 End:
 
-TimeRange: 2026-09-23T16:52:00Z 2026-09-23T18:27:00Z
+TimeRange: 2026-09-23T16:54:00Z 2026-09-23T18:29:00Z
 Object: 45.20420,-93.48487
   Color: 255 255 255
-  Icon: 0,0,136,1,3,1.25
+  Icon: 0,0,129,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:57 UTC | Station: HPN27 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 136@10MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:59 UTC | Station: HPN27 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 129@4MPH | Vis: 10SM | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 180 180 180
@@ -8396,26 +8400,26 @@ Object: 45.20420,-93.48487
   Text: -16, -12, 1, "49"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 45.13550,-93.56271
   Color: 255 255 255
-  Icon: 0,0,145,1,2,1.25
+  Icon: 0,0,123,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN28 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 145@6MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN28 | Type: Mesonet | Temp: 62F | Dewpt: 50F | Wind: 123@5MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 255 255 255
   Text: 16, 12, 1, "280"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.69021,-93.07368
   Color: 255 255 255
-  Icon: 0,0,147,1,3,1.25
+  Icon: 0,0,152,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN29 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 147@12G16MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN29 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 152@11G17MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 255 255 255
@@ -8423,37 +8427,37 @@ Object: 44.69021,-93.07368
   Color: 100 255 100
   Text: -16, -12, 1, "49"
   Color: 255 255 0
-  Text: 0, -20, 1, "G16"
+  Text: 0, -20, 1, "G17"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.99026,-93.17990
   Color: 255 255 255
-  Icon: 0,0,121,1,2,1.25
+  Icon: 0,0,129,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN30 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 121@6MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN30 | Type: Mesonet | Temp: 62F | Dewpt: 50F | Wind: 129@8G12MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
-  Text: -16, -12, 1, "49"
+  Text: -16, -12, 1, "50"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 45.16541,-93.22459
   Color: 255 255 255
-  Icon: 0,0,111,1,3,1.25
+  Icon: 0,0,133,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN31 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 111@10G14MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN31 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 133@10MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
-  Color: 255 255 0
-  Text: 0, -20, 1, "G14"
 End:
 
 TimeRange: 2026-09-23T15:55:00Z 2026-09-23T17:30:00Z
@@ -8478,36 +8482,36 @@ Object: 45.12783,-92.92317
   Text: -16, -12, 1, "54"
 End:
 
-TimeRange: 2026-09-23T16:39:00Z 2026-09-23T18:14:00Z
+TimeRange: 2026-09-23T16:44:00Z 2026-09-23T18:19:00Z
 Object: 44.89189,-96.68465
   Color: 255 255 255
-  Icon: 0,0,204,1,3,1.25
+  Icon: 0,0,201,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:44 UTC | Station: SD593 | Type: Mesonet | Temp: 61F | Dewpt: 54F | Wind: 204@14G20MPH | Vis: N/A | SLP: 1026.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:49 UTC | Station: SD593 | Type: Mesonet | Temp: 61F | Dewpt: 54F | Wind: 201@17G21MPH | Vis: N/A | SLP: 1026.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "61"
   Color: 255 255 255
-  Text: 16, 12, 1, "265"
+  Text: 16, 12, 1, "264"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G20"
+  Text: 0, -20, 1, "G21"
 End:
 
-TimeRange: 2026-09-23T16:39:00Z 2026-09-23T18:14:00Z
+TimeRange: 2026-09-23T16:44:00Z 2026-09-23T18:19:00Z
 Object: 45.27194,-96.50848
   Color: 255 255 255
-  Icon: 0,0,153,1,3,1.25
+  Icon: 0,0,170,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:44 UTC | Station: SD594 | Type: Mesonet | Temp: 62F | Dewpt: 54F | Wind: 153@14G23MPH | Vis: N/A | SLP: 1026.7mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:49 UTC | Station: SD594 | Type: Mesonet | Temp: 62F | Dewpt: 54F | Wind: 170@16G25MPH | Vis: N/A | SLP: 1026.6mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 255 255 255
-  Text: 16, 12, 1, "267"
+  Text: 16, 12, 1, "266"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G23"
+  Text: 0, -20, 1, "G25"
 End:
 
 TimeRange: 2026-09-23T15:55:00Z 2026-09-23T17:30:00Z
@@ -8556,12 +8560,12 @@ Object: 44.23883,-92.73183
   Text: -16, -12, 1, "44"
 End:
 
-TimeRange: 2026-09-23T16:39:00Z 2026-09-23T18:14:00Z
+TimeRange: 2026-09-23T16:44:00Z 2026-09-23T18:19:00Z
 Object: 43.37272,-97.08206
   Color: 255 255 255
-  Icon: 0,0,134,1,3,1.25
+  Icon: 0,0,147,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:44 UTC | Station: SD605 | Type: Mesonet | Temp: 60F | Dewpt: 55F | Wind: 134@13G19MPH | Vis: N/A | SLP: 1027.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:49 UTC | Station: SD605 | Type: Mesonet | Temp: 60F | Dewpt: 55F | Wind: 147@16G21MPH | Vis: N/A | SLP: 1027.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 255 255 255
@@ -8569,7 +8573,7 @@ Object: 43.37272,-97.08206
   Color: 100 255 100
   Text: -16, -12, 1, "55"
   Color: 255 255 0
-  Text: 0, -20, 1, "G19"
+  Text: 0, -20, 1, "G21"
 End:
 
 TimeRange: 2026-09-23T16:45:00Z 2026-09-23T18:20:00Z
@@ -8608,12 +8612,12 @@ Object: 44.81650,-93.32133
   Text: -16, -12, 1, "53"
 End:
 
-TimeRange: 2026-09-23T16:52:00Z 2026-09-23T18:27:00Z
+TimeRange: 2026-09-23T16:54:00Z 2026-09-23T18:29:00Z
 Object: 44.83196,-93.47098
   Color: 255 255 255
-  Icon: 0,0,85,1,3,1.25
+  Icon: 0,0,105,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:57 UTC | Station: HPN38 | Type: Mesonet | Temp: 63F | Dewpt: 50F | Wind: 085@13G17MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:59 UTC | Station: HPN38 | Type: Mesonet | Temp: 63F | Dewpt: 50F | Wind: 105@11G15MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 255 255 255
@@ -8621,49 +8625,49 @@ Object: 44.83196,-93.47098
   Color: 100 255 100
   Text: -16, -12, 1, "50"
   Color: 255 255 0
-  Text: 0, -20, 1, "G17"
+  Text: 0, -20, 1, "G15"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.99254,-93.62081
   Color: 255 255 255
-  Icon: 0,0,145,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN37 | Type: Mesonet | Temp: 62F | Dewpt: 51F | Wind: 145@5MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN37 | Type: Mesonet | Temp: 63F | Dewpt: 50F | Wind: 109@3MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "62"
+  Text: -16, 12, 1, "63"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
-  Text: -16, -12, 1, "51"
+  Text: -16, -12, 1, "50"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.96287,-93.24816
   Color: 255 255 255
-  Icon: 0,0,156,1,2,1.25
+  Icon: 0,0,137,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN39 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 156@4MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN39 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 137@10G14MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 255 255 255
   Text: 16, 12, 1, "290"
   Color: 100 255 100
   Text: -16, -12, 1, "49"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G14"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 45.03149,-93.30293
   Color: 255 255 255
-  Icon: 0,0,128,1,2,1.25
+  Icon: 0,0,111,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN42 | Type: Mesonet | Temp: 62F | Dewpt: 50F | Wind: 128@4MPH | Vis: N/A | SLP: 1031.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN42 | Type: Mesonet | Temp: 62F | Dewpt: 49F | Wind: 111@7MPH | Vis: N/A | SLP: 1031.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "62"
   Color: 255 255 255
   Text: 16, 12, 1, "310"
   Color: 100 255 100
-  Text: -16, -12, 1, "50"
+  Text: -16, -12, 1, "49"
 End:
 
 TimeRange: 2026-09-23T16:51:00Z 2026-09-23T18:26:00Z
@@ -8706,12 +8710,12 @@ Object: 44.70783,-93.45050
   Text: -16, -12, 1, "52"
 End:
 
-TimeRange: 2026-09-23T16:36:00Z 2026-09-23T18:11:00Z
+TimeRange: 2026-09-23T16:41:00Z 2026-09-23T18:16:00Z
 Object: 44.58672,-97.12775
   Color: 255 255 255
-  Icon: 0,0,152,1,3,1.25
+  Icon: 0,0,160,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:41 UTC | Station: SD610 | Type: Mesonet | Temp: 58F | Dewpt: 53F | Wind: 152@14G27MPH | Vis: N/A | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:46 UTC | Station: SD610 | Type: Mesonet | Temp: 58F | Dewpt: 53F | Wind: 160@13G25MPH | Vis: N/A | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 255 255 255
@@ -8719,35 +8723,35 @@ Object: 44.58672,-97.12775
   Color: 100 255 100
   Text: -16, -12, 1, "53"
   Color: 255 255 0
-  Text: 0, -20, 1, "G27"
+  Text: 0, -20, 1, "G25"
 End:
 
-TimeRange: 2026-09-23T16:38:00Z 2026-09-23T18:13:00Z
+TimeRange: 2026-09-23T16:43:00Z 2026-09-23T18:18:00Z
 Object: 43.08318,-97.08154
   Color: 255 255 255
-  Icon: 0,0,137,1,3,1.25
+  Icon: 0,0,138,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:43 UTC | Station: SD615 | Type: Mesonet | Temp: 60F | Dewpt: 57F | Wind: 137@13G20MPH | Vis: N/A | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:48 UTC | Station: SD615 | Type: Mesonet | Temp: 60F | Dewpt: 56F | Wind: 138@15G20MPH | Vis: N/A | SLP: 1027.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 255 255 255
-  Text: 16, 12, 1, "270"
+  Text: 16, 12, 1, "271"
   Color: 100 255 100
-  Text: -16, -12, 1, "57"
+  Text: -16, -12, 1, "56"
   Color: 255 255 0
   Text: 0, -20, 1, "G20"
 End:
 
-TimeRange: 2026-09-23T16:35:00Z 2026-09-23T18:10:00Z
+TimeRange: 2026-09-23T16:40:00Z 2026-09-23T18:15:00Z
 Object: 43.54341,-97.38756
   Color: 255 255 255
-  Icon: 0,0,129,1,3,1.25
+  Icon: 0,0,136,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:40 UTC | Station: SD620 | Type: Mesonet | Temp: 59F | Dewpt: 57F | Wind: 129@11G21MPH | Vis: N/A | SLP: 1025.5mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:45 UTC | Station: SD620 | Type: Mesonet | Temp: 59F | Dewpt: 57F | Wind: 136@10G21MPH | Vis: N/A | SLP: 1025.4mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "59"
   Color: 255 255 255
-  Text: 16, 12, 1, "255"
+  Text: 16, 12, 1, "254"
   Color: 100 255 100
   Text: -16, -12, 1, "57"
   Color: 255 255 0
@@ -8848,12 +8852,12 @@ Object: 42.55500,-96.46300
   Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:00 UTC | Station: AW4961 | Type: Mesonet | Temp: MF | Dewpt: MF | Wind: 140@3MPH | Vis: N/A | SLP: Mmb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
 End:
 
-TimeRange: 2026-09-23T16:52:00Z 2026-09-23T18:27:00Z
+TimeRange: 2026-09-23T16:54:00Z 2026-09-23T18:29:00Z
 Object: 45.04616,-93.78015
   Color: 255 255 255
-  Icon: 0,0,145,1,2,1.25
+  Icon: 0,0,100,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:57 UTC | Station: HPN44 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 145@6MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:59 UTC | Station: HPN44 | Type: Mesonet | Temp: 63F | Dewpt: 49F | Wind: 100@7MPH | Vis: N/A | SLP: 1029.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "63"
   Color: 255 255 255
@@ -8890,12 +8894,10 @@ Object: 44.07182,-93.21671
   Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.94161,-93.09879
   Color: 255 255 255
-  Icon: 0,0,101,1,2,1.25
-  Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN45 | Type: Mesonet | Temp: 65F | Dewpt: 49F | Wind: 101@4MPH | Vis: N/A | SLP: 1032.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN45 | Type: Mesonet | Temp: 65F | Dewpt: 49F | Wind: 151@1MPH | Vis: N/A | SLP: 1032.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "65"
   Color: 255 255 255
@@ -9074,28 +9076,28 @@ Object: 46.71883,-87.61183
   Text: -16, -12, 1, "53"
 End:
 
-TimeRange: 2026-09-23T16:36:00Z 2026-09-23T18:11:00Z
+TimeRange: 2026-09-23T16:41:00Z 2026-09-23T18:16:00Z
 Object: 43.98520,-97.07832
   Color: 255 255 255
-  Icon: 0,0,111,1,4,1.25
+  Icon: 0,0,117,1,4,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:41 UTC | Station: SD636 | Type: Mesonet | Temp: 58F | Dewpt: 54F | Wind: 111@18G23MPH | Vis: N/A | SLP: 1026.2mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:46 UTC | Station: SD636 | Type: Mesonet | Temp: 58F | Dewpt: 54F | Wind: 117@20G28MPH | Vis: N/A | SLP: 1026.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "58"
   Color: 255 255 255
-  Text: 16, 12, 1, "262"
+  Text: 16, 12, 1, "260"
   Color: 100 255 100
   Text: -16, -12, 1, "54"
   Color: 255 255 0
-  Text: 0, -20, 1, "G23"
+  Text: 0, -20, 1, "G28"
 End:
 
-TimeRange: 2026-09-23T16:39:00Z 2026-09-23T18:14:00Z
+TimeRange: 2026-09-23T16:44:00Z 2026-09-23T18:19:00Z
 Object: 43.08231,-97.39922
   Color: 255 255 255
-  Icon: 0,0,139,1,3,1.25
+  Icon: 0,0,141,1,3,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:44 UTC | Station: SD638 | Type: Mesonet | Temp: 60F | Dewpt: 57F | Wind: 139@13G20MPH | Vis: N/A | SLP: 1025.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:49 UTC | Station: SD638 | Type: Mesonet | Temp: 60F | Dewpt: 57F | Wind: 141@13G20MPH | Vis: N/A | SLP: 1025.1mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
   Text: -16, 12, 1, "60"
   Color: 255 255 255
@@ -9354,18 +9356,20 @@ Object: 42.95430,-97.39842
   Text: 0, -20, 1, "G12"
 End:
 
-TimeRange: 2026-09-23T16:53:00Z 2026-09-23T18:28:00Z
+TimeRange: 2026-09-23T16:55:00Z 2026-09-23T18:30:00Z
 Object: 44.99904,-93.39752
   Color: 255 255 255
-  Icon: 0,0,107,1,2,1.25
+  Icon: 0,0,104,1,2,1.25
   Color: 255 255 255
-  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 16:58 UTC | Station: HPN47 | Type: Mesonet | Temp: 61F | Dewpt: 47F | Wind: 107@6MPH | Vis: N/A | SLP: 1027.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
+  Icon: 0,0,0,2,5, "Obs Time: 2026-09-23 17:00 UTC | Station: HPN47 | Type: Mesonet | Temp: 62F | Dewpt: 47F | Wind: 104@7G12MPH | Vis: N/A | SLP: 1028.0mb | Rain 1hr: 0.00" | Rain 24hr: 0.00""
   Color: 255 100 100
-  Text: -16, 12, 1, "61"
+  Text: -16, 12, 1, "62"
   Color: 255 255 255
-  Text: 16, 12, 1, "270"
+  Text: 16, 12, 1, "280"
   Color: 100 255 100
   Text: -16, -12, 1, "47"
+  Color: 255 255 0
+  Text: 0, -20, 1, "G12"
 End:
 
 ; --- Network: WeatherXM (Threshold: 60 NM) ---
