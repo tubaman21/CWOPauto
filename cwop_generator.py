@@ -374,7 +374,7 @@ def main():
                 if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
                     continue
 
-                if stid.endswith(NLI_HYDRO_SUFFIXES) or raw_stid.endswith(NLI_HYDRO_SUFFIXES):
+                if mnet != "RAWS" and (stid.endswith(NLI_HYDRO_SUFFIXES) or raw_stid.endswith(NLI_HYDRO_SUFFIXES)):
                     continue
 
                 if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet", "Union Pacific", "WeatherXM"] and mnet_id != "2":
