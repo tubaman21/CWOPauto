@@ -16,9 +16,8 @@ except ImportError:
 # CONFIGURATION & PARAMETERS
 # ==========================================
 OUTPUT_DIR = "placefiles"
+OUTPUT_FILE = "cwop_observations.txt"
 
-# Default Bounding Box (used if no radar site is specified via CLI)
-DEFAULT_RADAR_SITE = "DEFAULT"
 LAT_MIN, LAT_MAX = 42.5, 50.5
 LON_MIN, LON_MAX = -97.5, -86.5
 
@@ -95,35 +94,6 @@ STATION_COORDINATE_OVERRIDES = {
 # ==========================================
 # UTILITY HELPER FUNCTIONS
 # ==========================================
-def get_radar_bbox(radar_id, delta_lat=4.0, delta_lon=5.5):
-    """
-    Fetches the latitude and longitude of a radar site from the NWS API
-    and calculates a bounding box around it.
-    """
-    clean_id = radar_id.strip().upper()
-    if len(clean_id) == 3 and not clean_id.startswith("K") and not clean_id.startswith("P") and not clean_id.startswith("T"):
-        icao_id = "K" + clean_id
-    else:
-        icao_id = clean_id
-
-    url = f"https://api.weather.gov/radar/stations/{icao_id}"
-    headers = {"User-Agent": "(CWOP_Placefile_Generator, contact@example.com)"}
-    
-    try:
-        resp = requests.get(url, headers=headers, timeout=10)
-        if resp.status_code == 200:
-            radar_data = resp.json()
-            coords = radar_data.get("geometry", {}).get("coordinates", [])
-            if len(coords) >= 2:
-                lon, lat = coords[0], coords[1]
-                print(f"Located radar station {icao_id} at Lat: {lat}, Lon: {lon}")
-                return lat - delta_lat, lat + delta_lat, lon - delta_lon, lon + delta_lon, icao_id
-        print(f"Warning: Could not fetch coordinates for radar '{radar_id}' (HTTP {resp.status_code}). Using default bounding box.")
-    except Exception as e:
-        print(f"Warning: Exception while fetching radar station location ({e}). Using default bounding box.")
-
-    return LAT_MIN, LAT_MAX, LON_MIN, LON_MAX, DEFAULT_RADAR_SITE
-
 def normalize_pressure_to_mb(val):
     if val is None or math.isnan(val) or val <= 0:
         return None
@@ -261,20 +231,11 @@ def main():
         print("Error: SYNOPTIC_API_TOKEN environment variable is missing!")
         sys.exit(1)
     
-    # Determine bounding box dynamically if radar site is passed via CLI argument
-    if len(sys.argv) > 1:
-        radar_input = sys.argv[1]
-        lat_min, lat_max, lon_min, lon_max, site_id = get_radar_bbox(radar_input)
-        output_file_name = f"cwop_observations_{site_id.lower()}.txt"
-    else:
-        lat_min, lat_max, lon_min, lon_max, site_id = LAT_MIN, LAT_MAX, LON_MIN, LON_MAX, DEFAULT_RADAR_SITE
-        output_file_name = "cwop_observations.txt"
-
     run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
     
     api_params = {
         "token": api_token,
-        "bbox": f"{lon_min},{lat_min},{lon_max},{lat_max}",
+        "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
         "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,visibility,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
         "varsoperator": "OR",
         "recent": LOOKBACK_HOURS * 60,
@@ -619,7 +580,7 @@ def main():
             body_lines.extend(lines)
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    full_output_path = os.path.join(OUTPUT_DIR, output_file_name)
+    full_output_path = os.path.join(OUTPUT_DIR, OUTPUT_FILE)
     temp_output_path = full_output_path + ".tmp"
     
     with open(temp_output_path, "w", encoding="utf-8") as f:
