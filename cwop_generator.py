@@ -239,6 +239,30 @@ def get_pressure_tendency_str(observations, latest_idx, timestamps, elev_meters,
 
     return "N/A"
 
+def get_max_gust_1h(observations, latest_idx, timestamps):
+    if not timestamps or latest_idx >= len(timestamps):
+        return "N/A"
+    try:
+        latest_dt = datetime.strptime(timestamps[latest_idx], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+        start_dt = latest_dt - timedelta(hours=1)
+        max_gust_ms = None
+
+        for i, ts in enumerate(timestamps):
+            dt = datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+            if start_dt <= dt <= latest_dt:
+                g_ms = get_obs_val(observations, ["wind_gust"], i)
+                if g_ms is not None:
+                    if max_gust_ms is None or g_ms > max_gust_ms:
+                        max_gust_ms = g_ms
+
+        if max_gust_ms is not None:
+            max_gust_mph = int(round(max_gust_ms * 2.23694))
+            return f"{max_gust_mph}MPH"
+    except Exception:
+        pass
+
+    return "N/A"
+
 def clean_rain_value_to_inches(val):
     if val is None or math.isnan(val) or val < 0:
         return 0.0
@@ -473,6 +497,7 @@ def main():
 
             slp_mb = get_best_slp(observations, latest_idx, elev_meters, temp_c)
             p_tend_str = get_pressure_tendency_str(observations, latest_idx, timestamps, elev_meters, temp_c)
+            max_gust_1h_str = get_max_gust_1h(observations, latest_idx, timestamps)
             vis_str = format_visibility_str(raw_vis)
 
             raw_p1h = get_obs_val(observations, ["precip_accum_one_hour"], latest_idx)
@@ -531,7 +556,7 @@ def main():
             hover_text = (
                 f"Obs Time: {ob_time_str} | Station: {stid} | Type: {mnet} | "
                 f"Temp: {tf_display}F | Dewpt: {df_display}F | RH: {rh_display} | Wind: {wind_display} | "
-                f"Vis: {vis_hover} | SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
+                f"Peak Gust 1hr: {max_gust_1h_str} | Vis: {vis_hover} | SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
                 f"Pres Tend: {p_tend_str} | Rain 1hr: {p1h_hover} | Rain 24hr: {p24h_hover}"
             )
 
