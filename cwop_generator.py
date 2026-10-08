@@ -207,6 +207,49 @@ def get_best_slp(observations, index, elev_meters, temp_c):
 
     return None
 
+def get_pressure_tendency_str(observations, latest_idx, timestamps, elev_meters, temp_c):
+    raw_tend = get_obs_val(observations, ["pressure_tendency", "pressure_change_3h"], latest_idx)
+    if raw_tend is not None:
+        try:
+            tend_mb = float(raw_tend)
+            if abs(tend_mb) > 500:
+                tend_mb /= 100.0
+            sign = "+" if tend_mb >= 0 else ""
+            return f"{sign}{tend_mb:.1f}mb/3hr"
+        except Exception:
+            pass
+
+    current_p = get_best_slp(observations, latest_idx, elev_meters, temp_c)
+    if current_p is None or not timestamps or latest_idx >= len(timestamps):
+        return "N/A"
+
+    try:
+        latest_dt = datetime.strptime(timestamps[latest_idx], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+        target_dt = latest_dt - timedelta(hours=3)
+        
+        best_idx = None
+        best_diff = None
+        for i, ts in enumerate(timestamps):
+            if i == latest_idx:
+                continue
+            dt = datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+            diff = abs((dt - target_dt).total_seconds())
+            if diff <= 2700:
+                if best_diff is None or diff < best_diff:
+                    best_diff = diff
+                    best_idx = i
+
+        if best_idx is not None:
+            past_p = get_best_slp(observations, best_idx, elev_meters, temp_c)
+            if past_p is not None:
+                diff_mb = current_p - past_p
+                sign = "+" if diff_mb >= 0 else ""
+                return f"{sign}{diff_mb:.1f}mb/3hr"
+    except Exception:
+        pass
+
+    return "N/A"
+
 def clean_rain_value_to_inches(val):
     if val is None or math.isnan(val) or val < 0:
         return 0.0
@@ -230,163 +273,3 @@ def main():
     if not api_token:
         print("Error: SYNOPTIC_API_TOKEN environment variable is missing!")
         sys.exit(1)
-    
-    run_time = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')
-    
-    api_params = {
-        "token": api_token,
-        "bbox": f"{LON_MIN},{LAT_MIN},{LON_MAX},{LAT_MAX}",
-        "vars": "air_temp,dew_point_temperature,relative_humidity,wind_speed,wind_direction,wind_gust,sea_level_pressure,altimeter,pressure,visibility,precip_accum,precip_accum_one_hour,precip_accum_24_hour",
-        "varsoperator": "OR",
-        "recent": LOOKBACK_HOURS * 60,
-        "obtimezone": "UTC",
-        "output": "json",
-        "extra": "metadata,mnet,sensor_variables"
-    }
-    
-    # Retry loop for transient Synoptic outages / rate limits
-    data = None
-    max_retries = 3
-    for attempt in range(1, max_retries + 1):
-        try:
-            response = requests.get(SYNOPTIC_API_URL, params=api_params, timeout=25)
-            if response.status_code == 200:
-                data = response.json()
-                break
-            else:
-                print(f"Attempt {attempt}/{max_retries}: Synoptic HTTP {response.status_code}. Retrying...")
-        except Exception as e:
-            print(f"Attempt {attempt}/{max_retries}: Network exception ({e}). Retrying...")
-        
-        time.sleep(5 * attempt)
-
-    if not data:
-        print("Warning: Unable to retrieve Synoptic data after retries. Proceeding gracefully with empty Synoptic payload.")
-        data = {}
-
-    response_code = data.get("SUMMARY", {}).get("RESPONSE_CODE") or data.get("RESPONSE_CODE")
-    if response_code and response_code != 1:
-        error_msg = data.get("SUMMARY", {}).get("RESPONSE_MESSAGE") or data.get("RESPONSE_MESSAGE")
-        print(f"Warning: Synoptic API Error Code [{response_code}]: {error_msg}")
-
-    network_blocks = {}
-    seen_stations = set()
-    rain_counter = 0
-
-    if "STATION" in data and data["STATION"]:
-        for station in data["STATION"]:
-            raw_stid = station.get("STID", "UNKNOWN").upper()
-            
-            # Automatically restore missing 'W' for CWOP stations (e.g., G2943 -> GW2943, D2470 -> DW2470)
-            if len(raw_stid) == 5 and raw_stid[0] in ['C', 'E', 'F', 'G', 'D', 'A', 'K'] and raw_stid[1:].isdigit():
-                mapped_stid = f"{raw_stid[0]}W{raw_stid[1:]}"
-            else:
-                mapped_stid = raw_stid
-
-            stid = STATION_MAP.get(raw_stid, STATION_MAP.get(mapped_stid, mapped_stid))
-
-            if raw_stid in BLACKLIST_STATIONS or stid in BLACKLIST_STATIONS:
-                continue
-
-            if stid in seen_stations or raw_stid in seen_stations:
-                continue
-            seen_stations.add(stid)
-            seen_stations.add(raw_stid)
-
-            mnet_id = str(station.get("MNET_ID", ""))
-            mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
-            mnet_name = str(station.get("MNET_NAME", "")).upper()
-
-            # Classify station network type
-            if (
-                mnet_id == "64" 
-                or "UNION PACIFIC" in mnet_name 
-                or "UNION PACIFIC" in mnet_short 
-                or "UPRR" in mnet_short
-                or stid.startswith("UP")
-            ):
-                mnet = "Union Pacific"
-            elif stid.startswith("XL") or "XCEL" in mnet_short or "XCEL" in mnet_name:
-                mnet = "Xcel Energy"
-            elif (
-                stid.startswith(("WXM", "WXM-", "WXM_")) 
-                or "WEATHERXM" in mnet_name 
-                or "WEATHERXM" in mnet_short
-            ):
-                mnet = "WeatherXM"
-            elif (
-                mnet_id == "280"
-                or "WISCONET" in mnet_short 
-                or "WISCONET" in mnet_name 
-                or "WISCONSIN ENVIRONMENTAL MESONET" in mnet_name
-                or "WISCONSIN MESONET" in mnet_name
-                or stid.startswith(("WCN", "WISC"))
-            ):
-                mnet = "Wisconet"
-            elif (
-                mnet_id == "2" 
-                or "RAWS" in mnet_short 
-                or stid in [
-                    "SILW3", "HWDW3", "MRZW3", "WSHW3", "GDNW3", 
-                    "SMRW3", "PLPW3", "DMLW3", "LDYW3", "LNDW3", "AFWW3"
-                ]
-            ):
-                mnet = "RAWS"
-            elif (
-                raw_stid in WHITELIST_STATIONS
-                or stid in WHITELIST_STATIONS
-                or mnet_id == "153" 
-                or "CWOP" in mnet_short 
-                or "CWOP" in mnet_name
-                or stid.startswith(("DW", "CW", "EW", "FW", "GW"))
-                or "-" in stid
-                or (len(stid) == 5 and stid[0] in ['C', 'E', 'F', 'G', 'W', 'A', 'D', 'K'] and stid[1:].isdigit())
-            ):
-                mnet = "CWOP"
-            elif mnet_id in ["66", "172"] or any(k in mnet_short for k in ["MNDOT", "MN_DOT"]) or "MINNESOTA DOT" in mnet_name or stid.startswith("MN"):
-                mnet = "MnDOT"
-            elif (
-                mnet_id in ["67", "173"] 
-                or any(kw in mnet_short for kw in ["WISDOT", "WI_DOT", "WIS_DOT", "RWIS"]) 
-                or "WISCONSIN DOT" in mnet_name 
-                or stid.startswith(("WIDOT", "RWIS", "WIRT"))
-            ):
-                mnet = "WisDOT"
-            elif "DOT" in mnet_short or "DOT" in mnet_name:
-                mnet = "DOT"
-            elif mnet_short and mnet_short != "UNKNOWN":
-                mnet = mnet_short
-            else:
-                mnet = "Mesonet"
-
-            # Hydrological and Marine Filtering
-            if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
-                if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
-                    continue
-                
-                if mnet_id in HYDRO_MNET_IDS or mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"]:
-                    continue
-
-                padded_name = f" {mnet_name} "
-                if any(kw in padded_name for kw in HYDRO_NAME_KEYWORDS):
-                    continue
-
-                if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
-                    continue
-
-                if mnet != "RAWS" and (stid.endswith(NLI_HYDRO_SUFFIXES) or raw_stid.endswith(NLI_HYDRO_SUFFIXES)):
-                    continue
-
-                if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet", "Union Pacific", "WeatherXM"] and mnet_id != "2":
-                    sensor_keys = set(station.get("SENSOR_VARIABLES", {}).keys())
-                    has_weather_sensors = any(
-                        v in sensor_keys for v in ["air_temp", "wind_speed", "relative_humidity"]
-                    )
-                    if not has_weather_sensors:
-                        continue
-            
-            try:
-                lat = float(station.get("LATITUDE"))
-                lon = float(station.get("LONGITUDE"))
-            except (TypeError, ValueError):
-                continue
