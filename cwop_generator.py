@@ -467,6 +467,7 @@ def main():
 
             tf_display = f"{temp_f}" if temp_f is not None else "M"
             df_display = f"{dew_f}" if dew_f is not None else "M"
+            rh_display = f"{int(round(rh_pct))}%" if rh_pct is not None and not math.isnan(rh_pct) else "M"
             wind_dir_display = int(wind_dir) if wind_dir is not None else 0
 
             color_temp = "255 100 100"
@@ -496,7 +497,7 @@ def main():
 
             hover_text = (
                 f"Obs Time: {ob_time_str} | Station: {stid} | Type: {mnet} | "
-                f"Temp: {tf_display}F | Dewpt: {df_display}F | Wind: {wind_display} | "
+                f"Temp: {tf_display}F | Dewpt: {df_display}F | RH: {rh_display} | Wind: {wind_display} | "
                 f"Vis: {vis_hover} | SLP: {f'{slp_mb:.1f}' if slp_mb else 'M'}mb | "
                 f"Rain 1hr: {p1h_hover} | Rain 24hr: {p24h_hover}"
             )
