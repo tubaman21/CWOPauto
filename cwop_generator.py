@@ -246,6 +246,7 @@ def get_max_gust_1h(observations, latest_idx, timestamps):
         latest_dt = datetime.strptime(timestamps[latest_idx], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
         start_dt = latest_dt - timedelta(hours=1)
         max_gust_ms = None
+        max_gust_time_str = None
 
         for i, ts in enumerate(timestamps):
             dt = datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
@@ -254,10 +255,11 @@ def get_max_gust_1h(observations, latest_idx, timestamps):
                 if g_ms is not None:
                     if max_gust_ms is None or g_ms > max_gust_ms:
                         max_gust_ms = g_ms
+                        max_gust_time_str = dt.strftime("%H:%MZ")
 
         if max_gust_ms is not None:
             max_gust_mph = int(round(max_gust_ms * 2.23694))
-            return f"{max_gust_mph}MPH"
+            return f"{max_gust_mph}MPH @ {max_gust_time_str}" if max_gust_time_str else f"{max_gust_mph}MPH"
     except Exception:
         pass
 
@@ -612,7 +614,7 @@ def main():
 
     header_lines = [
         "; Created by: Bryan J. Howell and Gemini",
-        "; Last Updated: 10/08/26",
+        "; Last Updated: 10/09/26",
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
         f'IconFile: 1, 30, 30, 15, 29, "{WIND_BARB_ICON_URL}"',
