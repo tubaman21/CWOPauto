@@ -15,8 +15,11 @@ except ImportError:
 # ==========================================
 # CONFIGURATION & PARAMETERS
 # ==========================================
+DEBUG = True  # Set to True for verbose console logging & debug JSON output
+
 OUTPUT_DIR = "placefiles"
 OUTPUT_FILE = "cwop_observations.txt"
+DEBUG_FILE = "debug_summary.json"
 
 LAT_MIN, LAT_MAX = 42.5, 50.5
 LON_MIN, LON_MAX = -97.5, -86.5
@@ -278,10 +281,36 @@ def clean_rain_value_to_inches(val):
     except Exception:
         return 0.0
 
+def get_downsampled_indices(timestamps):
+    """
+    Downsamples timestamps to roughly 15-minute intervals,
+    always including the absolute latest observation index.
+    """
+    if not timestamps:
+        return []
+    
+    selected_indices = []
+    seen_buckets = set()
+    latest_idx = len(timestamps) - 1
+
+    for idx, ts_str in enumerate(timestamps):
+        try:
+            dt = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+            bucket_key = (dt.year, dt.month, dt.day, dt.hour, dt.minute // 15)
+            
+            if bucket_key not in seen_buckets or idx == latest_idx:
+                seen_buckets.add(bucket_key)
+                selected_indices.append(idx)
+        except Exception:
+            continue
+
+    return selected_indices
+
 # ==========================================
 # MAIN IMPLEMENTATION LOGIC
 # ==========================================
 def main():
+    start_time = time.time()
     print("Initializing dynamic telemetry download routine from Synoptic Networks...")
     
     api_token = os.environ.get("SYNOPTIC_API_TOKEN")
@@ -302,6 +331,19 @@ def main():
         "extra": "metadata,mnet,sensor_variables"
     }
     
+    # Debug metrics container
+    debug_stats = {
+        "raw_stations_received": 0,
+        "blacklisted_stations": [],
+        "duplicate_stations_skipped": [],
+        "hydro_marine_filtered": [],
+        "no_weather_sensors_filtered": [],
+        "processed_stations": {},
+        "total_objects_written": 0,
+        "rain_points_count": 0,
+        "execution_time_seconds": 0.0
+    }
+
     # Retry loop for transient Synoptic outages / rate limits
     data = None
     max_retries = 3
@@ -332,10 +374,14 @@ def main():
     rain_counter = 0
 
     if "STATION" in data and data["STATION"]:
+        debug_stats["raw_stations_received"] = len(data["STATION"])
+        if DEBUG:
+            print(f"[DEBUG] Raw station records retrieved from Synoptic API: {len(data['STATION'])}")
+
         for station in data["STATION"]:
             raw_stid = station.get("STID", "UNKNOWN").upper()
             
-            # Automatically restore missing 'W' for CWOP stations (e.g., G2943 -> GW2943, D2470 -> DW2470)
+            # Automatically restore missing 'W' for CWOP stations
             if len(raw_stid) == 5 and raw_stid[0] in ['C', 'E', 'F', 'G', 'D', 'A', 'K'] and raw_stid[1:].isdigit():
                 mapped_stid = f"{raw_stid[0]}W{raw_stid[1:]}"
             else:
@@ -344,9 +390,15 @@ def main():
             stid = STATION_MAP.get(raw_stid, STATION_MAP.get(mapped_stid, mapped_stid))
 
             if raw_stid in BLACKLIST_STATIONS or stid in BLACKLIST_STATIONS:
+                debug_stats["blacklisted_stations"].append(stid)
+                if DEBUG:
+                    print(f"[DEBUG] Blacklisted station skipped: {stid} (raw: {raw_stid})")
                 continue
 
             if stid in seen_stations or raw_stid in seen_stations:
+                debug_stats["duplicate_stations_skipped"].append(stid)
+                if DEBUG:
+                    print(f"[DEBUG] Duplicate station skipped: {stid}")
                 continue
             seen_stations.add(stid)
             seen_stations.add(raw_stid)
@@ -419,20 +471,24 @@ def main():
 
             # Hydrological and Marine Filtering
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
+                filter_reason = None
                 if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
-                    continue
-                
-                if mnet_id in HYDRO_MNET_IDS or mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"]:
-                    continue
+                    filter_reason = "ASOS/AWOS station"
+                elif mnet_id in HYDRO_MNET_IDS or mnet_short in ["HADS", "USGS", "USACE", "NWS-HYDRO", "COOP"]:
+                    filter_reason = "Hydrological Network ID"
+                else:
+                    padded_name = f" {mnet_name} "
+                    if any(kw in padded_name for kw in HYDRO_NAME_KEYWORDS):
+                        filter_reason = "Hydro name keyword match"
+                    elif stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
+                        filter_reason = "Marine/NDBC format"
+                    elif mnet != "RAWS" and (stid.endswith(NLI_HYDRO_SUFFIXES) or raw_stid.endswith(NLI_HYDRO_SUFFIXES)):
+                        filter_reason = "Hydro suffix match"
 
-                padded_name = f" {mnet_name} "
-                if any(kw in padded_name for kw in HYDRO_NAME_KEYWORDS):
-                    continue
-
-                if stid.startswith("NDBC") or (len(stid) == 5 and stid.isdigit()):
-                    continue
-
-                if mnet != "RAWS" and (stid.endswith(NLI_HYDRO_SUFFIXES) or raw_stid.endswith(NLI_HYDRO_SUFFIXES)):
+                if filter_reason:
+                    debug_stats["hydro_marine_filtered"].append({"stid": stid, "reason": filter_reason})
+                    if DEBUG:
+                        print(f"[DEBUG] Hydro/Marine filtered: {stid} ({filter_reason})")
                     continue
 
                 if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet", "Union Pacific", "WeatherXM"] and mnet_id != "2":
@@ -441,12 +497,17 @@ def main():
                         v in sensor_keys for v in ["air_temp", "wind_speed", "relative_humidity"]
                     )
                     if not has_weather_sensors:
+                        debug_stats["no_weather_sensors_filtered"].append(stid)
+                        if DEBUG:
+                            print(f"[DEBUG] No surface weather sensors found: {stid}")
                         continue
             
             try:
                 lat = float(station.get("LATITUDE"))
                 lon = float(station.get("LONGITUDE"))
             except (TypeError, ValueError):
+                if DEBUG:
+                    print(f"[DEBUG] Invalid lat/lon coordinates for station {stid}")
                 continue
 
             elev_meters = None
@@ -466,10 +527,16 @@ def main():
             timestamps = observations.get("date_time", [])
 
             if not timestamps:
+                if DEBUG:
+                    print(f"[DEBUG] No timestamps found in observation payload for station {stid}")
                 continue
 
-            # Iterate over ALL historical observation timestamps in the lookback period
-            for obs_idx in range(len(timestamps)):
+            # Downsample to ~15-minute intervals for historical frames
+            target_indices = get_downsampled_indices(timestamps)
+
+            station_objects_count = 0
+
+            for obs_idx in target_indices:
                 ts_str = timestamps[obs_idx]
 
                 try:
@@ -611,6 +678,13 @@ def main():
 
                 if station_lines:
                     network_blocks.setdefault(mnet, []).extend(station_lines)
+                    station_objects_count += 1
+
+            debug_stats["processed_stations"][stid] = {
+                "mnet": mnet,
+                "raw_timestamps": len(timestamps),
+                "downsampled_frames": station_objects_count
+            }
 
     header_lines = [
         "; Created by: Bryan J. Howell and Gemini",
@@ -625,6 +699,8 @@ def main():
 
     body_lines = []
     processed_nets = set()
+    total_objects = 0
+
     for net in NETWORK_ORDER:
         if net in network_blocks:
             threshold = NETWORK_THRESHOLDS.get(net, 60)
@@ -632,6 +708,7 @@ def main():
             body_lines.append(f"Threshold: {threshold}\n")
             body_lines.extend(network_blocks[net])
             processed_nets.add(net)
+            total_objects += network_blocks[net].count("End:")
 
     for net, lines in network_blocks.items():
         if net not in processed_nets:
@@ -639,6 +716,7 @@ def main():
             body_lines.append(f"; --- Network: {net} (Threshold: {threshold} NM) ---")
             body_lines.append(f"Threshold: {threshold}\n")
             body_lines.extend(lines)
+            total_objects += lines.count("End:")
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     full_output_path = os.path.join(OUTPUT_DIR, OUTPUT_FILE)
@@ -651,8 +729,21 @@ def main():
         
     os.replace(temp_output_path, full_output_path)
         
-    print(f"Success! Processed dataset. Found {rain_counter} stations with recent measurable rainfall (>=0.01\").")
+    elapsed = round(time.time() - start_time, 2)
+    debug_stats["total_objects_written"] = total_objects
+    debug_stats["rain_points_count"] = rain_counter
+    debug_stats["execution_time_seconds"] = elapsed
+
+    print(f"Success! Processed dataset in {elapsed}s.")
+    print(f"Active stations processed: {len(debug_stats['processed_stations'])} | Total placefile frames compiled: {total_objects}")
+    print(f"Found {rain_counter} stations with recent measurable rainfall (>=0.01\").")
     print(f"Destination file compiled: {full_output_path}")
+
+    if DEBUG:
+        debug_json_path = os.path.join(OUTPUT_DIR, DEBUG_FILE)
+        with open(debug_json_path, "w", encoding="utf-8") as df:
+            json.dump(debug_stats, df, indent=2)
+        print(f"[DEBUG] Diagnostic summary exported to: {debug_json_path}")
 
 if __name__ == "__main__":
     main()
