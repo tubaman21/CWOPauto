@@ -528,13 +528,14 @@ def main():
                     # Start window right at observation time
                     start_range = dt_ob.strftime("%Y-%m-%dT%H:%M:%SZ")
                     
-                    # End window right at the next downsampled frame time, or +30m if latest frame
+                    # End window right at the next downsampled frame time.
+                    # For the MOST RECENT observation, extend end_range 24 hours out so it never expires!
                     if i + 1 < len(target_indices):
                         next_obs_idx = target_indices[i + 1]
                         next_dt = datetime.strptime(timestamps[next_obs_idx], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
                         end_range = next_dt.strftime("%Y-%m-%dT%H:%M:%SZ")
                     else:
-                        end_range = (dt_ob + timedelta(minutes=30)).strftime("%Y-%m-%dT%H:%M:%SZ")
+                        end_range = (dt_ob + timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
                     ob_time_str = dt_ob.strftime("%Y-%m-%d %H:%M UTC")
                 except Exception:
