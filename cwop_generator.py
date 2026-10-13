@@ -381,7 +381,6 @@ def main():
         for station in data["STATION"]:
             raw_stid = station.get("STID", "UNKNOWN").upper()
             
-            # Automatically restore missing 'W' for CWOP stations
             if len(raw_stid) == 5 and raw_stid[0] in ['C', 'E', 'F', 'G', 'D', 'A', 'K'] and raw_stid[1:].isdigit():
                 mapped_stid = f"{raw_stid[0]}W{raw_stid[1:]}"
             else:
@@ -391,14 +390,10 @@ def main():
 
             if raw_stid in BLACKLIST_STATIONS or stid in BLACKLIST_STATIONS:
                 debug_stats["blacklisted_stations"].append(stid)
-                if DEBUG:
-                    print(f"[DEBUG] Blacklisted station skipped: {stid} (raw: {raw_stid})")
                 continue
 
             if stid in seen_stations or raw_stid in seen_stations:
                 debug_stats["duplicate_stations_skipped"].append(stid)
-                if DEBUG:
-                    print(f"[DEBUG] Duplicate station skipped: {stid}")
                 continue
             seen_stations.add(stid)
             seen_stations.add(raw_stid)
@@ -407,7 +402,6 @@ def main():
             mnet_short = str(station.get("MNET_SHORTNAME", "")).upper()
             mnet_name = str(station.get("MNET_NAME", "")).upper()
 
-            # Classify station network type
             if (
                 mnet_id == "64" 
                 or "UNION PACIFIC" in mnet_name 
@@ -469,7 +463,6 @@ def main():
             else:
                 mnet = "Mesonet"
 
-            # Hydrological and Marine Filtering
             if raw_stid not in WHITELIST_STATIONS and stid not in WHITELIST_STATIONS:
                 filter_reason = None
                 if mnet_id == "1" or mnet_short in ["NWS/FAA", "ASOS", "AWOS"]:
@@ -487,8 +480,6 @@ def main():
 
                 if filter_reason:
                     debug_stats["hydro_marine_filtered"].append({"stid": stid, "reason": filter_reason})
-                    if DEBUG:
-                        print(f"[DEBUG] Hydro/Marine filtered: {stid} ({filter_reason})")
                     continue
 
                 if mnet not in ["CWOP", "RAWS", "Xcel Energy", "Wisconet", "Union Pacific", "WeatherXM"] and mnet_id != "2":
@@ -498,16 +489,12 @@ def main():
                     )
                     if not has_weather_sensors:
                         debug_stats["no_weather_sensors_filtered"].append(stid)
-                        if DEBUG:
-                            print(f"[DEBUG] No surface weather sensors found: {stid}")
                         continue
             
             try:
                 lat = float(station.get("LATITUDE"))
                 lon = float(station.get("LONGITUDE"))
             except (TypeError, ValueError):
-                if DEBUG:
-                    print(f"[DEBUG] Invalid lat/lon coordinates for station {stid}")
                 continue
 
             elev_meters = None
@@ -527,22 +514,28 @@ def main():
             timestamps = observations.get("date_time", [])
 
             if not timestamps:
-                if DEBUG:
-                    print(f"[DEBUG] No timestamps found in observation payload for station {stid}")
                 continue
 
-            # Downsample to ~15-minute intervals for historical frames
             target_indices = get_downsampled_indices(timestamps)
-
             station_objects_count = 0
 
-            for obs_idx in target_indices:
+            for i, obs_idx in enumerate(target_indices):
                 ts_str = timestamps[obs_idx]
 
                 try:
                     dt_ob = datetime.strptime(ts_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
-                    start_range = (dt_ob - timedelta(minutes=15)).strftime("%Y-%m-%dT%H:%M:%SZ")
-                    end_range = (dt_ob + timedelta(minutes=15)).strftime("%Y-%m-%dT%H:%M:%SZ")
+                    
+                    # Start window right at observation time
+                    start_range = dt_ob.strftime("%Y-%m-%dT%H:%M:%SZ")
+                    
+                    # End window right at the next downsampled frame time, or +30m if latest frame
+                    if i + 1 < len(target_indices):
+                        next_obs_idx = target_indices[i + 1]
+                        next_dt = datetime.strptime(timestamps[next_obs_idx], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+                        end_range = next_dt.strftime("%Y-%m-%dT%H:%M:%SZ")
+                    else:
+                        end_range = (dt_ob + timedelta(minutes=30)).strftime("%Y-%m-%dT%H:%M:%SZ")
+
                     ob_time_str = dt_ob.strftime("%Y-%m-%d %H:%M UTC")
                 except Exception:
                     continue
@@ -688,7 +681,7 @@ def main():
 
     header_lines = [
         "; Created by: Bryan J. Howell and Gemini",
-        "; Last Updated: 10/09/26",
+        "; Last Updated: 10/13/26",
         f'Title: CWOP Surface Observations ({run_time})',
         "Refresh: 5",
         f'IconFile: 1, 30, 30, 15, 29, "{WIND_BARB_ICON_URL}"',
